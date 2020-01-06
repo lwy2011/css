@@ -14,7 +14,7 @@
             for (let child of this.$el.children) {
                 // console.log(child);
                 const name = child.nodeName.toLowerCase();
-                console.log(name);
+                // console.log(name);
                 if (name.toLowerCase() !== "button") {
                     console.warn(`y-btn-group组件的子元素只能是y-button组件，而不是${name}`);
                 }
