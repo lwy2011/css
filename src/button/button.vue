@@ -16,18 +16,18 @@
         border-radius: var(--button-radius);
         padding: 4px 1em;
 
-        &:active {
-            background-color: white;
-        }
+
 
         &:hover {
-            background-color: var(--button-hover-bg-color);
+            background-color: var(--border-color);
         }
 
         &:focus {
             outline: none;
         }
-
+        &:active {
+            background-color: white;
+        }
         cursor: pointer;
         display: inline-flex;
         transition: all .5s linear;
