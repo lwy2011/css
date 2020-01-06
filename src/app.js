@@ -19,6 +19,9 @@ new Vue({
 
 //单元测试
 import chai from "chai";
+import spies from "chai-spies";
+
+chai.use(spies);
 
 const expect = chai.expect;
 const createDom = () => {
@@ -110,5 +113,19 @@ const init = (component, props, dom) => {
     Vm.over();
 
 }
+{
+    const Vm = init(Button, {
+        propsData: {
+            icon: "awesome",
+        }
+    });
+    let spy = chai.spy(() => {});
+    Vm.$on("click", spy);
 
+    const button = Vm.$el;
+    button.click();
+    expect(spy).to.have.been.called();
+    Vm.over();
+
+}
 
