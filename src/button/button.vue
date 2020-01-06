@@ -11,7 +11,12 @@
     export default {
         props:{
             icon:String,
-            iconposition:String
+            iconposition:{
+                type:String,
+                validator(val){
+                    return Boolean(val === 'left' || val === 'right')
+                }
+            }
         }
     };
 
@@ -42,15 +47,16 @@
         justify-content: center;
         vertical-align: middle;
         transition: all .5s linear;
-        >.yr-icon{
-            order:1;
+        >.yv-icon{
+            order:1;margin-right: .3em;
         }
         >.content{
             order:2;
         }
         &.icon-right{
             >.yv-icon{
-                order:2;
+                order:2;margin-left: .3em;
+                margin-right: 0;
             }
             >.content{
                 order:1;
