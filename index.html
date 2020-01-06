@@ -23,11 +23,18 @@
         <y-button icon="setting" iconposition="left">
             hello
         </y-button>
-        <y-button icon="loading" >
+        <y-button icon="download" :loading="loading1" @click="loading1 = !loading1">
             loading
         </y-button>
+        <y-button :icon="loading2?'loading':'download'"
+                  :loading="loading2"
+                  @click="loading2 = !loading2"
+                  :icononly="true"
+        >
+
+        </y-button>
     </div>
-    
+
 </div>
 <script src="https://at.alicdn.com/t/font_880099_4abde7oaizq.js"></script>
 <script src="./src/app.js"></script>

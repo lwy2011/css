@@ -1,12 +1,18 @@
 <template>
-    <svg class="yv-icon">
+    <svg class="yv-icon" :class="loading?'loading':''">
         <use :xlink:href="`#i-${icon}`"></use>
     </svg>
 </template>
 
 <script >
     export default {
-        props:['icon']
+        props:{
+            icon:String,
+            loading:{
+                type:Boolean,
+                default:false
+            }
+        }
     }
 </script>
 

@@ -1,7 +1,13 @@
 <template>
-    <button class="yv-button" :class="`${iconposition?'icon-'+iconposition:''}`">
-        <y-svg v-if="icon" :icon="icon" class="icon-loading"></y-svg>
-        <span class="content">
+    <button class="yv-button"
+            :class="`${iconposition?'icon-'+iconposition:''}`"
+            @click="$emit('click')"
+    >
+        <y-svg v-if="icon"
+               :icon="loading?'loading':icon"
+               :loading="loading"
+        ></y-svg>
+        <span class="content" v-if="!icononly">
             <slot></slot>
         </span>
     </button>
@@ -16,7 +22,12 @@
                 validator(val){
                     return Boolean(val === 'left' || val === 'right')
                 }
-            }
+            },
+            loading:{
+                type:Boolean,
+                default:false
+            },
+            icononly:Boolean
         }
     };
 
@@ -47,20 +58,20 @@
         align-items: center;
         justify-content: center;
         vertical-align: middle;
-        transition: all .5s linear;
+        transition: all .1s linear;
         >.yv-icon{
-            order:1;margin-right: $padding;
+            order:1;
         }
         >.content{
-            order:2;
+            order:2;margin-left: $padding;
         }
+
         &.icon-right{
             >.yv-icon{
                 order:2;margin-left: $padding;
-                margin-right: 0;
             }
             >.content{
-                order:1;
+                order:1;margin-left: 0;
             }
         }
 

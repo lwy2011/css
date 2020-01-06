@@ -9,6 +9,6 @@
 }
 
 
-.icon-loading{
+.yv-icon.loading{
     animation: 2s loading linear infinite;
 }
