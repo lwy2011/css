@@ -63,9 +63,11 @@
             order:1;
         }
         >.content{
-            order:2;margin-left: $padding;
+            order:2;
         }
-
+        .yv-icon + .content{
+            margin-left: $padding;
+        }
         &.icon-right{
             >.yv-icon{
                 order:2;margin-left: $padding;
