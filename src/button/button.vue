@@ -1,6 +1,6 @@
 <template>
     <button class="yv-button" :class="`${iconposition?'icon-'+iconposition:''}`">
-        <y-svg v-if="icon" :icon="icon"></y-svg>
+        <y-svg v-if="icon" :icon="icon" class="icon-loading"></y-svg>
         <span class="content">
             <slot></slot>
         </span>
@@ -24,10 +24,11 @@
 
 <style lang="scss">
     .yv-button {
+        $padding:4px;
         font-size: var(--font-size);
         border: 1px solid var(--border-color);
         border-radius: var(--button-radius);
-        padding: 4px 1em;
+        padding: $padding .5em;
 
 
 
@@ -48,14 +49,14 @@
         vertical-align: middle;
         transition: all .5s linear;
         >.yv-icon{
-            order:1;margin-right: .3em;
+            order:1;margin-right: $padding;
         }
         >.content{
             order:2;
         }
         &.icon-right{
             >.yv-icon{
-                order:2;margin-left: .3em;
+                order:2;margin-left: $padding;
                 margin-right: 0;
             }
             >.content{
