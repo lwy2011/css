@@ -5,5 +5,11 @@
   "main": "index.js",
   "repository": "https://github.com/liuwanyong2017/css.git",
   "author": "刘万永",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
 }
