@@ -1,11 +1,19 @@
 <template>
-    <button class="yv-button">
-        <slot></slot>
+    <button class="yv-button" :class="`${iconposition?'icon-'+iconposition:''}`">
+        <y-svg v-if="icon" :icon="icon"></y-svg>
+        <span class="content">
+            <slot></slot>
+        </span>
     </button>
 </template>
 
 <script>
-    export default {};
+    export default {
+        props:{
+            icon:String,
+            iconposition:String
+        }
+    };
 
 </script>
 
@@ -30,6 +38,24 @@
         }
         cursor: pointer;
         display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
         transition: all .5s linear;
+        >.yr-icon{
+            order:1;
+        }
+        >.content{
+            order:2;
+        }
+        &.icon-right{
+            >.yv-icon{
+                order:2;
+            }
+            >.content{
+                order:1;
+            }
+        }
+
     }
 </style>
