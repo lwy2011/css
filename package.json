@@ -1,0 +1,9 @@
+{
+  "name": "css-study",
+  "version": "1.0.0",
+  "description": "study css",
+  "main": "index.js",
+  "repository": "https://github.com/liuwanyong2017/css.git",
+  "author": "刘万永",
+  "license": "MIT"
+}
