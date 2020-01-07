@@ -3,10 +3,10 @@
             :class="`${iconposition?'icon-'+iconposition:''}`"
             @click="$emit('click')"
     >
-        <y-svg v-if="icon"
+        <Icon v-if="icon"
                :icon="loading?'loading':icon"
                :loading="loading"
-        ></y-svg>
+        ></Icon>
         <span class="content" v-if="!icononly">
             <slot></slot>
         </span>
@@ -14,6 +14,9 @@
 </template>
 
 <script>
+
+    import Icon from "../svg/svg";
+
     export default {
         props:{
             icon:String,
@@ -28,6 +31,9 @@
                 default:false
             },
             icononly:Boolean
+        },
+        components:{
+            Icon
         }
     };
 
