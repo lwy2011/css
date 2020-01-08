@@ -73,6 +73,11 @@ describe(
                 val=>{
                     vm.$on(val, callback);
                     const event = new Event(val);
+                    Object.defineProperty(
+                        event,'target',{
+                            value : 'haha'
+                        }
+                    )
                     input.dispatchEvent(event);
                     expect(callback).to.have.been.calledWith(event);
                     //回调的第一个参数是事件本身！
