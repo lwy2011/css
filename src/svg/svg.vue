@@ -11,8 +11,7 @@
             loading:{
                 type:Boolean,
                 default:false
-            },
-            warn:Boolean
+            }
         }
     }
 </script>
@@ -24,9 +23,6 @@
         &[loading]{
             animation: 2s loading linear infinite;
             cursor: not-allowed;
-        }
-        &.warn{
-            fill:$warn-color;
         }
     }
 </style>
