@@ -70,7 +70,7 @@ describe("Button", () => {
         expect(useEls.length).to.eq(1);
         expect(useEls[0].getAttribute("xlink:href")).to.eq("#i-loading");
         const svgEl = vm.getEl("svg");
-        expect(svgEl.classList.contains('loading')).to.eq(true);
+        expect(svgEl.getAttribute('loading')).to.eq('true');
         vm.over();
     });
     it("可以只要Icon！", function () {
