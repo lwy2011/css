@@ -8,38 +8,70 @@
     <title>css study</title>
     <link rel="stylesheet" href="./style_config.css">
     <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="./src/animate.css">
+    <link rel="stylesheet" href="src/animate.scss">
 </head>
 <body>
 <div id="app">
     <div class="buttons">
-        <y-button>hello</y-button>
-        <y-button icon="setting">
-            hello
-        </y-button>
-        <y-button icon="setting" iconposition="right">
-            hello
-        </y-button>
-        <y-button icon="setting" iconposition="left">
-            hello
-        </y-button>
-        <y-button icon="download" :loading="loading1" @click="loading1 = !loading1">
-            loading
-        </y-button>
-        <y-button :icon="loading2?'loading':'download'"
-                  :loading="loading2"
-                  @click="loading2 = !loading2"
-                  :icononly="true"
-        >
-        </y-button>
-        <y-btn-group>
-            <y-button icon="left">previous</y-button>
-            <y-button >now</y-button>
-            <y-button icon="right" iconposition="right">next</y-button>
-        </y-btn-group>
-
+        <h4>Icon and Button</h4>
+        <ul>
+            <li>
+                <y-button>hello</y-button>
+            </li>
+            <li>
+                <y-button icon="setting">
+                    hello
+                </y-button>
+            </li>
+            <li>
+                <y-button icon="setting" iconposition="right">
+                    hello
+                </y-button>
+            </li>
+            <li>
+                <y-button icon="setting" iconposition="left">
+                    hello
+                </y-button>
+            </li>
+            <li>
+                <y-button icon="download" :loading="loading1" @click="loading1 = !loading1">
+                    loading
+                </y-button>
+            </li>
+            <li>
+                <y-button :icon="loading2?'loading':'download'"
+                          :loading="loading2"
+                          @click="loading2 = !loading2"
+                          :icononly="true"
+                >
+                </y-button>
+            </li>
+            <li>
+                <y-btn-group>
+                    <y-button icon="left">previous</y-button>
+                    <y-button>now</y-button>
+                    <y-button icon="right" iconposition="right">next</y-button>
+                </y-btn-group>
+            </li>
+        </ul>
     </div>
-
+    <div class="inputs">
+        <h4>input输入框</h4>
+        <ul>
+            <li>
+                <y-input value="哈哈！"></y-input>
+            </li>
+            <li>
+                <y-input value="哈哈！" disabled></y-input>
+            </li>
+            <li>
+                <y-input value="哈哈！" readonly></y-input>
+            </li>
+            <li>
+                <y-input value="哈哈！"></y-input>
+            </li>
+        </ul>
+    </div>
 </div>
 <script src="https://at.alicdn.com/t/font_880099_4abde7oaizq.js"></script>
 <script src="./src/app.js"></script>

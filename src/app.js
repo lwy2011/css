@@ -4,16 +4,38 @@ import Button from "./button/button.vue";
 import Svg from "./svg/svg.vue";
 
 import Btn_group from "./button/buttongroup.vue";
+import Input from "./input/input.vue";
+import "./animate.scss";
+import "./common.scss";
 
 Vue.component("y-button", Button);
 Vue.component("y-svg", Svg);
 Vue.component("y-btn-group", Btn_group);
+Vue.component("y-input", Input);
 
 new Vue({
     el: "#app",
     data: {
         loading1: false,
         loading2: false,
+    },
+    watch: {
+        loading1: function () {
+            if (!this.loading1) return;
+            setTimeout(
+                 ()=> {
+                    this.loading1 = !this.loading1;
+                }, 2000
+            );
+        },
+        loading2:  function (){
+            if (!this.loading2) return;
+            setTimeout(
+                 ()=> {
+                    this.loading2 = !this.loading2;
+                }, 2000
+            );
+        }
     }
 });
 

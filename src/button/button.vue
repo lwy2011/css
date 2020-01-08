@@ -1,13 +1,14 @@
 <template>
     <button class="yv-button"
-            :class="`${iconposition?'icon-'+iconposition:''}`"
-            @click="$emit('click')"
+            :loading="loading"
+            :class="iconposition?'icon-'+iconposition:''"
+            @click="!loading && $emit('click')"
     >
         <Icon v-if="icon"
                :icon="loading?'loading':icon"
                :loading="loading"
         ></Icon>
-        <span class="content" v-if="!icononly">
+        <span class="content" v-if="!icononly" >
             <slot></slot>
         </span>
     </button>
@@ -39,7 +40,7 @@
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .yv-button {
         $padding:4px;
         font-size: var(--font-size);
@@ -81,6 +82,9 @@
             >.content{
                 order:1;margin-left: 0;
             }
+        }
+        &[loading]{
+            cursor: not-allowed;color:red;
         }
 
     }
