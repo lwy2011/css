@@ -3,9 +3,15 @@
         <input type="text"
                :value="value"
                :readonly="readonly"
-               :disabled="disabled">
+               :disabled="disabled"
+               :placeholder="placeholder"
+               @change="$emit('change',$event)"
+               @input="$emit('input',$event)"
+               @focus="$emit('focus',$event)"
+               @blur="$emit('blur',$event)"
+        >
         <template v-if="error">
-            <Icon icon="warn" class="warn"></Icon>
+            <Icon icon="warn"></Icon>
             <span class="err-msg">
                 {{error}}
             </span>
@@ -22,6 +28,7 @@
         },
         props: {
             value: String,
+            placeholder:String,
             disabled: {
                 type: Boolean,
                 default: false
@@ -67,7 +74,9 @@
                 color: #bbb;
             }
         }
-
+        >:not(:last-child) {
+            margin-right: $middle-padding;
+        }
         &.error {
             > .yv-icon{
                 fill:$warn-color;
@@ -77,9 +86,7 @@
             }
         }
 
-        & > :not(:last-child) {
-            margin-right: $middle-padding;
-        }
+
 
         &.success {
 

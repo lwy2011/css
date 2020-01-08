@@ -18,20 +18,41 @@ new Vue({
     data: {
         loading1: false,
         loading2: false,
+        inputValue:'',
+        placeholder: "请输入姓名"
+    },
+    methods: {
+        inputChange(e) {
+            const {value} = e.target;
+            console.log(value, 1);
+        },
+        input(e) {
+            const {value} = e.target;
+            console.log(value, 2);
+            this.inputValue = value
+        },
+        inputFocus(e) {
+            const {value} = e.target;
+            console.log(value, 3);
+        },
+        inputBlur(e) {
+            const {value} = e.target;
+            console.log(value, 4);
+        }
     },
     watch: {
         loading1: function () {
             if (!this.loading1) return;
             setTimeout(
-                 ()=> {
+                () => {
                     this.loading1 = !this.loading1;
                 }, 2000
             );
         },
-        loading2:  function (){
+        loading2: function () {
             if (!this.loading2) return;
             setTimeout(
-                 ()=> {
+                () => {
                     this.loading2 = !this.loading2;
                 }, 2000
             );

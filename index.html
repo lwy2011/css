@@ -68,6 +68,16 @@
             <li>
                 <y-input value="哈哈！" error="名字长度至少8个字符！"></y-input>
             </li>
+            <li>
+                <y-input :placeholder="placeholder"
+                         :value="inputValue"
+                         @change="inputChange"
+                         @input="input"
+                         @blur="inputBlur"
+                         @focus="inputFocus"
+                ></y-input>
+                <p>{{inputValue}}</p>
+            </li>
         </ul>
     </div>
 </div>
