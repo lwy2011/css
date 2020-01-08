@@ -69,7 +69,9 @@
         }
 
         &.error {
-
+            > .yv-icon{
+                fill:$warn-color;
+            }
             > .err-msg {
                 color: $warn-color;
             }
