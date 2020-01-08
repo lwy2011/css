@@ -23,8 +23,8 @@
     };
 </script>
 
-<style lang="scss">
-    $radius: var(--button-radius);
+<style lang="scss" scoped>
+    @import "../common";
     .yv-btngroup {
         display: inline-flex;
         vertical-align: middle;
@@ -33,13 +33,13 @@
             border-radius: 0;
 
             &:first-child {
-                border-bottom-left-radius: $radius;
-                border-top-left-radius: $radius;
+                border-bottom-left-radius: $border-radius;
+                border-top-left-radius: $border-radius;
             }
 
             &:last-child {
-                border-bottom-right-radius: $radius;
-                border-top-right-radius: $radius;
+                border-bottom-right-radius: $border-radius;
+                border-top-right-radius: $border-radius;
             }
 
             &:not(first-child) {

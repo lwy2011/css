@@ -41,17 +41,17 @@
 </script>
 
 <style lang="scss" scoped>
+    @import "../common";
     .yv-button {
-        $padding:4px;
-        font-size: var(--font-size);
-        border: 1px solid var(--border-color);
-        border-radius: var(--button-radius);
-        padding: $padding .5em;
+        font-size: $font-size;
+        border: 1px solid $border-color;
+        border-radius: $border-radius;
+        padding: $small-padding .5em;
 
 
 
         &:hover {
-            background-color: var(--border-color);
+            background-color: $border-color;
         }
 
         &:focus {
@@ -73,18 +73,18 @@
             order:2;
         }
         .yv-icon + .content{
-            margin-left: $padding;
+            margin-left: $small-padding;
         }
         &.icon-right{
             >.yv-icon{
-                order:2;margin-left: $padding;
+                order:2;margin-left: $small-padding;
             }
             >.content{
                 order:1;margin-left: 0;
             }
         }
         &[loading]{
-            cursor: not-allowed;color:red;
+            cursor: not-allowed;color:$warn-color;
         }
 
     }

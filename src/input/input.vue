@@ -1,59 +1,86 @@
 <template>
-    <div class="yv-wrapper" >
+    <div class="yv-wrapper" :class="{error}">
         <input type="text"
                :value="value"
                :readonly="readonly"
                :disabled="disabled">
+        <template v-if="error">
+            <Icon icon="warn" class="warn"></Icon>
+            <span class="err-msg">
+                {{error}}
+            </span>
+        </template>
     </div>
 </template>
 
 <script>
+    import Icon from "../svg/svg.vue";
+
     export default {
-        props:{
-            value:String,
-            disabled:{
-                type:Boolean,
-                default:false
+        components: {
+            Icon
+        },
+        props: {
+            value: String,
+            disabled: {
+                type: Boolean,
+                default: false
             },
-            readonly:{
-                type:Boolean,
-                default:false
-            }
+            readonly: {
+                type: Boolean,
+                default: false
+            },
+            error: String
         }
     };
 </script>
 
 <style lang="scss" scoped>
-    @import "../common.scss";
+    @import "../common";
+
     .yv-wrapper {
         display: inline-flex;
+        align-items: center;
         font-size: $font-size;
-        >input{
+
+
+        > input {
             height: $input-height;
             border: 1px solid $border-color;
             border-radius: $border-radius;
             padding: 0 $middle-padding;
             outline: none;
             cursor: pointer;
-            &:hover{
+
+            &:hover {
                 border-color: $border-hover-color;
             }
-            &:focus{
-                box-shadow: 0 1px 2px  $box-shadow-color;
-            }
-            &.error{
 
+            &:focus {
+                box-shadow: 0 1px 2px $box-shadow-color;
             }
-            &.success{
 
-            }
-            &[disabled],&[readonly]{
+            &[disabled], &[readonly] {
                 cursor: not-allowed;
                 background: #eee;
                 border-color: #bbb;
-                color:#bbb;
+                color: #bbb;
             }
         }
 
+        &.error {
+
+            > .err-msg {
+                color: $warn-color;
+            }
+        }
+
+        & > :not(:last-child) {
+            margin-right: $middle-padding;
+        }
+
+        &.success {
+
+        }
     }
 </style>

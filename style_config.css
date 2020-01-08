@@ -1,14 +1,7 @@
-:root{
-    --font-size:14px;
-    --button-bg:white;
-    --button-radius:4px;
-    --border-color:#999;
-    --button-hover-bg-color:#eee;
-    --color:#333;
-}
+
 body{
-    font-size: var(--font-size);
-    color: var(--color);
+    font-size: 14px;
+    color: #333;
 }
 
 *,*::before,*::after{
