@@ -70,9 +70,8 @@
             </li>
             <li>
                 <y-input :placeholder="placeholder"
-                         :value="inputValue"
+                         v-model="inputValue"
                          @change="inputChange"
-                         @input="input"
                          @blur="inputBlur"
                          @focus="inputFocus"
                 ></y-input>
