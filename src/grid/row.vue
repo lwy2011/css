@@ -1,5 +1,5 @@
 <template>
-    <div class="yv-row" :style="getStyle">
+    <div class="yv-row" :style="getStyle" :align="align" :justify="justify">
         <slot></slot>
     </div>
 </template>
@@ -7,7 +7,19 @@
 <script>
     export default {
         props: {
-            gutter: [Number, String]
+            gutter: [Number, String],
+            align: {
+                type: String,
+                validator(val) {
+                    return ["up", "down", "center"].indexOf(val) >= 0;
+                }
+            },
+            justify: {
+                type: String,
+                validator(val) {
+                    return ["left", "right", "center"].indexOf(val) >= 0;
+                }
+            }
         },
         mounted() {
             // console.log(this.$children);
@@ -19,9 +31,10 @@
         },
         computed: {
             getStyle() {
-                return {
-                    marginLeft: `-${this.gutter / 2}px`,
-                    marginRight: `-${this.gutter / 2}px`
+                const {gutter} = this;
+                return gutter && {
+                    marginLeft: `-${gutter / 2}px`,
+                    marginRight: `-${gutter / 2}px`,
                 };
             }
         }
@@ -32,5 +45,29 @@
 <style lang="scss" scoped>
     .yv-row {
         display: flex;
+
+        &[justify='left'] {
+            justify-content: flex-start;
+        }
+
+        &[justify='right'] {
+            justify-content: flex-end;
+        }
+
+        &[justify='center'] {
+            justify-content: center;
+        }
+
+        &[align='up'] {
+            align-items: flex-start;
+        }
+
+        &[align='down'] {
+            align-items: flex-end;
+        }
+
+        &[align='center'] {
+            align-items: center;
+        }
     }
 </style>
