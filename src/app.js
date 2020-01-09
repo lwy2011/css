@@ -1,24 +1,28 @@
 import Vue from "vue";
-
+import "./animate.scss";
+import "./common.scss";
 import Button from "./button/button.vue";
 import Svg from "./svg/svg.vue";
 
 import Btn_group from "./button/buttongroup.vue";
 import Input from "./input/input.vue";
-import "./animate.scss";
-import "./common.scss";
+import Row from "./grid/row.vue";
+import Col from "./grid/col.vue";
+
 
 Vue.component("y-button", Button);
 Vue.component("y-svg", Svg);
 Vue.component("y-btn-group", Btn_group);
 Vue.component("y-input", Input);
+Vue.component("y-row", Row);
+Vue.component("y-col", Col);
 
 new Vue({
     el: "#app",
     data: {
         loading1: false,
         loading2: false,
-        inputValue:'',
+        inputValue: "",
         placeholder: "请输入姓名"
     },
     methods: {
@@ -29,7 +33,7 @@ new Vue({
         input(e) {
             const {value} = e.target;
             console.log(value, 2);
-            this.inputValue = value
+            this.inputValue = value;
         },
         inputFocus(e) {
             const {value} = e.target;

@@ -67,22 +67,22 @@ describe(
     "Input", () => {
         it("支持change/input/focus/blur事件！", function () {
             const vm = init();
-            const input = vm.getEl('input');
+            const input = vm.getEl("input");
             const callback = sinon.fake();
-            ['change','input','focus',blur].map(
-                val=>{
+            ["change", "input", "focus", blur].map(
+                val => {
                     vm.$on(val, callback);
                     const event = new Event(val);
                     Object.defineProperty(
-                        event,'target',{
-                            value : 'haha'
+                        event, "target", {
+                            value: "haha"
                         }
-                    )
+                    );
                     input.dispatchEvent(event);
                     expect(callback).to.have.been.calledWith(event);
                     //回调的第一个参数是事件本身！
                 }
-            )
+            );
         });
         // it("支持input事件！", function () {
         //     const vm = init();
