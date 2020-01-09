@@ -11,6 +11,7 @@
         },
         mounted() {
             // console.log(this.$children);
+            //父元素想传值给子组件，在mounted事件，同时，想设置的值设置在子组件的data属性内。
             this.gutter &&
             this.$children.forEach(
                 vm => vm.gutter = this.gutter

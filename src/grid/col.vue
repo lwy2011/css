@@ -1,7 +1,7 @@
 <template>
     <div class="yv-col"
          :style="setPadding"
-         :class="[span&&`col-${span}`,interval&&`interval-${interval}`]">
+         :class="setClass">
         <slot></slot>
     </div>
 </template>
@@ -19,11 +19,20 @@
         },
         computed: {
             setPadding() {
-                return this.gutter &&
+                const {gutter} = this;
+                // console.log(gutter);
+                return gutter &&
                     {
-                        paddingLeft: `${this.gutter / 2}px`,
-                        paddingRight: `${this.gutter / 2}px`
+                        paddingLeft: gutter / 2 + "px",
+                        paddingRight: gutter / 2 + "px"
                     };
+            },
+            setClass() {
+                const {span, interval} = this;
+                return [
+                    span && `col-${span}`,
+                    interval && `interval-${interval}`
+                ];
             }
         }
     };
