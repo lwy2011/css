@@ -23,7 +23,103 @@ new Vue({
         loading1: false,
         loading2: false,
         inputValue: "",
-        placeholder: "请输入姓名"
+        placeholder: "请输入姓名",
+        medias1: [
+            {
+                condition: "(max-width:576px)",
+                span: 12,
+            },
+            {
+                condition: "(min-width:576px) and (max-width:768px)",
+                span: 8,
+            },
+            {
+                condition: "(min-width:768px) and (max-width:992px)",
+                span: 6,
+            },
+            {
+                condition: "(min-width:992px) and (max-width:1200px)",
+                span: 4,
+            },
+            {
+                condition: "(min-width:1200px)",
+                span: 2,
+            }
+        ],
+        medias2: [
+            {
+                condition: "(max-width:576px)",
+                span: 12,
+            },
+            {
+                condition: "(min-width:576px) and (max-width:768px)",
+                span: 12,
+                interval:4
+            },
+            {
+                condition: "(min-width:768px) and (max-width:992px)",
+                span: 10,
+                interval:8
+            },
+            {
+                condition: "(min-width:992px) and (max-width:1200px)",
+                span: 8,
+                interval:12
+            },
+            {
+                condition: "(min-width:1200px)",
+                span: 8,
+                interval:12
+            }
+        ]
+        // medias1: [
+        //     {
+        //         condition: ["(max-width:576px)"],
+        //         span: 12,
+        //     },
+        //     {
+        //         condition: ["(min-width:576px) "," (max-width:768px)"],
+        //         span: 8,
+        //     },
+        //     {
+        //         condition: ["(min-width:768px) "," (max-width:992px)"],
+        //         span: 6,
+        //     },
+        //     {
+        //         condition: ["(min-width:992px) "," (max-width:1200px)"],
+        //         span: 4,
+        //     },
+        //     {
+        //         condition: ["(min-width:1200px)"],
+        //         span: 2,
+        //     }
+        // ],
+        // medias2: [
+        //     {
+        //         condition: ["(max-width:576px)"],
+        //         span: 12,
+        //     },
+        //     {
+        //         condition: ["(min-width:576px) "," (max-width:768px)"],
+        //         span: 12,
+        //         interval:4
+        //     },
+        //     {
+        //         condition: ["(min-width:768px) "," (max-width:992px)"],
+        //         span: 10,
+        //         interval:8
+        //     },
+        //     {
+        //         condition: ["(min-width:992px) "," (max-width:1200px)"],
+        //         span: 8,
+        //         interval:12
+        //     },
+        //     {
+        //         condition: ["(min-width:1200px)"],
+        //         span: 8,
+        //         interval:12
+        //     }
+        // ]
     },
     methods: {
         inputChange(e) {

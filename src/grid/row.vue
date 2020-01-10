@@ -45,7 +45,7 @@
 <style lang="scss" scoped>
     .yv-row {
         display: flex;
-
+        flex-wrap: wrap;
         &[justify='left'] {
             justify-content: flex-start;
         }
