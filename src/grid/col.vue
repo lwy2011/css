@@ -44,7 +44,7 @@
         mounted() {
             if (!validator(this.medias)) return;
             this.setMediaClasses();
-            console.log(this.mediaClasses);
+            // console.log(this.mediaClasses);
             window.addEventListener(
                 "resize", this.createMedia
             );
