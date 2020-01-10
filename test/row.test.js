@@ -99,3 +99,35 @@ describe(
         });
     }
 );
+
+describe(
+    "Col", () => {
+        it("存在！", function () {
+            expect(Col).to.exist;
+        });
+        it("设置span，可以设置width!", function () {
+            const vm = init(
+                {span: 10}, Constructor2
+            );
+            const div = vm.$el;
+            expect(div.classList.contains("col-10")).to.eq(true);
+        });
+        it("设置gutter，可以设置padding!", function (done) {
+            const vm = init(
+                {}, Constructor2
+            );
+            // console.log(vm.gutter);
+            const div = vm.$el;
+            vm.gutter = 20;
+            // console.log(vm.gutter);
+            //这里是异步的错误！！
+            Vue.nextTick(
+                () => {
+                    expect(getComputedStyle(div).paddingLeft).to.eq("10px");
+                    expect(getComputedStyle(div).paddingRight).to.eq("10px");
+                    done();
+                }
+            );
+        });
+    }
+);
