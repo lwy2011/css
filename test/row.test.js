@@ -36,23 +36,65 @@ describe(
             expect(Row).to.exist;
         });
         it("gutter属性，可以设置自身的margin值。并且可以把值传递给子组件的gutter属性",
-            function () {
-                const row = init(
-                    {gutter: 20}, Constructor1, true
-                );
-                const dom = row.$el;
-                const children = row.$children;
-                children.map(
-                    child => {
-                        // console.log(child.gutter);
-                        expect(child.gutter).to.eq(20);
+            function (done) {
+                Vue.component("y-row", Row);
+                Vue.component("y-col", Col);
+                const html = `
+                        <y-row gutter="20">
+                            <y-col span="6" class="g">
+                                <div></div>
+                            </y-col>
+                            <y-col span="6" class="g">
+                                <div></div>
+                            </y-col>
+                            <y-col span="6" class="g">
+                                <div></div>
+                            </y-col>
+                            <y-col span="6" class="g">
+                                <div></div>
+                            </y-col>
+                        </y-row>
+                `;
+                const div = document.createElement("div");
+                div.innerHTML = html;
+                document.body.appendChild(div);
+                const vm = new Vue(
+                    {
+                        el: div
                     }
                 );
-                const {marginLeft, marginRight} = getComputedStyle(dom);
-                expect(marginLeft).to.eq("-10px");
-                expect(marginRight).to.eq("-10px");
-
-                row.over();
+                setTimeout(
+                    () => {
+                        // console.log(vm.$el);
+                        const col = vm.$el.querySelector(".yv-col");
+                        expect(getComputedStyle(col).paddingLeft).to.eq("10px");
+                        expect(getComputedStyle(col).paddingRight).to.eq("10px");
+                        const row = vm.$el.querySelector(".yv-row");
+                        expect(getComputedStyle(row).marginLeft).to.eq("-10px");
+                        expect(getComputedStyle(row).marginRight).to.eq("-10px");
+                        done();
+                    }, 1000
+                );
+                // const row = init(
+                //     {gutter: 20}, Constructor1, true
+                // );
+                // const dom = row.$el;
+                // const children = row.$children;
+                // children.map(
+                //     child => {
+                //         // console.log(child.gutter);
+                //         expect(child.gutter).to.eq(20);
+                //         const col = child.$el;
+                //         console.log(col.classList, getComputedStyle(col).paddingLeft);
+                //         expect(getComputedStyle(col).paddingLeft).to.eq("10px");
+                //         expect(getComputedStyle(col).paddingRight).to.eq("10px");
+                //     }
+                // );
+                // const {marginLeft, marginRight} = getComputedStyle(dom);
+                // expect(marginLeft).to.eq("-10px");
+                // expect(marginRight).to.eq("-10px");
+                //
+                // row.over();
             }
         );
         it("可以设置flex的justify-content属性值为left,right,center!", function () {
@@ -129,5 +171,6 @@ describe(
                 }
             );
         });
+
     }
 );
