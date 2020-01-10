@@ -154,6 +154,13 @@ describe(
             const div = vm.$el;
             expect(div.classList.contains("col-10")).to.eq(true);
         });
+        it("设置interval，可以设置margin-left!", function () {
+            const vm = init(
+                {interval: 10}, Constructor2
+            );
+            const div = vm.$el;
+            expect(div.classList.contains("interval-10")).to.eq(true);
+        });
         it("设置gutter，可以设置padding!", function (done) {
             const vm = init(
                 {}, Constructor2
@@ -170,6 +177,9 @@ describe(
                     done();
                 }
             );
+        });
+        it("可以自定义媒体查询，做到完全形式的响应式！", function () {
+
         });
 
     }

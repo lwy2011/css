@@ -57,24 +57,31 @@
         },
         methods: {
             createMedia() {
-                if (this.lock) return;
-                this.lock = true;
-                const {medias} = this;
-                let i = 0;
-                for (const media of medias) {
-                    const mql = window.matchMedia(media.condition);
-                    // console.log(mql);
-                    if (mql.matches) {
-                        this.mediaClass = this.mediaClasses[i];
-                        break;
-                    }
-                    i++;
+                if(this.lock) {
+                    clearTimeout(this.lock);
                 }
-                // console.log("lll");
+                this.lock = setTimeout(
+                    () => {
+                        const {medias} = this;
+                        let i = 0;
+                        for (const media of medias) {
+                            const mql = window.matchMedia(media.condition);
+                            // console.log(mql);
+                            if (mql.matches && (this.mediaClass !== this.mediaClasses[i])
+                            ) {
+                                this.mediaClass = this.mediaClasses[i];
+                                break;
+                            }
+                            i++;
+                        }
+                        // console.log("lll");
+                    },200
+                );
 
-                setTimeout(
-                    ()=>this.lock = false,0
-                )
+
+                // setTimeout(
+                //     () => this.lock = false, 0
+                // );
                 // this.lock = false;
                 // for (const media of medias) {
                 //     let ok = true;
