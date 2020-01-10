@@ -56,7 +56,7 @@
             );
         },
         methods: {
-            createMedia(test) {
+            createMedia() {
                 if (this.lock) {
                     clearTimeout(this.lock);
                 }
@@ -67,7 +67,7 @@
                         for (const media of medias) {
                             const mql = window.matchMedia(media.condition);
                             // console.log(mql);
-                            if ((mql.matches || test) && (this.mediaClass !== this.mediaClasses[i])
+                            if ((mql.matches ) && (this.mediaClass !== this.mediaClasses[i])
                             ) {
                                 this.mediaClass = this.mediaClasses[i];
                                 break;
