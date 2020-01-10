@@ -174,11 +174,97 @@ describe(
                 () => {
                     expect(getComputedStyle(div).paddingLeft).to.eq("10px");
                     expect(getComputedStyle(div).paddingRight).to.eq("10px");
+                    vm.over();
                     done();
                 }
             );
         });
-        it("可以自定义媒体查询，做到完全形式的响应式！", function () {
+        it("可以自定义媒体查询，做到完全形式的响应式！", function (done) {
+            const medias2 = [
+                {
+                    condition: "(max-width:576px)",
+                    span: 12,
+                },
+                {
+                    condition: "(min-width:576px) and (max-width:768px)",
+                    span: 12,
+                    interval: 4
+                },
+                {
+                    condition: "(min-width:768px) and (max-width:992px)",
+                    span: 10,
+                    interval: 8
+                },
+                {
+                    condition: "(min-width:992px) and (max-width:1200px)",
+                    span: 8,
+                    interval: 12
+                },
+                {
+                    condition: "(min-width:1200px)",
+                    span: 8,
+                    interval: 12
+                }
+            ];
+            const vm = init(
+                {medias: medias2}, Constructor2
+            );
+
+
+            const evt = new Event("resize");
+            [
+                150,
+                200, 300, 400, 500,
+                600, 700,
+                800, 900,
+                1000, 1100, 1200,
+                1300, 1400
+            ].map(
+                (val, index) => {
+                    let leval;
+                    if (val > 1200) {
+                        leval = 5;
+                    } else if (val > 992) {
+                        leval = 4;
+                    } else if (val > 768) {
+                        leval = 3;
+                    } else if (val > 576) {
+                        leval = 2;
+                    } else {
+                        leval = 1;
+                    }
+                    setTimeout(
+                        () => {
+                            window.innerWidth = val;
+                            window.outerWidth = val + 2;
+                            window.dispatchEvent(evt);
+                            window.innerWidth = val;
+                            window.outerWidth = val + 2;
+                            setTimeout(
+                                () => {
+
+                                    const {span, interval} = medias2[leval-1];
+                                    // console.log(vm.$el.classList,12121,span,interval);
+
+                                    expect(
+                                        vm.$el.classList.contains(
+                                            `media-${leval }-col-${span}`
+                                        )
+                                    ).to.eq(true);
+                                    interval && expect(
+                                        vm.$el.classList.contains(
+                                            `media-${leval }-interval-${interval}`
+                                        )
+                                    ).to.eq(true);
+                                    vm.over();
+                                    done();
+                                }, 1000
+                            );
+                        }, (index +0.5)* 1000
+                    );
+                }
+            );
+
 
         });
 

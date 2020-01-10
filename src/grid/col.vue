@@ -56,8 +56,8 @@
             );
         },
         methods: {
-            createMedia() {
-                if(this.lock) {
+            createMedia(test) {
+                if (this.lock) {
                     clearTimeout(this.lock);
                 }
                 this.lock = setTimeout(
@@ -67,15 +67,16 @@
                         for (const media of medias) {
                             const mql = window.matchMedia(media.condition);
                             // console.log(mql);
-                            if (mql.matches && (this.mediaClass !== this.mediaClasses[i])
+                            if ((mql.matches || test) && (this.mediaClass !== this.mediaClasses[i])
                             ) {
                                 this.mediaClass = this.mediaClasses[i];
                                 break;
                             }
                             i++;
                         }
+                        this.lock = false;
                         // console.log("lll");
-                    },200
+                    }, 200
                 );
 
 
