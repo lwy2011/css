@@ -13,7 +13,7 @@ import Header from "./layout/header.vue";
 import Aside from "./layout/aside.vue";
 import Footer from "./layout/footer.vue";
 import Content from "./layout/content.vue";
-
+import Toast from "./toast/toast.vue";
 
 Vue.component("y-button", Button);
 Vue.component("y-svg", Svg);
@@ -26,6 +26,7 @@ Vue.component("y-header", Header);
 Vue.component("y-aside", Aside);
 Vue.component("y-content", Content);
 Vue.component("y-footer", Footer);
+Vue.component("y-toast", Toast);
 
 new Vue({
     el: "#app",
