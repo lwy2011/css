@@ -14,6 +14,7 @@ import Aside from "./layout/aside.vue";
 import Footer from "./layout/footer.vue";
 import Content from "./layout/content.vue";
 import Toast from "./toast/toast.vue";
+import toastPlugin from "./toast/plugin.js";
 
 Vue.component("y-button", Button);
 Vue.component("y-svg", Svg);
@@ -27,6 +28,9 @@ Vue.component("y-aside", Aside);
 Vue.component("y-content", Content);
 Vue.component("y-footer", Footer);
 Vue.component("y-toast", Toast);
+//做成全局的实例的插件方法，用户自己主动设置的！
+Vue.use(toastPlugin);
+
 
 new Vue({
     el: "#app",
@@ -102,6 +106,9 @@ new Vue({
             const {value} = e.target;
             console.log(value, 4);
         }
+    },
+    mounted() {
+        this.$y_toast("出现了");
     },
     watch: {
         loading1: function () {
