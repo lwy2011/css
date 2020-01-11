@@ -8,6 +8,11 @@ import Btn_group from "./button/buttongroup.vue";
 import Input from "./input/input.vue";
 import Row from "./grid/row.vue";
 import Col from "./grid/col.vue";
+import Layout from "./layout/layout.vue";
+import Header from "./layout/header.vue";
+import Aside from "./layout/aside.vue";
+import Footer from "./layout/footer.vue";
+import Content from "./layout/content.vue";
 
 
 Vue.component("y-button", Button);
@@ -16,6 +21,11 @@ Vue.component("y-btn-group", Btn_group);
 Vue.component("y-input", Input);
 Vue.component("y-row", Row);
 Vue.component("y-col", Col);
+Vue.component("y-layout", Layout);
+Vue.component("y-header", Header);
+Vue.component("y-aside", Aside);
+Vue.component("y-content", Content);
+Vue.component("y-footer", Footer);
 
 new Vue({
     el: "#app",
@@ -54,22 +64,22 @@ new Vue({
             {
                 condition: "(min-width:576px) and (max-width:768px)",
                 span: 12,
-                interval:4
+                interval: 4
             },
             {
                 condition: "(min-width:768px) and (max-width:992px)",
                 span: 10,
-                interval:8
+                interval: 8
             },
             {
                 condition: "(min-width:992px) and (max-width:1200px)",
                 span: 8,
-                interval:12
+                interval: 12
             },
             {
                 condition: "(min-width:1200px)",
                 span: 8,
-                interval:12
+                interval: 12
             }
         ]
     },

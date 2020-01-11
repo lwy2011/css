@@ -1,4 +1,4 @@
-.buttons, .inputs ,.grids{
+.buttons, .inputs ,.grids,.layouts{
     margin: 2em;
 }
 
@@ -23,4 +23,19 @@ li {
 }
 .yv-col.g{
     background: none !important;
+}
+
+.layouts{
+    background:#8A886E ;min-height:100vh;
+}
+.layouts> .yv-layout{
+    height: 100vh;
+}
+.yv-layout{
+    border: 1px solid;margin-bottom: 2em;
+}
+.yv-layout > div {
+    background: #FCD9D6;
+    margin:1em;
+    min-height: 100px;border: 1px solid;
 }
