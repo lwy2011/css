@@ -86,7 +86,8 @@ new Vue({
                 span: 8,
                 interval: 12
             }
-        ]
+        ],
+        toastMsg: "出现啦啦啦！"
     },
     methods: {
         inputChange(e) {
@@ -108,7 +109,12 @@ new Vue({
         }
     },
     mounted() {
-        this.$y_toast("出现了");
+        const html = `
+            <div class = 'msg'>
+                ${this.toastMsg}
+                </div>
+        `;
+        this.$y_toast({html,msg:this.toastMsg});
     },
     watch: {
         loading1: function () {

@@ -39,3 +39,6 @@ li {
     margin:1em;
     min-height: 100px;border: 1px solid;
 }
+.yv-toast > .msg{
+    color:red;
+}
