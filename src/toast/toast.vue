@@ -83,20 +83,25 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                animation: 1s fade-in-center linear ;
             }
 
             &top {
                 top: 1em;
                 left: 50%;
                 transform: translateX(-50%);
+                animation: 1s fade-in-top linear ;
             }
 
             &bottom {
                 bottom: 1em;
                 left: 50%;
                 transform: translateX(-50%);
+                animation: 1s fade-in-bottom linear ;
             }
         }
+
+
 
         > .toast-close {
             cursor: pointer;
