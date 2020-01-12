@@ -1,6 +1,7 @@
 <template>
     <div class="yv-toast"
-         :class="position && `position-${position}`">
+         :class="position && `position-${position}`"
+    >
         <slot></slot>
         <div v-if="html" v-html="html"></div>
         <div v-if="closeBtn" class="toast-close" @click="closeBtnClick">
@@ -44,6 +45,7 @@
         methods: {
             close() {
                 this.$el.remove();
+                this.$emit("willClose");
                 this.$destroy();
             },
             closeBtnClick() {
@@ -83,24 +85,23 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                animation: 1s fade-in-center linear ;
+                animation: 1s fade-in-center linear;
             }
 
             &top {
                 top: 1em;
                 left: 50%;
                 transform: translateX(-50%);
-                animation: 1s fade-in-top linear ;
+                animation: 1s fade-in-top linear;
             }
 
             &bottom {
                 bottom: 1em;
                 left: 50%;
                 transform: translateX(-50%);
-                animation: 1s fade-in-bottom linear ;
+                animation: 1s fade-in-bottom linear;
             }
         }
-
 
 
         > .toast-close {

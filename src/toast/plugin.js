@@ -2,6 +2,7 @@ import Toast from "./toast.vue";
 
 let created;
 const init = (onlyone, msg, props, Vue) => {
+    // console.log(created);
     if (onlyone && created) {
         created.close();
     }
@@ -14,6 +15,10 @@ const init = (onlyone, msg, props, Vue) => {
     msg && (vm.$slots.default = [msg]);
     vm.$mount();
     document.body.appendChild(vm.$el);
+    vm.$on("willClose", () => {
+        created = null;
+        // console.log("null",created);
+    });
     return vm;
 };
 export default {
