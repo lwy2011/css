@@ -106,15 +106,19 @@ new Vue({
         inputBlur(e) {
             const {value} = e.target;
             console.log(value, 4);
+        },
+        toastClick(position = "center", msg) {
+            const html = `
+                    <div class = 'msg'>
+                        ${this.toastMsg}
+                        </div>
+                `;
+            console.log(position, html, msg);
+            this.$y_toast({html, msg, position});
         }
     },
     mounted() {
-        const html = `
-            <div class = 'msg'>
-                ${this.toastMsg}
-                </div>
-        `;
-        this.$y_toast({html,msg:this.toastMsg});
+
     },
     watch: {
         loading1: function () {

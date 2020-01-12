@@ -232,7 +232,14 @@
             </y-layout>
         </y-layout>
     </div>
+    <div class="toasts">
+        <y-button @click="toastClick">toast</y-button>
+        <y-button @click="toastClick('center')">center toast</y-button>
+        <y-button @click="toastClick('top')">top toast</y-button>
+        <y-button @click="toastClick('bottom')">bottom toast</y-button>
+    </div>
 </div>
+
 <script src="https://at.alicdn.com/t/font_880099_3vznsil94p1.js"></script>
 <script src="./src/app.js"></script>
 </body>
