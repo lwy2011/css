@@ -5,9 +5,9 @@
         <div v-if="html" v-html="html"></div>
         <div v-if="closeBtn" class="toast-close" @click="closeBtnClick">
             <div class="line">
-                <div></div>
+                <div class="border"></div>
+                <div class="mask"></div>
             </div>
-            <div class="mask"></div>
             {{closeBtn}}
         </div>
     </div>
@@ -39,7 +39,7 @@
             closeCallback: Function
         },
         mounted() {
-            this.initAutoClose()
+            this.initAutoClose();
         },
         methods: {
             close() {
@@ -51,7 +51,7 @@
                 this.close();
                 closeCallback && closeCallback();
             },
-            initAutoClose(){
+            initAutoClose() {
                 this.autoClose &&
                 setTimeout(
                     () => this.close(), this.autoClose * 1000
@@ -63,7 +63,8 @@
 
 <style lang="scss" scoped>
     @import "../common";
-    $big-padding :2*$toast-padding;
+
+    $big-padding: 2*$toast-padding;
     .yv-toast {
         position: fixed;
         z-index: 10;
@@ -75,6 +76,7 @@
         opacity: .8;
         display: flex;align-items: center;
         box-shadow: 0 1px 3px $box-shadow-color;
+        overflow-x: hidden;
 
         &.position- {
             &center {
@@ -98,22 +100,32 @@
 
         > .toast-close {
             cursor: pointer;
-            padding-left: $big-padding ;
+            padding-left: $big-padding;
             margin-left: $big-padding;
             flex-shrink: 0;
-            >.line{
-                position: absolute;
-                top:0;
-                bottom:0;
 
-                >div{
-                    width:1px;
-                    background:#fff;
+            > .line {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+
+                > .border {
+                    width: 1px;
+                    background: #fff;
                     position: absolute;
-                    top:0;
-                    bottom:0;
-                    left:calc(-.5px - #{$big-padding})  ;
+                    top: 0;
+                    bottom: 0;
+                    left: calc(-.5px - #{$big-padding});
                     opacity: .8;
+                }
+
+                > .mask {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;width: 100%;
+                    cursor: pointer;
+                    z-index: 3;
                 }
             }
         }
