@@ -87,7 +87,7 @@ new Vue({
                 interval: 12
             }
         ],
-        toastMsg: "出现啦啦啦！"
+        toastMsg: "出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！"
     },
     methods: {
         inputChange(e) {
@@ -130,7 +130,25 @@ new Vue({
             );
         }
     },
+    mounted(){
+        const closeBtn = "我知道了";
+        const closeCallback = () => {
+            this.toastMsg += 1;
+        };
+        setTimeout(
+            ()=>{
+                this.$y_toast(
+                    {
+                        html: "",
+                        position:'center', autoClose:0,
+                        closeBtn, closeCallback
+                    },
+                    this.toastMsg
+                );
+            },1000
+        )
 
+    },
     watch: {
         loading1: function () {
             if (!this.loading1) return;

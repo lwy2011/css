@@ -4,6 +4,10 @@
         <slot></slot>
         <div v-if="html" v-html="html"></div>
         <div v-if="closeBtn" class="toast-close" @click="closeBtnClick">
+            <div class="line">
+                <div></div>
+            </div>
+            <div class="mask"></div>
             {{closeBtn}}
         </div>
     </div>
@@ -57,13 +61,13 @@
 
 <style lang="scss" scoped>
     @import "../common";
-
+    $big-padding :2*$toast-padding;
     .yv-toast {
         position: fixed;
         z-index: 10;
         background: $toast-bg;
         color: white;
-        padding: $toast-padding 2*$toast-padding;
+        padding: $toast-padding $big-padding;
         max-width: $toast-width;
         border-radius: $border-radius;
         opacity: .8;
@@ -91,21 +95,26 @@
         }
 
         > .toast-close {
-            position: relative;
             cursor: pointer;
-            display: flex;
-            padding-left: 2*$toast-padding;
-            margin-left: 2*$toast-padding;
-            &:before {
-                top: -$toast-padding;
-                bottom: -$toast-padding;
-                left: -.5px;
-                width: 1px;
-                content: '';
+            padding-left: $big-padding ;
+            margin-left: $big-padding;
+            flex-shrink: 0;
+            >.line{
                 position: absolute;
-                background: #fff;
+                top:0;
+                bottom:0;
+
+                >div{
+                    width:1px;
+                    background:#fff;
+                    position: absolute;
+                    top:0;
+                    bottom:0;
+                    left:calc(-.5px - #{$big-padding})  ;
+                }
             }
         }
+
     }
 </style>
 
