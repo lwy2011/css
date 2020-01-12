@@ -13,32 +13,32 @@
     0%{
         opacity: 0;
 
-        transform: translate(-50%,-100%);
+        transform: translateY(-100%);
     }
     100%{
         opacity: 1;
-        transform: translate(-50%,0);
+        transform: translateY(0);
     }
 }
 @keyframes fade-in-center {
     0%{
         opacity: 0;
 
-        transform: rotate3d(0,0,0,0deg) translate(-50%,-50%);
+        transform: rotate3d(0,0,0,0deg) ;
     }
     100%{
         opacity: 1;
-        transform: rotate3d(1,1,1,360deg) translate(-50%,-50%);
+        transform: rotate3d(1,1,1,360deg) ;
     }
 }
 @keyframes fade-in-bottom {
     0%{
         opacity: 0;
 
-        transform: translate(-50%,100%);
+        transform: translateY(100%);
     }
     100%{
         opacity: 1;
-        transform: translate(-50%,0);
+        transform: translateY(0);
     }
 }
