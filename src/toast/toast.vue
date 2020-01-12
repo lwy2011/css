@@ -39,11 +39,7 @@
             closeCallback: Function
         },
         mounted() {
-            console.log(this.closeBtn);
-            this.autoClose &&
-            setTimeout(
-                () => this.close(), this.autoClose * 1000
-            );
+            this.initAutoClose()
         },
         methods: {
             close() {
@@ -54,6 +50,12 @@
                 const {closeCallback} = this;
                 this.close();
                 closeCallback && closeCallback();
+            },
+            initAutoClose(){
+                this.autoClose &&
+                setTimeout(
+                    () => this.close(), this.autoClose * 1000
+                );
             }
         }
     };
@@ -111,6 +113,7 @@
                     top:0;
                     bottom:0;
                     left:calc(-.5px - #{$big-padding})  ;
+                    opacity: .8;
                 }
             }
         }
