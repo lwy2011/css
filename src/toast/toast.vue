@@ -1,7 +1,11 @@
 <template>
-    <div class="yv-toast" v-html="html"
+    <div class="yv-toast"
          :class="position && `position-${position}`">
         <slot></slot>
+        <div v-if="html" v-html="html"></div>
+        <div v-if="closeBtn" class="toast-close" @click="closeBtnClick">
+            {{closeBtn}}
+        </div>
     </div>
 </template>
 
@@ -12,7 +16,7 @@
             html: String,
             position: {
                 type: String,
-                default:'center',
+                default: "center",
                 validator(val) {
                     return ["top", "bottom", "center"].indexOf(val) >= 0;
                 }
@@ -20,12 +24,18 @@
             autoClose: {
                 type: Number,
                 validator(val) {
-                    return val > 0;
+                    return val >= 0;
                 },
                 default: 4
-            }
+            },
+            closeBtn: {
+                type: String,
+                default: "ok"
+            },
+            closeCallback: Function
         },
         mounted() {
+            console.log(this.closeBtn);
             this.autoClose &&
             setTimeout(
                 () => this.close(), this.autoClose * 1000
@@ -35,6 +45,11 @@
             close() {
                 this.$el.remove();
                 this.$destroy();
+            },
+            closeBtnClick() {
+                const {closeCallback} = this;
+                this.close();
+                closeCallback && closeCallback();
             }
         }
     };
@@ -48,7 +63,8 @@
         z-index: 10;
         background: $toast-bg;
         color: white;
-        padding: 1em;
+        padding: $toast-padding 2*$toast-padding;
+        max-width: $toast-width;
         border-radius: $border-radius;
         opacity: .8;
         display: flex;align-items: center;
@@ -71,6 +87,23 @@
                 bottom: 1em;
                 left: 50%;
                 transform: translateX(-50%);
+            }
+        }
+
+        > .toast-close {
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            padding-left: 2*$toast-padding;
+            margin-left: 2*$toast-padding;
+            &:before {
+                top: -$toast-padding;
+                bottom: -$toast-padding;
+                left: -.5px;
+                width: 1px;
+                content: '';
+                position: absolute;
+                background: #fff;
             }
         }
     }

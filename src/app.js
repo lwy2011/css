@@ -107,19 +107,30 @@ new Vue({
             const {value} = e.target;
             console.log(value, 4);
         },
-        toastClick(position ,autoClose, msg) {
-            const html = `
-                    <div class = 'msg'>
-                        ${this.toastMsg}
-                        </div>
-                `;
-            console.log(position, html, msg);
-            this.$y_toast({html, msg, position ,autoClose});
+        toastClick(
+            position, autoClose, msg
+        ) {
+            // const html = `
+            //         <div class = 'msg'>
+            //             ${this.toastMsg}
+            //             </div>
+            //     `;
+            // console.log(position, html, msg);
+            const closeBtn = "我知道了";
+            const closeCallback = () => {
+                this.toastMsg += 1;
+            };
+            this.$y_toast(
+                {
+                    html: "",
+                    position, autoClose,
+                    closeBtn, closeCallback
+                },
+                this.toastMsg
+            );
         }
     },
-    mounted() {
 
-    },
     watch: {
         loading1: function () {
             if (!this.loading1) return;

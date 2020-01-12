@@ -4,13 +4,13 @@ import Vue from "vue";
 export default {
     install(vue) {
         vue.prototype.$y_toast = (
-            {html, msg, position, autoClose}
+            props, msg
         ) => {
-            // console.log(2);
+             console.log(2,props);
             const Constructor = Vue.extend(Toast);
             const vm = new Constructor(
                 {
-                    propsData: {html, position, autoClose}
+                    propsData: props
                 }
             );
             msg && (vm.$slots.default = [msg]);
