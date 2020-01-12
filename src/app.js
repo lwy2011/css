@@ -107,14 +107,14 @@ new Vue({
             const {value} = e.target;
             console.log(value, 4);
         },
-        toastClick(position = "center", msg) {
+        toastClick(position ,autoClose, msg) {
             const html = `
                     <div class = 'msg'>
                         ${this.toastMsg}
                         </div>
                 `;
             console.log(position, html, msg);
-            this.$y_toast({html, msg, position});
+            this.$y_toast({html, msg, position ,autoClose});
         }
     },
     mounted() {

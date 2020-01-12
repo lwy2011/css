@@ -12,9 +12,29 @@
             html: String,
             position: {
                 type: String,
+                default:'center',
                 validator(val) {
                     return ["top", "bottom", "center"].indexOf(val) >= 0;
                 }
+            },
+            autoClose: {
+                type: Number,
+                validator(val) {
+                    return val > 0;
+                },
+                default: 4
+            }
+        },
+        mounted() {
+            this.autoClose &&
+            setTimeout(
+                () => this.close(), this.autoClose * 1000
+            );
+        },
+        methods: {
+            close() {
+                this.$el.remove();
+                this.$destroy();
             }
         }
     };
@@ -33,19 +53,22 @@
         opacity: .8;
         display: flex;align-items: center;
         box-shadow: 0 1px 3px $box-shadow-color;
-        &.position-{
-            &center{
+
+        &.position- {
+            &center {
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
             }
-            &top{
-                top:1em;
+
+            &top {
+                top: 1em;
                 left: 50%;
                 transform: translateX(-50%);
             }
-            &bottom{
-                bottom:1em;
+
+            &bottom {
+                bottom: 1em;
                 left: 50%;
                 transform: translateX(-50%);
             }
