@@ -25,7 +25,7 @@ export default {
     install(vue) {
         vue.prototype.$y_toast = (props, msg, onlyone = true) => {
             // console.log(2, props);
-            created = init(onlyone, msg, props, vue);
+            return created = init(onlyone, msg, props, vue);
         };
     }
 };
