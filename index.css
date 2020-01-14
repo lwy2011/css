@@ -1,4 +1,4 @@
-.buttons, .inputs ,.grids,.layouts,.toasts{
+.buttons, .inputs ,.grids,.layouts,.toasts,.tabs{
     margin: 2em;
 }
 
@@ -42,6 +42,6 @@ li {
 .yv-toast > .msg{
     color:red;
 }
-.toasts{
-
+.tabs{
+    border:1px solid ;
 }

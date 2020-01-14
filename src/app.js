@@ -15,6 +15,12 @@ import Footer from "./layout/footer.vue";
 import Content from "./layout/content.vue";
 import Toast from "./toast/toast.vue";
 import toastPlugin from "./toast/plugin.js";
+import Tabs from "./tabs/tabs.vue";
+import TabsHead from "./tabs/tabs-head.vue";
+import TabsBody from "./tabs/tabs-body.vue";
+import TabBar from "./tabs/tabs-nav-bar.vue";
+import TabPanel from "./tabs/tabs-panel.vue";
+
 
 Vue.component("y-button", Button);
 Vue.component("y-svg", Svg);
@@ -28,6 +34,12 @@ Vue.component("y-aside", Aside);
 Vue.component("y-content", Content);
 Vue.component("y-footer", Footer);
 Vue.component("y-toast", Toast);
+Vue.component("y-tabs", Tabs);
+Vue.component("y-tabs-head", TabsHead);
+Vue.component("y-tabs-body", TabsBody);
+Vue.component("y-tabs-bar", TabBar);
+Vue.component("y-tabs-panel", TabPanel);
+
 //做成全局的实例的插件方法，用户自己主动设置的！
 Vue.use(toastPlugin);
 
@@ -87,7 +99,16 @@ new Vue({
                 interval: 12
             }
         ],
-        toastMsg: "出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！"
+        toastMsg: "出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！出现啦啦啦！",
+        tabs: {
+            detail: [
+                {name: "数码", content: "数码"},
+                {name: "科技", content: "科技"},
+                {name: "美女", content: "美女"},
+                {name: "技术", content: "技术"}
+            ],
+            default: "数码"
+        }
     },
     methods: {
         inputChange(e) {
@@ -130,23 +151,23 @@ new Vue({
             );
         }
     },
-    mounted(){
+    mounted() {
         const closeBtn = "我知道了";
         const closeCallback = () => {
             this.toastMsg += 1;
         };
         setTimeout(
-            ()=>{
+            () => {
                 this.$y_toast(
                     {
                         html: "",
-                        position:'center', autoClose:0,
+                        position: "center", autoClose: 0,
                         closeBtn, closeCallback
                     },
                     this.toastMsg
                 );
-            },1000
-        )
+            }, 1000
+        );
 
     },
     watch: {
