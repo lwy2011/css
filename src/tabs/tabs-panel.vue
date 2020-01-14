@@ -6,7 +6,16 @@
 
 <script>
     export default {
-        name:'tabs-panel-v'
+        name:'tabs-panel-v',
+        inject:['eventBus'],
+        props:{
+
+        },
+        created() {
+            this.eventBus.$on('update:selected',(val)=>{
+                console.log(val)
+            })
+        }
     }
 </script>
 

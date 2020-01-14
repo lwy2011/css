@@ -1,9 +1,7 @@
 <template>
     <div class="yv-tabs-bar"
-         @click="$emit('selected',name)"
-         :name="name"
+         @click="xxx"
          :class="{active}"
-         :disabled="disabled"
     >
         <slot></slot>
     </div>
@@ -11,28 +9,35 @@
 
 <script>
     export default {
-        name:'tabs-bar-v',
-        props:{
-            name:String,
-            active:Boolean,
-            disabled:Boolean,
-            methods:{
-                click:function(){
-                    console.log(this.name);
-                    this.$emit('selected',this.name)
-                }
+        name: "tabs-bar-v",
+        inject: ["eventBus"],
+        props: {
+            name: String,
+            active: Boolean,
+            disabled: Boolean,
+        },
+        created() {
+            // console.log(this.eventBus,222);
+            this.eventBus.$on("update:selected", (val) => {
+                console.log(val);
+            });
+        },
+        methods: {
+            xxx() {
+                this.eventBus.$emit("update:selected", this.name);
             }
         }
-    }
+    };
 </script>
 
 <style lang="scss" scoped>
-    .yv-tabs-bar{
-        &.active{
-            color:red;
+    .yv-tabs-bar {
+        &.active {
+            color: red;
             cursor: pointer;
         }
-        &[disabled]{
+
+        &[disabled] {
             cursor: not-allowed;
         }
     }

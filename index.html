@@ -244,6 +244,7 @@
         <y-tabs :selected.sync="tabs.default" :direction="'X'">
             <y-tabs-head>
                 <y-tabs-bar :name="tab.name"
+                            :key="tab.name"
                             v-for="tab in tabs.detail"
                             :active="tabs.default === tab.name"
                 >
@@ -255,6 +256,7 @@
             </y-tabs-head>
             <y-tabs-body>
                 <y-tabs-panel
+                        :key="tab.name"
                         v-if="tabs.default === tab.name"
                         v-for="tab in tabs.detail">
                     {{tab.content}}
