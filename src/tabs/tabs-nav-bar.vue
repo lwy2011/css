@@ -11,9 +11,16 @@
     export default {
         name: "tabs-bar-v",
         inject: ["eventBus"],
+        data(){
+            return{
+                active:{
+                    type:Boolean,
+                    default:false
+                }
+            }
+        },
         props: {
             name: String,
-            active: Boolean,
             disabled: Boolean,
         },
         created() {
@@ -32,6 +39,8 @@
 
 <style lang="scss" scoped>
     .yv-tabs-bar {
+        margin:0 1em;
+        flex-shrink: 0;
         &.active {
             color: red;
             cursor: pointer;

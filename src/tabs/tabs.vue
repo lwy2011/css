@@ -31,8 +31,9 @@
             return {eventBus: this.eventBus};
         },
         created() {
-            console.log(4, this);
-            console.log(this.eventBus, 3);
+            // console.log(4, this);
+            // console.log(this.eventBus, 3);
+
         }
     };
 </script>
