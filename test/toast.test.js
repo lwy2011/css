@@ -31,24 +31,30 @@ const init = (props, msg, onlyone) => {
 
 const autoCloseTest = (autoClose, done) => {
     const props = autoClose && {autoClose};
+    // console.log(props, 1);
     const vm = init(
         props, "test！autoClose"
     );
     const callback = sinon.fake();
     vm.$destroy = callback;
+
     setTimeout(
         () => {
+            // console.log(vm.$el, 2);
             expect(callback).to.have.not.been.called;
-        }, (autoClose || 4) * 1000 - 1000
+        },
+        (autoClose || 4) * 1000 - 1000
     );
     setTimeout(
         () => {
+            // console.log(vm.$el, 3);
             expect(callback).to.have.been.called;
             // console.log("ww");
             vm.over();
             done();
         }, (autoClose || 4) * 1000
     );
+    done();
 };
 describe(
     "Toast", () => {
@@ -139,7 +145,5 @@ describe(
             this.timeout(15000);
             autoCloseTest(undefined, done);
         });
-
-
     }
 );

@@ -27,7 +27,6 @@
                     line.style.transform = `translateX((${left - left2}px)`;
                     line.style.left = `${left - left1}px`;
                     // console.log(line, left - left2);
-
                     line.style.transition = "all 300ms linear";
                 }
             });

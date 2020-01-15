@@ -31,9 +31,27 @@
             return {eventBus: this.eventBus};
         },
         mounted() {
-            // console.log(4, this);
+            const errMsg = "Tabs组件的子组件必须要有，必须是tabs-head和tabs-body";
+            if (this.$children.length === 0) {
+                throw new Error(errMsg);
+            }
+            let body, head;
+            this.$children.map(
+                child => {
+                    // console.log(child);
+                    const name = child.$options.name;
+                    if (["tabs-body-v", "tabs-head-v"].indexOf(name) < 0) {
+                        throw new Error(errMsg);
+                    }
+                    name === "tabs-body-v" && (body = true);
+                    name === "tabs-head-v" && (head = true);
+                }
+            );
+            if (!(head && body)) {
+                throw new Error(errMsg);
+            }
             // console.log(this.eventBus, 3);
-            this.eventBus.$emit('update:selected',this.selected)
+            this.eventBus.$emit("update:selected", this.selected);
         }
     };
 </script>

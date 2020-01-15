@@ -20,7 +20,10 @@
         },
         computed: {
             activeStatus() {
-                return this.active && "active";
+                return {
+                    active: this.active,
+                    disabled: this.disabled
+                };
             }
         },
         props: {
@@ -38,8 +41,10 @@
         },
         methods: {
             onClick() {
-                !this.active && !this.disabled &&
-                this.eventBus.$emit("update:selected", this.name, this.$el);
+                if (!this.active && !this.disabled) {
+                    this.eventBus.$emit("update:selected", this.name, this.$el);
+                    this.$emit("click", this);
+                }
             },
             initUnderLine(res) {
                 if (this.initState && res) {
@@ -66,9 +71,9 @@
             color: $blue;
         }
 
-        &[disabled] {
+        &.disabled {
             cursor: not-allowed;
-            color:$border-color;
+            color: $border-color;
         }
     }
 </style>

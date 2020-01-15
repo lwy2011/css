@@ -19,6 +19,7 @@
     import Icon from "../svg/svg";
 
     export default {
+        name:'button-v',
         props:{
             icon:String,
             iconposition:{
