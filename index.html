@@ -245,6 +245,7 @@
             <y-tabs-head>
                 <y-tabs-bar :name="tab.name"
                             :key="tab.name"
+                            :disabled="tab.name === '美女'"
                             v-for="tab in tabs.detail"
                 >
                     {{tab.name}}

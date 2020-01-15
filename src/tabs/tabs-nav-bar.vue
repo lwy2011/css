@@ -2,6 +2,7 @@
     <div class="yv-tabs-bar"
          @click="onClick"
          :class="activeStatus"
+         :disabled="disabled"
     >
         <slot></slot>
     </div>
@@ -37,7 +38,7 @@
         },
         methods: {
             onClick() {
-                !this.active &&
+                !this.active && !this.disabled &&
                 this.eventBus.$emit("update:selected", this.name, this.$el);
             },
             initUnderLine(res) {
@@ -67,6 +68,7 @@
 
         &[disabled] {
             cursor: not-allowed;
+            color:$border-color;
         }
     }
 </style>
