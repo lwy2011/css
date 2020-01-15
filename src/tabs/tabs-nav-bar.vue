@@ -1,6 +1,6 @@
 <template>
     <div class="yv-tabs-bar"
-         @click="xxx"
+         @click="onClick"
          :class="activeStatus"
     >
         <slot></slot>
@@ -13,15 +13,13 @@
         inject: ["eventBus"],
         data() {
             return {
-                active: {
-                    type: Boolean,
-                    default: false
-                }
+                active: false,
+                initState: true
             };
         },
         computed: {
             activeStatus() {
-                return this.active&&'active';
+                return this.active && "active";
             }
         },
         props: {
@@ -31,13 +29,23 @@
         created() {
             // console.log(this.eventBus,222);
             this.eventBus.$on("update:selected", (val) => {
-                // console.log(val);
-                this.active = val === this.name;
+                const res = val === this.name;
+                // console.log(val,res,this.initState);
+                this.initUnderLine(res);
+                this.active = res;
             });
         },
         methods: {
-            xxx() {
-                this.eventBus.$emit("update:selected", this.name);
+            onClick() {
+                !this.active &&
+                this.eventBus.$emit("update:selected", this.name, this.$el);
+            },
+            initUnderLine(res) {
+                if (this.initState && res) {
+                    this.initState = false;
+                    // console.log(val,12);
+                    this.eventBus.$emit("update:selected", this.name, this.$el, "init");
+                }
             }
         }
     };
@@ -45,12 +53,16 @@
 
 <style lang="scss" scoped>
     @import "../common";
+
     .yv-tabs-bar {
         margin: 0 1em;
         flex-shrink: 0;
         cursor: pointer;
+        display: flex;
+        padding: $middle-padding;
+
         &.active {
-            color: $warn-color;
+            color: $blue;
         }
 
         &[disabled] {

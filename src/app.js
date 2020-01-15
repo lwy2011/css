@@ -103,9 +103,9 @@ new Vue({
         tabs: {
             detail: [
                 {name: "数码", content: "数码"},
-                {name: "科技", content: "科技"},
+                {name: "科技没血", content: "科技"},
                 {name: "美女", content: "美女"},
-                {name: "技术", content: "技术"}
+                {name: "技术三明治", content: "技术"}
             ],
             default: "数码"
         }
