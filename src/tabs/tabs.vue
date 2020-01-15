@@ -30,10 +30,10 @@
         provide() {
             return {eventBus: this.eventBus};
         },
-        created() {
+        mounted() {
             // console.log(4, this);
             // console.log(this.eventBus, 3);
-
+            this.eventBus.$emit('update:selected',this.selected)
         }
     };
 </script>

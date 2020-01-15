@@ -1,7 +1,7 @@
 <template>
     <div class="yv-tabs-bar"
          @click="xxx"
-         :class="{active}"
+         :class="activeStatus"
     >
         <slot></slot>
     </div>
@@ -11,12 +11,17 @@
     export default {
         name: "tabs-bar-v",
         inject: ["eventBus"],
-        data(){
-            return{
-                active:{
-                    type:Boolean,
-                    default:false
+        data() {
+            return {
+                active: {
+                    type: Boolean,
+                    default: false
                 }
+            };
+        },
+        computed: {
+            activeStatus() {
+                return this.active&&'active';
             }
         },
         props: {
@@ -26,7 +31,8 @@
         created() {
             // console.log(this.eventBus,222);
             this.eventBus.$on("update:selected", (val) => {
-                console.log(val);
+                // console.log(val);
+                this.active = val === this.name;
             });
         },
         methods: {
@@ -38,12 +44,13 @@
 </script>
 
 <style lang="scss" scoped>
+    @import "../common";
     .yv-tabs-bar {
-        margin:0 1em;
+        margin: 0 1em;
         flex-shrink: 0;
+        cursor: pointer;
         &.active {
-            color: red;
-            cursor: pointer;
+            color: $warn-color;
         }
 
         &[disabled] {

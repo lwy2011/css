@@ -246,7 +246,6 @@
                 <y-tabs-bar :name="tab.name"
                             :key="tab.name"
                             v-for="tab in tabs.detail"
-                            :active="tabs.default === tab.name"
                 >
                     {{tab.name}}
                 </y-tabs-bar>
@@ -257,7 +256,7 @@
             <y-tabs-body>
                 <y-tabs-panel
                         :key="tab.name"
-                        v-if="tabs.default === tab.name"
+                        :name="tab.name"
                         v-for="tab in tabs.detail">
                     {{tab.content}}
                 </y-tabs-panel>
