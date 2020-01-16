@@ -20,7 +20,7 @@ import TabsHead from "./tabs/tabs-head.vue";
 import TabsBody from "./tabs/tabs-body.vue";
 import TabBar from "./tabs/tabs-nav-bar.vue";
 import TabPanel from "./tabs/tabs-panel.vue";
-
+import Popover from "./popvoer/popover.vue";
 
 Vue.component("y-button", Button);
 Vue.component("y-svg", Svg);
@@ -39,7 +39,7 @@ Vue.component("y-tabs-head", TabsHead);
 Vue.component("y-tabs-body", TabsBody);
 Vue.component("y-tabs-bar", TabBar);
 Vue.component("y-tabs-panel", TabPanel);
-
+Vue.component("y-popover", Popover);
 //做成全局的实例的插件方法，用户自己主动设置的！
 Vue.use(toastPlugin);
 
@@ -108,6 +108,9 @@ new Vue({
                 {name: "技术三明治", content: "技术"}
             ],
             default: "数码"
+        },
+        popover:{
+
         }
     },
     methods: {
