@@ -155,22 +155,22 @@ new Vue({
         }
     },
     mounted() {
-        const closeBtn = "我知道了";
-        const closeCallback = () => {
-            this.toastMsg += 1;
-        };
-        setTimeout(
-            () => {
-                this.$y_toast(
-                    {
-                        html: "",
-                        position: "center", autoClose: 0,
-                        closeBtn, closeCallback
-                    },
-                    this.toastMsg
-                );
-            }, 1000
-        );
+        // const closeBtn = "我知道了";
+        // const closeCallback = () => {
+        //     this.toastMsg += 1;
+        // };
+        // setTimeout(
+        //     () => {
+        //         this.$y_toast(
+        //             {
+        //                 html: "",
+        //                 position: "center", autoClose: 0,
+        //                 closeBtn, closeCallback
+        //             },
+        //             this.toastMsg
+        //         );
+        //     }, 1000
+        // );
 
     },
     watch: {

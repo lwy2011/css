@@ -1,4 +1,4 @@
-.buttons, .inputs ,.grids,.layouts,.toasts,.tabs{
+.buttons, .inputs ,.grids,.layouts,.toasts,.tabs,.popovers{
     margin: 2em;
 }
 
@@ -45,4 +45,9 @@ li {
 .tabs{
     border:1px solid ;
     height : 200px;
+}
+.popovers{
+    border:1px solid ;
+    height : 200px;
+    padding:1em;
 }

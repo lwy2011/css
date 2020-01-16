@@ -240,6 +240,7 @@
         <y-button @click="toastClick('center',0)">closeBtn toast
         </y-button>
     </div>
+     
     <div class="tabs">
         <y-tabs :selected.sync="tabs.default" :direction="'X'">
             <y-tabs-head>
@@ -263,6 +264,15 @@
                 </y-tabs-panel>
             </y-tabs-body>
         </y-tabs>
+    </div>
+    <div class="popovers">
+        <y-popover>
+            <template v-slot:content>
+                <y-svg icon="setting"></y-svg>
+                设置
+            </template>
+            <y-button>弹出</y-button>
+        </y-popover>
     </div>
 </div>
 
