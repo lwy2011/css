@@ -18,7 +18,6 @@
         data() {
             return {
                 visible: false,
-                close: null
             };
         },
 
@@ -58,26 +57,42 @@
                 }
                 document.body.appendChild(content);
             },
+            close(e) {
+                const {content} = this.$refs;  //对于两个popover，一个要消失，一个要出现的情况
+                if (
+                    e && (
+                        this.$el.contains(e.target) ||
+                        (content && content.contains(e.target)) ||
+                        (content && content === e.target) ||
+                        this.$el === e.target
+                    )
+                ) return;
+                console.log("closeDocument");
+                this.visible = false;
+                document.removeEventListener(
+                    "click", this.close
+                );
+            },
             show() {
                 this.initStyle(this.$refs.content);
-                const close = (e) => {
-                    if (
-                        e && (
-                            this.$el.contains(e.target) ||
-                            this.$refs.content.contains(e.target) ||
-                            this.$refs.content === e.target ||
-                            this.$el === e.target
-                        )
-                    ) return;
-                    console.log("closeDocument");
-                    this.visible = false;
-                    document.removeEventListener(
-                        "click", close
-                    );
-                };
-                this.close = close;
+                // const close = (e) => {
+                //     if (
+                //         e && (
+                //             this.$el.contains(e.target) ||
+                //             this.$refs.content.contains(e.target) ||
+                //             this.$refs.content === e.target ||
+                //             this.$el === e.target
+                //         )
+                //     ) return;
+                //     console.log("closeDocument");
+                //     this.visible = false;
+                //     document.removeEventListener(
+                //         "click", close
+                //     );
+                // };
+                // this.close = close;   //暂存要删除的数据！
                 document.addEventListener(
-                    "click", close
+                    "click", this.close
                 );
             }
         }
