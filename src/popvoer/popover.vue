@@ -1,6 +1,6 @@
 <template>
-    <div class="yv-popover">
-        <span ref="trigger" @click.stop="trigger">
+    <div class="yv-popover" @click="onClick">
+        <span ref="trigger">
             <slot></slot>
         </span>
         <div class="content-wrapper" v-if="visible" ref="content">
@@ -18,14 +18,23 @@
         data() {
             return {
                 visible: false,
-                close: Function
+                close: null
             };
         },
 
         methods: {
+            onClick(e) {
+                if (this.$refs.trigger.contains(e.target)
+                    || this.$refs.trigger === e.target
+                ) {
+                    this.trigger();
+                } else {
+
+                }
+            },
             trigger() {
-                const {visible} = this;
-                if (visible) {
+                // e.stopPropagation();
+                if (this.visible) {
                     console.log("closeClick");
                     this.close();
                 } else {
@@ -50,11 +59,17 @@
                 document.body.appendChild(content);
             },
             show() {
-                const {content} = this.$refs;
-                console.log(this.visible, content);
-                this.initStyle(content);
-                const close = () => {
-                    console.log("closeDocument", close);
+                this.initStyle(this.$refs.content);
+                const close = (e) => {
+                    if (
+                        e && (
+                            this.$el.contains(e.target) ||
+                            this.$refs.content.contains(e.target) ||
+                            this.$refs.content === e.target ||
+                            this.$el === e.target
+                        )
+                    ) return;
+                    console.log("closeDocument");
                     this.visible = false;
                     document.removeEventListener(
                         "click", close
@@ -73,7 +88,7 @@
     @import "../common";
 
     .yv-popover {
-        display: flex;
+        display: inline-flex;
     }
 
     .content-wrapper {
