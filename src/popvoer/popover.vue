@@ -11,7 +11,7 @@
 
 <script>
 
-    import {scrollTop} from "../helper";
+    import {scrollY, scrollX} from "../helper";
 
     export default {
         name: "popover-v",
@@ -41,8 +41,8 @@
                 const {left, top, width, height} =
                     this.$refs.trigger.getBoundingClientRect();
                 const obj = {
-                    left: left + "px",
-                    top: top + scrollTop() - height + "px"
+                    left: left + scrollX() + "px",
+                    top: top + scrollY() - height + "px"
                 };
                 for (let key in obj) {
                     content.style[key] = obj[key];
