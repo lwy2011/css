@@ -94,11 +94,13 @@
                 );
             },
             keepShowing() {
+                this.type === "mouseenter" &&
                 clearTimeout(this.hovering);
                 this.hovering = null;
             },
             stopShowing() {
-                this.visible = false;
+                this.type === "mouseenter" &&
+                (this.visible = false);
             },
 
             trigger() {
@@ -180,7 +182,7 @@
 
     .content-wrapper {
         position: absolute;
-        padding: $small-padding;
+        padding: $small-padding $middle-padding;
         border-radius: $border-radius;
         z-index: 10;
         filter: drop-shadow(0 1px 1px $box-shadow-color);
@@ -193,13 +195,14 @@
         &::before, &::after {
             content: '';
             display: block;
-            border: $popover-margin solid transparent;
+            border: $popover-margin solid #000;
             position: absolute;
         }
 
         &.position-top {
             margin-top: -$popover-margin;
             transform: translateY(-100%);
+            border-bottom: none;
 
             &::before, &::after {
                 border-top: $popover-margin solid #000;
