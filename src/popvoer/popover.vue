@@ -7,6 +7,8 @@
              v-if="visible"
              ref="content"
              :class="`position-${position}`"
+             @mouseenter="keepShowing"
+             @mouseleave="stopShowing"
         >
             <slot name="content"></slot>
         </div>
@@ -22,6 +24,7 @@
         data() {
             return {
                 visible: false,
+                hovering: null
             };
         },
         props: {
@@ -31,17 +34,73 @@
                 validator(val) {
                     return ["top", "left", "right", "bottom"].indexOf(val) >= 0;
                 }
+            },
+            type: {
+                type: String,
+                default: "click",
+                validator(val) {
+                    return ["click", "mouseenter"].indexOf(val) >= 0;
+                }
             }
         },
-
+        mounted() {
+            if (this.type === "mouseenter") {
+                this.$el.addEventListener(
+                    "mouseenter", this.hoverShow
+                );
+                this.$el.addEventListener(
+                    "mouseleave", this.hoverClose
+                );
+            }
+        },
+        destroyed() {
+            this.hovering && clearTimeout()(
+                this.hovering
+            );
+            this.$el.removeEventListener(
+                "mouseenter", this.hoverShow
+            );
+            this.$el.removeEventListener(
+                "onmouseleave", this.hoverClose
+            );
+        },
         methods: {
             onClick(e) {
-                if (this.$refs.trigger.contains(e.target)
-                    || this.$refs.trigger === e.target
+                if (
+                    this.type === "click" &&
+                    (this.$refs.trigger.contains(e.target)
+                        || this.$refs.trigger === e.target
+                    )
                 ) {
                     this.trigger();
                 }
+                this.$emit("click", e, this);
             },
+            hoverShow() {
+                // console.log("hover");
+                this.visible = true;
+                this.$nextTick(
+                    () => {
+                        this.initStyle(this.$refs.content);
+                    }
+                );
+            },
+            hoverClose() {
+                // console.log("hoverClose");
+                this.hovering = setTimeout(
+                    () => {
+                        this.visible = false;
+                    }, 1000
+                );
+            },
+            keepShowing() {
+                clearTimeout(this.hovering);
+                this.hovering = null;
+            },
+            stopShowing() {
+                this.visible = false;
+            },
+
             trigger() {
                 if (this.visible) {
                     // console.log("closeClick");
@@ -186,8 +245,10 @@
                 z-index: 1;
             }
         }
+
         &.position-right {
             margin-left: $popover-margin;
+
             &::before, &::after {
                 border-right: $popover-margin solid #000;
                 right: 100%;

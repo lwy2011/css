@@ -53,3 +53,6 @@ li {
     padding:1em;
     overflow: hidden;
 }
+.popovers > h4 {
+    margin:1em;
+}

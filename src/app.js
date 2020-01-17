@@ -152,6 +152,9 @@ new Vue({
                 },
                 this.toastMsg
             );
+        },
+        popoverClick(e,popover){
+            console.log(e,popover);
         }
     },
     mounted() {

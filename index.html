@@ -266,7 +266,7 @@
         </y-tabs>
     </div>
     <div class="popovers">
-        <h4>popover</h4>
+        <h4>click popover</h4>
         <y-popover>
             <template v-slot:content>
                 <y-svg icon="setting"></y-svg>
@@ -315,12 +315,62 @@
             </template>
             <y-button>弹出right</y-button>
         </y-popover>
-        <y-popover>
+        <y-popover  @click="popoverClick">
             <template v-slot:content>
                 <y-svg icon="setting"></y-svg>
                 设置
             </template>
             <y-button>弹出normal</y-button>
+        </y-popover>
+        <h4>mouseenter popover</h4>
+
+        <y-popover type="mouseenter">
+            <template v-slot:content>
+                <y-svg icon="setting"></y-svg>
+                设置
+                <div>
+                    testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+                    testtesttesttesttesttesttesttesttesttesttesttesttesttesttest
+                    testtesttesttesttesttesttesttesttesttest
+                </div>
+            </template>
+            <y-button>弹出top</y-button>
+        </y-popover>
+        <y-popover position="bottom" type="mouseenter">
+            <template v-slot:content>
+                <y-svg icon="setting"></y-svg>
+                设置
+                <div>
+                    testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+                    testtesttesttesttesttesttesttesttesttesttesttesttesttesttest
+                    testtesttesttesttesttesttesttesttesttest
+                </div>
+            </template>
+            <y-button>弹出bottom</y-button>
+        </y-popover>
+        <y-popover position="left" type="mouseenter">
+            <template v-slot:content>
+                <y-svg icon="setting"></y-svg>
+                设置
+                <div>
+                    testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+                    testtesttesttesttesttesttesttesttesttesttesttesttesttesttest
+                    testtesttesttesttesttesttesttesttesttest
+                </div>
+            </template>
+            <y-button>弹出left</y-button>
+        </y-popover>
+        <y-popover position="right" type="mouseenter">
+            <template v-slot:content>
+                <y-svg icon="setting"></y-svg>
+                设置
+                <div>
+                    testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+                    testtesttesttesttesttesttesttesttesttesttesttesttesttesttest
+                    testtesttesttesttesttesttesttesttesttest
+                </div>
+            </template>
+            <y-button>弹出right</y-button>
         </y-popover>
     </div>
 </div>
