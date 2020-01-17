@@ -111,23 +111,28 @@
         padding: $small-padding;
         border-radius: $border-radius;
         z-index: 10;
-        filter:drop-shadow(0 1px 2px $box-shadow-color);
+        filter: drop-shadow(0 1px 2px $box-shadow-color);
         background: #fff;
-        margin-top:-$popover-margin;
+        max-width: 24em;
+        margin-top: -$popover-margin;
+        word-break: break-all;  //中文推荐
         border: 1px solid #000;
         transform: translateY(-100%);
-        &::before  , &::after{
+        white-space: pre-line;
+
+        &::before, &::after {
             content: '';
             display: block;
-            border:$popover-margin solid transparent;
-            border-top:$popover-margin solid #000;
-            position:absolute;
-            top:100%;
+            border: $popover-margin solid transparent;
+            border-top: $popover-margin solid #000;
+            position: absolute;
+            top: 100%;
         }
-        &::before{
-            top:calc(100% - 1px);
-            border-top:$popover-margin solid #fff;
-            z-index:2;
+
+        &::before {
+            top: calc(100% - 1px);
+            border-top: $popover-margin solid #fff;
+            z-index: 2;
         }
     }
 </style>
