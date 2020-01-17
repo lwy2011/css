@@ -108,10 +108,25 @@
 
     .content-wrapper {
         position: absolute;
-        box-shadow: 0 1px 3px $box-shadow-color;
         padding: $small-padding;
         border-radius: $border-radius;
         z-index: 10;
-        background: #eee;
+        filter:drop-shadow(0 1px 2px $box-shadow-color);
+        background: #fff;
+        margin-top:-$popover-margin;
+        border: 1px solid #000;
+        &::before  , &::after{
+            content: '';
+            display: block;
+            border:$popover-margin solid transparent;
+            border-top:$popover-margin solid #000;
+            position:absolute;
+            top:100%;
+        }
+        &::before{
+            top:calc(100% - 1px);
+            border-top:$popover-margin solid #fff;
+            z-index:2;
+        }
     }
 </style>
