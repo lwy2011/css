@@ -10,7 +10,7 @@
              @mouseenter="hoverToPop"
              @mouseleave="stopHoverPop"
         >
-            <slot name="content"></slot>
+            <slot name="content" :close="closeFn" :i="2"></slot>
         </div>
     </div>
 </template>
@@ -65,6 +65,13 @@
             );
         },
         methods: {
+            closeFn() {
+                if (this.type === "click") {
+                    this.close();
+                }else{
+                    this.visible = false;
+                }
+            },
             onClick(e) {
                 if (
                     this.type === "click" &&
@@ -241,7 +248,7 @@
                 left: 100%;
                 top: 50%;
                 transform: translateY(-50%);
-                border-right:none ;
+                border-right: none;
             }
 
             &::before {

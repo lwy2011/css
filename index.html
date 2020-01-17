@@ -251,7 +251,7 @@
                 >
                     {{tab.name}}
                 </y-tabs-bar>
-                <template v-slot:others>
+                <template #others>
                     <y-button icon="setting">设置</y-button>
                 </template>
             </y-tabs-head>
@@ -268,19 +268,21 @@
     <div class="popovers">
         <h4>click popover</h4>
         <y-popover>
-            <template v-slot:content>
+            <template #content="{close,i}">
                 <y-svg icon="setting"></y-svg>
                 设置
+                {{close}}{{i}}
                 <div>
                     testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
                     testtesttesttesttesttesttesttesttesttesttesttesttesttesttest
                     testtesttesttesttesttesttesttesttesttest
                 </div>
+                <y-button @click="close">关闭</y-button>
             </template>
             <y-button>弹出top</y-button>
         </y-popover>
         <y-popover position="bottom">
-            <template v-slot:content>
+            <template #content>
                 <y-svg icon="setting"></y-svg>
                 设置
                 <div>
@@ -292,7 +294,7 @@
             <y-button>弹出bottom</y-button>
         </y-popover>
         <y-popover position="left">
-            <template v-slot:content>
+            <template #content>
                 <y-svg icon="setting"></y-svg>
                 设置
                 <div>
@@ -304,7 +306,7 @@
             <y-button>弹出left</y-button>
         </y-popover>
         <y-popover position="right">
-            <template v-slot:content>
+            <template #content>
                 <y-svg icon="setting"></y-svg>
                 设置
                 <div>
@@ -316,7 +318,7 @@
             <y-button>弹出right</y-button>
         </y-popover>
         <y-popover  @click="popoverClick">
-            <template v-slot:content>
+            <template #content>
                 <y-svg icon="setting"></y-svg>
                 设置
             </template>
@@ -325,7 +327,7 @@
         <h4>mouseenter popover</h4>
 
         <y-popover type="mouseenter">
-            <template v-slot:content>
+            <template #content="{close}">
                 <y-svg icon="setting"></y-svg>
                 设置
                 <div>
@@ -333,11 +335,12 @@
                     testtesttesttesttesttesttesttesttesttesttesttesttesttesttest
                     testtesttesttesttesttesttesttesttesttest
                 </div>
+                <y-button @click="close">关闭</y-button>
             </template>
             <y-button>弹出top</y-button>
         </y-popover>
         <y-popover position="bottom" type="mouseenter">
-            <template v-slot:content>
+            <template #content>
                 <y-svg icon="setting"></y-svg>
                 设置
                 <div>
@@ -349,7 +352,7 @@
             <y-button>弹出bottom</y-button>
         </y-popover>
         <y-popover position="left" type="mouseenter">
-            <template v-slot:content>
+            <template #content>
                 <y-svg icon="setting"></y-svg>
                 设置
                 <div>
@@ -361,7 +364,7 @@
             <y-button>弹出left</y-button>
         </y-popover>
         <y-popover position="right" type="mouseenter">
-            <template v-slot:content>
+            <template #content>
                 <y-svg icon="setting"></y-svg>
                 设置
                 <div>
