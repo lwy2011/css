@@ -266,6 +266,7 @@
         </y-tabs>
     </div>
     <div class="popovers">
+        <h4>popover</h4>
         <y-popover>
             <template v-slot:content>
                 <y-svg icon="setting"></y-svg>
@@ -276,14 +277,50 @@
                     testtesttesttesttesttesttesttesttesttest
                 </div>
             </template>
-            <y-button>弹出1</y-button>
+            <y-button>弹出top</y-button>
+        </y-popover>
+        <y-popover position="bottom">
+            <template v-slot:content>
+                <y-svg icon="setting"></y-svg>
+                设置
+                <div>
+                    testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+                    testtesttesttesttesttesttesttesttesttesttesttesttesttesttest
+                    testtesttesttesttesttesttesttesttesttest
+                </div>
+            </template>
+            <y-button>弹出bottom</y-button>
+        </y-popover>
+        <y-popover position="left">
+            <template v-slot:content>
+                <y-svg icon="setting"></y-svg>
+                设置
+                <div>
+                    testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+                    testtesttesttesttesttesttesttesttesttesttesttesttesttesttest
+                    testtesttesttesttesttesttesttesttesttest
+                </div>
+            </template>
+            <y-button>弹出left</y-button>
+        </y-popover>
+        <y-popover position="right">
+            <template v-slot:content>
+                <y-svg icon="setting"></y-svg>
+                设置
+                <div>
+                    testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+                    testtesttesttesttesttesttesttesttesttesttesttesttesttesttest
+                    testtesttesttesttesttesttesttesttesttest
+                </div>
+            </template>
+            <y-button>弹出right</y-button>
         </y-popover>
         <y-popover>
             <template v-slot:content>
                 <y-svg icon="setting"></y-svg>
                 设置
             </template>
-            <y-button>弹出2</y-button>
+            <y-button>弹出normal</y-button>
         </y-popover>
     </div>
 </div>
