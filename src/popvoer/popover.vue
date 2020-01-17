@@ -7,8 +7,8 @@
              v-if="visible"
              ref="content"
              :class="`position-${position}`"
-             @mouseenter="keepShowing"
-             @mouseleave="stopShowing"
+             @mouseenter="hoverToPop"
+             @mouseleave="stopHoverPop"
         >
             <slot name="content"></slot>
         </div>
@@ -93,12 +93,12 @@
                     }, 1000
                 );
             },
-            keepShowing() {
+            hoverToPop() {
                 this.type === "mouseenter" &&
                 clearTimeout(this.hovering);
                 this.hovering = null;
             },
-            stopShowing() {
+            stopHoverPop() {
                 this.type === "mouseenter" &&
                 (this.visible = false);
             },
@@ -195,18 +195,18 @@
         &::before, &::after {
             content: '';
             display: block;
-            border: $popover-margin solid #000;
+            border: $popover-margin solid transparent;
             position: absolute;
         }
 
         &.position-top {
             margin-top: -$popover-margin;
             transform: translateY(-100%);
-            border-bottom: none;
 
             &::before, &::after {
                 border-top: $popover-margin solid #000;
                 top: 100%;
+                border-bottom: none;
             }
 
             &::before {
@@ -222,6 +222,7 @@
             &::before, &::after {
                 border-bottom: $popover-margin solid #000;
                 bottom: 100%;
+                border-top: none;
             }
 
             &::before {
@@ -240,6 +241,7 @@
                 left: 100%;
                 top: 50%;
                 transform: translateY(-50%);
+                border-right:none ;
             }
 
             &::before {
@@ -257,6 +259,7 @@
                 right: 100%;
                 top: 50%;
                 transform: translateY(-50%);
+                border-left: none;
             }
 
             &::before {
