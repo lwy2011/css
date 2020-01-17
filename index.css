@@ -50,4 +50,5 @@ li {
     border:1px solid ;
     height : 200px;
     padding:1em;
+    overflow: hidden;
 }

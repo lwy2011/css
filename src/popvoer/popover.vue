@@ -50,7 +50,7 @@
                     this.$refs.trigger.getBoundingClientRect();
                 const obj = {
                     left: left + scrollX() + "px",
-                    top: top + scrollY() - height + "px"
+                    top: top + scrollY() + "px"
                 };
                 for (let key in obj) {
                     content.style[key] = obj[key];
@@ -115,6 +115,7 @@
         background: #fff;
         margin-top:-$popover-margin;
         border: 1px solid #000;
+        transform: translateY(-100%);
         &::before  , &::after{
             content: '';
             display: block;
