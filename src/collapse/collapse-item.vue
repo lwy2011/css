@@ -1,6 +1,6 @@
 <template>
     <div class="yv-collapse-item">
-        <div class="title">
+        <div class="title" @click="select">
             <slot></slot>
         </div>
         <div v-if="active" class="content">
@@ -13,6 +13,7 @@
 <script>
     export default {
         name:'collapse-item-v',
+        inject:['eventBus'],
         props:{
             name : {
                 type:String,required:true
@@ -20,9 +21,22 @@
         },
         data(){
             return{
-                active:true
+                active:false
             }
         },
+        mounted() {
+            this.eventBus.$on('update:selected',(vm)=>{
+                vm === this ?
+                    this.active = true :
+                    this.active = false
+
+            })
+        },
+        methods:{
+            select(){
+                this.eventBus.$emit('update:selected',this)
+            }
+        }
     }
 </script>
 

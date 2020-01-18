@@ -378,7 +378,10 @@
     </div>
     <div class="collapse">
         <y-collapse>
-            <y-collapse-item v-for="item in collapse" :name="item.title">
+            <y-collapse-item
+                    v-for="(item,ind) in collapse"
+                    :key="ind"
+                    :name="item.title">
                 {{item.title}}
                 <template #content>
                     <div>
