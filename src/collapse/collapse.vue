@@ -13,5 +13,9 @@
 
 
 <style lang="scss" scoped>
-
+    @import "../common";
+.yv-collapse{
+    border:1px solid $border-color;
+    border-radius: $border-radius;
+}
 </style>

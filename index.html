@@ -377,7 +377,16 @@
         </y-popover>
     </div>
     <div class="collapse">
-
+        <y-collapse>
+            <y-collapse-item v-for="item in collapse" :name="item.title">
+                {{item.title}}
+                <template #content>
+                    <div>
+                        {{item.content}}
+                    </div>
+                </template>
+            </y-collapse-item>
+        </y-collapse>
     </div>
 </div>
 
