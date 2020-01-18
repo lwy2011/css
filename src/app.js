@@ -115,19 +115,22 @@ new Vue({
             ],
             default: "数码"
         },
-        collapse:[
+        collapse: [
             {
-                title:'title1',content:'content1'
+                title: "title1", content: "content1"
             },
             {
-                title:'title2',content:'content2'
+                title: "title2", content: "content2"
             },
             {
-                title:'title3',content:'content3'
-            },{
-                title:'title4',content:'content4'
+                title: "title3", content: "content3"
+            },
+            {
+                title: "title4", content: "content4"
             }
-        ]
+        ],
+        collapseSelected1:['title3'],
+        collapseSelected2:['title1','title3'],
     },
     methods: {
         inputChange(e) {

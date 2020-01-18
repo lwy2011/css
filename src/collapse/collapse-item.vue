@@ -21,26 +21,17 @@
         },
         data() {
             return {
-                active: false,
-                single: true
+                active: false
             };
         },
         mounted() {
-            this.eventBus.$on("update:selected", (vm, single) => {
-                vm ?
-                    (
-                        vm === this ?
-                            this.active = true :
-                            this.active = false
-                    ) :
-                    this.single = single;
+            this.eventBus.$on("update:selected", (selected) => {
+                this.active = selected.indexOf(this.name) >= 0;
             });
         },
         methods: {
             select() {
-                this.single ?
-                    this.eventBus.$emit("update:selected", this) :
-                    this.active = !this.active;
+                this.eventBus.$emit(`update:${this.active?'remove':'add'}selected`, this.name);
             }
         }
     };

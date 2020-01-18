@@ -378,7 +378,7 @@
     </div>
     <div class="collapse">
         <h4>single</h4>
-        <y-collapse>
+        <y-collapse :selected.sync="collapseSelected1">
             <y-collapse-item
                     v-for="(item,ind) in collapse"
                     :key="ind"
@@ -391,8 +391,9 @@
                 </template>
             </y-collapse-item>
         </y-collapse>
+        {{collapseSelected1}}
         <h4>no single</h4>
-        <y-collapse :single="false">
+        <y-collapse :single="false" :selected.sync="collapseSelected2">
             <y-collapse-item
                     v-for="(item,ind) in collapse"
                     :key="ind"
@@ -405,6 +406,7 @@
                 </template>
             </y-collapse-item>
         </y-collapse>
+        {{collapseSelected2}}
     </div>
 </div>
 

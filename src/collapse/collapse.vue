@@ -24,14 +24,36 @@
             single: {
                 type: Boolean,
                 default: true
+            },
+            selected: Array
+        },
+        watch:{
+            selected:function () {
+                this.eventBus.$emit("update:selected", this.selected);
             }
         },
         mounted() {
-            this.eventBus.$emit("update:selected",null,this.single);
+            // console.log(this.selected);
+            this.eventBus.$emit("update:selected", this.selected);
+            this.eventBus.$on("update:removeselected", (name) => {
+                    this.remove(name);
+                    // console.log("remove");
+            });
+            this.eventBus.$on("update:addselected", (name) => {
+                this.add(name);
+                // console.log("add");
+            });
         },
-        watch:{
-            single:function () {
-                this.eventBus.$emit("update:selected",null,this.single);
+        methods: {
+            add(name) {
+                this.single ?
+                    this.$emit("update:selected", [name]) :
+                    this.$emit("update:selected", [name].concat(this.selected));
+            },
+            remove(name) {
+                const copy = [].concat(this.selected);
+                copy.splice(copy.indexOf(name), 1);
+                this.$emit("update:selected", copy);
             }
         }
     };
