@@ -14,7 +14,7 @@ const html = (type) => `
                 <div>
                     testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
                     testtesttesttesttesttesttesttesttesttesttesttesttesttesttest
-                    testtesttesttesttesttesttesttesttesttest
+                    testtesttesttesttesttesttesttesttesttes
                 </div>
             </template>
             <button id="open">弹出bottom</button>
@@ -41,6 +41,8 @@ describe(
                     expect(popover.$refs.content).to.exist;
                     expect(popover.$refs.content.classList.contains("position-bottom"))
                         .to.eq(true);
+                    div.remove();
+                    vm.$destroy();
                     done();
                 }
             );
@@ -68,11 +70,13 @@ describe(
                             const evt = new Event("mouseleave");
                             popover.$el.dispatchEvent(evt);
                             popover.$nextTick(
-                                ()=>{
+                                () => {
                                     expect(popover.hovering).to.exist;
+                                    div.remove();
+                                    vm.$destroy();
                                     done();
                                 }
-                            )
+                            );
                         }
                     );
                 }

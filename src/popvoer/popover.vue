@@ -54,9 +54,7 @@
             }
         },
         destroyed() {
-            this.hovering && clearTimeout()(
-                this.hovering
-            );
+            this.hovering && clearTimeout(this.hovering);
             this.$el.removeEventListener(
                 "mouseenter", this.hoverShow
             );
@@ -68,7 +66,7 @@
             closeFn() {
                 if (this.type === "click") {
                     this.close();
-                }else{
+                } else {
                     this.visible = false;
                 }
             },

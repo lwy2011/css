@@ -21,6 +21,7 @@ import TabsBody from "./tabs/tabs-body.vue";
 import TabBar from "./tabs/tabs-nav-bar.vue";
 import TabPanel from "./tabs/tabs-panel.vue";
 import Popover from "./popvoer/popover.vue";
+import Collapse from "./collapse/collapse.vue";
 
 Vue.component("y-button", Button);
 Vue.component("y-svg", Svg);
@@ -40,6 +41,7 @@ Vue.component("y-tabs-body", TabsBody);
 Vue.component("y-tabs-bar", TabBar);
 Vue.component("y-tabs-panel", TabPanel);
 Vue.component("y-popover", Popover);
+Vue.component("y-collapse", Collapse);
 //做成全局的实例的插件方法，用户自己主动设置的！
 Vue.use(toastPlugin);
 
@@ -109,9 +111,7 @@ new Vue({
             ],
             default: "数码"
         },
-        popover:{
-
-        }
+        popover: {}
     },
     methods: {
         inputChange(e) {
@@ -153,8 +153,8 @@ new Vue({
                 this.toastMsg
             );
         },
-        popoverClick(e,popover){
-            console.log(e,popover);
+        popoverClick(e, popover) {
+            console.log(e, popover);
         }
     },
     mounted() {
