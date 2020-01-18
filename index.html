@@ -377,7 +377,22 @@
         </y-popover>
     </div>
     <div class="collapse">
+        <h4>single</h4>
         <y-collapse>
+            <y-collapse-item
+                    v-for="(item,ind) in collapse"
+                    :key="ind"
+                    :name="item.title">
+                {{item.title}}
+                <template #content>
+                    <div>
+                        {{item.content}}
+                    </div>
+                </template>
+            </y-collapse-item>
+        </y-collapse>
+        <h4>no single</h4>
+        <y-collapse :single="false">
             <y-collapse-item
                     v-for="(item,ind) in collapse"
                     :key="ind"

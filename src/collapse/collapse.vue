@@ -12,16 +12,27 @@
         name: "collapse-v",
         data() {
             return {
-                eventBus:new Vue()
+                eventBus: new Vue()
             };
         },
-        provide(){
-            return{
-                eventBus:this.eventBus
+        provide() {
+            return {
+                eventBus: this.eventBus
+            };
+        },
+        props: {
+            single: {
+                type: Boolean,
+                default: true
             }
         },
-        mounted(){
-            // this.$on('update:selected',)
+        mounted() {
+            this.eventBus.$emit("update:selected",null,this.single);
+        },
+        watch:{
+            single:function () {
+                this.eventBus.$emit("update:selected",null,this.single);
+            }
         }
     };
 </script>
