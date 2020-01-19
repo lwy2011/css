@@ -64,7 +64,7 @@ describe(
         });
         it("子组件没有collapse-item会报错!", function (done) {
             const html = `
-             <y-collapse :selected.sync="title1">
+             <y-collapse :selected.sync="''">
                 <div></div>
             </y-collapse>`;
             const div = document.createElement("div");
