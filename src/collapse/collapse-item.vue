@@ -1,6 +1,6 @@
 <template>
     <div class="yv-collapse-item">
-        <div class="title" @click="select">
+        <div class="title" @click="select" ref="trigger">
             <slot></slot>
         </div>
         <div v-if="active" class="content">
@@ -31,7 +31,7 @@
         },
         methods: {
             select() {
-                this.eventBus.$emit(`update:${this.active?'remove':'add'}selected`, this.name);
+                this.eventBus.$emit(`update:${this.active ? "remove" : "add"}selected`, this.name);
             }
         }
     };
@@ -62,5 +62,6 @@
         > .content {
             border-top: 1px solid $border-color;
         }
+
     }
 </style>

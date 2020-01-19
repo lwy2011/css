@@ -33,6 +33,15 @@
             }
         },
         mounted() {
+            const errMsg = 'collapse组件的子组件只能是而且必须有collapse-item！';
+            if (this.$children.length === 0)  throw new Error(errMsg);
+            this.$children.map(
+                vm => {
+                    if (vm.$options.name !== 'collapse-item-v'){
+                        throw new Error(errMsg)
+                    }
+                }
+            );
             // console.log(this.selected);
             this.eventBus.$emit("update:selected", this.selected);
             this.eventBus.$on("update:removeselected", (name) => {
