@@ -63,8 +63,9 @@ describe(
             expect(CollapseItem).to.exist;
         });
         it("子组件没有collapse-item会报错!", function (done) {
+            this.timeout(15000);
             const html = `
-             <y-collapse :selected.sync="''">
+             <y-collapse :selected.sync="selected">
                 <div></div>
             </y-collapse>`;
             const div = document.createElement("div");
@@ -72,6 +73,7 @@ describe(
             document.body.appendChild(div);
             const vm = new Vue({
                 el: div,
+                selected:['title1'],
                 errorCaptured(err, vm, info) {
                     expect(
                         err.message ===
