@@ -14,6 +14,8 @@
 </template>
 
 <script>
+    import helper from '../../helper-icon.js'
+
     import Button from "../../../src/button/button.vue";
 
     export default {
