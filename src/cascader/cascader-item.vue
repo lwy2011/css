@@ -1,24 +1,60 @@
 <template>
-    <div class="vy-cascader-item">
-        {{data.name+data.postfix}}
-        <cascader-item-v
-                v-if="data.children && data.children.length"
-                v-for="child in data.children"
-                :data="child"
-        ></cascader-item-v>
+    <div class="yv-cascader-items">
+        <ul class="current">
+            <li v-for="item in data" @click="selected=item">
+                {{item.name+item.postfix}}
+            </li>
+        </ul>
+        <div class="next" v-if="next">
+            <cascader-items-v
+                    :data="next"
+            ></cascader-items-v>
+        </div>
     </div>
 </template>
 
 <script>
     export default {
-        name:'cascader-item-v',
-        props:{
-            data:Object
+        name: "cascader-items-v",
+        props: {
+            data: Array
+        },
+        data() {
+            return {
+                selected: null
+            };
+        },
+        computed: {
+            next() {
+                return this.selected && this.selected.children ?
+                    this.selected.children : null;
+            }
         }
-    }
+    };
 </script>
 
 
 <style lang="scss" scoped>
+    @import "../common";
 
+    .yv-cascader-items {
+        position: relative;
+        >.current{
+            max-height: 15em;
+            overflow-y: scroll;
+            >li{
+                list-style: none;
+                padding: $small-padding;
+                border-bottom:1px solid $border-color;
+                &:last-child{
+                    border-bottom: none;
+                }
+            }
+        }
+        >.next{
+            position:absolute;left:100%;
+            width:100%;top:-1px;
+            border: 1px solid $border-color;
+        }
+    }
 </style>
