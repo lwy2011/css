@@ -17,6 +17,7 @@
 </script>
 
 <style lang="scss" scoped>
+    @import "../animate";
     @import "../common";
     .yv-icon{
         width:1em;height:1em;
