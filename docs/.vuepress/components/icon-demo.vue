@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div style="margin:1em;">
         <y-icon icon="setting"></y-icon>
-        <y-icon icon="loading" :loading="true"></y-icon>
+        <y-icon icon="loading" loading></y-icon>
         <y-icon icon="warn"></y-icon>
         <y-icon icon="left"></y-icon>
         <pre>

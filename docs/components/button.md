@@ -4,5 +4,6 @@
 
 ### 展示
 
-
-<button-demo/>
+<ClientOnly>
+  <button-demo/>
+</ClientOnly>

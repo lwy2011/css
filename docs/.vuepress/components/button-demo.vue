@@ -1,9 +1,12 @@
 <template>
-    <div>
+    <div style="margin:1em;">
         <y-button>normal</y-button>
         <y-button icon="left">last</y-button>
-        <y-button icon="left" iconPosition="right">last</y-button>
-        <y-button icon="download" @click="loading=!loading" :loading="loading"></y-button>
+        <y-button icon="right" iconposition="right">last</y-button>
+        <y-button icon="download"
+                  @click="loading=!loading"
+                  :loading="loading"
+        >下载</y-button>
         <pre>
             <code>{{content}}</code>
         </pre>

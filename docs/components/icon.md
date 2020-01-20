@@ -5,6 +5,7 @@
 
 ### 展示
 
-
-<icon-demo/>
+<ClientOnly>
+  <icon-demo/>
+</ClientOnly>
 
