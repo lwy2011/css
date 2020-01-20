@@ -1,11 +1,15 @@
 <template>
     <div class="yv-cascader">
-        <slot></slot>
+        <div class="trigger">
+            <slot></slot>
+        </div>
     </div>
 </template>
 
 <script>
+export default {
 
+}
 </script>
 
 <style lang="scss" scoped>
