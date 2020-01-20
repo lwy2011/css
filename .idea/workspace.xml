@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="修改button,icon的细节。实现基础的input的样式了。">
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="实现collapse的测试用例！">
+      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/cascader-demo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/components/cascader.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cascader/cascader.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/button-demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/button-demo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/icon-demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/icon-demo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.vuepress/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/components/button.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/components/button.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/components/icon.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/components/icon.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/svg.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/svg/svg.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,34 +26,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/button.test.js">
+        <entry file="file://$PROJECT_DIR$/src/cascader/cascader.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+            <state relative-caret-position="120">
+              <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
               <folding>
-                <element signature="e#29#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.travis.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/input/input.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-              <folding>
-                <element signature="n#input#0;n#label#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#span#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#template#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#script#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#!!top" expanded="true" />
               </folding>
@@ -54,68 +41,61 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+        <entry file="file://$PROJECT_DIR$/docs/.vuepress/components/cascader-demo.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+            <state relative-caret-position="15">
+              <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
               <folding>
-                <element signature="n#head#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#meta#1;n#head#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#0;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#1;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#y-button#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#2;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#y-button#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#3;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#y-button#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#4;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#y-button#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#5;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#y-button#0;n#li#5;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#6;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#y-btn-group#0;n#li#6;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#0;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#1;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#2;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#3;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#y-cascader#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#pre#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#script#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app.js">
+        <entry file="file://$PROJECT_DIR$/docs/.vuepress/components/button-demo.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-                <element signature="e#604#605#0" expanded="true" />
-                <element signature="e#674#675#0" expanded="true" />
-                <element signature="e#826#827#0" expanded="true" />
-                <element signature="e#887#888#0" expanded="true" />
-                <element signature="e#481#505#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/button/button.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+            <state relative-caret-position="510">
+              <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
               <folding>
                 <element signature="n#template#0;n#!!top" expanded="true" />
-                <element signature="n#button#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#Icon#0;n#button#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#span#0;n#button#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#y-button#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#pre#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#script#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/svg/svg.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+              <folding>
+                <element signature="n#template#0;n#!!top" expanded="true" />
+                <element signature="n#svg#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#script#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/.vuepress/components/icon-demo.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#script#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -126,7 +106,19 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>instance</find>
+      <find>xxx</find>
+      <find>triggerType</find>
+      <find>stopShowing</find>
+      <find>v-slot:</find>
+      <find>collapseSelected1</find>
+      <find>title1</find>
     </findStrings>
+    <replaceStrings>
+      <replace>onClick</replace>
+      <replace>type</replace>
+      <replace>stopHoverPop</replace>
+      <replace>#</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -134,31 +126,63 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/button/button.js" />
-        <option value="$PROJECT_DIR$/karma.conf.js" />
-        <option value="$PROJECT_DIR$/src/test/button.test.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/index.css" />
-        <option value="$PROJECT_DIR$/src/animate.css" />
-        <option value="$PROJECT_DIR$/src/animate.scss" />
-        <option value="$PROJECT_DIR$/src/app.js" />
-        <option value="$PROJECT_DIR$/src/button/button.vue" />
-        <option value="$PROJECT_DIR$/src/prompt/msg.vue" />
-        <option value="$PROJECT_DIR$/src/svg/svg.vue" />
-        <option value="$PROJECT_DIR$/src/button/buttongroup.vue" />
-        <option value="$PROJECT_DIR$/src/input/input.vue" />
-        <option value="$PROJECT_DIR$/style_config.css" />
-        <option value="$PROJECT_DIR$/src/common.scss" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/test/button.test.js" />
         <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/test/row.test.js" />
+        <option value="$PROJECT_DIR$/src/layout/header.vue" />
+        <option value="$PROJECT_DIR$/src/layout/aside.vue" />
+        <option value="$PROJECT_DIR$/src/layout/footer.vue" />
+        <option value="$PROJECT_DIR$/src/layout/content.vue" />
+        <option value="$PROJECT_DIR$/src/layout/layout.vue" />
+        <option value="$PROJECT_DIR$/src/toast/toast.vue" />
+        <option value="$PROJECT_DIR$/src/toast/plugin.js" />
+        <option value="$PROJECT_DIR$/src/tbas/tabs.vue" />
+        <option value="$PROJECT_DIR$/src/tabs/tabs-body.vue" />
+        <option value="$PROJECT_DIR$/src/tabs/tabs-panel.vue" />
+        <option value="$PROJECT_DIR$/src/tabs/tabs.vue" />
+        <option value="$PROJECT_DIR$/src/button/button.vue" />
+        <option value="$PROJECT_DIR$/test/toast.test.js" />
+        <option value="$PROJECT_DIR$/src/tabs/tabs-nav-bar.vue" />
+        <option value="$PROJECT_DIR$/src/tabs/tabs-head.vue" />
+        <option value="$PROJECT_DIR$/test/tabs.test.js" />
+        <option value="$PROJECT_DIR$/src/helper.js" />
+        <option value="$PROJECT_DIR$/src/common.scss" />
+        <option value="$PROJECT_DIR$/test/popover.test.js" />
+        <option value="$PROJECT_DIR$/src/popvoer/popover.vue" />
+        <option value="$PROJECT_DIR$/index.css" />
+        <option value="$PROJECT_DIR$/src/app.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/src/animate.scss" />
+        <option value="$PROJECT_DIR$/src/collapse/collapse.vue" />
+        <option value="$PROJECT_DIR$/src/collapse/collapse-item.vue" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/docs/README.md" />
+        <option value="$PROJECT_DIR$/docs/.vuepress/icon/README.md" />
+        <option value="$PROJECT_DIR$/docs/.vuepress/icon/icon.vue" />
+        <option value="$PROJECT_DIR$/docs/.vuepress/button/README.md" />
+        <option value="$PROJECT_DIR$/docs/icon/README.md" />
+        <option value="$PROJECT_DIR$/docs/button/README.md" />
+        <option value="$PROJECT_DIR$/docs/components/README.md" />
+        <option value="$PROJECT_DIR$/docs/components/button.vue" />
+        <option value="$PROJECT_DIR$/test/collapse.test.js" />
+        <option value="$PROJECT_DIR$/docs/components/icon-demo.md" />
+        <option value="$PROJECT_DIR$/docs/components/icon.vue" />
+        <option value="$PROJECT_DIR$/docs/.vuepress/components/button.vue" />
+        <option value="$PROJECT_DIR$/docs/.vuepress/config.js" />
+        <option value="$PROJECT_DIR$/docs/components/cascader.md" />
+        <option value="$PROJECT_DIR$/docs/components/button.md" />
+        <option value="$PROJECT_DIR$/docs/components/icon.md" />
+        <option value="$PROJECT_DIR$/src/cascader/cascader.vue" />
+        <option value="$PROJECT_DIR$/docs/.vuepress/components/cascader-demo.vue" />
+        <option value="$PROJECT_DIR$/docs/.vuepress/components/icon-demo.vue" />
+        <option value="$PROJECT_DIR$/docs/.vuepress/components/button-demo.vue" />
+        <option value="$PROJECT_DIR$/src/svg/svg.vue" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="968" />
-    <option name="y" value="30" />
+    <option name="x" value="1068" />
+    <option name="y" value="36" />
     <option name="width" value="911" />
     <option name="height" value="1000" />
   </component>
@@ -168,7 +192,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -179,36 +202,71 @@
             <path>
               <item name="style" type="b2602c69:ProjectViewProjectNode" />
               <item name="style" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="style" type="b2602c69:ProjectViewProjectNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
+              <item name=".vuepress" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="style" type="b2602c69:ProjectViewProjectNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
+              <item name=".vuepress" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="style" type="b2602c69:ProjectViewProjectNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="style" type="b2602c69:ProjectViewProjectNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="style" type="b2602c69:ProjectViewProjectNode" />
               <item name="style" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="button" type="462c0819:PsiDirectoryNode" />
+              <item name="cascader" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="style" type="b2602c69:ProjectViewProjectNode" />
               <item name="style" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="svg" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/components" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.emmet.css" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/components" />
+      <recent name="$PROJECT_DIR$/docs/.vuepress" />
+      <recent name="$PROJECT_DIR$/src/tabs" />
+      <recent name="$PROJECT_DIR$/src/layout" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/.vuepress/components" />
+      <recent name="$PROJECT_DIR$/docs/components" />
+      <recent name="$PROJECT_DIR$/docs" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -238,141 +296,366 @@
       <workItem from="1578393169375" duration="13877000" />
       <workItem from="1578447412959" duration="2000" />
       <workItem from="1578449592302" duration="15318000" />
+      <workItem from="1578719229190" duration="11523000" />
+      <workItem from="1578759507469" duration="1838000" />
+      <workItem from="1578808929195" duration="90360000" />
+      <workItem from="1579144910921" duration="44379000" />
+      <workItem from="1579339601646" duration="12082000" />
+      <workItem from="1579427699739" duration="20659000" />
+      <workItem from="1579497029573" duration="2772000" />
     </task>
-    <task id="LOCAL-00001" summary="通过parcel初始化项目的脚手架，加入scss等依赖。并写button的单文件组件">
-      <created>1578294041593</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
+    <task id="LOCAL-00019" summary="暂时无法模拟resize进行测试media的事件">
+      <created>1578686683939</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1578294041593</updated>
+      <updated>1578686683939</updated>
     </task>
-    <task id="LOCAL-00002" summary="修改button的样式，active ,hover 的顺序不对，被覆盖了，所以acitve不生效！注意！">
-      <created>1578296112290</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
+    <task id="LOCAL-00020" summary="实现layout布局组件">
+      <created>1578753369154</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
-      <updated>1578296112291</updated>
+      <updated>1578753369155</updated>
     </task>
-    <task id="LOCAL-00003" summary="添加svg组件，button引入svg组件，加入svg的左右位置设置功能，依赖inline-flex，order的css设置。记住，如果多个inline-flex的不对其，就用vertical-align:middle">
-      <created>1578303839679</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
+    <task id="LOCAL-00021" summary="初始化toast的架子，引入插件的概念和用Vue.prototype上加公共方法的套路">
+      <created>1578754626391</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
-      <updated>1578303839679</updated>
+      <updated>1578754626392</updated>
     </task>
-    <task id="LOCAL-00004" summary="对iconposition的值进行vilidator验证，只有right,left值合法！">
-      <created>1578306836806</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
+    <task id="LOCAL-00022" summary="初步实现动态加入页面组件，用的单元测试的方法vue.extends(Toast)，细节是设置vm.$slot.default = [...]，子组件是一堆，所以是数组。加入页面，加入的是vm.$el。">
+      <created>1578757116248</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1578306836806</updated>
+      <updated>1578757116248</updated>
     </task>
-    <task id="LOCAL-00005" summary="add loading animation">
-      <created>1578308914743</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
+    <task id="LOCAL-00023" summary="支持可以传入信息的html字符串格式，文本阅读的部分可以自定义样式。">
+      <created>1578761483503</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1578308914743</updated>
+      <updated>1578761483503</updated>
     </task>
-    <task id="LOCAL-00006" summary="实现loading的点击触发动画的功能，同时增加icononly的功能">
-      <created>1578315892265</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
+    <task id="LOCAL-00024" summary="实现上中下三个位置的position属性的设置">
+      <created>1578811761900</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1578315892265</updated>
+      <updated>1578811761900</updated>
     </task>
-    <task id="LOCAL-00007" summary="button样式的内部的间距bug，创建buttongroup组件，初步样式完成">
-      <created>1578317475782</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
+    <task id="LOCAL-00025" summary="实现了自动关闭的功能。autoClose">
+      <created>1578816855219</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1578317475782</updated>
+      <updated>1578816855219</updated>
     </task>
-    <task id="LOCAL-00008" summary="add 子元素只能是y-button组件的警告">
-      <created>1578319507183</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
+    <task id="LOCAL-00026" summary="添加closeBtn ,closeCallback,调试样式，padding的设置。">
+      <created>1578823449828</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1578319507183</updated>
+      <updated>1578823449828</updated>
     </task>
-    <task id="LOCAL-00009" summary="add chai 单元测试的包">
-      <created>1578320429281</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
+    <task id="LOCAL-00027" summary="艰难实现中线如何居中高度充满。line绝对定位，相对于爷爷容器，top,bottom，可以设置自身高度了。但是水平位置要偏移。还需要一个line的子元素，也绝对定位，也设置top,bottom，这时候，相对于line，就可以设置水平位移了。同时，calc的函数，使用时记得，运算符要有空格">
+      <created>1578830607161</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
-      <updated>1578320429281</updated>
+      <updated>1578830607161</updated>
     </task>
-    <task id="LOCAL-00010" summary="buttongroup注释掉，写了chai的几个测试用例，单纯测js，不需要挂载到实体DOM，css相关的必须要实体挂载。">
-      <created>1578326022431</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
+    <task id="LOCAL-00028" summary="优化aotuClose的初始化定时器的代码，写成了方法">
+      <created>1578831301040</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1578326022431</updated>
+      <updated>1578831301040</updated>
     </task>
-    <task id="LOCAL-00011" summary="用Chai-spies进行事件监听函数执行的mock测试。">
-      <created>1578326741419</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
+    <task id="LOCAL-00029" summary="添加按钮部分的一个遮罩层，增加按钮部分的点击区域，因为按钮是弹性盒子，所以字体部分才可点的区域太小了">
+      <created>1578832388821</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
       <option name="project" value="LOCAL" />
-      <updated>1578326741419</updated>
+      <updated>1578832388821</updated>
     </task>
-    <task id="LOCAL-00012" summary="艰难解决bug，因为button组件引入了svg组件，但是没有在button组件内引入，单元测试时，不会有全局引入组件的。所以报错了。同时，修改了test文件的bug。">
-      <created>1578419474952</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
+    <task id="LOCAL-00030" summary="实现页面只能存在一个toast。">
+      <created>1578834311488</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
       <option name="project" value="LOCAL" />
-      <updated>1578419474952</updated>
+      <updated>1578834311488</updated>
     </task>
-    <task id="LOCAL-00013" summary="添加 travis ci 的标签到readme">
-      <created>1578450244680</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
+    <task id="LOCAL-00031" summary="实现进入动画！">
+      <created>1578837899193</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
       <option name="project" value="LOCAL" />
-      <updated>1578450244680</updated>
+      <updated>1578837899193</updated>
     </task>
-    <task id="LOCAL-00014" summary="创建input组件，所有组件加入scoped ,建立公共变量scss，button，icon组件优化loading状态，优化common.sccc,animate.scss的导入。">
-      <created>1578460721544</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
+    <task id="LOCAL-00032" summary="优化点击关闭按钮时，执行willClose事件的发送，组件监听到后，把created的值清了。">
+      <created>1578838969270</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
       <option name="project" value="LOCAL" />
-      <updated>1578460721544</updated>
+      <updated>1578838969270</updated>
     </task>
-    <task id="LOCAL-00015" summary="修改button,icon的细节。实现基础的input的样式了。">
-      <created>1578465032599</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
+    <task id="LOCAL-00033" summary="修改动画，不能依靠translateX(-50%)，定死在动画里，万一居中不是通过translate做的呢？">
+      <created>1578841991272</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
       <option name="project" value="LOCAL" />
-      <updated>1578465032599</updated>
+      <updated>1578841991272</updated>
     </task>
-    <task id="LOCAL-00016" summary="调整公共的css文件设计。">
-      <created>1578465334042</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
+    <task id="LOCAL-00034" summary="实现toast的测试，超时设置用this.timeout = 15000这个方法加done。">
+      <created>1578910459002</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
       <option name="project" value="LOCAL" />
-      <updated>1578465334042</updated>
+      <updated>1578910459002</updated>
     </task>
-    <task id="LOCAL-00017" summary="修改button.test的测试用例，因为之前改了button，icon组件的逻辑">
-      <created>1578465827678</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
+    <task id="LOCAL-00035" summary="初始化tabs的五个组件，并添加各种api属性。点击事件未完成">
+      <created>1578966196125</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
       <option name="project" value="LOCAL" />
-      <updated>1578465827678</updated>
+      <updated>1578966196125</updated>
     </task>
-    <task id="LOCAL-00018" summary="去掉node 9版本的测试，因为yarn一直下载不了。">
-      <created>1578468477160</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
+    <task id="LOCAL-00036" summary="初步引入 inject , provide ,实现了三层组件全都依赖一个独立的vue实例，依靠实例的事件发布订阅模式，实现了响应式通讯消息。">
+      <created>1579016791845</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
       <option name="project" value="LOCAL" />
-      <updated>1578468477160</updated>
+      <updated>1579016791845</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00037" summary="初步实现head的样式，margin-left:auto，可以让元素向右！">
+      <created>1579055092309</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1579055092309</updated>
+    </task>
+    <task id="LOCAL-00038" summary="通过依赖的vue实例的事件系统，进行跨层级之间的通讯的发布订阅通讯。实现了tab切换">
+      <created>1579056523475</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1579056523475</updated>
+    </task>
+    <task id="LOCAL-00039" summary="通过设置初始的eventBus的逻辑，专门传递初始化匹配的元素。拿到元素的宽和left。这样可以设置line了。设置好了动画了。有个问题，translateX必须要附加left值，否则出问题。单独设置left也可以，但是没有translate的硬件加速。">
+      <created>1579080136754</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1579080136754</updated>
+    </task>
+    <task id="LOCAL-00040" summary="实现了disabled功能">
+      <created>1579080579981</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1579080579981</updated>
+    </task>
+    <task id="LOCAL-00041" summary="对Tabs和tab-bar做了大部分的测试了。基本的属性测试基本覆盖了。">
+      <created>1579112684415</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1579112684415</updated>
+    </task>
+    <task id="LOCAL-00042" summary="初始化popover">
+      <created>1579145591866</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1579145591867</updated>
+    </task>
+    <task id="LOCAL-00043" summary="实现popover的点击事件的隐藏和消失。重点是组件是对象逻辑，而dom是独立的体系对象数据。还有，为什么要在body里添加popover。">
+      <created>1579182798008</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1579182798008</updated>
+    </task>
+    <task id="LOCAL-00044" summary="对元素的绝对位置的考虑只想到了scrollY,忘了scrollX了。">
+      <created>1579183396835</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1579183396835</updated>
+    </task>
+    <task id="LOCAL-00045" summary="用点击事件的e.target来分辨到底是点击的是哪个，来在事件回调函数中做状态管理。为了不阻止事件冒泡">
+      <created>1579186585851</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1579186585851</updated>
+    </task>
+    <task id="LOCAL-00046" summary="优化代码。很奇怪在事件的回调函数内，this指向组件，而不是document。">
+      <created>1579188668176</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1579188668176</updated>
+    </task>
+    <task id="LOCAL-00047" summary="设置popover的倒三角形，以及去掉bix-shadow，加入了filter的drop-shedow。">
+      <created>1579232927743</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1579232927743</updated>
+    </task>
+    <task id="LOCAL-00048" summary="修改定位的逻辑，Y轴上的定位，不应该通过距离屏幕的Y值，滚动值，加自身高度，自身高度不好确定。用translateY(100%)">
+      <created>1579233320717</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1579233320717</updated>
+    </task>
+    <task id="LOCAL-00049" summary="添加最大宽度，添加文本超出强制换行，word-break:break-all">
+      <created>1579234096219</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1579234096219</updated>
+    </task>
+    <task id="LOCAL-00050" summary="实现四个方位的出现功能，position接口的实现。注意点是，尽量先把dom append到body里，保证可以拿到dom的高度。毕竟是异步的渲染">
+      <created>1579244521918</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1579244521920</updated>
+    </task>
+    <task id="LOCAL-00051" summary="实现click 和hover的分别触发行为。hover的默认是可以支持延迟1秒关闭，这一秒内，如果鼠标进入了弹出框内，定时器被取消的。">
+      <created>1579257021741</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1579257021742</updated>
+    </task>
+    <task id="LOCAL-00052" summary="修改在弹出框上加入的mouseenter mouseleave事件逻辑，去掉对click时的影响。">
+      <created>1579258380332</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1579258380332</updated>
+    </task>
+    <task id="LOCAL-00053" summary="完善倒三角的样式，因为hover事件，倒三角的对角边会增加hover的开销。">
+      <created>1579258867809</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1579258867809</updated>
+    </task>
+    <task id="LOCAL-00054" summary="用slot传出close API ，实现外部调用，关闭。">
+      <created>1579260458211</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1579260458211</updated>
+    </task>
+    <task id="LOCAL-00055" summary="实现popover的单元测试。">
+      <created>1579268798531</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1579268798531</updated>
+    </task>
+    <task id="LOCAL-00056" summary="修改一个popover的书写错误，初始化collapse组件">
+      <created>1579340256680</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1579340256681</updated>
+    </task>
+    <task id="LOCAL-00057" summary="初步实现了collapse的基本样式。">
+      <created>1579344057734</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1579344057734</updated>
+    </task>
+    <task id="LOCAL-00058" summary="用了依赖注入，进行了点击切换的功能的实现。">
+      <created>1579359558183</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1579359558183</updated>
+    </task>
+    <task id="LOCAL-00059" summary="依靠注入依赖的传值，添加single的api来控制组件的单个或多个展示">
+      <created>1579360496793</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1579360496793</updated>
+    </task>
+    <task id="LOCAL-00060" summary="实现单向数据流，更改selected的逻辑。记住，一个事件中心，同时监听和发送一个事件的话，这里会死循环的。于是，事件划分隔离开">
+      <created>1579365959969</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1579365959969</updated>
+    </task>
+    <task id="LOCAL-00061" summary="实现collapse的测试用例！">
+      <created>1579442109812</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1579442109813</updated>
+    </task>
+    <task id="LOCAL-00062" summary="修改collapse的测试用例！">
+      <created>1579452697853</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1579452697853</updated>
+    </task>
+    <task id="LOCAL-00063" summary="修改collapse的测试用例！">
+      <created>1579453246565</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1579453246565</updated>
+    </task>
+    <task id="LOCAL-00064" summary="修改collapse的测试用例！">
+      <created>1579453533595</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1579453533595</updated>
+    </task>
+    <task id="LOCAL-00065" summary="fix collapse的测试用例！">
+      <created>1579453818360</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1579453818360</updated>
+    </task>
+    <task id="LOCAL-00066" summary="初步使用vuepress，真的垃圾。">
+      <created>1579456871895</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1579456871895</updated>
+    </task>
+    <task id="LOCAL-00067" summary="引入vuepress">
+      <created>1579497203434</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1579497203435</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65907000" />
+    <option name="totallyTimeSpent" value="250123000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="968" y="30" width="911" height="1000" extended-state="0" />
+    <frame x="1068" y="36" width="911" height="1000" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -385,58 +668,92 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.20677966" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.2101695" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="调试" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3299435" />
+      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.3299435" />
       <window_info anchor="right" id="Key Promoter X" order="0" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="4" visible="true" weight="0.24626006" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="4" visible="true" weight="0.2612198" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3299435" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.2101695" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="调试" order="11" />
+      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.3299435" />
+      <window_info anchor="right" id="Key Promoter X" order="0" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="4" visible="true" weight="0.2612198" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="通过parcel初始化项目的脚手架，加入scss等依赖。并写button的单文件组件" />
-    <MESSAGE value="修改button的样式，active ,hover 的顺序不对，被覆盖了，所以acitve不生效！注意！" />
-    <MESSAGE value="添加svg组件，button引入svg组件，加入svg的左右位置设置功能，依赖inline-flex，order的css设置。记住，如果多个inline-flex的不对其，就用vertical-align:middle" />
-    <MESSAGE value="对iconposition的值进行vilidator验证，只有right,left值合法！" />
-    <MESSAGE value="add loading animation" />
-    <MESSAGE value="实现loading的点击触发动画的功能，同时增加icononly的功能" />
-    <MESSAGE value="button样式的内部的间距bug，创建buttongroup组件，初步样式完成" />
-    <MESSAGE value="add 子元素只能是y-button组件的警告" />
-    <MESSAGE value="add chai 单元测试的包" />
-    <MESSAGE value="buttongroup注释掉，写了chai的几个测试用例，单纯测js，不需要挂载到实体DOM，css相关的必须要实体挂载。" />
-    <MESSAGE value="用Chai-spies进行事件监听函数执行的mock测试。" />
-    <MESSAGE value="艰难解决bug，因为button组件引入了svg组件，但是没有在button组件内引入，单元测试时，不会有全局引入组件的。所以报错了。同时，修改了test文件的bug。" />
-    <MESSAGE value="添加 travis ci 的标签到readme" />
-    <MESSAGE value="创建input组件，所有组件加入scoped ,建立公共变量scss，button，icon组件优化loading状态，优化common.sccc,animate.scss的导入。" />
-    <MESSAGE value="修改button,icon的细节。实现基础的input的样式了。" />
-    <MESSAGE value="调整公共的css文件设计。" />
-    <MESSAGE value="修改button.test的测试用例，因为之前改了button，icon组件的逻辑" />
-    <MESSAGE value="去掉node 9版本的测试，因为yarn一直下载不了。" />
-    <option name="LAST_COMMIT_MESSAGE" value="去掉node 9版本的测试，因为yarn一直下载不了。" />
+    <MESSAGE value="初始化popover" />
+    <MESSAGE value="实现popover的点击事件的隐藏和消失。重点是组件是对象逻辑，而dom是独立的体系对象数据。还有，为什么要在body里添加popover。" />
+    <MESSAGE value="对元素的绝对位置的考虑只想到了scrollY,忘了scrollX了。" />
+    <MESSAGE value="用点击事件的e.target来分辨到底是点击的是哪个，来在事件回调函数中做状态管理。为了不阻止事件冒泡" />
+    <MESSAGE value="优化代码。很奇怪在事件的回调函数内，this指向组件，而不是document。" />
+    <MESSAGE value="设置popover的倒三角形，以及去掉bix-shadow，加入了filter的drop-shedow。" />
+    <MESSAGE value="修改定位的逻辑，Y轴上的定位，不应该通过距离屏幕的Y值，滚动值，加自身高度，自身高度不好确定。用translateY(100%)" />
+    <MESSAGE value="添加最大宽度，添加文本超出强制换行，word-break:break-all" />
+    <MESSAGE value="实现四个方位的出现功能，position接口的实现。注意点是，尽量先把dom append到body里，保证可以拿到dom的高度。毕竟是异步的渲染" />
+    <MESSAGE value="实现click 和hover的分别触发行为。hover的默认是可以支持延迟1秒关闭，这一秒内，如果鼠标进入了弹出框内，定时器被取消的。" />
+    <MESSAGE value="修改在弹出框上加入的mouseenter mouseleave事件逻辑，去掉对click时的影响。" />
+    <MESSAGE value="完善倒三角的样式，因为hover事件，倒三角的对角边会增加hover的开销。" />
+    <MESSAGE value="用slot传出close API ，实现外部调用，关闭。" />
+    <MESSAGE value="实现popover的单元测试。" />
+    <MESSAGE value="修改一个书写错误" />
+    <MESSAGE value="修改一个popover的书写错误，初始化collapse组件" />
+    <MESSAGE value="初步实现了collapse的基本样式。" />
+    <MESSAGE value="用了依赖注入，进行了点击切换的功能的实现。" />
+    <MESSAGE value="依靠注入依赖的传值，添加single的api来控制组件的单个或多个展示" />
+    <MESSAGE value="实现单向数据流，更改selected的逻辑。记住，一个事件中心，同时监听和发送一个事件的话，这里会死循环的。于是，事件划分隔离开" />
+    <MESSAGE value="实现collapse的测试用例！" />
+    <MESSAGE value="修改collapse的测试用例！" />
+    <MESSAGE value="fix collapse的测试用例！" />
+    <MESSAGE value="初步使用vuepress，真的垃圾。" />
+    <MESSAGE value="引入vuepress" />
+    <option name="LAST_COMMIT_MESSAGE" value="引入vuepress" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/test/row.test.js</url>
+          <line>181</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app.js</url>
+          <line>292</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/test/tabs.test.js</url>
+          <line>136</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/karma.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="2" selection-start-line="69" selection-start-column="2" selection-end-line="69" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/button.test.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/button.test.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -447,28 +764,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/src/prompt/msg.vue" />
+    <entry file="file://$PROJECT_DIR$/style_config.css" />
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        <state relative-caret-position="45">
+          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/animate.scss">
+    <entry file="file://$PROJECT_DIR$/src/grid/row.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="315">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding>
+            <element signature="n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/prompt/msg.vue">
+    <entry file="file://$PROJECT_DIR$/src/grid/col.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+        <state relative-caret-position="1005">
+          <caret line="67" column="74" selection-start-line="67" selection-start-column="74" selection-end-line="67" selection-end-column="74" />
+          <folding>
+            <element signature="n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layout/layout.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+          <folding>
+            <element signature="n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layout/header.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <folding>
+            <element signature="n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layout/aside.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding>
+            <element signature="n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layout/footer.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
             <element signature="n#template#0;n#!!top" expanded="true" />
             <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#script#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layout/content.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding>
+            <element signature="n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -487,29 +873,165 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style_config.css">
+    <entry file="file://$PROJECT_DIR$/src/input/input.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="180">
+          <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding>
+            <element signature="n#input#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#span#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/input.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-540" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/sinon-chai/lib/sinon-chai.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="82" column="17" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/toast/plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/toast/toast.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+            <element signature="e#2888#3719#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/button.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+          <folding>
+            <element signature="e#29#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/toast.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="34" column="20" lean-forward="true" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+          <folding>
+            <element signature="e#30#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/chai/chai.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48421">
+          <caret line="7823" column="24" selection-start-line="7823" selection-start-column="24" selection-end-line="7823" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tabs/tabs-head.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
+          <folding>
+            <element signature="n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tabs/tabs-body.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+          <folding>
+            <element signature="n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tabs/tabs-nav-bar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+          <folding>
+            <element signature="n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tabs/tabs-panel.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <element signature="n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/common.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/button/button.vue">
+    <entry file="file://$PROJECT_DIR$/test/popover.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+        <state relative-caret-position="427">
+          <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+          <folding>
+            <element signature="e#29#51#0" expanded="true" />
+            <element signature="n#y-popover#0;n#!!top" expanded="true" />
+            <element signature="n#template#0;n#y-popover#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#y-popover#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/popvoer/popover.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="67" column="33" lean-forward="true" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="33" />
           <folding>
             <element signature="n#template#0;n#!!top" expanded="true" />
-            <element signature="n#button#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#Icon#0;n#button#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#span#0;n#button#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#span#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#!!top" expanded="true" />
           </folding>
         </state>
@@ -517,20 +1039,84 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        <state relative-caret-position="225">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/animate.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/row.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3675">
+          <caret line="262" column="48" selection-start-line="262" selection-start-column="48" selection-end-line="262" selection-end-column="48" />
+          <folding>
+            <element signature="e#29#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/tabs.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+          <folding>
+            <element signature="e#29#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tabs/tabs.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+          <folding>
+            <element signature="n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/collapse/collapse-item.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="55" selection-start-line="2" selection-start-column="55" selection-end-line="2" selection-end-column="55" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/collapse/collapse.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="35" column="65" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="65" />
+          <folding>
+            <element signature="n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#584#585#0" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        <state relative-caret-position="273">
+          <caret line="390" column="27" selection-start-line="390" selection-start-column="27" selection-end-line="390" selection-end-column="27" />
           <folding>
             <element signature="n#head#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#meta#1;n#head#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#li#0;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#li#1;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -545,71 +1131,254 @@
             <element signature="n#y-button#0;n#li#5;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#li#6;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#y-btn-group#0;n#li#6;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#li#0;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#li#1;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#li#2;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#li#3;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/svg/svg.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="n#template#0;n#!!top" expanded="true" />
-            <element signature="n#svg#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#script#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/input/input.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-          <folding>
-            <element signature="n#input#0;n#label#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#span#0;n#template#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#script#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#!!top" expanded="true" />
+            <element signature="n#li#4;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-input#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-row#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-row#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-row#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-row#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-row#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-row#1;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-row#2;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-col#0;n#y-row#2;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-col#1;n#y-row#2;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-col#2;n#y-row#2;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-col#3;n#y-row#2;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-row#3;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-col#0;n#y-row#3;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-col#1;n#y-row#3;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-col#2;n#y-row#3;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-col#3;n#y-row#3;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-col#4;n#y-row#3;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-row#4;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-col#0;n#y-row#4;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-row#0;n#y-col#0;n#y-row#4;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-col#1;n#y-row#4;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-row#0;n#y-col#1;n#y-row#4;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-col#2;n#y-row#0;n#y-col#1;n#y-row#4;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-row#0;n#y-col#2;n#y-row#0;n#y-col#1;n#y-row#4;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-row#5;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-layout#0;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-header#0;n#y-layout#0;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-content#0;n#y-layout#0;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-footer#0;n#y-layout#0;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-layout#0;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-aside#0;n#y-layout#0;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-layout#0;n#y-layout#0;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-header#0;n#y-layout#0;n#y-layout#0;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-footer#0;n#y-layout#0;n#y-layout#0;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-button#4;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-tabs#0;n#div#9;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-tabs-head#0;n#y-tabs#0;n#div#9;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-tabs-bar#0;n#y-tabs-head#0;n#y-tabs#0;n#div#9;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#template#0;n#y-tabs-head#0;n#y-tabs#0;n#div#9;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-tabs-body#0;n#y-tabs#0;n#div#9;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-tabs-panel#0;n#y-tabs-body#0;n#y-tabs#0;n#div#9;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-popover#0;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#template#0;n#y-popover#0;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#y-popover#0;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-popover#1;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#template#0;n#y-popover#1;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#y-popover#1;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-popover#2;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#template#0;n#y-popover#2;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#y-popover#2;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-popover#3;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#template#0;n#y-popover#3;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#y-popover#3;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-popover#4;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-popover#5;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#template#0;n#y-popover#5;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#y-popover#5;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-popover#6;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#template#0;n#y-popover#6;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#y-popover#6;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-popover#7;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#template#0;n#y-popover#7;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#y-popover#7;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-popover#8;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#template#0;n#y-popover#8;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#y-popover#8;n#div#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#template#0;n#y-collapse-item#0;n#y-collapse#0;n#div#11;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#y-collapse-item#0;n#y-collapse#0;n#div#11;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-collapse#1;n#div#11;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#y-collapse-item#0;n#y-collapse#1;n#div#11;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#template#0;n#y-collapse-item#0;n#y-collapse#1;n#div#11;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#y-collapse-item#0;n#y-collapse#1;n#div#11;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        <state relative-caret-position="231">
+          <caret line="114" column="14" lean-forward="true" selection-start-line="114" selection-start-column="14" selection-end-line="114" selection-end-column="14" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#674#675#0" expanded="true" />
-            <element signature="e#826#827#0" expanded="true" />
-            <element signature="e#887#888#0" expanded="true" />
-            <element signature="e#481#505#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/button.test.js">
+    <entry file="file://$PROJECT_DIR$/docs/components/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="30">
+            <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/collapse.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+        <state relative-caret-position="66">
+          <caret line="54" column="2" lean-forward="true" selection-start-line="54" selection-start-column="2" selection-end-line="54" selection-end-column="2" />
           <folding>
             <element signature="e#29#51#0" expanded="true" />
+            <element signature="n#y-collapse#0;n#!!top" expanded="true" />
+            <element signature="n#y-collapse-item#0;n#y-collapse#0;n#!!top" expanded="true" />
+            <element signature="n#template#0;n#y-collapse-item#0;n#y-collapse#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#y-collapse-item#0;n#y-collapse#0;n#!!top" expanded="true" />
+            <element signature="n#y-collapse#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        <state relative-caret-position="232">
+          <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/button/button.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <element signature="n#Icon#0;n#button#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="15">
+            <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/.vuepress/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/components/button.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="120">
+            <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/components/icon.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="165">
+            <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/components/cascader.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="120">
+            <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cascader/cascader.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+          <folding>
+            <element signature="n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/.vuepress/components/cascader-demo.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#y-cascader#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#pre#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/.vuepress/components/icon-demo.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/.vuepress/components/button-demo.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+          <folding>
+            <element signature="n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#y-button#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#pre#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/svg/svg.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+          <folding>
+            <element signature="n#template#0;n#!!top" expanded="true" />
+            <element signature="n#svg#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
