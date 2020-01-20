@@ -73,17 +73,7 @@ describe("Button", () => {
         expect(svgEl.getAttribute('loading')).to.eq('true');
         vm.over();
     });
-    it("可以只要Icon！", function () {
-        const vm = init(
-            {
-                icon: "download", icononly:true
-            }
-        );
 
-        const span = vm.getEl("span");
-        expect(span).to.be.a('null');
-        vm.over();
-    });
     it("可以触发点击事件！", function () {
         const vm = init({});
         const callback = sinon.fake();
