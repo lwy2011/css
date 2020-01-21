@@ -1,8 +1,13 @@
 <template>
-    <div style="margin:1em;">
-        <y-cascader :data="data">
-            <y-button>选择地址</y-button>
-        </y-cascader>
+    <div>
+        <div style="margin:1em;paddingBottom:20em;">
+            <y-cascader :data="data"
+                        widthStyle="width:10em;"
+                        height-style="height:10em;"
+            >
+                <y-button>选择地址</y-button>
+            </y-cascader>
+        </div>
         <pre>
             <code>{{content}}</code>
         </pre>
@@ -11,14 +16,14 @@
 
 <script>
     import Cascader from "../../../src/cascader/cascader.vue";
-    import Button from '../../../src/button/button.vue'
-    import data from './cascader.js'
+    import Button from "../../../src/button/button.vue";
+    import data from "./cascader.js";
 
     // console.log(data);
     export default {
         components: {
             "y-cascader": Cascader,
-            "y-button":Button,
+            "y-button": Button,
         },
         data() {
             return {
@@ -26,7 +31,7 @@
                         <y-cascader></y-cascader>
                 `,
                 data,
-                selected:[]
+                selected: []
             };
         }
     };

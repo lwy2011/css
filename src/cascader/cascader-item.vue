@@ -1,12 +1,13 @@
 <template>
     <div class="yv-cascader-items">
-        <ul class="current">
+        <ul class="current" :style="height">
             <li v-for="item in data" @click="selected=item">
                 {{item.name+item.postfix}}
             </li>
         </ul>
         <div class="next" v-if="next">
             <cascader-items-v
+                    :height="height"
                     :data="next"
             ></cascader-items-v>
         </div>
@@ -17,7 +18,8 @@
     export default {
         name: "cascader-items-v",
         props: {
-            data: Array
+            data: Array,
+            height:String
         },
         data() {
             return {
@@ -40,7 +42,7 @@
     .yv-cascader-items {
         position: relative;
         >.current{
-            max-height: 15em;
+            height: 15em;
             overflow-y: scroll;
             >li{
                 list-style: none;

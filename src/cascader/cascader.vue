@@ -3,8 +3,8 @@
         <div class="trigger" @click="visible=!visible">
             <slot></slot>
         </div>
-        <div class="items" v-if="visible">
-            <cascaderItems :data="data"></cascaderItems>
+        <div class="items" v-if="visible" :style="widthStyle">
+            <cascaderItems :data="data" :height="heightStyle"></cascaderItems>
         </div>
     </div>
 </template>
@@ -17,7 +17,9 @@
         },
         props: {
             selected: Array,
-            data:Array
+            data:Array,
+            widthStyle:String,
+            heightStyle:String
         },
         data(){
             return {
@@ -37,7 +39,9 @@
         }
         >.items{
             border:1px solid $border-color;
-            max-width: 9em;
+            position:absolute;
+            z-index:10;
+            width: 9em;
         }
     }
 </style>
