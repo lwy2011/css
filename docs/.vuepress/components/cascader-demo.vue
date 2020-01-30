@@ -45,7 +45,7 @@
         computed: {
             result() {
                 return this.selected.reduce(
-                    (a, b) => a + (b ? b.name : ""), "结果："
+                    (a, b, ind) => a + (b ? ( ind === 0 ? "" : "-") + b.name : ""), "结果："
                 );
             }
         }

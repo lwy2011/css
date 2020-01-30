@@ -57,14 +57,13 @@
         methods: {
             select(item) {
                 const copy = [...this.selected];
-                this.level >= copy.length ?
-                    copy[this.level] = item :
-                    copy.splice(this.level, copy.length - this.level, item);
+                copy[this.level] = item;
+                copy.splice(this.level+1);
                 // console.log(copy);
-                this.$emit("update:selected",copy);
+                this.$emit("update:selected", copy);
             },
-            onUpdateSelected(newSelect){
-                this.$emit("update:selected",newSelect);
+            onUpdateSelected(newSelect) {
+                this.$emit("update:selected", newSelect);
             }
         }
     };
