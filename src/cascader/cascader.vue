@@ -2,7 +2,7 @@
     <div class="yv-cascader">
         <div class="trigger" @click="visible=!visible">
             <slot></slot>
-            {{result}}
+            {{result || '&nbsp;'}}
         </div>
         <div class="items" v-if="visible" >
             <cascaderItems
