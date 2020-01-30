@@ -3,6 +3,8 @@
         <ul class="current" :style="height">
             <li v-for="item in data" @click="selected=item">
                 {{item.name+item.postfix}}
+                <Icon v-if="item.children" icon="right">
+                </Icon>
             </li>
         </ul>
         <div class="next" v-if="next">
@@ -15,7 +17,9 @@
 </template>
 
 <script>
+    import Icon from '../svg/svg.vue'
     export default {
+        components:{Icon},
         name: "cascader-items-v",
         props: {
             data: Array,
@@ -38,25 +42,39 @@
 
 <style lang="scss" scoped>
     @import "../common";
-
     .yv-cascader-items {
         position: relative;
+        background: #fff;
+
         >.current{
             height: 15em;
+            padding: $small-padding 0;
             overflow-y: scroll;
             >li{
                 list-style: none;
                 padding: $small-padding;
-                border-bottom:1px solid $border-color;
                 &:last-child{
                     border-bottom: none;
+                }
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                >.yv-icon{
+                    transform: scale(.5);
+                }
+                &:hover{
+                    background: $blue;
+                }
+                &.active{
+                    background: lighten($blue,60%);
                 }
             }
         }
         >.next{
             position:absolute;left:100%;
-            width:100%;top:-1px;
-            border: 1px solid $border-color;
+            border-left:1px solid lighten($border-color,70%);
+            width:100%;top:0;
+            @extend %box-shadow;
         }
     }
 </style>
