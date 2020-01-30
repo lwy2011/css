@@ -1,6 +1,6 @@
 <template>
     <div class="yv-cascader-items">
-        <ul class="current" :style="height">
+        <ul class="current" :style="setSize">
             <li v-for="item in data" @click="selected=item">
                 {{item.name+item.postfix}}
                 <Icon v-if="item.children" icon="right">
@@ -9,7 +9,7 @@
         </ul>
         <div class="next" v-if="next">
             <cascader-items-v
-                    :height="height"
+                    :size="size"
                     :data="next"
             ></cascader-items-v>
         </div>
@@ -17,13 +17,16 @@
 </template>
 
 <script>
-    import Icon from '../svg/svg.vue'
+    import Icon from "../svg/svg.vue";
+
     export default {
-        components:{Icon},
+        components: {Icon},
         name: "cascader-items-v",
         props: {
             data: Array,
-            height:String
+            size: {
+                type: Object
+            }
         },
         data() {
             return {
@@ -34,47 +37,56 @@
             next() {
                 return this.selected && this.selected.children ?
                     this.selected.children : null;
+            },
+            setSize() {
+                if (this.size) {
+                    const {width, height} = this.size;
+                    const str1 = width ? `width:${width};` : "";
+                    const str2 = height ? `height:${height}` : "";
+                    return str1 + str2;
+                }
+                return "";
             }
-        }
+        },
     };
 </script>
 
 
 <style lang="scss" scoped>
     @import "../common";
-    .yv-cascader-items {
-        position: relative;
-        background: #fff;
 
-        >.current{
-            height: 15em;
-            padding: $small-padding 0;
+    .yv-cascader-items {
+        background: #fff;
+        display: flex;
+
+        > .current {
+            height: 10em;
+            width: 6em;
             overflow-y: scroll;
-            >li{
+
+            > li {
                 list-style: none;
                 padding: $small-padding;
-                &:last-child{
-                    border-bottom: none;
-                }
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                >.yv-icon{
+                cursor: pointer;
+                > .yv-icon {
                     transform: scale(.5);
                 }
-                &:hover{
+
+                &:hover {
                     background: $blue;
                 }
-                &.active{
-                    background: lighten($blue,60%);
+
+                &.active {
+                    background: lighten($blue, 60%);
                 }
             }
         }
-        >.next{
-            position:absolute;left:100%;
-            border-left:1px solid lighten($border-color,70%);
-            width:100%;top:0;
-            @extend %box-shadow;
+
+        > .next {
+            border-left: 1px solid lighten($border-color, 30%);
         }
     }
 </style>

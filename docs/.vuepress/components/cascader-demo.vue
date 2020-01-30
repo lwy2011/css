@@ -1,9 +1,8 @@
 <template>
     <div>
-        <div style="margin:1em;paddingBottom:20em;">
+        <div style="margin:1em;paddingBottom:20em;z-index: 10;">
             <y-cascader :data="data"
-                        widthStyle="width:10em;"
-                        height-style="height:10em;"
+                       :size="size"
             >
                 <y-button>选择地址</y-button>
             </y-cascader>
@@ -18,6 +17,7 @@
     import Cascader from "../../../src/cascader/cascader.vue";
     import Button from "../../../src/button/button.vue";
     import data from "./cascader.js";
+    import '../../helper-icon.js'
 
     // console.log(data);
     export default {
@@ -31,7 +31,11 @@
                         <y-cascader></y-cascader>
                 `,
                 data,
-                selected: []
+                selected: [],
+                size:{
+                    width:'9em',
+                    height:'15em'
+                }
             };
         }
     };

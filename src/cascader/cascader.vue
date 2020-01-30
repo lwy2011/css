@@ -3,8 +3,8 @@
         <div class="trigger" @click="visible=!visible">
             <slot></slot>
         </div>
-        <div class="items" v-if="visible" :style="widthStyle">
-            <cascaderItems :data="data" :height="heightStyle"></cascaderItems>
+        <div class="items" v-if="visible" >
+            <cascaderItems :data="data" :size="size"></cascaderItems>
         </div>
     </div>
 </template>
@@ -18,8 +18,7 @@
         props: {
             selected: Array,
             data:Array,
-            widthStyle:String,
-            heightStyle:String
+            size:Object,
         },
         data(){
             return {
@@ -33,15 +32,11 @@
     @import "../common";
     .yv-cascader {
         position:relative;
-
-        >.trigger{
-
-        }
         >.items{
-            border:1px solid $border-color;
             position:absolute;
-            z-index:10;
-            width: 9em;
+            @extend %box-shadow;
+            left:0;
+            top:100%;
         }
     }
 </style>
