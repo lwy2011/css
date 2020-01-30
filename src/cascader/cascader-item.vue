@@ -1,16 +1,21 @@
 <template>
     <div class="yv-cascader-items">
         <ul class="current" :style="setSize">
-            <li v-for="item in data" @click="selected=item">
-                {{item.name+item.postfix}}
+            <li v-for="item in data"
+                @click="select(item)"
+            >
+                {{item.name}}
                 <Icon v-if="item.children" icon="right">
                 </Icon>
             </li>
         </ul>
         <div class="next" v-if="next">
             <cascader-items-v
+                    :level="level+1"
                     :size="size"
                     :data="next"
+                    :selected="selected"
+                    @update:selected="onUpdateSelected"
             ></cascader-items-v>
         </div>
     </div>
@@ -26,17 +31,18 @@
             data: Array,
             size: {
                 type: Object
-            }
-        },
-        data() {
-            return {
-                selected: null
-            };
+            },
+            level: {
+                type: Number,
+                default: 0
+            },
+            selected: Array
         },
         computed: {
             next() {
-                return this.selected && this.selected.children ?
-                    this.selected.children : null;
+                const val = this.selected[this.level];
+                return val && val.children ?
+                    val.children : null;
             },
             setSize() {
                 if (this.size) {
@@ -48,6 +54,19 @@
                 return "";
             }
         },
+        methods: {
+            select(item) {
+                const copy = [...this.selected];
+                this.level >= copy.length ?
+                    copy[this.level] = item :
+                    copy.splice(this.level, copy.length - this.level, item);
+                // console.log(copy);
+                this.$emit("update:selected",copy);
+            },
+            onUpdateSelected(newSelect){
+                this.$emit("update:selected",newSelect);
+            }
+        }
     };
 </script>
 
@@ -71,6 +90,7 @@
                 justify-content: space-between;
                 align-items: center;
                 cursor: pointer;
+
                 > .yv-icon {
                     transform: scale(.5);
                 }

@@ -1,8 +1,11 @@
 <template>
     <div>
         <div style="margin:1em;paddingBottom:20em;z-index: 10;">
+            <p> {{result }} </p>
             <y-cascader :data="data"
-                       :size="size"
+                        :size="size"
+                        @update:selected="selected = $event"
+                        :selected="selected"
             >
                 <y-button>选择地址</y-button>
             </y-cascader>
@@ -18,7 +21,7 @@
     import Cascader from "../../../src/cascader/cascader.vue";
     import Button from "../../../src/button/button.vue";
     import data from "./cascader.js";
-    import '../../helper-icon.js'
+    import "../../helper-icon.js";
 
     // console.log(data);
     export default {
@@ -33,11 +36,18 @@
                 `,
                 data,
                 selected: [],
-                size:{
-                    width:'9em',
-                    height:'15em'
+                size: {
+                    width: "9em",
+                    height: "15em"
                 }
             };
+        },
+        computed: {
+            result() {
+                return this.selected.reduce(
+                    (a, b) => a + (b ? b.name : ""), "结果："
+                );
+            }
         }
     };
 </script>

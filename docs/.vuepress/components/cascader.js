@@ -35725,5 +35725,16 @@ arr.map(
         }
     }
 );
+const fix = (arr) => {
+    arr.map(
+        obj => {
+            obj.name += obj.postfix;
+            if (obj.children) {
+                fix(obj.children);
+            }
+        }
+    );
+};
+fix(arr1);
 export default arr1;
 

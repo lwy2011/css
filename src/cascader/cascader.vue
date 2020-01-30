@@ -4,7 +4,11 @@
             <slot></slot>
         </div>
         <div class="items" v-if="visible" >
-            <cascaderItems :data="data" :size="size"></cascaderItems>
+            <cascaderItems
+                    :selected="selected"
+                    @update:selected="select"
+                    :data="data" :size="size">
+            </cascaderItems>
         </div>
     </div>
 </template>
@@ -23,6 +27,11 @@
         data(){
             return {
                 visible:false
+            }
+        },
+        methods:{
+            select($event){
+                this.$emit('update:selected',$event)
             }
         }
     };
