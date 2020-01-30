@@ -5,6 +5,7 @@
                         :size="size"
                         @update:selected="selected = $event"
                         :selected="selected"
+                        :async="false"
             >
             </y-cascader>
             <h4>test</h4>
@@ -20,6 +21,7 @@
     import Button from "../../../src/button/button.vue";
     import data from "./cascader.js";
     import "../../helper-icon.js";
+
 
     // console.log(data);
     export default {
@@ -39,13 +41,6 @@
                     height: "15em"
                 }
             };
-        },
-        computed: {
-            result() {
-                return this.selected.reduce(
-                    (a, b, ind) => a + (b ? ( ind === 0 ? "" : "-") + b.name : ""), "结果："
-                );
-            }
         }
     };
 </script>

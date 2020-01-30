@@ -11,6 +11,7 @@
         </ul>
         <div class="next" v-if="next">
             <cascader-items-v
+                    :async="async"
                     :level="level+1"
                     :size="size"
                     :data="next"
@@ -36,7 +37,11 @@
                 type: Number,
                 default: 0
             },
-            selected: Array
+            selected: Array,
+            async: {
+                type: Boolean,
+                required: true
+            }
         },
         computed: {
             next() {
@@ -60,9 +65,19 @@
         },
         methods: {
             select(item) {
-                const copy = [...this.selected];
-                copy[this.level] = item;
-                copy.splice(this.level + 1);
+                const {selected, level} = this;
+                if (selected.length - 1 >= 0
+                    && item.id === selected[selected.length - 1].id) return;
+                if (this.async) {
+                    this.$emit("update:selected", {item, level});
+                } else {
+                    this.unAsyncSelect(level, selected, item);
+                }
+            },
+            unAsyncSelect(level, selected, item) {
+                const copy = JSON.parse(JSON.stringify(selected));
+                copy[level] = item;
+                copy.splice(level + 1);
                 // console.log(copy);
                 this.$emit("update:selected", copy);
             },

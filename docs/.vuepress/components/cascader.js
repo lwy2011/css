@@ -35700,7 +35700,8 @@ const arr = [
         "postfix": "区"
     }
 ];
-const arr1 = arr.filter(
+const copy = JSON.parse(JSON.stringify(arr));
+const arr1 = copy.filter(
     obj => obj.father === 0
 );
 const get = (arr, data) => {
@@ -35737,4 +35738,5 @@ const fix = (arr) => {
 };
 fix(arr1);
 export default arr1;
+export {arr};
 
