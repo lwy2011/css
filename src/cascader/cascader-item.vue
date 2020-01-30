@@ -52,13 +52,17 @@
                     return str1 + str2;
                 }
                 return "";
+            },
+            inActive() {
+                const {level, selected} = this;
+                const self = selected[level];
             }
         },
         methods: {
             select(item) {
                 const copy = [...this.selected];
                 copy[this.level] = item;
-                copy.splice(this.level+1);
+                copy.splice(this.level + 1);
                 // console.log(copy);
                 this.$emit("update:selected", copy);
             },

@@ -2,6 +2,7 @@
     <div class="yv-cascader">
         <div class="trigger" @click="visible=!visible">
             <slot></slot>
+            {{result}}
         </div>
         <div class="items" v-if="visible" >
             <cascaderItems
@@ -33,6 +34,15 @@
             select($event){
                 this.$emit('update:selected',$event)
             }
+        },
+        computed:{
+            result(){
+                return this.selected.reduce(
+                    (a,b,ind)=> a + (
+                        b? (ind === 0 ? '':'-') + b.name :''
+                    ),''
+                )
+            }
         }
     };
 </script>
@@ -41,11 +51,22 @@
     @import "../common";
     .yv-cascader {
         position:relative;
+        >.trigger{
+            height:$input-height;
+            font-size: $font-size;
+            border: 1px solid $border-color;
+            border-radius: $border-radius;
+            min-width: 9em;
+            padding:0 $small-padding ;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
         >.items{
             position:absolute;
             @extend %box-shadow;
             left:0;
-            top:100%;
+            top:calc(100% + 1px);
         }
     }
 </style>

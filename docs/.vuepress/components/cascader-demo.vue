@@ -1,13 +1,11 @@
 <template>
     <div>
         <div style="margin:1em;paddingBottom:20em;z-index: 10;">
-            <p> {{result }} </p>
             <y-cascader :data="data"
                         :size="size"
                         @update:selected="selected = $event"
                         :selected="selected"
             >
-                <y-button>选择地址</y-button>
             </y-cascader>
             <h4>test</h4>
         </div>
