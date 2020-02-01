@@ -3,9 +3,9 @@
         <div style="margin:1em;paddingBottom:20em;z-index: 10;">
             <y-cascader :data="data"
                         :size="size"
-                        @update:selected="select"
+                        @update:selected="selected=$event"
                         :selected="selected"
-                        :async="true"
+                        :ajax="ajax"
             >
             </y-cascader>
             <h4>test</h4>
@@ -64,24 +64,12 @@
             ajax().then(
                 res => {
                     this.data = res;
-                    console.log(res);
+                    // console.log(res);
                 }
             );
         },
         methods: {
-            select({item, level}) {
-                // console.log(item, level);
-                ajax(item.id).then(
-                    res => {
-                        console.log(res);
-                        item.children = res.length && res;
-                        const copy = JSON.parse(JSON.stringify(this.selected));
-                        copy[level] = item;
-                        copy.splice(level + 1);
-                        this.selected = copy;
-                    }
-                );
-            }
+            ajax,
         }
     };
 </script>

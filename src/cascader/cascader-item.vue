@@ -11,7 +11,7 @@
         </ul>
         <div class="next" v-if="next">
             <cascader-items-v
-                    :async="async"
+                    :ajax="ajax"
                     :level="level+1"
                     :size="size"
                     :data="next"
@@ -38,15 +38,12 @@
                 default: 0
             },
             selected: Array,
-            async: {
-                type: Boolean,
-                required: true
-            }
+            ajax: Function
         },
         computed: {
             next() {
                 const val = this.selected[this.level];
-                return val && val.children ?
+                return val && val.children && val.children.length ?
                     val.children : null;
             },
             setSize() {
@@ -64,15 +61,25 @@
             }
         },
         methods: {
-            select(item) {
-                const {selected, level} = this;
+            async select(item) {
+                const {selected, level, ajax} = this;
                 if (selected.length - 1 >= 0
-                    && item.id === selected[selected.length - 1].id) return;
-                if (this.async) {
-                    this.$emit("update:selected", {item, level});
-                } else {
-                    this.unAsyncSelect(level, selected, item);
-                }
+                    && item.id === selected[selected.length - 1].id
+                ) return;
+                const val = await this.selectPrepare(ajax, item);
+                this.unAsyncSelect(level, selected, val);
+            },
+            async selectPrepare(ajax, item) {
+                return ajax ?
+                    await ajax(item.id).then(
+                        res => {
+                            const copy = JSON.parse(JSON.stringify(item));
+
+                            copy.children = res;
+                            return copy;
+                        }
+                    )
+                    : item;
             },
             unAsyncSelect(level, selected, item) {
                 const copy = JSON.parse(JSON.stringify(selected));

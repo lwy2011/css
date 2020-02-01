@@ -6,7 +6,7 @@
         </div>
         <div class="items" v-if="visible" >
             <cascaderItems
-                    :async="async"
+                    :ajax="ajax"
                     :selected="selected"
                     @update:selected="select"
                     :data="data" :size="size">
@@ -25,10 +25,7 @@
             selected: Array,
             data:Array,
             size:Object,
-            async:{
-                type:Boolean,
-                required:true
-            }
+            ajax:Function
         },
         data(){
             return {
