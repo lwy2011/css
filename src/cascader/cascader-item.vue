@@ -64,13 +64,14 @@
         methods: {
             async select(item) {
                 const {selected, level, ajax} = this;
+                // console.log(item,11);
                 if (selected.length - 1 >= 0
-                    && item.id === selected[selected.length - 1].id
-                ) return;
+                    && item.id === selected[selected.length - 1].id ) return;
                 const val = await this.selectPrepare(ajax, item);
                 this.unAsyncSelect(level, selected, val);
             },
             async selectPrepare(ajax, item) {
+                if (!item.children) return item ;
                 return ajax ?
                     await ajax(item.id).then(
                         res => {
@@ -115,6 +116,7 @@
                 justify-content: space-between;
                 align-items: center;
                 cursor: pointer;
+                user-select: none;
 
                 > .yv-icon {
                     transform: scale(.5);

@@ -68,7 +68,7 @@
             position:absolute;
             @extend %box-shadow;
             left:0;
-            top:calc(100% + 1px);
+            top:calc(100% + 4px);
         }
     }
 </style>
