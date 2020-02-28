@@ -45,7 +45,7 @@
                 const val = this.selected[this.level];
                 return val && val.children
                     && val.children.length &&
-                    val.children
+                    val.children;
             },
             setSize() {
                 if (this.size) {
@@ -66,13 +66,12 @@
                 const {selected, level, ajax} = this;
                 // console.log(item,11);
                 if (selected.length - 1 >= 0
-                    && item.id === selected[selected.length - 1].id ) return;
+                    && item.id === selected[selected.length - 1].id) return;
                 const val = await this.selectPrepare(ajax, item);
                 this.unAsyncSelect(level, selected, val);
             },
             async selectPrepare(ajax, item) {
-                if (!item.children) return item ;
-                return ajax ?
+                return ajax && item.children ?
                     await ajax(item.id).then(
                         res => {
                             const copy = JSON.parse(JSON.stringify(item));
