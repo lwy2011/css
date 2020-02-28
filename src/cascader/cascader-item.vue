@@ -43,8 +43,9 @@
         computed: {
             next() {
                 const val = this.selected[this.level];
-                return val && val.children && val.children.length ?
-                    val.children : null;
+                return val && val.children
+                    && val.children.length &&
+                    val.children
             },
             setSize() {
                 if (this.size) {
@@ -74,7 +75,6 @@
                     await ajax(item.id).then(
                         res => {
                             const copy = JSON.parse(JSON.stringify(item));
-
                             copy.children = res;
                             return copy;
                         }
