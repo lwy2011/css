@@ -1,11 +1,12 @@
 <template>
     <div>
         <div style="margin:1em;paddingBottom:20em;z-index: 10;">
-            <y-cascader :data="data"
-                        :size="size"
-                        @update:selected="selected=$event"
-                        :selected="selected"
-                        :ajax="ajax"
+            <y-cascader
+                    :data="data"
+                    :size="size"
+                    @update:selected="selected=$event"
+                    :selected="selected"
+                    :ajax="ajax"
             >
             </y-cascader>
             <h4>test</h4>
@@ -34,6 +35,7 @@
                             obj.children = arr.find(
                                 val => val.father === obj.id
                             );
+                            // console.log(obj.children);
                         }
                     );
                     resolve(res);
