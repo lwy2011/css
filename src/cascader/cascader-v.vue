@@ -1,6 +1,6 @@
 <template>
-    <div class="yv-cascader" ref="cascader">
-        <div class="trigger" @click="trigger">
+    <div class="yv-cascader" ref="cascader" v-outside-click="close">
+        <div class="trigger"  @click="trigger">
             <slot></slot>
             {{result || "&nbsp;"}}
         </div>
@@ -17,9 +17,13 @@
 
 <script>
     import cascaderItems from "./cascader-item.vue";
+    import outsideClick from './cascader.outside.click.js'
     export default {
         components: {
             cascaderItems
+        },
+        directives:{
+            outsideClick
         },
         props: {
             selected: Array,
@@ -36,35 +40,32 @@
             select($event) {
                 this.$emit("update:selected", $event);
             },
-            documentClick(e) {
-                const {target} = e;
-                const {cascader} = this.$refs;
-                 // console.log(target,cascader);
-                if (target === cascader ||
-                    cascader.contains(target)) return;
-                this.close();
-            },
+            // documentClick(e) {
+            //     const {target} = e;
+            //     const {cascader} = this.$refs;
+            //      // console.log(target,cascader);
+            //     if (target === cascader ||
+            //         cascader.contains(target)) return;
+            //     this.close();
+            // },
             trigger() {
-                this.visible ? this.close() : this.open();
+                this.visible =  !this.visible
             },
             close() {
                 this.visible = false;
                 // console.log("close");
-                document.removeEventListener(
-                    "click", this.documentClick
-                );
             },
-            open() {
-                this.visible = true;
-                this.$nextTick(
-                    () => {
-                        // console.log("open");
-                        document.addEventListener(
-                            "click", this.documentClick
-                        );
-                    }
-                );
-            }
+            // open() {
+            //     this.visible = true;
+            //     this.$nextTick(
+            //         () => {
+            //             // console.log("open");
+            //             document.addEventListener(
+            //                 "click", this.documentClick
+            //             );
+            //         }
+            //     );
+            // }
         },
         computed: {
             result() {
