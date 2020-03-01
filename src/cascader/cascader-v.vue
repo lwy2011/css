@@ -1,5 +1,5 @@
 <template>
-    <div class="yv-cascader" ref="cascader" v-outside-click="close">
+    <div class="yv-cascader"  v-outside-click="close">
         <div class="trigger"  @click="trigger">
             <slot></slot>
             {{result || "&nbsp;"}}
