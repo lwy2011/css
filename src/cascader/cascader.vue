@@ -9,6 +9,7 @@
                     :ajax="ajax"
                     :selected="selected"
                     @update:selected="select"
+                    :loading-item.sync="loadingItem"
                     :data="data" :size="size">
             </cascaderItems>
         </div>
@@ -17,6 +18,7 @@
 
 <script>
     import cascaderItems from "./cascader-item.vue";
+
     export default {
         components: {
             cascaderItems
@@ -29,17 +31,19 @@
         },
         data() {
             return {
-                visible: false
+                visible: false,
+                loadingItem: undefined
             };
         },
         methods: {
             select($event) {
+                this.loadingItem = undefined;
                 this.$emit("update:selected", $event);
             },
             documentClick(e) {
                 const {target} = e;
                 const {cascader} = this.$refs;
-                 // console.log(target,cascader);
+                // console.log(target,cascader);
                 if (target === cascader ||
                     cascader.contains(target)) return;
                 this.close();

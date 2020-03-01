@@ -1,6 +1,6 @@
 <template>
-    <div class="yv-cascader"  v-outside-click="close">
-        <div class="trigger"  @click="trigger">
+    <div class="yv-cascader" v-outside-click="close">
+        <div class="trigger" @click="trigger">
             <slot></slot>
             {{result || "&nbsp;"}}
         </div>
@@ -9,6 +9,7 @@
                     :ajax="ajax"
                     :selected="selected"
                     @update:selected="select"
+                    :loading-item.sync="loadingItem"
                     :data="data" :size="size">
             </cascaderItems>
         </div>
@@ -17,12 +18,13 @@
 
 <script>
     import cascaderItems from "./cascader-item.vue";
-    import outsideClick from './cascader.outside.click.js'
+    import outsideClick from "./cascader.outside.click.js";
+
     export default {
         components: {
             cascaderItems
         },
-        directives:{
+        directives: {
             outsideClick
         },
         props: {
@@ -33,11 +35,13 @@
         },
         data() {
             return {
-                visible: false
+                visible: false,
+                loadingItem: undefined
             };
         },
         methods: {
             select($event) {
+                this.loadingItem = undefined;
                 this.$emit("update:selected", $event);
             },
             // documentClick(e) {
@@ -49,7 +53,7 @@
             //     this.close();
             // },
             trigger() {
-                this.visible =  !this.visible
+                this.visible = !this.visible;
             },
             close() {
                 this.visible = false;

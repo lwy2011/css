@@ -3,9 +3,12 @@
         <ul class="current" :style="setSize">
             <li v-for="item in data"
                 @click="select(item)"
+                :class="active(item)"
             >
                 {{item.name}}
-                <Icon v-if="item.children" icon="right">
+                <Icon v-if="item.children"
+                      :icon="iconName(item)"
+                      :loading="loadingItem && item.name === loadingItem.name">
                 </Icon>
             </li>
         </ul>
@@ -17,6 +20,8 @@
                     :data="next"
                     :selected="selected"
                     @update:selected="onUpdateSelected"
+                    :loading-item="loadingItem"
+                    @update:loading-item="onUpdateLoadingItem"
             ></cascader-items-v>
         </div>
     </div>
@@ -38,7 +43,8 @@
                 default: 0
             },
             selected: Array,
-            ajax: Function
+            ajax: Function,
+            loadingItem: Object || undefined
         },
         computed: {
             next() {
@@ -55,31 +61,36 @@
                     return str1 + str2;
                 }
                 return "";
-            },
-            inActive() {
-                const {level, selected} = this;
-                const self = selected[level];
             }
         },
         methods: {
+            iconName(item) {
+                return this.loadingItem &&
+                this.loadingItem.name === item.name ? "loading" : "right";
+            },
             async select(item) {
                 const {selected, level, ajax} = this;
                 // console.log(item,11);
                 if (selected.length - 1 >= 0
                     && item.id === selected[selected.length - 1].id) return;
+
                 const val = await this.selectPrepare(ajax, item);
                 this.unAsyncSelect(level, selected, val);
             },
             async selectPrepare(ajax, item) {
-                return ajax && item.children ?
-                    await ajax(item.id).then(
+                if (ajax && item.children) {
+
+                    this.$emit("update:loading-item", item);
+
+                    return await ajax(item.id).then(
                         res => {
                             const copy = JSON.parse(JSON.stringify(item));
                             copy.children = res;
                             return copy;
                         }
-                    )
-                    : item;
+                    );
+                }
+                return item;
             },
             unAsyncSelect(level, selected, item) {
                 const copy = JSON.parse(JSON.stringify(selected));
@@ -90,6 +101,14 @@
             },
             onUpdateSelected(newSelect) {
                 this.$emit("update:selected", newSelect);
+            },
+            onUpdateLoadingItem(item) {
+                this.$emit("update:loading-item", item);
+            },
+            active(item) {
+                const {level, selected} = this;
+                const self = selected[level];
+                return self && self.name === item.name ? "active" : "";
             }
         }
     };
@@ -126,7 +145,7 @@
                 }
 
                 &.active {
-                    background: lighten($blue, 60%);
+                    background: $blue;
                 }
             }
         }
