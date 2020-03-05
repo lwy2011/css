@@ -1,6 +1,6 @@
 <template>
     <div style="margin:1em;">
-        <y-slides :selected.sync="selected" :autoplay="true">
+        <y-slides :selected.sync="selected" :autoplay="true" :reverse="true">
             <y-slides-item
                     v-for="(src,index) in source"
                     :index="index">

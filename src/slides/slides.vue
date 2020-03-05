@@ -18,7 +18,14 @@
                 type: Number,
                 required: true,
             },
-            autoplay: Boolean,
+            autoplay: {
+                type: Boolean,
+                default: true
+            },
+            reverse: {
+                type: Boolean,
+                default: false
+            }
         },
         data() {
             return {
@@ -31,7 +38,7 @@
             this.autoplay && this.autoplayFn();
         },
         updated() {
-            // console.log(this.selected,'up');
+            console.log(this.selected,'up');
             this.updateSelected();
         },
         methods: {
@@ -39,23 +46,29 @@
                 this.$children.forEach(
                     vm => {
                         vm.selected = this.selected || 0;
+                        vm.reverse = this.reverse
                     }
                 );
+            },
+            getNextSelected() {
+                const {length, selected, reverse} = this;
+                if (reverse) {
+                    return selected === 0 ? length -1 : selected - 1;
+                }
+                return selected === length - 1 ? 0 : selected + 1;
             },
             autoplayFn() {
                 const run = () => {
                     setTimeout(
                         () => {
-                            const {length, selected} = this;
-                            const nextSelected = selected === length - 1 ? 0 : selected + 1;
-                            // console.log(nextSelected,'next',length);
-                            this.$emit("update:selected", nextSelected);
+                            this.$emit("update:selected", this.getNextSelected());
                             run();
                         }, 3000
                     );
                 };
                 run();
-            }
+            },
+
         }
     };
 </script>

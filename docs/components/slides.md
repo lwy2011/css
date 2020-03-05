@@ -5,7 +5,13 @@
 
 ### 展示
 
+#### 实例1
 <ClientOnly>
   <slides-demo/>
+</ClientOnly>
+
+#### 实例2
+<ClientOnly>
+  <slides-demo1/>
 </ClientOnly>
 
