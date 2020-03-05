@@ -7,7 +7,10 @@
         </div>
         <transition name="fade">
             <div class="yv-slides-dots" v-if="length">
-                <span v-for="ind in length" :class="active(ind)">
+                <span v-for="ind in length"
+                      :class="active(ind)"
+                      @click="toSelect(ind)"
+                >
                     {{ind}}
                 </span>
             </div>
@@ -36,24 +39,29 @@
         },
         data() {
             return {
-                length: undefined
+                length: undefined,
+                timer: undefined
             };
         },
         mounted() {
-            this.updateSelected();
+            const {reverse, selected} = this;
+            this.updateSelected({reverse, selected});
             this.length = this.$children.length;
             this.autoplay && this.autoplayFn();
         },
         updated() {
             // console.log(this.selected, "up");
-            this.updateSelected();
+            this.updateSelected({selected:this.selected});
         },
         methods: {
-            updateSelected() {
+            updateSelected(obj) {
                 this.$children.forEach(
                     vm => {
-                        vm.selected = this.selected || 0;
-                        vm.reverse = this.reverse;
+                        Object.keys(obj).map(
+                            key => {
+                                vm[key] = obj[key];
+                            }
+                        );
                     }
                 );
             },
@@ -66,7 +74,7 @@
             },
             autoplayFn() {
                 const run = () => {
-                    setTimeout(
+                    this.timer = setTimeout(
                         () => {
                             this.$emit("update:selected", this.getNextSelected());
                             run();
@@ -78,6 +86,16 @@
             active(ind) {
                 return ind - 1 === this.selected ? "active" : "";
             },
+            toSelect(ind) {
+                this.timer && clearTimeout(this.timer);
+                this.timer = undefined;
+                const {selected} = this;
+                if (ind - 1 === selected) return;
+                const reverse = ind - 1 < selected;
+                console.log(reverse, "re");
+                this.updateSelected({reverse});
+                this.$emit("update:selected", ind - 1);
+            }
         }
     };
 </script>
