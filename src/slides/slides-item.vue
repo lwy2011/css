@@ -20,7 +20,7 @@
         },
         computed: {
             visible() {
-                console.log(this.selected, this.index);
+                // console.log(this.selected, this.index);
                 return this.selected === this.index;
             },
         }

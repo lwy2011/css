@@ -1,6 +1,6 @@
 <template>
     <div style="margin:1em;">
-        <y-slides :selected="selected">
+        <y-slides :selected.sync="selected" :autoplay="true">
             <y-slides-item
                     v-for="(src,index) in source"
                     :index="index">
@@ -44,12 +44,7 @@
             };
         },
         mounted() {
-            setInterval(
-                () => {
-                    this.selected =
-                        this.selected === 2 ? 0 : this.selected + 1;
-                },3000
-            );
+
         }
     };
 </script>
