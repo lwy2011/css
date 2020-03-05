@@ -18,24 +18,26 @@
         },
         data() {
             return {
-                selected: 0
+                selected: 0,
+                max: undefined
             };
         },
-        beforeMount(){
+        beforeMount() {
             this.initSelected >= 0 && (this.selected = this.initSelected);
         },
         mounted() {
             this.updateSelected(this.initSelected || this.selected);
-            // setTimeout(
-            //     () => {
-            //         this.selected = this.selected =0  ? this.selected++:
-            //             this.initSelected++
-            //         ;
-            //     }, 2000
-            // );
+            this.max = this.$children.length - 1;
+            setTimeout(
+                () => {
+                    this.selected = this.selected + 1;
+                }, 2000
+            );
         },
-        updated() {
-
+        watch: {
+            selected: function () {
+                this.updateSelected();
+            }
         },
         methods: {
             updateSelected(selected) {
@@ -58,7 +60,7 @@
         }
 
         &-wrapper {
-
+            display: flex;
         }
     }
 </style>
