@@ -31,7 +31,7 @@
     .slide-enter-active, .slide-leave-active {
         transition: all 1s;
     }
-    .slide-enter-active {
+    .slide-leave-active {
         position: absolute;left: 0;top:0;
     }
     .slide-enter {
@@ -39,7 +39,7 @@
     }
 
     .slide-leave-to {
-        transition: translateX(-100%);
+        transform: translateX(-100%);
     }
     .yv-slides-item {
 
