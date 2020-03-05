@@ -16,12 +16,12 @@
         data() {
             return {
                 selected: undefined,
-                reverse:false
-            };
+                reverse:false,
+            }
         },
         computed: {
             visible() {
-                // console.log(this.selected, this.index);
+                // console.log(this.reverse,3);
                 return this.selected === this.index;
             },
         }
