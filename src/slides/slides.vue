@@ -1,6 +1,9 @@
 <template>
     <div class="yv-slides">
-        <div class="yv-slides-window">
+        <div class="yv-slides-window"
+             @mouseenter="onmouseenter"
+             @mouseleave="onmouseleave"
+        >
             <div class="yv-slides-wrapper">
                 <slot></slot>
             </div>
@@ -44,14 +47,14 @@
             };
         },
         mounted() {
+            this.length = this.$children.length;
             const {reverse, selected} = this;
             this.updateSelected({reverse, selected});
-            this.length = this.$children.length;
             this.autoplay && this.autoplayFn();
         },
         updated() {
             // console.log(this.selected, "up");
-            this.updateSelected({selected:this.selected});
+            this.updateSelected({selected: this.selected});
         },
         methods: {
             updateSelected(obj) {
@@ -86,16 +89,26 @@
             active(ind) {
                 return ind - 1 === this.selected ? "active" : "";
             },
-            toSelect(ind) {
+            stop() {
                 this.timer && clearTimeout(this.timer);
                 this.timer = undefined;
+            },
+            toSelect(ind) {
+                this.stop();
                 const {selected} = this;
                 if (ind - 1 === selected) return;
                 const reverse = ind - 1 < selected;
-                console.log(reverse, "re");
+                // console.log(reverse, "re");
                 this.updateSelected({reverse});
                 this.$emit("update:selected", ind - 1);
-            }
+            },
+            onmouseenter() {
+                this.stop();
+            },
+            onmouseleave() {
+                this.updateSelected({reverse: this.reverse});
+                this.autoplayFn();
+            },
         }
     };
 </script>
@@ -128,10 +141,11 @@
             bottom: 0;
             height: 3em;
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
 
             & > span {
+                margin: 0 8px;
                 cursor: pointer;
                 display: flex;
                 width: 1.5em;height: 1.5em;
@@ -150,6 +164,10 @@
 
                 &.active {
                     color: $warn-color;
+
+                    &:hover {
+                        cursor: default;
+                    }
                 }
             }
         }
