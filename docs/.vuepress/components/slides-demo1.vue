@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div style="margin:3em;border:1px solid;">
+        <div class="box">
             <y-slides :selected.sync="selected" :autoplay="true" :reverse="true">
                 <y-slides-item
                         v-for="(src,index) in source"
@@ -49,3 +49,12 @@
         }
     };
 </script>
+<style lang="scss" scoped>
+    img {
+        width: 100%;height: 100%;
+    }
+
+    .box {
+        margin: 3em;border: 1px solid;box-sizing: border-box;
+    }
+</style>

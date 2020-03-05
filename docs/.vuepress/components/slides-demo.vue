@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div style="margin:3em;border:1px solid;">
+        <div class="box" >
             <y-slides :selected.sync="selected" :autoplay="true">
                 <y-slides-item
                         v-for="(src,index) in source"
                         :index="index">
-                    <img :src="src" alt="img">
+                    <img :src="src" alt="img" style="width:100%;height:100%;">
                 </y-slides-item>
             </y-slides>
         </div>
@@ -43,12 +43,12 @@
                 ],
                 selected: 1
             };
-        },
-        mounted() {
-
         }
     };
 </script>
-<style lang="scss" scoped>
 
+<style lang="scss" scoped>
+    .box{
+        margin:3em;border: 1px solid;box-sizing: border-box;
+    }
 </style>

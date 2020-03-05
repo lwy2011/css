@@ -52,8 +52,5 @@
     }
     .yv-slides-item {
         background:#666666;
-        img{
-            width:100%;height:100%;
-        }
     }
 </style>
