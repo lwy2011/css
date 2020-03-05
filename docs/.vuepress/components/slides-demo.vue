@@ -1,12 +1,14 @@
 <template>
-    <div style="margin:1em;">
-        <y-slides :selected.sync="selected" :autoplay="true">
-            <y-slides-item
-                    v-for="(src,index) in source"
-                    :index="index">
-                <img :src="src" alt="img">
-            </y-slides-item>
-        </y-slides>
+    <div>
+        <div style="margin:3em;border:1px solid;">
+            <y-slides :selected.sync="selected" :autoplay="true">
+                <y-slides-item
+                        v-for="(src,index) in source"
+                        :index="index">
+                    <img :src="src" alt="img">
+                </y-slides-item>
+            </y-slides>
+        </div>
         <pre>
             <code>{{content}}</code>
         </pre>
@@ -47,3 +49,6 @@
         }
     };
 </script>
+<style lang="scss" scoped>
+
+</style>

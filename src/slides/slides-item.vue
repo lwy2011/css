@@ -34,6 +34,7 @@
     }
     .slide-leave-active {
         position: absolute;left: 0;top:0;
+        width: 100%;height:100%;
     }
     .slide-enter {
         transform: translateX(100%);
@@ -50,6 +51,9 @@
         transform: translateX(100%);
     }
     .yv-slides-item {
-
+        background:#666666;
+        img{
+            width:100%;height:100%;
+        }
     }
 </style>
