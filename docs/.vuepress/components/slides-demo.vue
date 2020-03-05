@@ -1,21 +1,13 @@
 <template>
     <div style="margin:1em;">
-        <y-slides :init-selected="1">
+        <y-slides :selected="selected">
             <y-slides-item
                     v-for="(src,index) in source"
-                    :src="src"
                     :index="index">
                 <img :src="src" alt="img">
             </y-slides-item>
         </y-slides>
-        <y-slides>
-            <y-slides-item
-                    v-for="(src,index) in source"
-                    :src="src"
-                    :index="index">
-                <img :src="src" alt="img">
-            </y-slides-item>
-        </y-slides>
+
         <pre>
             <code>{{content}}</code>
         </pre>
@@ -47,8 +39,17 @@
                     `
                     http://t7.baidu.com/it/u=3204887199,3790688592&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg?sec=1583918585&t=54653f0f6e5e7b0864e5334bfa05fdbf
                     `
-                ]
+                ],
+                selected: 1
             };
+        },
+        mounted() {
+            setInterval(
+                () => {
+                    this.selected =
+                        this.selected === 2 ? 0 : this.selected + 1;
+                },3000
+            );
         }
     };
 </script>

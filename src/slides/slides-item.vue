@@ -1,6 +1,6 @@
 <template>
     <transition name="slide">
-        <div class="yv-slides-item" v-if="visible">
+        <div class="yv-slides-item" v-show="visible">
             <slot></slot>
         </div>
     </transition>
@@ -31,7 +31,9 @@
     .slide-enter-active, .slide-leave-active {
         transition: all 1s;
     }
-
+    .slide-enter-active {
+        position: absolute;left: 0;top:0;
+    }
     .slide-enter {
         transform: translateX(100%);
     }

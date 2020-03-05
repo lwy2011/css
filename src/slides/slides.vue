@@ -14,36 +14,20 @@
     export default {
         name: "slides-v",
         props: {
-            initSelected: Number
-        },
-        data() {
-            return {
-                selected: 0,
-                max: undefined
-            };
-        },
-        beforeMount() {
-            this.initSelected >= 0 && (this.selected = this.initSelected);
+            selected: Number
         },
         mounted() {
-            this.updateSelected(this.initSelected || this.selected);
-            this.max = this.$children.length - 1;
-            setTimeout(
-                () => {
-                    this.selected = this.selected + 1;
-                }, 2000
-            );
+            this.updateSelected();
         },
-        watch: {
-            selected: function () {
-                this.updateSelected();
-            }
+        updated(){
+            console.log(this.selected,'up');
+            this.updateSelected()
         },
         methods: {
-            updateSelected(selected) {
+            updateSelected() {
                 this.$children.forEach(
                     vm => {
-                        vm.selected = selected || this.selected;
+                        vm.selected = this.selected || 0;
                     }
                 );
             }
@@ -60,7 +44,7 @@
         }
 
         &-wrapper {
-            display: flex;
+            position: relative;
         }
     }
 </style>
