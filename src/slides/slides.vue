@@ -12,11 +12,17 @@
         </div>
         <transition name="fade">
             <div class="yv-slides-dots" v-if="length">
+                <span @click="clickPre">
+                    <y-icon icon="left" ></y-icon>
+                </span>
                 <span v-for="ind in length"
                       :class="active(ind)"
                       @click="toSelect(ind)"
                 >
                     {{ind}}
+                </span>
+                <span @click="clickNext">
+                    <y-icon icon="right" ></y-icon>
                 </span>
             </div>
         </transition>
@@ -25,9 +31,11 @@
 
 
 <script>
+    import YIcon from "../svg/svg.vue";
 
     export default {
         name: "slides-v",
+        components: {YIcon},
         props: {
             selected: {
                 type: Number,
@@ -143,6 +151,14 @@
                     this.nextUpdate(reverse, this.getNextSelected(reverse));
                 }
                 this.onmouseleave();
+            },
+            clickPre() {
+                this.stop();
+                this.nextUpdate(true, this.getNextSelected(true));
+            },
+            clickNext() {
+                this.stop();
+                this.nextUpdate(false, this.getNextSelected(false));
             }
         }
     };
@@ -181,10 +197,10 @@
             align-items: center;
 
             & > span {
-                margin: 0 8px;
+                margin: 0 4px;
                 cursor: pointer;
-                display: flex;
-                width: 1.5em;height: 1.5em;
+                display: inline-flex;
+                width: 1.3em;height: 1.3em;
                 background: #000000;
                 color: white;
                 opacity: .6;
@@ -192,15 +208,19 @@
                 align-items: center;
                 border-radius: 50%;
                 z-index: 1;
-
+                > svg{
+                    fill:white;
+                }
                 &:hover {
                     color: #000;
                     background: white;
+                    > svg{
+                        fill:#000;
+                    }
                 }
 
                 &.active {
                     color: $warn-color;
-
                     &:hover {
                         cursor: default;
                     }
