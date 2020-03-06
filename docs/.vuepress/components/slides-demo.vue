@@ -1,9 +1,10 @@
 <template>
     <div>
         <div class="box">
-            <y-slides :selected.sync="selected" :autoplay="true">
+            <y-slides :selected.sync="selected">
                 <y-slides-item
                         v-for="(src,index) in source"
+                        :key="index"
                         :index="index">
                     <img :src="src" alt="img" style="width:100%;height:100%;">
                 </y-slides-item>

@@ -10,26 +10,23 @@
                 <slot></slot>
             </div>
         </div>
-        <transition name="fade">
-            <div class="yv-slides-dots" v-if="length">
-                <span @click="clickPre">
-                    <y-icon icon="left" ></y-icon>
+        <div class="yv-slides-dots" v-if="length">
+                <span @click="clickPre" ref="pre">
+                    <y-icon icon="left"></y-icon>
                 </span>
-                <span v-for="ind in length"
-                      :class="active(ind)"
-                      @click="toSelect(ind)"
-                >
+            <span v-for="ind in length"
+                  :class="active(ind)"
+                  @click="toSelect(ind)"
+                  ref="dots"
+            >
                     {{ind}}
                 </span>
-                <span @click="clickNext">
-                    <y-icon icon="right" ></y-icon>
+            <span @click="clickNext" ref="next">
+                    <y-icon icon="right"></y-icon>
                 </span>
-            </div>
-        </transition>
+        </div>
     </div>
 </template>
-
-
 <script>
     import YIcon from "../svg/svg.vue";
 
@@ -166,18 +163,8 @@
 
 <style lang="scss" scoped>
     @import "../common";
-
-    .fade-in-active, .fade-leave-active {
-        transition: all 1s;
-    }
-
-    .fade-in {
-        opacity: 0;
-    }
-
     .yv-slides {
         position: relative;
-        width: 100%;height: 100%;
 
         &-window {
             overflow: hidden;
@@ -208,19 +195,23 @@
                 align-items: center;
                 border-radius: 50%;
                 z-index: 1;
-                > svg{
-                    fill:white;
+
+                > svg {
+                    fill: white;
                 }
+
                 &:hover {
                     color: #000;
                     background: white;
-                    > svg{
-                        fill:#000;
+
+                    > svg {
+                        fill: #000;
                     }
                 }
 
                 &.active {
                     color: $warn-color;
+
                     &:hover {
                         cursor: default;
                     }

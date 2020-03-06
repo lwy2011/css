@@ -11,7 +11,10 @@
     export default {
         name: "slides-item-v",
         props: {
-            index: Number
+            index: {
+                type:Number,
+                required:true
+            }
         },
         data() {
             return {

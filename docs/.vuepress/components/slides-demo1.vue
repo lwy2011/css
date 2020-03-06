@@ -4,6 +4,7 @@
             <y-slides :selected.sync="selected" :autoplay="true" :reverse="true">
                 <y-slides-item
                         v-for="(src,index) in source"
+                        :key="index"
                         :index="index">
                     <img :src="src" alt="img">
                 </y-slides-item>
