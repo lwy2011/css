@@ -55,7 +55,12 @@
             ).length;
             const {reverse, selected} = this;
             this.updateSelected({reverse, selected});
-            this.autoplay && this.autoplayFn(true);
+            setTimeout(
+                () => {
+                    this.updateSelected({init: false});  //初始化第一张图片不需要动画的。
+                    this.autoplay && this.autoplayFn(true);
+                }, 0
+            );
         },
         updated() {
             // console.log(this.selected, "up");
@@ -156,7 +161,8 @@
 
     .yv-slides {
         position: relative;
-        width: 100%;height:100%;
+        width: 100%;height: 100%;
+
         &-window {
             overflow: hidden;
         }
