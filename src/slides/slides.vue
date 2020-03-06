@@ -46,6 +46,10 @@
             reverse: {
                 type: Boolean,
                 default: false
+            },
+            delay:{
+                type:Number,
+                default:3000
             }
         },
         data() {
@@ -101,7 +105,7 @@
                             this.updateSelected({reverse: this.reverse});
                             this.$emit("update:selected", this.getNextSelected());
                             run();
-                        }, 3000
+                        }, this.delay
                     );
                 };
                 run();
