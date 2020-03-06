@@ -53,7 +53,7 @@
                 );
             }
         },
-        destroyed() {
+        beforeDestroy() {
             this.hovering && clearTimeout(this.hovering);
             this.$el.removeEventListener(
                 "mouseenter", this.hoverShow
