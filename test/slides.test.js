@@ -9,7 +9,7 @@ Vue.config.productionTip = false;
 Vue.component("y-slides", Slides);
 Vue.component("y-slides-item", SlidesItem);
 const html1 = `
-        <y-slides :selected.sync="selected">
+        <y-slides :selected.sync="selected" :delay="400">
                 <y-slides-item
                         v-for="(src,index) in source"
                         :key="index"
@@ -20,7 +20,7 @@ const html1 = `
     `;
 const html2 =
     `
-        <y-slides :selected.sync="selected" :reverse="true">
+        <y-slides :selected.sync="selected" :reverse="true" :delay="400">
                 <y-slides-item
                         v-for="(src,index) in source"
                         :key="index"
@@ -87,7 +87,7 @@ describe(
                     expect(dots[slides.selected].classList.contains("active")).to.eq(true);
                     vm.$destroy();
                     done();
-                }, 3500
+                }, 450
             );
             expect(slides.autoplay).to.eq(true);
             expect(slides.reverse).to.eq(false);
@@ -114,7 +114,7 @@ describe(
                     expect(slides.$children[0].visible).to.eq(true);
                     vm.$destroy();
                     done();
-                }, 3500
+                }, 450
             );
             expect(slides.reverse).to.eq(true);
             slides.$children.map(
