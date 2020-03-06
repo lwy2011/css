@@ -16,6 +16,7 @@
                 </span>
             <span v-for="ind in length"
                   :class="active(ind)"
+                  :key="ind"
                   @click="toSelect(ind)"
                   ref="dots"
             >
