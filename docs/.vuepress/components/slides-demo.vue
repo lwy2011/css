@@ -32,13 +32,14 @@
                 `,
                 source: [
                     `
-                    http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg?sec=1583918585&t=ebdaf31fba2df73cef8c1fb8b207fe45
+                   https://th.bing.com/th/id/OIP.AmHPnrxrSCgG1N_Xl0lRnAHaHa?w=178&h=178&c=7&o=5&dpr=2&pid=1.7
+                    `,
+
+                    `
+                   https://th.bing.com/th/id/OIP.znkzbGVKl3UYqpTqc9Qe0QHaHa?w=178&h=178&c=7&o=5&dpr=2&pid=1.7
                     `,
                     `
-                    http://t8.baidu.com/it/u=2247852322,986532796&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg?sec=1583918585&t=ea8eab244fb9501fe905d3b2ad8f049e
-                    `,
-                    `
-                    http://t7.baidu.com/it/u=3204887199,3790688592&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg?sec=1583918585&t=54653f0f6e5e7b0864e5334bfa05fdbf
+                   https://th.bing.com/th/id/OIP.VauuRrjXonQ9zAeBTQEmkwHaHa?w=178&h=178&c=7&o=5&dpr=2&pid=1.7
                     `
                 ],
                 selected: 1
@@ -49,6 +50,6 @@
 
 <style lang="scss" scoped>
     .box{
-        margin:3em;border: 1px solid;box-sizing: border-box;
+        margin:3em auto;box-sizing: border-box;
     }
 </style>

@@ -50,7 +50,9 @@
             };
         },
         mounted() {
-            this.length = this.$children.length;
+            this.length = this.$children.filter(
+                vm => vm.$options.name === "slides-item-v"
+            ).length;
             const {reverse, selected} = this;
             this.updateSelected({reverse, selected});
             this.autoplay && this.autoplayFn(true);
@@ -154,7 +156,7 @@
 
     .yv-slides {
         position: relative;
-
+        width: 100%;height:100%;
         &-window {
             overflow: hidden;
         }
