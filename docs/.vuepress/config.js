@@ -9,9 +9,11 @@ module.exports = {
                 children:[
                     '/components/icon',
                     '/components/button',
+                    '/components/input',
                     '/components/popover',
                     '/components/cascader',
                     '/components/slides',
+                    '/components/nav'
                 ]
             }
         ]
