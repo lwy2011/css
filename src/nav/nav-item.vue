@@ -27,7 +27,7 @@
 
         },
         mounted(){
-            console.log(this.root.getItems);
+            // console.log(this.root.getItems);
             this.root.getItems(this)
         },
         methods:{
@@ -43,6 +43,9 @@
 .yv-nav-item{
     padding:.5em 1em;
     cursor: pointer;
+    &:hover{
+        background: $blue;
+    }
     &.active{
         background: $border-color;
     }

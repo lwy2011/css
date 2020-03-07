@@ -25,12 +25,12 @@
             };
         },
         mounted() {
-            console.log(this.items);
+            // console.log(this.items);
             this.updateSelected(this.items);
             this.items.map(
                 vm => vm.$on(
                     "add:selected", val => {
-                        console.log(2);
+                        // console.log(2);
                         this.$emit("update:selected", this.getNewSelectedData(val));
                     }
                 )

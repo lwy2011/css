@@ -65,35 +65,35 @@
                         name: "山西省",
                         sub: [
                             {
-                                name: "保定市",
+                                name: "太原市",
                                 sub: [
                                     {
-                                        name: "b1"
+                                        name: "t1"
                                     },
                                     {
-                                        name: "b2"
+                                        name: "t2"
                                     },
                                     {
-                                        name: "b3"
+                                        name: "t3"
                                     }
                                 ]
                             },
                             {
-                                name: "石家庄市",
+                                name: "大同市",
                                 sub: [
                                     {
-                                        name: "s1"
+                                        name: "d1"
                                     },
                                     {
-                                        name: "s2"
+                                        name: "d2"
                                     },
                                     {
-                                        name: "s3"
+                                        name: "d3"
                                     }
                                 ]
                             },
                             {
-                                name: "沧州市"
+                                name: "晋城市"
                             }
                         ]
 

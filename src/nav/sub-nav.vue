@@ -47,15 +47,17 @@
     .yv-sub-nav {
         position: relative;
         cursor: pointer;
-
         &.active {
             background: $border-color;
         }
 
         > span {
-            display: inline-block;
+            display: block;
             padding: .5em 1em;
             vertical-align: top;  //有疑问的，，，
+            &:hover{
+                background: $blue;
+            }
         }
 
         &-popover {
