@@ -12,6 +12,12 @@
                             <component v-for="item2 in item1.sub" :name="item2.name" :key="item2.name"
                                        v-bind:is="item2.sub ? 'y-sub-nav':'y-nav-item'">
                                 {{item2.name}}
+                                <template slot="popover">
+                                    <component v-for="item3 in item2.sub" :name="item3.name" :key="item3.name"
+                                               v-bind:is="item3.sub ? 'y-sub-nav':'y-nav-item'">
+                                        {{item3.name}}
+                                    </component>
+                                </template>
                             </component>
                         </template>
                     </component>
@@ -19,7 +25,7 @@
             </component>
         </y-nav>
         <p style="margin-bottom: 15em;"></p>
-        <pre >
+        <pre>
             <code>{{content}}</code>
         </pre>
     </div>
@@ -42,7 +48,7 @@
                 <y-icon icon="warn"></y-icon>
                 <y-icon icon="left"></y-icon>
                 `,
-                selected:['河北省'],
+                selected: ["河北省"],
                 navs: [
                     {
                         name: "天津市",
@@ -82,10 +88,32 @@
                                 name: "大同市",
                                 sub: [
                                     {
-                                        name: "d1"
+                                        name: "d1",
+                                        sub: [
+                                            {
+                                                name: "t1"
+                                            },
+                                            {
+                                                name: "t2"
+                                            },
+                                            {
+                                                name: "t3"
+                                            }
+                                        ]
                                     },
                                     {
-                                        name: "d2"
+                                        name: "d2",
+                                        sub: [
+                                            {
+                                                name: "t1"
+                                            },
+                                            {
+                                                name: "t2"
+                                            },
+                                            {
+                                                name: "t3"
+                                            }
+                                        ]
                                     },
                                     {
                                         name: "d3"

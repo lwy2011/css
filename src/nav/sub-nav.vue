@@ -65,6 +65,12 @@
             top: 100%;
             white-space: nowrap;
             border: 1px solid $border-color;
+            > .yv-sub-nav {
+                .yv-sub-nav-popover{
+                    left:100%;top:-1px;
+                }
+            }
         }
     }
+
 </style>
