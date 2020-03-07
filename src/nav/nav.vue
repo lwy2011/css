@@ -7,6 +7,11 @@
 <script>
     export default {
         name: "y-nav",
+        provide() {
+            return {
+                root: this
+            };
+        },
         props: {
             selected: {
                 type: Array,
@@ -14,33 +19,27 @@
             },
             multiple: Boolean
         },
+        data() {
+            return {
+                items: [],
+            };
+        },
         mounted() {
-            // console.log(this.items);
+            console.log(this.items);
             this.updateSelected(this.items);
-            this.$on("update:selected", val => {
-                let res;
-                if (this.multiple) {
-                    const copy = JSON.parse(JSON.stringify(this.selected));
-                    res = copy.push(val);
-                }
-                {
-                    res = [val];
-                }
-                console.log(res,'res');
-                this.$emit("update:selected", res);
-            });
+            this.items.map(
+                vm => vm.$on(
+                    "add:selected", val => {
+                        console.log(2);
+                        this.$emit("update:selected", this.getNewSelectedData(val));
+                    }
+                )
+            );
         },
         updated() {
-            // this.updateSelected(this.items);
+            this.updateSelected(this.items);
         },
-        computed: {
-            items() {
-                return this.$children.filter(
-                    vm => vm.$options.name === "y-nav-item" ||
-                        vm.$options.name === "y-sub-nav"
-                );
-            }
-        },
+        computed: {},
         methods: {
             updateSelected(vms) {
                 vms.map(
@@ -53,7 +52,24 @@
                         next.length && this.updateSelected(next);
                     }
                 );
-            }
+            },
+            getNewSelectedData(newVal) {
+                let res;
+                if (this.multiple) {
+                    const copy = JSON.parse(JSON.stringify(this.selected));
+                    res = copy.push(newVal);
+                }
+                {
+                    res = [newVal];
+                }
+                return res;
+            },
+            getItems(vm) {
+                this.items.push(vm);
+            },
+            getSubs(vm) {
+                this.subs.push(vm);
+            },
         }
     };
 </script>

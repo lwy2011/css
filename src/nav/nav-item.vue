@@ -7,6 +7,7 @@
 <script>
     export default {
         name :'y-nav-item',
+        inject:['root'],
         props:{
             name:{
                 type:String,required:true
@@ -26,7 +27,8 @@
 
         },
         mounted(){
-
+            console.log(this.root.getItems);
+            this.root.getItems(this)
         },
         methods:{
             onclick() {
@@ -40,6 +42,7 @@
     @import "../common";
 .yv-nav-item{
     padding:.5em 1em;
+    cursor: pointer;
     &.active{
         background: $border-color;
     }

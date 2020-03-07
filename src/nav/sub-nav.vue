@@ -1,7 +1,9 @@
 <template>
-    <div class="yv-sub-nav" :class="{active}" @click="onclick">
-        <slot></slot>
-        <div class="yv-sub-nav-popover" v-if="visible">
+    <div class="yv-sub-nav">
+        <span @click="onclick">
+            <slot></slot>
+        </span>
+        <div class="yv-sub-nav-popover" v-show="visible">
             <slot name="popover"></slot>
         </div>
     </div>
@@ -17,30 +19,23 @@
         },
         data() {
             return {
-                selected: undefined
+                selected: undefined, visible: false
             };
         },
         computed: {
-            visible() {
-                return this.selected && this.selected.indexOf(this.name) >= 0;
-            },
-            active() {
-                return this.selected && this.selected.indexOf(this.name) >= 0;
-            }
+            // active() {
+            //     return this.selected && this.selected.indexOf(this.name) >= 0;
+            // }
         },
         mounted() {
-            this.$on("add:selected", val => {
-                console.log(2);
-                this.$emit("update:selected", val);
-            });
+
         },
         updated() {
 
         },
         methods: {
             onclick() {
-                console.log(1);
-                this.$on("add:selected", this.name);
+                this.visible = !this.visible;
             }
         }
     };
@@ -50,17 +45,24 @@
     @import "../common";
 
     .yv-sub-nav {
-        padding: .5em 1em;
         position: relative;
+        cursor: pointer;
 
         &.active {
             background: $border-color;
+        }
+
+        > span {
+            display: inline-block;
+            padding: .5em 1em;
+            vertical-align: top;  //有疑问的，，，
         }
 
         &-popover {
             position: absolute;
             top: 100%;
             white-space: nowrap;
+            border: 1px solid $border-color;
         }
     }
 </style>
