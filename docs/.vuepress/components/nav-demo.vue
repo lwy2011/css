@@ -4,15 +4,15 @@
             <component v-for="item in navs" :name="item.name" :key="item.name"
                        v-bind:is="item.sub ? 'y-sub-nav':'y-nav-item'">
                 {{item.name}}
-                <template slot="popover">
+                <template v-slot:popover>
                     <component v-for="item1 in item.sub" :name="item1.name" :key="item1.name"
                                v-bind:is="item1.sub ? 'y-sub-nav':'y-nav-item'">
                         {{item1.name}}
-                        <template slot="popover">
+                        <template v-slot:popover>
                             <component v-for="item2 in item1.sub" :name="item2.name" :key="item2.name"
                                        v-bind:is="item2.sub ? 'y-sub-nav':'y-nav-item'">
                                 {{item2.name}}
-                                <template slot="popover">
+                                <template v-slot:popover>
                                     <component v-for="item3 in item2.sub" :name="item3.name" :key="item3.name"
                                                v-bind:is="item3.sub ? 'y-sub-nav':'y-nav-item'">
                                         {{item3.name}}
