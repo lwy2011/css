@@ -1,6 +1,6 @@
 <template>
     <div class="yv-sub-nav">
-        <span @click="onclick" :class="{active}">
+        <span @click="onclick" :class="{active}" class="yv-sub-nav-trigger">
             <slot></slot>
         </span>
         <div class="yv-sub-nav-popover" v-show="visible">
@@ -86,7 +86,7 @@
         cursor: pointer;
 
 
-        > span {
+        &-trigger {
             display: block;
             padding: .5em 1em;
             vertical-align: top; //有疑问的，，，
@@ -119,12 +119,12 @@
             color: $border-color;
             min-width: 5em;
 
-            > .yv-sub-nav {
+            .yv-sub-nav {
                 .yv-sub-nav-popover {
                     left: calc(100% + 4px);top: 0;
                 }
 
-                > span.active {
+                &-trigger.active {
                     &:after {
                         display: none;
                     }
