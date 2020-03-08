@@ -56,18 +56,29 @@
             padding: .5em 1em;
             vertical-align: top;  //有疑问的，，，
             &:hover{
-                background: $blue;
+                color: $blue;
             }
         }
 
         &-popover {
             position: absolute;
-            top: 100%;
+            top:calc(100% + 4px);
             white-space: nowrap;
-            border: 1px solid $border-color;
+            box-shadow: 0 0 3px $box-shadow-color;
+            border-radius: $border-radius;
+            background: white;
+            color: $border-color;
+            min-width:5em;
             > .yv-sub-nav {
                 .yv-sub-nav-popover{
-                    left:100%;top:-1px;
+                    left:calc(100% + 4px);top:0;
+                }
+            }
+            .yv-nav-item.active{
+                background: lighten($blue,30%);
+                color:#000;
+                &:after{
+                    border: none;
                 }
             }
         }

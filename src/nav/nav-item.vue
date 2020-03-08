@@ -43,11 +43,19 @@
 .yv-nav-item{
     padding:.5em 1em;
     cursor: pointer;
+    position: relative;
     &:hover{
-        background: $blue;
+        color: $blue;
     }
     &.active{
-        background: $border-color;
+        &:after{
+            content: '';
+            display: block;
+            width:100%;
+            position: absolute;
+            border-bottom: 1px solid $blue;
+            left:0;bottom:0;
+        }
     }
 }
 </style>

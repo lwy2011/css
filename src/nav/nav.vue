@@ -78,7 +78,7 @@
     @import "../common";
 
     .yv-nav {
-        border: 1px solid $border-color;
+        border-bottom: 1px solid lighten($border-color,20%);
         display: flex;
     }
 </style>

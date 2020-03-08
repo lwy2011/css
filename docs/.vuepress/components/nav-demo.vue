@@ -24,7 +24,9 @@
                 </template>
             </component>
         </y-nav>
-        <p style="margin-bottom: 15em;"></p>
+        <p style="margin-bottom: 15em;">
+            test 测试一下，下面的元素会是如何，会不会被遮挡，或者dom结构撑不起来，空间塌陷等等，，，
+        </p>
         <pre>
             <code>{{content}}</code>
         </pre>
@@ -48,7 +50,7 @@
                 <y-icon icon="warn"></y-icon>
                 <y-icon icon="left"></y-icon>
                 `,
-                selected: ["河北省"],
+                selected: ["天津市"],
                 navs: [
                     {
                         name: "天津市",
