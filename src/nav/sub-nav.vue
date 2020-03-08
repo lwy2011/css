@@ -43,7 +43,7 @@
         watch: {
             active: function () {
                 this.$emit(this.active ? "active" : "unactive");
-                this.visible = this.active;
+                this.visible = this.active;//这里分两种情况，一种是单个顶级分支内的两个提交，一个是active,unactive，这会使得visible，先关闭，再打开。
             }
         },
         methods: {
