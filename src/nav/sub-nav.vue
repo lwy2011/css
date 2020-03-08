@@ -43,6 +43,7 @@
         watch: {
             active: function () {
                 this.$emit(this.active ? "active" : "unactive");
+                this.visible = this.active;
             }
         },
         methods: {
@@ -60,14 +61,14 @@
             testItemActive() {
                 return Boolean(
                     this.items.find(
-                    item => item.active
+                        item => item.active
                     ) ||
                     this.subs.find(
                         sub => sub.active
                     )
-                )
+                );
             },
-            initChild(vm){
+            initChild(vm) {
                 vm.$on("active", () => this.active = true);
                 vm.$on("unactive", () => {
                     this.active = this.testItemActive();
