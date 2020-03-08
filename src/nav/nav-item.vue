@@ -6,11 +6,11 @@
 
 <script>
     export default {
-        name :'y-nav-item',
-        inject:['root'],
-        props:{
-            name:{
-                type:String,required:true
+        name: "y-nav-item",
+        inject: ["root"],
+        props: {
+            name: {
+                type: String, required: true
             }
         },
         data() {
@@ -18,44 +18,52 @@
                 selected: undefined
             };
         },
-        computed:{
-            active(){
-                return this.selected && this.selected.indexOf(this.name)>=0
+        computed: {
+            active() {
+                return this.selected && this.selected.indexOf(this.name) >= 0;
             }
         },
         updated() {
 
         },
-        mounted(){
-            // console.log(this.root.getItems);
-            this.root.getItems(this)
+        watch: {
+            active: function () {
+                this.$emit(this.active ? "active" : "unactive");
+            }
         },
-        methods:{
+        mounted() {
+            // console.log(this.root.getItems);
+            this.root.getItems(this);
+        },
+        methods: {
             onclick() {
                 this.$emit("add:selected", this.name);
             }
         }
-    }
+    };
 </script>
 
 <style lang="scss" scoped>
     @import "../common";
-.yv-nav-item{
-    padding:.5em 1em;
-    cursor: pointer;
-    position: relative;
-    &:hover{
-        color: $blue;
-    }
-    &.active{
-        &:after{
-            content: '';
-            display: block;
-            width:100%;
-            position: absolute;
-            border-bottom: 1px solid $blue;
-            left:0;bottom:0;
+
+    .yv-nav-item {
+        padding: .5em 1em;
+        cursor: pointer;
+        position: relative;
+
+        &:hover {
+            color: $blue;
+        }
+
+        &.active {
+            &:after {
+                content: '';
+                display: block;
+                width: 100%;
+                position: absolute;
+                border-bottom: 1px solid $blue;
+                left: 0;bottom: 0;
+            }
         }
     }
-}
 </style>

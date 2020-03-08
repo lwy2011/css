@@ -36,8 +36,12 @@
                 )
             );
         },
+        watch: {
+            selected: function () {
+                this.updateSelected(this.items);
+            }
+        },
         updated() {
-            this.updateSelected(this.items);
         },
         computed: {},
         methods: {
@@ -45,11 +49,6 @@
                 vms.map(
                     vm => {
                         vm.selected = this.selected;
-                        const next = vm.$children.filter(
-                            obj => obj.$options.name === "y-nav-item" ||
-                                obj.$options.name === "y-sub-nav"
-                        );
-                        next.length && this.updateSelected(next);
                     }
                 );
             },
@@ -67,9 +66,9 @@
             getItems(vm) {
                 this.items.push(vm);
             },
-            getSubs(vm) {
-                this.subs.push(vm);
-            },
+            getSubs() {
+
+            }
         }
     };
 </script>
@@ -78,7 +77,7 @@
     @import "../common";
 
     .yv-nav {
-        border-bottom: 1px solid lighten($border-color,20%);
+        border-bottom: 1px solid lighten($border-color, 20%);
         display: flex;
     }
 </style>
