@@ -87,5 +87,16 @@
             flex-direction: column;
             border:1px solid lighten($border-color, 20%);
         }
+        & > &-item.active{
+            &:after {
+                content: '';
+                display: block;
+                width: 100%;
+                position: absolute;
+                border-bottom: 1px solid $blue;
+                left: 0;bottom: 0;
+            }
+            color:$blue;
+        }
     }
 </style>

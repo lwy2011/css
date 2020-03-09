@@ -46,6 +46,7 @@
                 );
             },
             icon() {
+                if (this.vertical)return 'down' ;
                 return this.$parent.$options.name === "y-nav" ? "down" : "right";
             }
         },
@@ -100,20 +101,32 @@
             },
 
             enter(el, done) {
-                const {height} = el.getBoundingClientRect();
-                // console.log(height);
-                el.animate([
-                    {height: 0},
-                    {height: height + "px"}
-                ], 500);
+                if (this.vertical) {
+                    const {height} = el.getBoundingClientRect();
+                    // console.log(height);
+                    el.animate([
+                        {height: 0},
+                        {height: height + "px"}
+                    ], 500);
+                } else {
+                    el.animate([
+                        {opacity: 0}, {opacity: 1}
+                    ], 500);
+                }
                 done();
             },
             leave(el, done) {
-                const {height} = el.getBoundingClientRect();
-                el.animate([
-                    {height: height + "px"},
-                    {height: 0},
-                ], 500);
+                if (this.vertical) {
+                    const {height} = el.getBoundingClientRect();
+                    // console.log(height);
+                    el.animate([
+                        {height: height + "px"}, {height: 0}
+                    ], 500);
+                } else {
+                    el.animate([
+                        {opacity: 1}, {opacity: 0}
+                    ], 500);
+                }
                 setTimeout(
                     () => {done();}, 470
                 );
@@ -128,7 +141,6 @@
     .yv-sub-nav {
         position: relative;
         cursor: pointer;
-
 
         &-trigger {
             display: inline-flex;
@@ -147,7 +159,7 @@
 
             position: relative;
 
-            &.active {
+            &.active:not(.vertical) {
                 &:after {
                     content: '';
                     display: block;
@@ -155,12 +167,19 @@
                     width: 100%;bottom: 0;left: 0;
                     border-bottom: 1px solid $blue;
                 }
+            }
 
+            &.active {
                 color: $blue;
 
                 .yv-sub-nav-trigger-icon {
                     fill: $blue;
                 }
+            }
+
+            &.active.vertical {
+                background: $light-blue;
+                color:$blue;
             }
 
             &-icon {
@@ -174,7 +193,6 @@
 
 
         }
-
         &-popover {
             position: absolute;
             top: calc(100% + 4px);
@@ -194,6 +212,7 @@
                 padding-left: 1em;
                 overflow: hidden;
             }
+
 
             .yv-sub-nav-trigger-icon {
                 fill: $border-color;
@@ -222,17 +241,15 @@
 
                         color: #000;
                     }
+                    &.active.vertical{
+                        .yv-sub-nav-trigger-icon {
+                            fill: $blue;
+                        }
+
+                        color: $blue;
+                    }
 
                     justify-content: space-between;
-                }
-            }
-
-            .yv-nav-item.active {
-                background: lighten($blue, 30%);
-                color: #000;
-
-                &:after {
-                    border: none;
                 }
             }
         }

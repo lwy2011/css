@@ -60,21 +60,15 @@
             color: $blue;
         }
 
-        &.active {
-            &:after {
-                content: '';
-                display: block;
-                width: 100%;
-                position: absolute;
-                border-bottom: 1px solid $blue;
-                left: 0;bottom: 0;
-            }
-        }
 
+        &.active{
+            background: $light-blue;
+            color: #000;
+        }
         &.vertical.active {
             color: $blue;
-
-            &:after {
+            background: $light-blue;
+            &:after{
                 display: none;
             }
         }
