@@ -1,13 +1,18 @@
 <template>
     <div class="yv-sub-nav">
-        <span @click="onclick" :class="{active}" class="yv-sub-nav-trigger">
+        <span @click="onclick" :class="{active,vertical}" class="yv-sub-nav-trigger">
             <slot></slot>
             <y-icon :icon="icon" :class="iconClass"
                     class="yv-sub-nav-trigger-icon"></y-icon>
         </span>
-        <div class="yv-sub-nav-popover" v-show="visible" :class="{vertical}">
-            <slot name="popover"></slot>
-        </div>
+        <transition
+                @enter="enter"
+                @leave="leave"
+        >
+            <div class="yv-sub-nav-popover" v-show="visible" :class="{vertical}">
+                <slot name="popover"></slot>
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -25,7 +30,8 @@
         data() {
             return {
                 selected: undefined, visible: false, active: false,
-                iconClass: "",vertical:undefined
+                iconClass: "", vertical: undefined,
+                popoverHeight: undefined
             };
         },
         computed: {
@@ -57,8 +63,8 @@
             visible: function () {
                 !this.visible && (this.iconClass = "");
             },
-            vertical:function (val) {
-                this.$emit('update:vertical',val)
+            vertical: function (val) {
+                this.$emit("update:vertical", val);
             }
         },
         methods: {
@@ -90,8 +96,28 @@
                 vm.$on("unactive", () => {
                     this.active = this.testItemActive();
                 });
-                vm.$on('update:vertical',val=>this.vertical = val)
-            }
+                vm.$on("update:vertical", val => this.vertical = val);
+            },
+
+            enter(el, done) {
+                const {height} = el.getBoundingClientRect();
+                // console.log(height);
+                el.animate([
+                    {height: 0},
+                    {height: height + "px"}
+                ], 500);
+                done();
+            },
+            leave(el, done) {
+                const {height} = el.getBoundingClientRect();
+                el.animate([
+                    {height: height + "px"},
+                    {height: 0},
+                ], 500);
+                setTimeout(
+                    () => {done();}, 470
+                );
+            },
         }
     };
 </script>
@@ -159,12 +185,14 @@
             color: $border-color;
             min-width: 6em;
             font-size: $small-font-size;
-            &.vertical{
+
+            &.vertical {
                 position: relative;
                 border-radius: 0;
                 box-shadow: none;
-                left:0;top:0;
-                padding-left:1em;
+                left: 0;top: 0;
+                padding-left: 1em;
+                overflow: hidden;
             }
 
             .yv-sub-nav-trigger-icon {
@@ -174,8 +202,9 @@
             .yv-sub-nav {
                 .yv-sub-nav-popover {
                     left: calc(100% + 4px);top: 0;
-                    &.vertical{
-                        left:0;
+
+                    &.vertical {
+                        left: 0;
                     }
                 }
 
@@ -186,9 +215,11 @@
                         &:after {
                             display: none;
                         }
+
                         .yv-sub-nav-trigger-icon {
                             fill: #000;
                         }
+
                         color: #000;
                     }
 
