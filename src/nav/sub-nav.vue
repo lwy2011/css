@@ -171,7 +171,9 @@
                         &:after {
                             display: none;
                         }
-
+                        .yv-sub-nav-trigger-icon {
+                            fill: #000;
+                        }
                         color: #000;
                     }
 

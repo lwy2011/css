@@ -17,7 +17,12 @@
                 type: Array,
                 default: () => []
             },
-            multiple: Boolean
+            multiple: {
+                type:Boolean,default:false
+            },
+            vertical:{
+                type:Boolean,default:false
+            }
         },
         data() {
             return {
