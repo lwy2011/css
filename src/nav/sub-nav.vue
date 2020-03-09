@@ -2,7 +2,8 @@
     <div class="yv-sub-nav">
         <span @click="onclick" :class="{active}" class="yv-sub-nav-trigger">
             <slot></slot>
-            <y-icon :icon="icon"></y-icon>
+            <y-icon :icon="icon" :class="iconClass"
+                    class="yv-sub-nav-trigger-icon"></y-icon>
         </span>
         <div class="yv-sub-nav-popover" v-show="visible">
             <slot name="popover"></slot>
@@ -12,6 +13,7 @@
 
 <script>
     import YIcon from "../svg/svg.vue";
+
     export default {
         name: "y-sub-nav",
         components: {YIcon},
@@ -22,7 +24,8 @@
         },
         data() {
             return {
-                selected: undefined, visible: false, active: false
+                selected: undefined, visible: false, active: false,
+                iconClass: "",
             };
         },
         computed: {
@@ -36,8 +39,8 @@
                     item => item.$options.name === "y-sub-nav"
                 );
             },
-            icon(){
-                return this.$parent.$options.name === 'y-nav'? 'down' : 'right'
+            icon() {
+                return this.$parent.$options.name === "y-nav" ? "down" : "right";
             }
         },
         mounted() {
@@ -50,11 +53,16 @@
             active: function () {
                 this.$emit(this.active ? "active" : "unactive");
                 this.visible = this.active;//这里分两种情况，一种是单个顶级分支内的两个提交，一个是active,unactive，这会使得visible，先关闭，再打开。
+            },
+            visible: function () {
+                !this.visible && (this.iconClass = "");
             }
         },
         methods: {
             onclick() {
-                this.visible = !this.visible;
+                const {visible} = this;
+                this.iconClass = visible ? "" : "open";
+                this.visible = !visible;
             },
             initChildren() {
                 this.items.map(
@@ -95,9 +103,16 @@
         &-trigger {
             display: inline-flex;
             padding: .5em 1em;
-            vertical-align: top; //有疑问的，，，
+            /*vertical-align: top; //有疑问的，，，*/
+            align-items: center;
+            user-select: none;
+
             &:hover {
                 color: $blue;
+
+                .yv-sub-nav-trigger-icon {
+                    fill: $blue;
+                }
             }
 
             position: relative;
@@ -112,7 +127,22 @@
                 }
 
                 color: $blue;
+
+                .yv-sub-nav-trigger-icon {
+                    fill: $blue;
+                }
             }
+
+            &-icon {
+                width: 12px;height: 12px; margin-left: 8px;
+                transition: 250ms;
+
+                &.open {
+                    transform: rotate(180deg);
+                }
+            }
+
+
         }
 
         &-popover {
@@ -123,17 +153,29 @@
             border-radius: $border-radius;
             background: white;
             color: $border-color;
-            min-width: 5em;
+            min-width: 6em;
+
+            .yv-sub-nav-trigger-icon {
+                fill: $border-color;
+            }
 
             .yv-sub-nav {
                 .yv-sub-nav-popover {
                     left: calc(100% + 4px);top: 0;
                 }
-                &-trigger.active {
-                    &:after {
-                        display: none;
+
+                &-trigger {
+                    width: 100%;
+
+                    &.active {
+                        &:after {
+                            display: none;
+                        }
+
+                        color: #000;
                     }
-                    color: #000;
+
+                    justify-content: space-between;
                 }
             }
 
