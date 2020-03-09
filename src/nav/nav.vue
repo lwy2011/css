@@ -1,5 +1,5 @@
 <template>
-    <div class="yv-nav">
+    <div class="yv-nav" :class="{vertical}">
         <slot></slot>
     </div>
 </template>
@@ -71,9 +71,7 @@
             getItems(vm) {
                 this.items.push(vm);
             },
-            getSubs() {
 
-            }
         }
     };
 </script>
@@ -84,5 +82,10 @@
     .yv-nav {
         border-bottom: 1px solid lighten($border-color, 20%);
         display: flex;
+        &.vertical{
+            display: inline-flex;
+            flex-direction: column;
+            border:1px solid lighten($border-color, 20%);
+        }
     }
 </style>

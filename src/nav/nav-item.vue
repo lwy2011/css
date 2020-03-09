@@ -1,5 +1,5 @@
 <template>
-    <div class="yv-nav-item" :class="{active}" @click="onclick">
+    <div class="yv-nav-item" :class="{active,vertical}" @click="onclick">
         <slot></slot>
     </div>
 </template>
@@ -15,7 +15,8 @@
         },
         data() {
             return {
-                selected: undefined
+                selected: undefined,
+                vertical: undefined
             };
         },
         computed: {
@@ -29,11 +30,15 @@
         watch: {
             active: function () {
                 this.$emit(this.active ? "active" : "unactive");
+            },
+            vertical: function () {
+                this.$emit("update:vertical", this.vertical);
             }
         },
         mounted() {
             // console.log(this.root.getItems);
             this.root.getItems(this);
+            this.vertical = this.root.vertical;
         },
         methods: {
             onclick() {
@@ -63,6 +68,14 @@
                 position: absolute;
                 border-bottom: 1px solid $blue;
                 left: 0;bottom: 0;
+            }
+        }
+
+        &.vertical.active {
+            color: $blue;
+
+            &:after {
+                display: none;
             }
         }
     }

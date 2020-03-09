@@ -5,7 +5,7 @@
             <y-icon :icon="icon" :class="iconClass"
                     class="yv-sub-nav-trigger-icon"></y-icon>
         </span>
-        <div class="yv-sub-nav-popover" v-show="visible">
+        <div class="yv-sub-nav-popover" v-show="visible" :class="{vertical}">
             <slot name="popover"></slot>
         </div>
     </div>
@@ -25,7 +25,7 @@
         data() {
             return {
                 selected: undefined, visible: false, active: false,
-                iconClass: "",
+                iconClass: "",vertical:undefined
             };
         },
         computed: {
@@ -56,6 +56,9 @@
             },
             visible: function () {
                 !this.visible && (this.iconClass = "");
+            },
+            vertical:function (val) {
+                this.$emit('update:vertical',val)
             }
         },
         methods: {
@@ -87,6 +90,7 @@
                 vm.$on("unactive", () => {
                     this.active = this.testItemActive();
                 });
+                vm.$on('update:vertical',val=>this.vertical = val)
             }
         }
     };
@@ -154,6 +158,14 @@
             background: white;
             color: $border-color;
             min-width: 6em;
+            font-size: $small-font-size;
+            &.vertical{
+                position: relative;
+                border-radius: 0;
+                box-shadow: none;
+                left:0;top:0;
+                padding-left:1em;
+            }
 
             .yv-sub-nav-trigger-icon {
                 fill: $border-color;
@@ -162,6 +174,9 @@
             .yv-sub-nav {
                 .yv-sub-nav-popover {
                     left: calc(100% + 4px);top: 0;
+                    &.vertical{
+                        left:0;
+                    }
                 }
 
                 &-trigger {
