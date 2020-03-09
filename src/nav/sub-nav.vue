@@ -178,7 +178,6 @@
             }
 
             &.active.vertical {
-                background: $light-blue;
                 color:$blue;
             }
 

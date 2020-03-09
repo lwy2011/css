@@ -63,13 +63,13 @@
             text-decoration: none;
             font-weight:inherit;
             color: inherit;
-            margin:-.5em -1em;
-            padding:.5em 1em;
             &:hover{
                 text-decoration: none;
             }
             &:only-child{
                 display: block;
+                margin:-.5em -1em;
+                padding:.5em 1em;
             }
         }
 
@@ -81,7 +81,6 @@
         &.vertical.active {
             color: $blue;
             background: $light-blue;
-            width: 100%;
             &:after {
                 display: none;
             }
