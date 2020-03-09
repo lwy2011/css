@@ -1,6 +1,11 @@
 <template>
     <div style="margin:1em;">
         <y-nav :selected.sync="selected" vertical >
+            <y-nav-item name="百度">
+                <a href="http://baidu.com" target="_blank">
+                    百度
+                </a>
+            </y-nav-item>
             <component v-for="item in navs" :name="item.name" :key="item.name"
                        v-bind:is="item.sub ? 'y-sub-nav':'y-nav-item'">
                 {{item.name}}
