@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
     <div style="margin:1em;">
         <y-nav :selected.sync="selected">
             <component v-for="item in navs" :name="item.name" :key="item.name"
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+    import helper from '../../helper-icon.js'
     import YNav from "../../../src/nav/nav.vue";
     import YNavItem from "../../../src/nav/nav-item.vue";
     import YSubNav from "../../../src/nav/sub-nav.vue";

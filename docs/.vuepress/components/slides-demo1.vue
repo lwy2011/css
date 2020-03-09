@@ -17,6 +17,7 @@
 </template>
 
 <script>
+    import helper from '../../helper-icon.js'
     import Slides from "../../../src/slides/slides.vue";
     import SlidesItem from "../../../src/slides/slides-item.vue";
 

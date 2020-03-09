@@ -2,6 +2,7 @@
     <div class="yv-sub-nav">
         <span @click="onclick" :class="{active}" class="yv-sub-nav-trigger">
             <slot></slot>
+            <y-icon :icon="icon"></y-icon>
         </span>
         <div class="yv-sub-nav-popover" v-show="visible">
             <slot name="popover"></slot>
@@ -10,8 +11,10 @@
 </template>
 
 <script>
+    import YIcon from "../svg/svg.vue";
     export default {
         name: "y-sub-nav",
+        components: {YIcon},
         props: {
             name: {
                 type: String, required: true
@@ -32,6 +35,9 @@
                 return this.$children.filter(
                     item => item.$options.name === "y-sub-nav"
                 );
+            },
+            icon(){
+                return this.$parent.$options.name === 'y-nav'? 'down' : 'right'
             }
         },
         mounted() {
@@ -87,7 +93,7 @@
 
 
         &-trigger {
-            display: block;
+            display: inline-flex;
             padding: .5em 1em;
             vertical-align: top; //有疑问的，，，
             &:hover {
@@ -123,12 +129,10 @@
                 .yv-sub-nav-popover {
                     left: calc(100% + 4px);top: 0;
                 }
-
                 &-trigger.active {
                     &:after {
                         display: none;
                     }
-
                     color: #000;
                 }
             }
