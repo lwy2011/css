@@ -23,8 +23,11 @@
             vertical:{
                 type:Boolean,default:false
             },
-            hoverNeed:{
-                type:Boolean,default:false
+            hoverTimerDelay:{
+                type:Number,
+                validate(val){
+                    return val > 0;
+                }
             },
         },
         data() {

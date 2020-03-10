@@ -1,6 +1,6 @@
 <template>
     <div style="margin:1em;">
-        <y-nav :selected.sync="selected">
+        <y-nav :selected.sync="selected" :hover-timer-delay="1000">
             <component v-for="item in navs"
                        :name="item.name"
                        :key="item.name"
@@ -65,7 +65,7 @@
         methods: {
             disabled(val) {
                 // console.log(val,val.length < 3);
-                return val.length < 3;
+                return val.length < 2;
             }
         },
         data() {
@@ -108,7 +108,7 @@
                                         name: "t2"
                                     },
                                     {
-                                        name: "t3"
+                                        name: "3"
                                     }
                                 ]
                             },
@@ -122,7 +122,7 @@
                                                 name: "d11"
                                             },
                                             {
-                                                name: "d21"
+                                                name: "2"
                                             },
                                             {
                                                 name: "d31"

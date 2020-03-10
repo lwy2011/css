@@ -12,7 +12,7 @@
             name: {
                 type: String, required: true
             },
-            disabled:{
+            disabled: {
                 type: Boolean,
             },
         },
@@ -20,6 +20,7 @@
             return {
                 selected: undefined,
                 vertical: undefined,
+                hoverTimerDelay: undefined,
             };
         },
         computed: {
@@ -36,12 +37,16 @@
             },
             vertical: function () {
                 this.$emit("update:vertical", this.vertical);
-            }
+            },
+            hoverTimerDelay: function () {
+                this.$emit("hoverTimerDelay", this.hoverTimerDelay);
+            },
         },
         mounted() {
             // console.log(this.root.getItems);
             this.root.getItems(this);
             this.vertical = this.root.vertical;
+            this.root.hoverTimerDelay && (this.hoverTimerDelay = this.root.hoverTimerDelay);
         },
         methods: {
             onclick() {
@@ -64,17 +69,20 @@
         &:not(.disabled):hover {
             color: $blue;
         }
-        a{
+
+        a {
             text-decoration: none;
-            font-weight:inherit;
+            font-weight: inherit;
             color: inherit;
-            &:hover{
+
+            &:hover {
                 text-decoration: none;
             }
-            &:only-child{
+
+            &:only-child {
                 display: block;
-                margin:-.5em -1em;
-                padding:.5em 1em;
+                margin: -.5em -1em;
+                padding: .5em 1em;
             }
         }
 
@@ -86,11 +94,13 @@
         &.vertical.active {
             color: $blue;
             background: $light-blue;
+
             &:after {
                 display: none;
             }
         }
-        &.disabled{
+
+        &.disabled {
             @extend %disabled;
         }
     }
