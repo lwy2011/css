@@ -16,10 +16,17 @@ $toast-width:20em;
 $blue:#42AAFF;
 $light-blue:#E7F7FF;
 $popover-margin:8px;
-
+$light-border-color:#E1E1E1;
 
 %box-shadow {
     box-shadow: 0 0 5px $box-shadow-color;
+}
+%disabled{
+    cursor: not-allowed;
+    color:$light-border-color;
+    svg{
+        fill:$light-border-color;
+    }
 }
 
 $small-font-size:12px;

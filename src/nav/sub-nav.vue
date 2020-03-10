@@ -1,6 +1,6 @@
 <template>
     <div class="yv-sub-nav">
-        <span @click="onclick" :class="{active,vertical}" class="yv-sub-nav-trigger">
+        <span @click="onclick" :class="{active,vertical,disabled}" class="yv-sub-nav-trigger">
             <slot></slot>
             <y-icon :icon="icon" :class="iconClass"
                     class="yv-sub-nav-trigger-icon"></y-icon>
@@ -25,13 +25,17 @@
         props: {
             name: {
                 type: String, required: true
-            }
+            },
+            disabled:Boolean
         },
         data() {
             return {
-                selected: undefined, visible: false, active: false,
-                iconClass: "", vertical: undefined,
-                popoverHeight: undefined
+                selected: undefined,
+                visible: false,
+                active: false,
+                iconClass: "",
+                vertical: undefined,
+                hoverNeed:false,
             };
         },
         computed: {
@@ -70,6 +74,7 @@
         },
         methods: {
             onclick() {
+                if(this.disabled) return this.visible = false;
                 const {visible} = this;
                 this.iconClass = visible ? "" : "open";
                 this.visible = !visible;
@@ -148,17 +153,18 @@
             /*vertical-align: top; //有疑问的，，，*/
             align-items: center;
             user-select: none;
+            position: relative;
 
-            &:hover {
+            &:not(.disabled):hover {
                 color: $blue;
 
                 .yv-sub-nav-trigger-icon {
                     fill: $blue;
                 }
             }
-
-            position: relative;
-
+            &.disabled{
+                @extend %disabled;
+            }
             &.active:not(.vertical) {
                 &:after {
                     content: '';
@@ -169,7 +175,7 @@
                 }
             }
 
-            &.active {
+            &.active:not(.disabled) {
                 color: $blue;
 
                 .yv-sub-nav-trigger-icon {
@@ -189,8 +195,6 @@
                     transform: rotate(180deg);
                 }
             }
-
-
         }
         &-popover {
             position: absolute;

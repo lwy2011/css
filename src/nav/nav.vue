@@ -22,7 +22,10 @@
             },
             vertical:{
                 type:Boolean,default:false
-            }
+            },
+            hoverNeed:{
+                type:Boolean,default:false
+            },
         },
         data() {
             return {

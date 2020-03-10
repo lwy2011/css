@@ -1,5 +1,5 @@
 <template>
-    <div class="yv-nav-item" :class="{active,vertical}" @click="onclick">
+    <div class="yv-nav-item" :class="{active,vertical,disabled}" @click="onclick">
         <slot></slot>
     </div>
 </template>
@@ -11,12 +11,15 @@
         props: {
             name: {
                 type: String, required: true
-            }
+            },
+            disabled:{
+                type: Boolean,
+            },
         },
         data() {
             return {
                 selected: undefined,
-                vertical: undefined
+                vertical: undefined,
             };
         },
         computed: {
@@ -42,6 +45,7 @@
         },
         methods: {
             onclick() {
+                !this.disabled &&
                 this.$emit("add:selected", this.name);
             }
         }
@@ -55,8 +59,9 @@
         padding: .5em 1em;
         cursor: pointer;
         position: relative;
+        user-select: none;
 
-        &:hover {
+        &:not(.disabled):hover {
             color: $blue;
         }
         a{
@@ -84,6 +89,9 @@
             &:after {
                 display: none;
             }
+        }
+        &.disabled{
+            @extend %disabled;
         }
     }
 </style>
