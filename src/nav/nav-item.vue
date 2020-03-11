@@ -25,11 +25,8 @@
         },
         computed: {
             active() {
-                return this.selected && this.selected.indexOf(this.name) >= 0;
+                return this.selected === this.name;
             }
-        },
-        updated() {
-
         },
         watch: {
             active: function () {

@@ -76,7 +76,7 @@
                 <y-icon icon="warn"></y-icon>
                 <y-icon icon="left"></y-icon>
                 `,
-                selected: ["天津市"],
+                selected: "天津市",
                 navs: [
                     {
                         name: "天津市",

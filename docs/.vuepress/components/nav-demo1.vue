@@ -1,6 +1,6 @@
 <template>
     <div style="margin:1em;">
-        <y-nav :selected.sync="selected" vertical >
+        <y-nav :selected.sync="selected" vertical @update:selected="selectedCallback1">
             <y-nav-item name="百度">
                 <a href="http://baidu.com" target="_blank">
                     百度
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-    import helper from '../../helper-icon.js'
+    import helper from "../../helper-icon.js";
     import YNav from "../../../src/nav/nav.vue";
     import YNavItem from "../../../src/nav/nav-item.vue";
     import YSubNav from "../../../src/nav/sub-nav.vue";
@@ -47,6 +47,16 @@
     export default {
         components: {
             YNav, YNavItem, YSubNav
+        },
+        methods: {
+            selectedCallback1(val) {
+                alert(`${val}被选中了！`);
+            },
+        },
+        watch:{
+            selected(){
+                console.log(`${this.selected}被选中了！`);
+            }
         },
         data() {
             return {
@@ -56,7 +66,7 @@
                 <y-icon icon="warn"></y-icon>
                 <y-icon icon="left"></y-icon>
                 `,
-                selected: ["天津市"],
+                selected: "天津市",
                 navs: [
                     {
                         name: "天津市",
@@ -150,7 +160,6 @@
                     },
                     {name: "北京市"}
                 ]
-
             };
         }
     };

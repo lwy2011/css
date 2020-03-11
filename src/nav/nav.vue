@@ -13,19 +13,13 @@
             };
         },
         props: {
-            selected: {
-                type: Array,
-                default: () => []
+            selected: String,
+            vertical: {
+                type: Boolean, default: false
             },
-            multiple: {
-                type:Boolean,default:false
-            },
-            vertical:{
-                type:Boolean,default:false
-            },
-            hoverTimerDelay:{
-                type:Number,
-                validate(val){
+            hoverTimerDelay: {
+                type: Number,
+                validate(val) {
                     return val > 0;
                 }
             },
@@ -42,7 +36,7 @@
                 vm => vm.$on(
                     "add:selected", val => {
                         // console.log(2);
-                        this.$emit("update:selected", this.getNewSelectedData(val));
+                        this.$emit("update:selected", val);
                     }
                 )
             );
@@ -52,9 +46,6 @@
                 this.updateSelected(this.items);
             }
         },
-        updated() {
-        },
-        computed: {},
         methods: {
             updateSelected(vms) {
                 vms.map(
@@ -63,21 +54,9 @@
                     }
                 );
             },
-            getNewSelectedData(newVal) {
-                let res;
-                if (this.multiple) {
-                    const copy = JSON.parse(JSON.stringify(this.selected));
-                    res = copy.push(newVal);
-                }
-                {
-                    res = [newVal];
-                }
-                return res;
-            },
             getItems(vm) {
                 this.items.push(vm);
             },
-
         }
     };
 </script>
@@ -88,21 +67,25 @@
     .yv-nav {
         border-bottom: 1px solid lighten($border-color, 20%);
         display: flex;
-        &.vertical{
+
+        &.vertical {
             display: inline-flex;
             flex-direction: column;
-            border:1px solid lighten($border-color, 20%);
+            border: 1px solid lighten($border-color, 20%);
         }
-        & > &-item.active{
+
+        & > &-item.active {
             &:after {
                 content: '';
                 display: block;
                 width: 100%;
                 position: absolute;
                 border-bottom: 1px solid $blue;
-                left: 0;bottom: 0;
+                left: 0;
+                bottom: 0;
             }
-            color:$blue;
+
+            color: $blue;
         }
     }
 </style>

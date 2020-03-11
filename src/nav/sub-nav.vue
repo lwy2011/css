@@ -40,7 +40,6 @@
         },
         data() {
             return {
-                selected: undefined,
                 visible: false,
                 active: false,
                 iconClass: "",
@@ -67,9 +66,6 @@
         },
         mounted() {
             this.initChildren();
-        },
-        updated() {
-
         },
         watch: {
             active: function () {
@@ -178,7 +174,9 @@
                     ], 500);
                 }
                 setTimeout(
-                    () => {done();}, 470
+                    () => {
+                        done();
+                    }, 470
                 );
             },
         }
@@ -217,7 +215,9 @@
                     content: '';
                     display: block;
                     position: absolute;
-                    width: 100%;bottom: 0;left: 0;
+                    width: 100%;
+                    bottom: 0;
+                    left: 0;
                     border-bottom: 1px solid $blue;
                 }
             }
@@ -235,7 +235,9 @@
             }
 
             &-icon {
-                width: 12px;height: 12px; margin-left: 8px;
+                width: 12px;
+                height: 12px;
+                margin-left: 8px;
                 transition: 250ms;
 
                 &.open {
@@ -259,7 +261,8 @@
                 position: relative;
                 border-radius: 0;
                 box-shadow: none;
-                left: 0;top: 0;
+                left: 0;
+                top: 0;
                 padding-left: 1em;
                 overflow: hidden;
             }
@@ -271,7 +274,8 @@
 
             .yv-sub-nav {
                 .yv-sub-nav-popover {
-                    left: calc(100% + 4px);top: 0;
+                    left: calc(100% + 4px);
+                    top: 0;
 
                     &.vertical {
                         left: 0;
