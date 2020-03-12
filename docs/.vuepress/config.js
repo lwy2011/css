@@ -13,7 +13,8 @@ module.exports = {
                     '/components/popover',
                     '/components/cascader',
                     '/components/slides',
-                    '/components/nav'
+                    '/components/nav',
+                    '/components/validator'
                 ]
             }
         ]

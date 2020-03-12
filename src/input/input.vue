@@ -1,6 +1,6 @@
 <template>
     <div class="yv-wrapper" :class="{error}">
-        <input type="text"
+        <input :type="type"
                :value="value"
                :readonly="readonly"
                :disabled="disabled"
@@ -37,7 +37,11 @@
                 type: Boolean,
                 default: false
             },
-            error: String
+            error: String,
+            type:{
+                type:String,
+                default:'text'
+            }
         }
     };
 </script>

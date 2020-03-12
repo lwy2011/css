@@ -23,6 +23,9 @@ import TabPanel from "./tabs/tabs-panel.vue";
 import Popover from "./popvoer/popover.vue";
 import Collapse from "./collapse/collapse.vue";
 import CollapseItem from "./collapse/collapse-item.vue";
+//单元测试
+import chai from "chai";
+import spies from "chai-spies";
 
 
 Vue.component("y-button", Button);
@@ -214,10 +217,6 @@ new Vue({
         }
     }
 });
-
-//单元测试
-import chai from "chai";
-import spies from "chai-spies";
 
 chai.use(spies);
 

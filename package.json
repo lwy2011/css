@@ -14,6 +14,7 @@
     "test": "parcel build test/*  --no-cache --no-minify && karma start --single-run"
   },
   "dependencies": {
+    "validator": "^12.2.0",
     "vue": "^2.6.11",
     "vue-hot-reload-api": "^2.3.4"
   },
