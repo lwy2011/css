@@ -5,7 +5,7 @@
             <li>
                 <p>name:</p>
                 <y-input v-model="name"
-                         @blur="test"
+                         @blur="test(name,'name')"
                          :error="nameError"></y-input>
                 <p>{{name}}</p>
             </li>
@@ -108,63 +108,81 @@
                 rules: {
                     name: [
                         {
-                            exist: true,
+                            type: "exist",
+                            expect: true,
                             error: "name不能为空！",
                             keepGoOn: false,
                         },
                         {
-                            type: "string",
+                            type: "type",
+                            expect: "string",
                             error: "name类型必须是string类型！",
                             keepGoOn: false,
                         },
                         {
-                            spaceOnly: false,
+                            type: "nonEmpty",
+                            expect: true,
                             error: "name必须要有非空的字符！",
                             keepGoOn: false
                         },
                         {
-                            minLength: 4,
+                            type: "minLength",
+                            expect: 4,
                             error: "name最小长度为4个字符！",
                             keepGoOn: true,
                         },
                         {
-                            maxLength: 10,
+                            type: "maxLength",
+                            expect: 10,
                             error: "name最大长度为10个字符！",
                             keepGoOn: true,
                         },
                         {
-                            upperCaseNeed: true,
+                            type: "upperCaseNeed",
+                            expect: true,
                             error: "name的姓或名的首字母必须大写！",
-                            validator(val) {
-                                return val.match(/^[A-Z]+\S*\s[A-Z]+/);
+                            validateFn(val) {
+                                return !val.match(/\b[a-z]/g);
                             }
                         }
                     ],
                     password: [
                         {
-                            exist: true,
+                            type: "exist",
+                            expect: true,
                             error: "password不能为空！",
                             keepGoOn: false,
                         },
                         {
-                            minLength: 4,
+                            type: "nonEmpty",
+                            expect: false,
+                            error: "输入值必须要有非空字符！",
+                            keepGoOn: false
+                        },
+                        {
+                            type: "minLength",
+                            expect: 4,
                             error: "name最小长度为4个字符！",
                             keepGoOn: true,
                         },
                         {
-                            maxLength: 10,
+                            type: "maxLength",
+                            expect: 10,
                             error: "name最大长度为10个字符！",
                             keepGoOn: true,
                         },
-                        {}
+                        {
+
+                        }
                     ]
                 }
             };
         },
         methods: {
-            test(e, key) {
-                const {value} = e.target;
-                console.log(value, 4);
+            async test(val, type) {
+                const v = new Validator(val,this.rules[type],type)
+                const res = await v.validate()
+                console.log(res);
             },
             onsubmit() {
 
