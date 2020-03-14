@@ -12,7 +12,7 @@
             <li>
                 <p>password:</p>
                 <y-input v-model="password"
-                         @blur="test"
+                         @blur="test(password,'password')"
                          :error="passwordError"></y-input>
                 <p>{{password}}</p>
             </li>
@@ -62,6 +62,7 @@
 <script>
     import Input from "../../../src/input/input.vue";
     import Validator from "../../../src/validator/validator";
+
 
     export default {
         components: {
@@ -140,10 +141,7 @@
                         {
                             type: "upperCaseNeed",
                             expect: true,
-                            error: "name的姓或名的首字母必须大写！",
-                            validateFn(val) {
-                                return !val.match(/\b[a-z]/g);
-                            }
+                            error: "name的姓或名的首字母必须大写！"
                         }
                     ],
                     password: [
@@ -161,34 +159,71 @@
                         },
                         {
                             type: "minLength",
-                            expect: 4,
-                            error: "name最小长度为4个字符！",
+                            expect: 6,
+                            error: "name最小长度为6个字符！",
                             keepGoOn: true,
                         },
                         {
                             type: "maxLength",
-                            expect: 10,
-                            error: "name最大长度为10个字符！",
+                            expect: 12,
+                            error: "name最大长度为12个字符！",
                             keepGoOn: true,
                         },
-                        {}
+                        {
+                            type: "upperCaseNeed",
+                            expect: true,
+                            error: "必须要有大写字母！",
+                            keepGoOn: true,
+                        },
+                        {
+                            type: "lowerCase",
+                            expect: true,
+                            error: "必须要有小写字母！",
+                            keepGoOn: true,
+                        },
+                        {
+                            type: "number",
+                            expect: true,
+                            error: "必须要有数字！",
+                        },
                     ]
                 }
             };
         },
         methods: {
             async test(val, type) {
-                const v = new Validator(val, this.rules[type], type);
-                v.addValidator(
-                    "validateUpperCaseNeed",
-                    (val) => !(val.match(/\b[a-z]+/g))
-                );
-                const res = await v.validate();
+                const obj = {};
+
+                class NameValidator extends Validator {
+                    validateUpperCaseNeed(val) {
+                        return !val.match(/\b[a-z]/g);
+                    }
+                }
+
+                obj.name = new NameValidator(val, this.rules[type], type);
+
+                class PasswordValidator extends NameValidator {
+                    validateUpperCaseNeed(data) {
+                        return data.match(/[A-Z]/);
+                    }
+
+                    validateLowerCase(data) {
+                        return data.match(/[a-z]/);
+                    }
+
+                    validateNumber(data) {
+                        return data.match(/\d/);
+                    }
+                }
+
+                obj.password = new PasswordValidator(val, this.rules[type], type);
+                console.log(11);
+                const res = await obj[type].validate();
                 const errors = Object.keys(res.errors).reduce(
                     (a, b) => a + (a ? "。" : "") + b + "-test:" + res.errors[b], ""
                 );
                 this[type + "Error"] = errors;
-                console.log(res.errors);
+                console.log(res, Object.getPrototypeOf(res));
             },
             onsubmit() {
 

@@ -1,16 +1,21 @@
 import validator from "validator";
 
 class Validator {
-    constructor(data, rules, id) {
+    constructor(data, rules, id, prototypeFix) {
         this.data = data;
         this.id = id;
         this.rules = rules;
         this.errors = {};
+        this.prototypeFix = prototypeFix;
     }
 
     validateExist(data) {
         return data === 0 ? true : Boolean(data);
         //无法检查 '  '空字符串
+    }
+
+    validateNonEmpty(data) {   //test '    '的补救！
+        return data.match(/\S/);
     }
 
     typesHelper() {
@@ -60,10 +65,6 @@ class Validator {
         return data.match(/[A-Z]/);
     }
 
-    validateNonEmpty(data) {   //test '    '的补救！
-        return data.match(/\S/);
-    }
-
     ifError(error, type, keepGoOn) {
         this.errors[type] = error;
         // console.log(this.errors);
@@ -78,21 +79,24 @@ class Validator {
         );
     }
 
-    addValidator(name, fn) {
-        this[name] = fn;
-    }
-
+    // findValidatorFromPrototype(fnName,prototype=this){
+    //     if(prototype[fnName]) return prototype[fnName];
+    //     if (prototype === Validator) return this.noValidatorError(fnName);
+    //     this.findValidatorFromPrototype(fnName,Object.getPrototypeOf(prototype))
+    // }
     async initValidator() {
         await (
             () => this.rules.map(
                 ({type, expect, error, keepGoOn}) => {
-                    const key = type.replace(type[0], type[0].toUpperCase());
-                    if (!this["validate" + key])
+                    const key = "validate" + type.replace(type[0], type[0].toUpperCase());
+                    if (!this[key]) {
                         return this.ifError(
-                            "没有匹配到内置的validator方法,请通过实例的addValidator的方法，添加自定义校验器方法！",
+                            `没有匹配到内置的${key}方法,
+                            请自行添加自定义校验器方法！`,
                             type, keepGoOn
                         );
-                    if (!this["validate" + key](this.data, expect)) {
+                    }
+                    if (!this[key](this.data, expect)) {
                         this.ifError(error, type, keepGoOn);
                     }
                 }
