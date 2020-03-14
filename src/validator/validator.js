@@ -9,7 +9,7 @@ class Validator {
     }
 
     validateExist(data) {
-        return data === 0 ? true :Boolean(data)
+        return data === 0 ? true : Boolean(data);
         //无法检查 '  '空字符串
     }
 
@@ -37,13 +37,15 @@ class Validator {
     }
 
     validateMinLength(data, ruleMinLength) {
-        return !data.length ?
-            NaN : data.length >= ruleMinLength;
+        if (!data.length)
+            return this.dataTypeError("minLength", "length");
+        return data.length >= ruleMinLength;
     }
 
     validateMaxLength(data, ruleMaxLength) {
-        return !data.length ?
-            NaN : data.length <= ruleMaxLength;
+        if (!data.length)
+            return this.dataTypeError("maxLength", "length");
+        return data.length <= ruleMaxLength;
     }
 
     validateRangeMin(num, ruleMin) {
@@ -59,7 +61,7 @@ class Validator {
     }
 
     validateNonEmpty(data) {   //test '    '的补救！
-        return Boolean(data.match(/\S/));
+        return data.match(/\S/);
     }
 
     ifError(error, type, keepGoOn) {
@@ -70,18 +72,28 @@ class Validator {
         }
     }
 
+    dataTypeError(type, attr) {
+        return this.ifError(
+            `数据格式错误,无${attr}属性`, type, false
+        );
+    }
+
+    addValidator(name, fn) {
+        this[name] = fn;
+    }
+
     async initValidator() {
-        return await (
+        await (
             () => this.rules.map(
-                ({type, expect, error, keepGoOn, validateFn}) => {
-                    if (validateFn && validateFn(this.data) !== expect) {
+                ({type, expect, error, keepGoOn}) => {
+                    const key = type.replace(type[0], type[0].toUpperCase());
+                    if (!this["validate" + key])
+                        return this.ifError(
+                            "没有匹配到内置的validator方法,请通过实例的addValidator的方法，添加自定义校验器方法！",
+                            type, keepGoOn
+                        );
+                    if (!this["validate" + key](this.data, expect)) {
                         this.ifError(error, type, keepGoOn);
-                    }
-                    if (!validateFn) {
-                        const key = type.replace(type[0], type[0].toUpperCase());
-                        if (!this["validate" + key](this.data,expect)) {
-                            this.ifError(error, type, keepGoOn);
-                        }
                     }
                 }
             ))();
@@ -92,15 +104,8 @@ class Validator {
             error => {
                 console.log(error.message);
             }
-        )
-        //     .finally(
-        //     () => {
-        //         console.log("fn",this.errors);
-        //         // return this; 这里return 木有用的
-        //     }
-        // );
-        // console.log(res,1);[undefined, undefined, undefined, undefined, undefined, undefined] 1
-        return this
+        );
+        return this;
     }
 }
 

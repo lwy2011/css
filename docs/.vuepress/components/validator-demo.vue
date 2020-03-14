@@ -1,6 +1,6 @@
 <template>
     <div style="margin:1em;">
-        <h4>validator测试</h4>
+        <h4>validator测试:测试运行时机为input的onblur事件发生的回调函数</h4>
         <ul>
             <li>
                 <p>name:</p>
@@ -171,18 +171,24 @@
                             error: "name最大长度为10个字符！",
                             keepGoOn: true,
                         },
-                        {
-
-                        }
+                        {}
                     ]
                 }
             };
         },
         methods: {
             async test(val, type) {
-                const v = new Validator(val,this.rules[type],type)
-                const res = await v.validate()
-                console.log(res);
+                const v = new Validator(val, this.rules[type], type);
+                v.addValidator(
+                    "validateUpperCaseNeed",
+                    (val) => !(val.match(/\b[a-z]+/g))
+                );
+                const res = await v.validate();
+                const errors = Object.keys(res.errors).reduce(
+                    (a, b) => a + (a ? "。" : "") + b + "-test:" + res.errors[b], ""
+                );
+                this[type + "Error"] = errors;
+                console.log(res.errors);
             },
             onsubmit() {
 
