@@ -1,12 +1,17 @@
 import validator from "validator";
 
 class Validator {
-    constructor(data, rules, id, prototypeFix) {
+    constructor(data, rules, id, fix) {
         this.data = data;
         this.id = id;
         this.rules = rules;
         this.errors = {};
-        this.prototypeFix = prototypeFix;
+        if(fix){
+            const {data} = fix
+            Object.keys(data).map(
+                key=>this[key] = data[key]
+            )
+        }
     }
 
     validateExist(data) {

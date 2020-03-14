@@ -19,7 +19,7 @@
             <li>
                 <p>password1:</p>
                 <y-input v-model="password1"
-                         @blur="test"
+                         @blur="test(password1,'password1')"
                          :error="password1Error"></y-input>
                 <p>{{password1}}</p>
             </li>
@@ -63,7 +63,50 @@
     import Input from "../../../src/input/input.vue";
     import Validator from "../../../src/validator/validator";
 
-
+    const passwordRules = [
+        {
+            type: "exist",
+            expect: true,
+            error: "password不能为空！",
+            keepGoOn: false,
+        },
+        {
+            type: "nonEmpty",
+            expect: false,
+            error: "输入值必须要有非空字符！",
+            keepGoOn: false
+        },
+        {
+            type: "minLength",
+            expect: 6,
+            error: "name最小长度为6个字符！",
+            keepGoOn: true,
+        },
+        {
+            type: "maxLength",
+            expect: 12,
+            error: "name最大长度为12个字符！",
+            keepGoOn: true,
+        },
+        {
+            type: "upperCaseNeed",
+            expect: true,
+            error: "必须要有大写字母！",
+            keepGoOn: true,
+        },
+        {
+            type: "lowerCase",
+            expect: true,
+            error: "必须要有小写字母！",
+            keepGoOn: true,
+        },
+        {
+            type: "number",
+            expect: true,
+            error: "必须要有数字！",
+            keepGoOn: true
+        },
+    ];
     export default {
         components: {
             "y-input": Input,
@@ -144,48 +187,14 @@
                             error: "name的姓或名的首字母必须大写！"
                         }
                     ],
-                    password: [
+                    password: passwordRules,
+                    password1: [
+                        ...passwordRules,
                         {
-                            type: "exist",
+                            type: "eque",
                             expect: true,
-                            error: "password不能为空！",
-                            keepGoOn: false,
-                        },
-                        {
-                            type: "nonEmpty",
-                            expect: false,
-                            error: "输入值必须要有非空字符！",
-                            keepGoOn: false
-                        },
-                        {
-                            type: "minLength",
-                            expect: 6,
-                            error: "name最小长度为6个字符！",
-                            keepGoOn: true,
-                        },
-                        {
-                            type: "maxLength",
-                            expect: 12,
-                            error: "name最大长度为12个字符！",
-                            keepGoOn: true,
-                        },
-                        {
-                            type: "upperCaseNeed",
-                            expect: true,
-                            error: "必须要有大写字母！",
-                            keepGoOn: true,
-                        },
-                        {
-                            type: "lowerCase",
-                            expect: true,
-                            error: "必须要有小写字母！",
-                            keepGoOn: true,
-                        },
-                        {
-                            type: "number",
-                            expect: true,
-                            error: "必须要有数字！",
-                        },
+                            error: "两次的密码填写不相同！"
+                        }
                     ]
                 }
             };
@@ -193,6 +202,7 @@
         methods: {
             async test(val, type) {
                 const obj = {};
+                const {password1, password} = this;
 
                 class NameValidator extends Validator {
                     validateUpperCaseNeed(val) {
@@ -216,7 +226,19 @@
                     }
                 }
 
+                class Password1Validator extends PasswordValidator {
+                    validateEque() {
+                        console.log(this.password1, this.password, "pp");
+                        return this.password1 === this.password;
+                    }
+                }
+
                 obj.password = new PasswordValidator(val, this.rules[type], type);
+                obj.password1 = new Password1Validator(
+                    val, this.rules[type], type,
+                    {data: {password1, password}}
+                );
+
                 console.log(11);
                 const res = await obj[type].validate();
                 const errors = Object.keys(res.errors).reduce(
