@@ -14,7 +14,8 @@ module.exports = {
                     '/components/cascader',
                     '/components/slides',
                     '/components/nav',
-                    '/components/validator'
+                    '/components/validator',
+                    '/components/pager',
                 ]
             }
         ]
