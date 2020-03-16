@@ -1,6 +1,6 @@
 <template>
     <div style="margin:1em;">
-        <y-pager :total="5" :current.sync="current">
+        <y-pager :total="20" :current.sync="current">
         </y-pager>
         <pre>
             <code>{{content}}</code>

@@ -1,6 +1,6 @@
 <template>
     <div class="yv-pager" :class="{hidden:onlyOneHidden}">
-        <span class="yv-pager-item last"
+        <span class="yv-pager-item yv-pager-last"
               :class="{disabled:current === 1}"
               @click="onLastClick"
         >
@@ -24,7 +24,7 @@
             </template>
         </template>
 
-        <span class="yv-pager-item  next"
+        <span class="yv-pager-item  yv-pager-next"
               :class="{disabled:current === total}"
               @click="onNextClick"
         >
@@ -142,14 +142,13 @@
             },
             onClickDots(index) {
                 // console.log(1);
-                const change = index === this.bigLast ? -5 : 5;
-                const nextCurrent = this.current + change;
+                const {current, bigLast, total} = this;
+                const change = (index === bigLast ? -5 : 5) + current;
+                const nextCurrent = change > total ? total : (
+                    change < 1 ? 1 : change
+                );
                 this.$emit("update:current", nextCurrent);
             },
-
-            updateView() {
-
-            }
         }
     };
 </script>
@@ -191,14 +190,14 @@
             }
         }
 
-        &-dots, &-item.last, &-item.next {
+        &-dots, &-last, &-next {
             width: 20px;
             padding: 0;
             border: none;
             justify-content: center;
         }
 
-        &-item.last, &-item.next {
+        &-last, &-next {
             background: $light-border-color;
 
             &.disabled {
@@ -210,7 +209,7 @@
             }
         }
 
-        &-item.last {
+        &-last {
             margin-left: 0;
         }
     }
