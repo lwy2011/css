@@ -15,8 +15,11 @@
             </template>
             <template v-else="ind === '...'">
                 <span class="yv-pager-item  yv-pager-dots"
-                      @click="onClickItem(ind)" :key="index">
-                    <y-icon icon="dots"></y-icon>
+                      @click="onClickDots(index)" :key="index"
+                      @mouseenter="hoverDots=index"
+                      @mouseleave="hoverDots=undefined"
+                >
+                    <y-icon :icon="hoverDots === index ?icon(index):'dots'"></y-icon>
                 </span>
             </template>
         </template>
@@ -51,49 +54,47 @@
             }
         },
         data() {
-            const {total, current} = this;
-            const arr = [1, current - 2, current - 1, current, current + 1, current + 2, total]
-                .filter(val => val > 0).sort((a, b) => a - b);
-            const obj = {};
-            arr.map(
-                val => obj["ind" + val] = val
-            );
-            let arr1 = Object.keys(obj).map(
-                key => obj[key]
-            );
-            const maxIndex = arr1.indexOf(total);
-            if (maxIndex + 1 < arr1.length) {
-                arr1 = arr1.slice(0, maxIndex + 1);
-            }
-            arr1 = arr1.reduce(
-                (a, b) => {
-                    const last = a.length ? a[a.length - 1] : 0;
-                    if (last === "...") a.push(b);
-                    if (b - last > 1) {
-                        a = a.concat(["...", b]);
-                    } else {
-                        a.push(b);
-                    }
-                    return a;
-                }, []
-            );
-            console.log(arr1);
-
             return {
-                pages: this.updateView()
+                pages: this.updateView(),
+                bigLast: undefined,
+                bigNext: undefined,
+                hoverDots: undefined,
             };
         },
-        computed: {
-            currentUpdate() {
-
-            }
-        },
+        computed: {},
         watch: {
             current: function () {
                 this.pages = this.updateView();
+            },
+            pages: function () {
+                this.findDots();
             }
         },
+        mounted() {
+            this.findDots();
+        },
         methods: {
+            findDots() {
+                const {pages, total} = this;
+                pages.map(
+                    (val, ind) => {
+                        if (val === "...") {
+                            pages[ind + 1] === total && (
+                                this.bigNext = ind
+                            );
+                            pages[ind - 1] === 1 && (
+                                this.bigLast = ind
+                            );
+                        }
+                    }
+                );
+            },
+            icon(index) {
+                // console.log(index, this.bigLast, this.bigNext, this.hoverDots);
+                return index === this.bigLast ? "big-left" : (
+                    index === this.bigNext ? "big-right" : "dots"
+                );
+            },
             onClickItem(val) {
                 if (val === this.current) return;
                 if (val !== "...") {
@@ -108,6 +109,13 @@
                 if (this.current === this.total) return;
                 this.$emit("update:current", this.current + 1);
             },
+            onClickDots(index) {
+                // console.log(1);
+                const change = index === this.bigLast ? -5 : 5;
+                const nextCurrent = this.current + change;
+                this.$emit("update:current", nextCurrent);
+            },
+
             updateView() {
                 const {total, current} = this;
                 const arr = [1, current - 2, current - 1, current, current + 1, current + 2, total]
