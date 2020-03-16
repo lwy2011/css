@@ -1,16 +1,24 @@
 <template>
     <div class="yv-pager">
-        <span class="yv-pager-item last">
+        <span class="yv-pager-item last" :class="{disabled:current === 1}">
             <y-icon icon="left"></y-icon>
         </span>
-        <span v-for="ind in pages"
-              :key="ind"
-              class="yv-pager-item"
-              :class="{active:ind === current}"
-              @click="onClickItem(ind)">
-            {{ind}}
-        </span>
-        <span class="yv-pager-item  next">
+        <template v-for="ind in pages">
+            <template v-if="ind !== '...'">
+                <span :class="{active:ind === current}" class="yv-pager-item"
+                      @click="onClickItem(ind)" :key="ind">
+                    {{ind}}
+                </span>
+            </template>
+            <template v-else="ind === '...'">
+                <span class="yv-pager-item  yv-pager-dots"
+                      @click="onClickItem(ind)" :key="ind">
+                    <y-icon icon="dots"></y-icon>
+                </span>
+            </template>
+        </template>
+
+        <span class="yv-pager-item  next" :class="{disabled:current === total}">
             <y-icon icon="right"></y-icon>
         </span>
     </div>
@@ -97,9 +105,11 @@
             @extend %border-radius;
             margin-left: 8px;
             display: inline-flex;
-            padding: 4px .5em;
+            padding: 0 .5em;
             cursor: pointer;
             align-items: center;
+            min-width: 20px;
+            height: 20px;
 
             &.active, &:hover {
                 border-color: $blue;
@@ -113,6 +123,29 @@
             &.active {
                 cursor: not-allowed;
             }
+        }
+
+        &-dots, &-item.last, &-item.next {
+            width: 20px;
+            padding: 0;
+            border: none;
+            justify-content: center;
+        }
+
+        &-item.last, &-item.next {
+            background: $light-border-color;
+
+            &.disabled {
+                @extend %disabled;
+
+                svg {
+                    fill: darken($border-color, 20%);
+                }
+            }
+        }
+
+        &-item.last {
+            margin-left: 0;
         }
     }
 </style>
