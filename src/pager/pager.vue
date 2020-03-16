@@ -1,5 +1,5 @@
 <template>
-    <div class="yv-pager">
+    <div class="yv-pager" :class="{hidden:onlyOneHidden}">
         <span class="yv-pager-item last"
               :class="{disabled:current === 1}"
               @click="onLastClick"
@@ -42,11 +42,17 @@
         props: {
             total: {
                 type: Number,
-                required: true
+                required: true,
+                validator(val) {
+                    return val > 0 && (val % 1 === 0);
+                }
             },
             current: {
                 type: Number,
-                default: 1
+                default: 1,
+                validator(val) {
+                    return val > 0 && (val % 1 === 0);
+                }
             },
             onlyOneHidden: {
                 type: Boolean,
@@ -55,17 +61,42 @@
         },
         data() {
             return {
-                pages: this.updateView(),
                 bigLast: undefined,
                 bigNext: undefined,
                 hoverDots: undefined,
             };
         },
-        computed: {},
+        computed: {
+            pages() {
+                const {total, current} = this;
+                const arr = [1, current - 2, current - 1, current, current + 1, current + 2, total]
+                    .filter(val => val > 0).sort((a, b) => a - b);
+                const obj = {};
+                arr.map(
+                    val => obj["ind" + val] = val
+                );
+                let arr1 = Object.keys(obj).map(
+                    key => obj[key]
+                );
+                const maxIndex = arr1.indexOf(total);
+                if (maxIndex + 1 < arr1.length) {
+                    arr1 = arr1.slice(0, maxIndex + 1);
+                }
+                return arr1.reduce(
+                    (a, b) => {
+                        const last = a.length ? a[a.length - 1] : 0;
+                        if (last === "...") a.push(b);
+                        if (b - last > 1) {
+                            a = a.concat(["...", b]);
+                        } else {
+                            a.push(b);
+                        }
+                        return a;
+                    }, []
+                );
+            }
+        },
         watch: {
-            current: function () {
-                this.pages = this.updateView();
-            },
             pages: function () {
                 this.findDots();
             }
@@ -117,32 +148,7 @@
             },
 
             updateView() {
-                const {total, current} = this;
-                const arr = [1, current - 2, current - 1, current, current + 1, current + 2, total]
-                    .filter(val => val > 0).sort((a, b) => a - b);
-                const obj = {};
-                arr.map(
-                    val => obj["ind" + val] = val
-                );
-                let arr1 = Object.keys(obj).map(
-                    key => obj[key]
-                );
-                const maxIndex = arr1.indexOf(total);
-                if (maxIndex + 1 < arr1.length) {
-                    arr1 = arr1.slice(0, maxIndex + 1);
-                }
-                return arr1.reduce(
-                    (a, b) => {
-                        const last = a.length ? a[a.length - 1] : 0;
-                        if (last === "...") a.push(b);
-                        if (b - last > 1) {
-                            a = a.concat(["...", b]);
-                        } else {
-                            a.push(b);
-                        }
-                        return a;
-                    }, []
-                );
+
             }
         }
     };
@@ -154,6 +160,11 @@
     .yv-pager {
         display: inline-flex;
         font-size: $small-font-size;
+        user-select: none;
+
+        &.hidden {
+            display: none;
+        }
 
         &-item {
             @extend %border;
