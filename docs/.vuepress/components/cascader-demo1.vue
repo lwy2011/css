@@ -20,7 +20,7 @@
 <script>
     import Cascader from "../../../src/cascader/cascader.vue";
     import Button from "../../../src/button/button.vue";
-    import {arr} from "./cascader.js";
+    import {arr} from "./cascader.db.js";
     import "../../helper-icon.js";
 
     const ajax = (parent_id = 0) =>

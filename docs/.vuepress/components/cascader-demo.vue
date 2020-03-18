@@ -19,7 +19,7 @@
 <script>
     import Cascader from "../../../src/cascader/cascader.vue";
     import Button from "../../../src/button/button.vue";
-    import data from "./cascader.js";
+    import data from "./cascader.db.js";
     import "../../helper-icon.js";
 
 
