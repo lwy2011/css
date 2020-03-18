@@ -16,6 +16,7 @@ module.exports = {
                     '/components/nav',
                     '/components/validator',
                     '/components/pager',
+                    '/components/table',
                 ]
             }
         ]

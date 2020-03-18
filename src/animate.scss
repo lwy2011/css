@@ -59,3 +59,11 @@
         height:0;
     }
 }
+@keyframes hovered {
+    0%{
+        background: none;
+    }
+    100%{
+        background: #E7F7FF;
+    }
+}
