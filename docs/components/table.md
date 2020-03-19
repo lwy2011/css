@@ -15,3 +15,9 @@
   <table-demo1/>
 </ClientOnly>
 
+### 展示3
+
+<ClientOnly>
+  <table-demo2/>
+</ClientOnly>
+

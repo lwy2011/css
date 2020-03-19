@@ -38,7 +38,13 @@
         },
         props: {
             source: {
-                type: Array, required: true
+                type: Array, required: true,
+                validator(arr) {
+                    return arr.length > 0 &&
+                        arr.filter(
+                            obj => obj.trIndex
+                        ).length === 0;
+                }
             },
             columns: {
                 type: Array, required: true
@@ -48,7 +54,9 @@
             striped: {
                 type: Boolean, default: false
             },
-            selected: Array
+            selected: {
+                type: Array, required: true
+            }
         },
         mounted() {
             if ((this.source[0].selection) && !this.selected || this.selectAll) {
