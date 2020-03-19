@@ -10,7 +10,7 @@
             <y-table
                     v-if="selected.length"
                     :columns="columns"
-                    :source="selected"
+                    :source="source.filter(val=>selected.indexOf(val.trIndex)>=0)"
             >
             </y-table>
         </div>

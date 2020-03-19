@@ -10,7 +10,7 @@
             <y-table
                     v-if="selected.length"
                     :columns="columns"
-                    :source="selected"
+                    :source="source.filter(val=>selected.indexOf(val.trIndex)>=0)"
             >
             </y-table>
         </div>
@@ -47,7 +47,7 @@
                         key: "address",
                     },
                 ],
-                source:  [
+                source: [
                     {
                         name: "胡彦斌",
                         age: 32,
@@ -74,7 +74,7 @@
                         age: 32,
                         address: "Sidney No. 1 Lake Park",
                         selection: true,
-                        trIndex:3
+                        trIndex: 3
                     },
                 ],
                 selected: [],
