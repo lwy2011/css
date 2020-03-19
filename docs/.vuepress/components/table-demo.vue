@@ -35,7 +35,7 @@
                         key: "address",
                     },
                 ],
-                source: [
+                source:  [
                     {
                         name: "胡彦斌",
                         age: 32,
@@ -56,7 +56,7 @@
                         age: 32,
                         address: "Sidney No. 1 Lake Park",
                     },
-                ]
+                ],
             };
         }
     };

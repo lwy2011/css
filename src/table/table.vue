@@ -14,10 +14,9 @@
             <tbody>
             <tr v-for="(item,index) in source" :key="index">
                 <td v-if="item.selection">
-                    <input :checked="itemIsSelected(index)"
-                           type="checkbox"
-                           @change="onInputChange($event,index)"
-                    />
+                    <y-checkbox @click="onInputChange(item,$event)"
+                           :checked="itemIsSelected(index)"
+                    ></y-checkbox>
                 </td>
                 <td v-for="(column,ind) in columns" :key="ind">
                     {{item[column.key]}}
@@ -39,11 +38,8 @@
         props: {
             source: {
                 type: Array, required: true,
-                validator(arr) {
-                    return arr.length > 0 &&
-                        arr.filter(
-                            obj => obj.trIndex
-                        ).length === 0;
+                validator(arr){
+                    return !arr.find(obj=>obj.selection && obj.trIndex !== 0 && (!obj.trIndex))
                 }
             },
             columns: {
@@ -64,20 +60,25 @@
         computed: {},
         methods: {
             itemIsSelected(index) {
-                return this.selected.indexOf(index) >= 0;
+                // console.log(2, this.selected.find(item=>item.trIndex === index));
+                return Boolean(this.selected.find(item=>item.trIndex === index));
             },
             allSelect() {
 
             },
-            cancelSelected(copy, index) {
-                const index1 = copy.indexOf(index);
-                copy.splice(index1, 1);
+            cancelItem(copy,item){
+                let ind
+                copy.map(
+                    (obj,index)=>{
+                        !ind&&(obj.trIndex === item.trIndex)&&(ind = index)
+                    }
+                )
+                copy.splice(ind,1)
             },
-            onInputChange(e,  index) {
-                const {checked} = e.target;
-                console.log(checked, 1);
+            onInputChange(item,checked) {
                 const copy = JSON.parse(JSON.stringify(this.selected));
-                checked ? this.cancelSelected(copy, index) : copy.push(index);
+                // console.log( 1, checked,this.selected.indexOf(item),item);
+                checked ? this.cancelItem(copy,item) : copy.push(item);
                 this.$emit("update:selected", copy);
             }
         }

@@ -6,12 +6,11 @@
         >
         </y-table>
         <div>
-            <p>选择结果</p>
+            <p>选择结果:</p>
             <y-table
                     v-if="selected.length"
                     :columns="columns"
                     :source="selected"
-                    :selected.sync="selected"
             >
             </y-table>
         </div>
@@ -48,30 +47,34 @@
                         key: "address",
                     },
                 ],
-                source: [
+                source:  [
                     {
                         name: "胡彦斌",
                         age: 32,
                         address: "西湖区湖底公园1号",
-                        selection: true
+                        selection: true,
+                        trIndex: 0
                     },
                     {
                         name: "John Brown",
                         age: 32,
                         address: "New York No. 1 Lake Park",
-                        selection: true
+                        selection: true,
+                        trIndex: 1
                     },
                     {
                         name: "Jim Green",
                         age: 42,
                         address: "London No. 1 Lake Park",
-                        selection: true
+                        selection: true,
+                        trIndex: 2
                     },
                     {
                         name: "Joe Black",
                         age: 32,
                         address: "Sidney No. 1 Lake Park",
-                        selection: true
+                        selection: true,
+                        trIndex:3
                     },
                 ],
                 selected: [],
