@@ -1,6 +1,6 @@
 <template>
     <div style="margin:1em;">
-        <y-table :columns="columns" :source="source" striped>
+        <y-table :columns="columns" :source="source" striped >
         </y-table>
         <pre>
             <code>{{content}}</code>

@@ -14,10 +14,10 @@
             <tbody>
             <tr v-for="(item,index) in source" :key="index">
                 <td v-if="item.selection">
-                    <y-checkbox :checked="itemIsSelected(index)"
-                                @click="onInputClick($event,item,index)"
-                    >
-                    </y-checkbox>
+                    <input :checked="itemIsSelected(index)"
+                           type="checkbox"
+                           @change="onInputChange($event,index)"
+                    />
                 </td>
                 <td v-for="(column,ind) in columns" :key="ind">
                     {{item[column.key]}}
@@ -55,40 +55,29 @@
                 type: Boolean, default: false
             },
             selected: {
-                type: Array, required: true
+                type: Array, default: () => []
             }
         },
         mounted() {
-            if ((this.source[0].selection) && !this.selected || this.selectAll) {
-                throw new Error("设置了checkbox，就必须要为组件设计selected属性");
-            }
+
         },
         computed: {},
         methods: {
             itemIsSelected(index) {
-                return Boolean(
-                    this.selected.filter(
-                        item => item.trIndex === index
-                    )[0]
-                );
+                return this.selected.indexOf(index) >= 0;
             },
             allSelect() {
 
             },
             cancelSelected(copy, index) {
-                let index1;
-                copy.map(
-                    (val, ind) => val.trIndex === index && (
-                        index1 = ind
-                    )
-                );
+                const index1 = copy.indexOf(index);
                 copy.splice(index1, 1);
             },
-            onInputClick(checked, item, index) {
+            onInputChange(e,  index) {
+                const {checked} = e.target;
+                console.log(checked, 1);
                 const copy = JSON.parse(JSON.stringify(this.selected));
-                const itemCopy = JSON.parse(JSON.stringify(item));
-                itemCopy.trIndex = index;
-                checked ? this.cancelSelected(copy, index) : copy.push(itemCopy);
+                checked ? this.cancelSelected(copy, index) : copy.push(index);
                 this.$emit("update:selected", copy);
             }
         }
