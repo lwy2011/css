@@ -4,7 +4,12 @@
             <thead>
             <tr>
                 <td v-if="source[0] && source[0].selection">
-                    <input type="checkbox" v-if="selectAll" @click="allSelect">
+                    <y-checkbox v-if="selectAll"
+                                @click="allSelect"
+                                :checked="selected.length === source.length"
+                                :indeterminate="selected.length>0&&selected.length<source.length"
+                    >
+                    </y-checkbox>
                 </td>
                 <td v-for="(item ,index) in columns" :key="index">
                     {{item.text}}
@@ -54,26 +59,22 @@
                 type: Array, default: () => []
             }
         },
-        mounted() {
-
+        watch: {
+            selected: function () {
+                console.log(this.$refs.allSelect, 11);
+            }
         },
         computed: {},
         methods: {
             itemIsSelected(item) {
-                // console.log(2, this.selected.find(item=>item.trIndex === index));
                 return this.selected.indexOf(item.trIndex) >= 0;
             },
             allSelect() {
-
-            },
-            cancelItem(copy, item) {
-                let ind;
-                copy.map(
-                    (obj, index) => {
-                        !ind && (obj.trIndex === item.trIndex) && (ind = index);
-                    }
+                this.$emit(
+                    "update:selected",
+                    this.selected.length === this.source.length ? [] :
+                        this.source.map(val => val.trIndex)
                 );
-                copy.splice(ind, 1);
             },
             onInputChange(item, checked) {
                 const copy = JSON.parse(JSON.stringify(this.selected));

@@ -3,6 +3,7 @@
         <y-table :columns="columns"
                  :source="source" bordered
                  :selected.sync="selected"
+                 select-all
         >
         </y-table>
         <div>
