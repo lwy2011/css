@@ -12,7 +12,16 @@
                     </y-checkbox>
                 </td>
                 <td v-for="(item) in columns" :key="item.text">
-                    {{item.text}}
+                    <div class="yv-table-td">
+                        {{item.text}}
+                        <span class="yv-table-sorter"
+                              v-if="item.sorter"
+                              @click="sorterClick(item.key)"
+                        >
+                            <y-icon icon="esc" :class="{active:item.sorter === 'esc'}"></y-icon>
+                            <y-icon icon="desc" :class="{active:item.sorter === 'desc'}"></y-icon>
+                        </span>
+                    </div>
                 </td>
             </tr>
             </thead>
@@ -33,12 +42,14 @@
 </template>
 
 <script>
+    import "../../docs/helper-icon";
     import YCheckbox from "./checkbox";
+    import YIcon from "../svg/svg";
 
     export default {
         name: "v-table",
         components: {
-            YCheckbox
+            YCheckbox, YIcon
         },
         props: {
             source: {
@@ -48,7 +59,16 @@
                 }
             },
             columns: {
-                type: Array, required: true
+                type: Array, required: true,
+                validator(arr) {
+                    const sorts = arr.filter(obj => "sorter" in obj);
+                    return sorts.length > 0 ? !(
+                        sorts.find(
+                            obj => obj.sorter !== "default" &&
+                                obj.sorter !== "desc" && obj.sorter !== "esc"
+                        )
+                    ) : true;
+                }
             },
             bordered: Boolean,
             selectAll: Boolean,
@@ -57,7 +77,7 @@
             },
             selected: {
                 type: Array, default: () => []
-            }
+            },
         },
         watch: {
             selected: function () {
@@ -69,7 +89,7 @@
                 if (this.selected.length !== this.source.length) return false;
                 const arr1 = [...this.selected].sort((a, b) => a - b);
                 const arr2 = this.source.map(
-                    obj=>obj.trIndex
+                    obj => obj.trIndex
                 ).sort((a, b) => a - b);
                 let test = true;
                 for (let i = 0; i < arr1.length; i++) {
@@ -78,10 +98,10 @@
                         break;
                     }
                 }
-                return test
+                return test;
             },
-            indeterminate(){
-                return this.selected.length>0&&(!this.allIsSelected)
+            indeterminate() {
+                return this.selected.length > 0 && (!this.allIsSelected);
             }
         },
         methods: {
@@ -100,6 +120,23 @@
                 // console.log(1, checked, item);
                 checked ? copy.splice(copy.indexOf(item.trIndex), 1) : copy.push(item.trIndex);
                 this.$emit("update:selected", copy);
+            },
+            sorterClick(key) {
+                const copy = JSON.parse(JSON.stringify(this.columns));
+                let item
+                for (let i = 0; i < copy.length; i++) {
+                    if (copy[i].key === key) {
+                        const {sorter} = copy[i];
+                        const enums = {
+                            default:'esc',esc:'desc',desc:'default'
+                        }
+                        copy[i].sorter = enums[sorter];
+                        item = copy[i]
+                        break;
+                    }
+                }
+                // console.log(copy);
+                this.$emit("update:sorter", copy,item);
             }
         }
     };
@@ -117,6 +154,36 @@
         margin: 0;
         transition: all 1s;
         $background-color: #FAFAFA;
+
+        &-sorter {
+            display: inline-flex;
+            flex-direction: column;
+            cursor: pointer;
+            margin-left: .5em;
+
+            svg {
+                fill: $light-border-color;
+                width: 12px;
+                position: relative;
+
+                &:first-child {
+                    bottom: -3px;
+                }
+
+                &:last-child {
+                    top: -3px;
+                }
+
+                &.active {
+                    fill: $blue;
+                }
+            }
+        }
+
+        &-td {
+            display: inline-flex;
+            align-items: center;
+        }
 
         &.bordered {
             border: 1px solid $light-border-color;

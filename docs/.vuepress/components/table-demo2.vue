@@ -4,6 +4,8 @@
                  :source="source" bordered
                  :selected.sync="selected"
                  select-all
+                 :sorter.sync="columns"
+                 @update:sorter="sorterUpdate"
         >
         </y-table>
         <div>
@@ -17,7 +19,7 @@
         </div>
         <pre>
             <code>{{content}}</code>
-            <input type="checkbox" :checked="checked" @change="select" >
+            <input type="checkbox" :checked="checked" @change="select">
             <input type="text" :value="text" @input="input">
         </pre>
     </div>
@@ -36,8 +38,8 @@
                 content: `
                 <y-icon icon="setting"></y-icon>
                 `,
-                checked:false,
-                text:'',
+                checked: false,
+                text: "",
                 columns: [
                     {
                         text: "姓名",
@@ -46,6 +48,7 @@
                     {
                         text: "年龄",
                         key: "age",
+                        sorter: "esc"  //'desc' 'default'
                     },
                     {
                         text: "住址",
@@ -62,7 +65,7 @@
                     },
                     {
                         name: "John Brown",
-                        age: 32,
+                        age: 23,
                         address: "New York No. 1 Lake Park",
                         selection: true,
                         trIndex: 1
@@ -76,26 +79,45 @@
                     },
                     {
                         name: "Joe Black",
-                        age: 32,
+                        age: 3,
                         address: "Sidney No. 1 Lake Park",
                         selection: true,
-                        trIndex:3
+                        trIndex: 3
                     },
                 ],
                 selected: [],
+                defaultSource: null
             };
         },
-        methods:{
-            select(e){
-                console.log(e.target.checked,111);
+        mounted() {
+            this.defaultSource = JSON.parse(JSON.stringify(this.source));
+        },
+        methods: {
+            select(e) {
+                console.log(e.target.checked, 111);
             },
-            input(e){
-                console.log(e.target.value,0);
+            input(e) {
+                console.log(e.target.value, 0);
                 // this.text = e.target.value
+            },
+            sorterUpdate(columns, item) {
+                console.log(item, 55);
+                setTimeout(
+                    () => {
+                        const {key, sorter} = item;
+                        this.source = sorter === "default" ? this.defaultSource : (
+                            this.source.sort(
+                                (a, b) =>
+                                    sorter === "esc" ?
+                                        a[key] - b[key] : b[key] - a[key]
+                            )
+                        );
+                    }, 1000
+                );
             }
         },
         updated() {
-            console.log(this.selected,this.checked);
+            console.log(this.selected, this.checked);
         }
     };
 </script>
