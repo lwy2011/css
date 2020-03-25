@@ -6,8 +6,8 @@
                 <td v-if="source[0] && source[0].selection">
                     <y-checkbox v-if="selectAll"
                                 @click="allSelect"
-                                :checked="selected.length === source.length"
-                                :indeterminate="selected.length>0&&selected.length<source.length"
+                                :checked="allIsSelected"
+                                :indeterminate="indeterminate"
                     >
                     </y-checkbox>
                 </td>
@@ -61,10 +61,29 @@
         },
         watch: {
             selected: function () {
-                console.log(this.$refs.allSelect, 11);
+                // console.log(this.selected, 11);
             }
         },
-        computed: {},
+        computed: {
+            allIsSelected() {
+                if (this.selected.length !== this.source.length) return false;
+                const arr1 = [...this.selected].sort((a, b) => a - b);
+                const arr2 = this.source.map(
+                    obj=>obj.trIndex
+                ).sort((a, b) => a - b);
+                let test = true;
+                for (let i = 0; i < arr1.length; i++) {
+                    if (arr1[i] !== arr2[i]) {
+                        test = false;
+                        break;
+                    }
+                }
+                return test
+            },
+            indeterminate(){
+                return this.selected.length>0&&(!this.allIsSelected)
+            }
+        },
         methods: {
             itemIsSelected(item) {
                 return this.selected.indexOf(item.trIndex) >= 0;
@@ -72,13 +91,13 @@
             allSelect() {
                 this.$emit(
                     "update:selected",
-                    this.selected.length === this.source.length ? [] :
+                    this.allIsSelected ? [] :
                         this.source.map(val => val.trIndex)
                 );
             },
             onInputChange(item, checked) {
                 const copy = JSON.parse(JSON.stringify(this.selected));
-                console.log(1, checked, item);
+                // console.log(1, checked, item);
                 checked ? copy.splice(copy.indexOf(item.trIndex), 1) : copy.push(item.trIndex);
                 this.$emit("update:selected", copy);
             }
