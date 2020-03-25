@@ -11,19 +11,19 @@
                     >
                     </y-checkbox>
                 </td>
-                <td v-for="(item ,index) in columns" :key="index">
+                <td v-for="(item) in columns" :key="item">
                     {{item.text}}
                 </td>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(item,index) in source" :key="index">
+            <tr v-for="(item) in source" :key="item">
                 <td v-if="item.selection">
                     <y-checkbox @click="onInputChange(item,$event)"
                                 :checked="itemIsSelected(item)"
                     ></y-checkbox>
                 </td>
-                <td v-for="(column,ind) in columns" :key="ind">
+                <td v-for="(column) in columns" :key="column">
                     {{item[column.key]}}
                 </td>
             </tr>
@@ -78,7 +78,7 @@
             },
             onInputChange(item, checked) {
                 const copy = JSON.parse(JSON.stringify(this.selected));
-                // console.log( 1, checked,this.selected.indexOf(item),item);
+                console.log(1, checked, item);
                 checked ? copy.splice(copy.indexOf(item.trIndex), 1) : copy.push(item.trIndex);
                 this.$emit("update:selected", copy);
             }
