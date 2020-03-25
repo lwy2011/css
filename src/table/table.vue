@@ -11,19 +11,19 @@
                     >
                     </y-checkbox>
                 </td>
-                <td v-for="(item) in columns" :key="item">
+                <td v-for="(item) in columns" :key="item.text">
                     {{item.text}}
                 </td>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(item) in source" :key="item">
+            <tr v-for="(item) in source" :key="item.trIndex">
                 <td v-if="item.selection">
                     <y-checkbox @click="onInputChange(item,$event)"
                                 :checked="itemIsSelected(item)"
                     ></y-checkbox>
                 </td>
-                <td v-for="(column) in columns" :key="column">
+                <td v-for="(column) in columns" :key="column.key">
                     {{item[column.key]}}
                 </td>
             </tr>
