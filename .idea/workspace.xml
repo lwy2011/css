@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="去掉无用的测试代码">
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="实现loading">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/table-demo2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/table-demo2.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/table/table.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/table/table.vue" afterDir="false" />
@@ -120,14 +120,8 @@
       <workItem from="1584608938171" duration="13208000" />
       <workItem from="1584670532155" duration="4165000" />
       <workItem from="1585127110082" duration="9533000" />
-      <workItem from="1585194773344" duration="910000" />
-    </task>
-    <task id="LOCAL-00112" summary="更新slides的test文件，由于delay更短了，测试延迟短多了。">
-      <created>1583491093780</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1583491093780</updated>
+      <workItem from="1585194773344" duration="1841000" />
+      <workItem from="1585218218430" duration="2242000" />
     </task>
     <task id="LOCAL-00113" summary="添加popover的示例到vuepress">
       <created>1583502701857</created>
@@ -465,7 +459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585195149567</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="实现loading">
+      <created>1585195797558</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1585195797559</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +483,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="引入validator.js依赖。初始化validator的架子和测试例子。同时对input组件进行加入了type的api，貌似有用，貌似也没啥用的。" />
     <MESSAGE value="初步实现可以validate的功能了。异步操作不熟很美" />
     <MESSAGE value="初步实现validator的架子，可以处理基本的几个校验，存在，数据类型，长度，数值大小范围，可以自定义添加校验方法。报错的实现，以及最终结果的收集。" />
     <MESSAGE value="实现了继承的功能，更好的复用validator的设计。" />
@@ -507,7 +507,8 @@
     <MESSAGE value="完善全选的判断逻辑" />
     <MESSAGE value="实现简单排序的功能。" />
     <MESSAGE value="去掉无用的测试代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="去掉无用的测试代码" />
+    <MESSAGE value="实现loading" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现loading" />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="132" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584083448715">
@@ -518,10 +519,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="530" y="23" key="CommitChangelistDialog2" timestamp="1585195149103">
+    <state x="530" y="23" key="CommitChangelistDialog2" timestamp="1585195797372">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="530" y="23" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1585195149103" />
+    <state x="530" y="23" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1585195797372" />
     <state width="1228" height="108" key="GridCell.Tab.0.bottom" timestamp="1584204404168">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -542,10 +543,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="572" y="43" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1584170641958" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1585195152255">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1585195798950">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1585195152255" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1585195798950" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -554,10 +555,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="943" y="474" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.2048.1046@0.23.2048.1046" timestamp="1583939459449" />
-    <state x="782" y="354" width="838" height="676" key="search.everywhere.popup" timestamp="1584202057128">
+    <state x="782" y="354" width="838" height="676" key="search.everywhere.popup" timestamp="1585232924437">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="782" y="354" width="838" height="676" key="search.everywhere.popup/0.23.2048.1046@0.23.2048.1046" timestamp="1584202057128" />
+    <state x="782" y="354" width="838" height="676" key="search.everywhere.popup/0.23.2048.1046@0.23.2048.1046" timestamp="1585232924437" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

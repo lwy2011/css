@@ -1,5 +1,5 @@
 <template>
-    <div class="yv-table-wrapper">
+    <div class="yv-table-wrapper" :class="{bordered}">
         <table class="yv-table" :class="{bordered,striped}">
             <thead>
             <tr>
@@ -81,7 +81,7 @@
             selected: {
                 type: Array, default: () => []
             },
-            loading:Boolean,
+            loading: Boolean,
         },
         watch: {
             selected: function () {
@@ -127,20 +127,20 @@
             },
             sorterClick(key) {
                 const copy = JSON.parse(JSON.stringify(this.columns));
-                let item
+                let item;
                 for (let i = 0; i < copy.length; i++) {
                     if (copy[i].key === key) {
                         const {sorter} = copy[i];
                         const enums = {
-                            default:'esc',esc:'desc',desc:'default'
-                        }
+                            default: "esc", esc: "desc", desc: "default"
+                        };
                         copy[i].sorter = enums[sorter];
-                        item = copy[i]
+                        item = copy[i];
                         break;
                     }
                 }
                 // console.log(copy);
-                this.$emit("update:sorter", copy,item);
+                this.$emit("update:sorter", copy, item);
             }
         }
     };
@@ -149,20 +149,34 @@
 <style scoped lang="scss">
     @import "../common";
     @import "../animate";
-    .yv-table-wrapper{
+
+    .yv-table-wrapper {
         position: relative;
-        .yv-table-loading{
+        overflow: scroll;
+        height: 100%;
+
+        &.bordered {
+            border: 1px solid $light-border-color;
+        }
+
+        .yv-table-loading {
             position: absolute;
-            top:0;left:0;right:0;bottom: 0;
-            background: rgba(255,255,255,.8);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, .8);
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            svg{
-                width:2em;height: 2em;
+
+            svg {
+                width: 2em;
+                height: 2em;
             }
         }
     }
+
     .yv-table {
         width: 100%;
         border-collapse: collapse;
@@ -197,28 +211,6 @@
             }
         }
 
-        &-td {
-            display: inline-flex;
-            align-items: center;
-        }
-
-        &.bordered {
-            border: 1px solid $light-border-color;
-            border-bottom: none;
-
-            td {
-                border-right: 1px solid $light-border-color;
-            }
-        }
-
-        &.striped {
-            > tbody {
-                tr:nth-child(2n) {
-                    background: $background-color;
-                }
-            }
-        }
-
         tr {
             border-bottom: 1px solid $light-border-color;
         }
@@ -236,6 +228,36 @@
                 &:hover {
                     background: $light-border-color;
                     opacity: .7;
+                }
+            }
+        }
+
+        &-td {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        &.bordered {
+            thead {
+                border-bottom: 1px solid $light-border-color;
+            }
+            td{
+                border-right: 1px solid $light-border-color;
+                &:last-child{
+                    border-right: none;
+                }
+            }
+            tbody {
+                tr:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        &.striped {
+            > tbody {
+                tr:nth-child(2n) {
+                    background: $background-color;
                 }
             }
         }

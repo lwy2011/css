@@ -1,14 +1,16 @@
 <template>
-    <div style="margin:1em;">
-        <y-table :columns="columns"
-                 :source="source" bordered
-                 :selected.sync="selected"
-                 select-all
-                 :sorter.sync="columns"
-                 @update:sorter="sorterUpdate"
-                 :loading="loading"
-        >
-        </y-table>
+    <div>
+        <div style="margin:1em;height:250px">
+            <y-table :columns="columns"
+                     :source="source" bordered
+                     :selected.sync="selected"
+                     select-all
+                     :sorter.sync="columns"
+                     @update:sorter="sorterUpdate"
+                     :loading="loading"
+            >
+            </y-table>
+        </div>
         <div>
             <p>选择结果</p>
             <y-table
@@ -80,6 +82,34 @@
                         address: "Sidney No. 1 Lake Park",
                         selection: true,
                         trIndex: 3
+                    },
+                    {
+                        name: "胡彦斌",
+                        age: 32,
+                        address: "西湖区湖底公园1号",
+                        selection: true,
+                        trIndex: 4
+                    },
+                    {
+                        name: "John Brown",
+                        age: 23,
+                        address: "New York No. 1 Lake Park",
+                        selection: true,
+                        trIndex: 5
+                    },
+                    {
+                        name: "Jim Green",
+                        age: 42,
+                        address: "London No. 1 Lake Park",
+                        selection: true,
+                        trIndex: 6
+                    },
+                    {
+                        name: "Joe Black",
+                        age: 3,
+                        address: "Sidney No. 1 Lake Park",
+                        selection: true,
+                        trIndex: 7
                     },
                 ],
                 selected: [],
