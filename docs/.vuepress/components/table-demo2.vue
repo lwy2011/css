@@ -6,6 +6,7 @@
                  select-all
                  :sorter.sync="columns"
                  @update:sorter="sorterUpdate"
+                 :loading="loading"
         >
         </y-table>
         <div>
@@ -82,7 +83,8 @@
                     },
                 ],
                 selected: [],
-                defaultSource: null
+                defaultSource: null,
+                loading:false,
             };
         },
         mounted() {
@@ -91,6 +93,7 @@
         methods: {
             sorterUpdate(columns, item) {
                 console.log(item, 55);
+                this.loading = true
                 setTimeout(
                     () => {
                         const {key, sorter} = item;
@@ -101,6 +104,7 @@
                                         a[key] - b[key] : b[key] - a[key]
                             )
                         );
+                        this.loading = false
                     }, 1000
                 );
             }

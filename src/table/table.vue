@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="yv-table-wrapper">
         <table class="yv-table" :class="{bordered,striped}">
             <thead>
             <tr>
@@ -38,6 +38,9 @@
             </tr>
             </tbody>
         </table>
+        <div class="yv-table-loading" v-if="loading">
+            <y-icon icon="loading" loading></y-icon>
+        </div>
     </div>
 </template>
 
@@ -78,6 +81,7 @@
             selected: {
                 type: Array, default: () => []
             },
+            loading:Boolean,
         },
         watch: {
             selected: function () {
@@ -145,7 +149,20 @@
 <style scoped lang="scss">
     @import "../common";
     @import "../animate";
-
+    .yv-table-wrapper{
+        position: relative;
+        .yv-table-loading{
+            position: absolute;
+            top:0;left:0;right:0;bottom: 0;
+            background: rgba(255,255,255,.8);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            svg{
+                width:2em;height: 2em;
+            }
+        }
+    }
     .yv-table {
         width: 100%;
         border-collapse: collapse;
