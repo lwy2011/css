@@ -1,43 +1,91 @@
 <template>
-    <div class="yv-table-wrapper" :class="{bordered}">
-        <table class="yv-table" :class="{bordered,striped}">
-            <thead>
-            <tr>
-                <td v-if="source[0] && source[0].selection">
-                    <y-checkbox v-if="selectAll"
-                                @click="allSelect"
-                                :checked="allIsSelected"
-                                :indeterminate="indeterminate"
-                    >
-                    </y-checkbox>
-                </td>
-                <td v-for="(item) in columns" :key="item.text">
-                    <div class="yv-table-td">
-                        {{item.text}}
-                        <span class="yv-table-sorter"
-                              v-if="item.sorter"
-                              @click="sorterClick(item.key)"
+    <div class="yv-table-box" :class="{bordered}">
+        <div class="yv-table-wrapper copy"
+             v-if="scroll"
+        >
+            <table class="yv-table"
+                   :class="{bordered,striped}">
+                <thead>
+                <tr>
+                    <td v-if="source[0] && source[0].selection">
+                        <y-checkbox v-if="selectAll"
+                                    @click="allSelect"
+                                    :checked="allIsSelected"
+                                    :indeterminate="indeterminate"
                         >
+                        </y-checkbox>
+                    </td>
+                    <td v-for="(item) in columns" :key="item.text">
+                        <div class="yv-table-td">
+                            {{item.text}}
+                            <span class="yv-table-sorter"
+                                  v-if="item.sorter"
+                                  @click="sorterClick(item.key)"
+                            >
                             <y-icon icon="esc" :class="{active:item.sorter === 'esc'}"></y-icon>
                             <y-icon icon="desc" :class="{active:item.sorter === 'desc'}"></y-icon>
                         </span>
-                    </div>
-                </td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="(item) in source" :key="item.trIndex">
-                <td v-if="item.selection">
-                    <y-checkbox @click="onInputChange(item,$event)"
-                                :checked="itemIsSelected(item)"
-                    ></y-checkbox>
-                </td>
-                <td v-for="(column) in columns" :key="column.key">
-                    {{item[column.key]}}
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                        </div>
+                    </td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="(item) in source" :key="item.trIndex">
+                    <td v-if="item.selection">
+                        <y-checkbox @click="onInputChange(item,$event)"
+                                    :checked="itemIsSelected(item)"
+                        ></y-checkbox>
+                    </td>
+                    <td v-for="(column) in columns" :key="column.key">
+                        {{item[column.key]}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="yv-table-wrapper box">
+            <div class="yv-table-wrapper" ref="wrapper">
+                <table class="yv-table"
+                       :class="{bordered,striped}">
+                    <thead ref="thead">
+                    <tr>
+                        <td v-if="source[0] && source[0].selection">
+                            <y-checkbox v-if="selectAll"
+                                        @click="allSelect"
+                                        :checked="allIsSelected"
+                                        :indeterminate="indeterminate"
+                            >
+                            </y-checkbox>
+                        </td>
+                        <td v-for="(item) in columns" :key="item.text">
+                            <div class="yv-table-td">
+                                {{item.text}}
+                                <span class="yv-table-sorter"
+                                      v-if="item.sorter"
+                                      @click="sorterClick(item.key)"
+                                >
+                            <y-icon icon="esc" :class="{active:item.sorter === 'esc'}"></y-icon>
+                            <y-icon icon="desc" :class="{active:item.sorter === 'desc'}"></y-icon>
+                        </span>
+                            </div>
+                        </td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="(item) in source" :key="item.trIndex">
+                        <td v-if="item.selection">
+                            <y-checkbox @click="onInputChange(item,$event)"
+                                        :checked="itemIsSelected(item)"
+                            ></y-checkbox>
+                        </td>
+                        <td v-for="(column) in columns" :key="column.key">
+                            {{item[column.key]}}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <div class="yv-table-loading" v-if="loading">
             <y-icon icon="loading" loading></y-icon>
         </div>
@@ -83,10 +131,32 @@
             },
             loading: Boolean,
         },
-        watch: {
-            selected: function () {
-                // console.log(this.selected, 11);
-            }
+        data() {
+            return {
+                scroll: false,
+            };
+        },
+        mounted() {
+            const height1 = this.$el.getBoundingClientRect().height;
+            const height2 = this.$el.querySelector(".yv-table").getBoundingClientRect().height;
+            height1 < height2 && (
+                this.scroll = true
+            );
+            const {thead, wrapper} = this.$refs;
+            const {height} = thead.getBoundingClientRect();
+            this.$nextTick(
+                () => {
+                    const copy = this.$el.querySelector(".copy");
+                    if (copy) {
+                        copy.style.height = height + "px";
+                        wrapper.parentElement.style.height = `calc(100% - ${height}px)`;
+                        wrapper.parentElement.style.marginTop = height + "px";
+                        wrapper.style.bottom = height + "px";
+                        wrapper.style.position = "relative";
+                    }
+                }
+            );
+
         },
         computed: {
             allIsSelected() {
@@ -150,10 +220,9 @@
     @import "../common";
     @import "../animate";
 
-    .yv-table-wrapper {
-        position: relative;
-        overflow: scroll;
+    .yv-table-box {
         height: 100%;
+        position: relative;
 
         &.bordered {
             border: 1px solid $light-border-color;
@@ -169,11 +238,29 @@
             display: inline-flex;
             justify-content: center;
             align-items: center;
+            z-index: 3;
 
             svg {
                 width: 2em;
                 height: 2em;
             }
+        }
+    }
+
+    .yv-table-wrapper {
+        height: 100%;
+
+        &.copy {
+            position: absolute;
+            top: 1px;
+            overflow: hidden;
+            z-index: 2;
+            width: 100%;
+            border-bottom: 1px solid $light-border-color;
+        }
+
+        &.box {
+            overflow: scroll;
         }
     }
 
@@ -185,6 +272,7 @@
         margin: 0;
         transition: all 1s;
         $background-color: #FAFAFA;
+        position: relative;
 
         &-sorter {
             display: inline-flex;
@@ -217,6 +305,7 @@
 
         td {
             padding: 1em;
+            text-align: left;
         }
 
         thead {
@@ -241,12 +330,15 @@
             thead {
                 border-bottom: 1px solid $light-border-color;
             }
-            td{
+
+            td {
                 border-right: 1px solid $light-border-color;
-                &:last-child{
+
+                &:last-child {
                     border-right: none;
                 }
             }
+
             tbody {
                 tr:last-child {
                     border-bottom: none;

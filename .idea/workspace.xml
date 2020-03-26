@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="实现loading">
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="为实现滚动，默认设置，warraper的height=100%，想要滚动，用户在table的父容器那里设置最大高度就可以了。然后修改了border的css，以warraper作为外边框，而不是table内部的元素。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/table-demo2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/table-demo2.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/common.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/table/table.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/table/table.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,14 +121,7 @@
       <workItem from="1584670532155" duration="4165000" />
       <workItem from="1585127110082" duration="9533000" />
       <workItem from="1585194773344" duration="1841000" />
-      <workItem from="1585218218430" duration="2242000" />
-    </task>
-    <task id="LOCAL-00113" summary="添加popover的示例到vuepress">
-      <created>1583502701857</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1583502701857</updated>
+      <workItem from="1585218218430" duration="12284000" />
     </task>
     <task id="LOCAL-00114" summary="修改popover的destroyed的钩子为beforedestroy，更合理">
       <created>1583502759607</created>
@@ -466,7 +459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585195797559</updated>
     </task>
-    <option name="localTasksCounter" value="162" />
+    <task id="LOCAL-00162" summary="为实现滚动，默认设置，warraper的height=100%，想要滚动，用户在table的父容器那里设置最大高度就可以了。然后修改了border的css，以warraper作为外边框，而不是table内部的元素。">
+      <created>1585233615696</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1585233615696</updated>
+    </task>
+    <option name="localTasksCounter" value="163" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,7 +483,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="初步实现可以validate的功能了。异步操作不熟很美" />
     <MESSAGE value="初步实现validator的架子，可以处理基本的几个校验，存在，数据类型，长度，数值大小范围，可以自定义添加校验方法。报错的实现，以及最终结果的收集。" />
     <MESSAGE value="实现了继承的功能，更好的复用validator的设计。" />
     <MESSAGE value="添加validator的一个fix的初始化参数。实现了，继承时，书写自定义校验器时，可以直接写this.password，拿到同样的password 的值。主要是把数据拷贝进validator类中，this就可以很方便书写了。" />
@@ -508,7 +507,8 @@
     <MESSAGE value="实现简单排序的功能。" />
     <MESSAGE value="去掉无用的测试代码" />
     <MESSAGE value="实现loading" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现loading" />
+    <MESSAGE value="为实现滚动，默认设置，warraper的height=100%，想要滚动，用户在table的父容器那里设置最大高度就可以了。然后修改了border的css，以warraper作为外边框，而不是table内部的元素。" />
+    <option name="LAST_COMMIT_MESSAGE" value="为实现滚动，默认设置，warraper的height=100%，想要滚动，用户在table的父容器那里设置最大高度就可以了。然后修改了border的css，以warraper作为外边框，而不是table内部的元素。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="132" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584083448715">
@@ -519,10 +519,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="530" y="23" key="CommitChangelistDialog2" timestamp="1585195797372">
+    <state x="530" y="23" key="CommitChangelistDialog2" timestamp="1585233615451">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="530" y="23" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1585195797372" />
+    <state x="530" y="23" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1585233615451" />
     <state width="1228" height="108" key="GridCell.Tab.0.bottom" timestamp="1584204404168">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -543,10 +543,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="572" y="43" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1584170641958" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1585195798950">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1585233616730">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1585195798950" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1585233616730" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>

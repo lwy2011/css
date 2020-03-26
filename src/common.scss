@@ -21,6 +21,8 @@ $light-border-color: #E1E1E1;
   box-shadow: 0 0 5px $box-shadow-color;
 }
 
+
+//@extend  来引用
 %disabled {
   cursor: not-allowed;
   color: $light-border-color;
