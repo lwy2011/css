@@ -19,8 +19,6 @@
         </div>
         <pre>
             <code>{{content}}</code>
-            <input type="checkbox" :checked="checked" @change="select">
-            <input type="text" :value="text" @input="input">
         </pre>
     </div>
 </template>
@@ -38,8 +36,6 @@
                 content: `
                 <y-icon icon="setting"></y-icon>
                 `,
-                checked: false,
-                text: "",
                 columns: [
                     {
                         text: "姓名",
@@ -93,13 +89,6 @@
             this.defaultSource = JSON.parse(JSON.stringify(this.source));
         },
         methods: {
-            select(e) {
-                console.log(e.target.checked, 111);
-            },
-            input(e) {
-                console.log(e.target.value, 0);
-                // this.text = e.target.value
-            },
             sorterUpdate(columns, item) {
                 console.log(item, 55);
                 setTimeout(
