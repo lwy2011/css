@@ -1,6 +1,6 @@
 <template>
     <div class="yv-table-box" :class="{bordered}">
-        <div class="yv-table-wrapper copy"
+        <div class="yv-table-wrapper" :class="{scrollY,scrollX}"
              v-if="scrollY"
         >
             <table class="yv-table"
@@ -50,10 +50,11 @@
                     <thead ref="thead">
                     <tr>
                         <td v-if="source[0] && source[0].selection">
-                            <y-checkbox v-if="selectAll"
-                                        @click="allSelect"
-                                        :checked="allIsSelected"
-                                        :indeterminate="indeterminate"
+                            <y-checkbox
+                                    v-if="selectAll"
+                                    @click="allSelect"
+                                    :checked="allIsSelected"
+                                    :indeterminate="indeterminate"
                             >
                             </y-checkbox>
                         </td>
@@ -133,7 +134,7 @@
         },
         data() {
             return {
-                scrollY: false,
+                scrollY: false,scrollX:false
             };
         },
         mounted() {
@@ -145,9 +146,10 @@
 
             this.$nextTick(
                 () => {
-                    const copy = this.$el.querySelector(".copy");
+                    const copy = this.$el.querySelector(".scrollY");
                     if (copy) {
                         const {thead, wrapper} = this.$refs;
+                        //初始化两个table的位置：
                         this.resizeFix = () => {
                             const {height} = thead.getBoundingClientRect();
                             //拷贝的表格的容器：
@@ -161,7 +163,7 @@
                         };
                         this.resizeFix();
 
-                        //横向scroll的时候：
+                        //横向scroll的时候，固定表头也要动：
                         this.scrollFix = e => {
                             const {scrollLeft} = e.target;
                             //直接操作属性，无动画，跟手：
@@ -280,7 +282,7 @@
     .yv-table-wrapper {
         height: 100%;
 
-        &.copy {
+        &.scrollY {
             position: absolute;
             top: 1px;
             overflow: hidden;
