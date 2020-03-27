@@ -92,16 +92,14 @@
                                 </div>
                             </td>
                         </tr>
-                        <transition>
-                            <tr :key="item.trIndex+'1'"
-                                class="yv-table-supplement-content"
-                                v-if="supplementVisible(item.trIndex)">
-                                <td style="border-right: none"></td>
-                                <td :colspan="columns.length " >
-                                    {{item.supplement}}
-                                </td>
-                            </tr>
-                        </transition>
+                        <tr :key="item.trIndex+'1'"
+                            class="yv-table-supplement-content"
+                            v-if="supplementVisible(item.trIndex)">
+                            <td style="border-right: none"></td>
+                            <td :colspan="columns.length ">
+                                {{item.supplement}}
+                            </td>
+                        </tr>
                     </template>
                     </tbody>
                 </table>
@@ -421,14 +419,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            &-content{
-                &:hover{
+
+            &-content {
+                &:hover {
                     background: none;
                 }
-                & td:last-child{
+
+                & td:last-child {
                     background: $background-color;
                 }
             }
+
             svg {
                 cursor: pointer;
                 width: 10px;
@@ -439,7 +440,7 @@
                 }
 
                 &.active {
-                    transform: rotate(90deg);
+                    transform: rotate(180deg);
                 }
             }
         }
