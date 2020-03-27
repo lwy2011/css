@@ -148,9 +148,12 @@
                 () => {
                     const copy = this.$el.querySelector(".copy");
                     if (copy) {
+                        //拷贝的表格的容器：
                         copy.style.height = height + "px";
+                        //原表的容器：
                         wrapper.parentElement.style.height = `calc(100% - ${height}px)`;
                         wrapper.parentElement.style.marginTop = height + "px";
+                        // 原表遮蔽自己的表头：
                         wrapper.style.bottom = height + "px";
                         wrapper.style.position = "relative";
                     }
