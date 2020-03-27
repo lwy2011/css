@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div style="margin:1em;height:250px;width:200px">
+        <div style="margin:1em;width:200px">
             <y-table :columns="columns"
                      :source="source" bordered
                      :selected.sync="selected"

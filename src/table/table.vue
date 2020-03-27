@@ -1,7 +1,7 @@
 <template>
     <div class="yv-table-box" :class="{bordered}">
         <div class="yv-table-wrapper copy"
-             v-if="scroll"
+             v-if="scrollY"
         >
             <table class="yv-table"
                    :class="{bordered,striped}">
@@ -133,29 +133,34 @@
         },
         data() {
             return {
-                scroll: false,
+                scrollY: false,
             };
         },
         mounted() {
             const height1 = this.$el.getBoundingClientRect().height;
             const height2 = this.$el.querySelector(".yv-table").getBoundingClientRect().height;
             height1 < height2 && (
-                this.scroll = true
+                this.scrollY = true
             );
-            const {thead, wrapper} = this.$refs;
-            const {height} = thead.getBoundingClientRect();
+
             this.$nextTick(
                 () => {
                     const copy = this.$el.querySelector(".copy");
                     if (copy) {
-                        //拷贝的表格的容器：
-                        copy.style.height = height + "px";
-                        //原表的容器：
-                        wrapper.parentElement.style.height = `calc(100% - ${height}px)`;
-                        wrapper.parentElement.style.marginTop = height + "px";
-                        // 原表遮蔽自己的表头：
-                        wrapper.style.bottom = height + "px";
-                        wrapper.style.position = "relative";
+                        const {thead, wrapper} = this.$refs;
+                        this.resizeFix = () => {
+                            const {height} = thead.getBoundingClientRect();
+                            //拷贝的表格的容器：
+                            copy.style.height = height + "px";
+                            //原表的容器：
+                            wrapper.parentElement.style.height = `calc(100% - ${height}px)`;
+                            wrapper.parentElement.style.marginTop = height + "px";
+                            // 原表遮蔽自己的表头：
+                            wrapper.style.bottom = height + "px";
+                            wrapper.style.position = "relative";
+                        };
+                        this.resizeFix();
+
                         //横向scroll的时候：
                         this.scrollFix = e => {
                             const {scrollLeft} = e.target;
@@ -167,8 +172,12 @@
                             //     -scrollLeft +'px'
                             // console.log(scrollLeft);
                         };
+
                         wrapper.parentElement
                             .addEventListener("scroll", this.scrollFix);
+                        window.addEventListener(
+                            "resize", this.resizeFix
+                        );
                     }
                 }
             );
@@ -177,6 +186,7 @@
             this.$refs.wrapper.removeEventListener(
                 "scroll", this.scrollFix
             );
+            window.removeEventListener("resize", this.resizeFix);
         },
         computed: {
             allIsSelected() {
@@ -273,9 +283,9 @@
         &.copy {
             position: absolute;
             top: 1px;
+            overflow: hidden;
             z-index: 2;
             width: 100%;
-            overflow: auto;
             border-bottom: 1px solid $light-border-color;
 
             tbody {
@@ -286,10 +296,11 @@
                 width: 0px;
                 height: 0;
             }
-            /*隐藏滚动条，当IE下溢出，仍然可以滚动*/
-            -ms-overflow-style:none;
+
+            /*隐藏滚动条，当IE下溢出，仍然可以滚动 IE 10+*/
+            -ms-overflow-style: none;
             /*火狐下隐藏滚动条*/
-            overflow:-moz-scrollbars-none;
+            overflow: -moz-scrollbars-none;
         }
 
         &.box {

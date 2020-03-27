@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="对横向scroll的表头同步横向滚动的实现">
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/table-demo3.vue" afterDir="false" />
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="对横向scroll的表头同步横向滚动的实现，因为也是用了滚动，同步于下方的table的滚动的。但是有滚动条，两个，很丑，用css把滚动条隐藏了，这里只查到了webket内核的，IE,火狐的。算是不完美。想过用js操作头部的复制table的css的left属性，但是css有动画过渡，不跟手。否则就是完美的了。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/components/table.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/components/table.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/table-demo3.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/table-demo3.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/table/table.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/table/table.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +21,12 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="1Yya66LIJZDMS4IzasRZSedQZ2a" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -47,7 +52,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -123,14 +128,7 @@
       <workItem from="1585127110082" duration="9533000" />
       <workItem from="1585194773344" duration="1841000" />
       <workItem from="1585218218430" duration="12721000" />
-      <workItem from="1585296739503" duration="3960000" />
-    </task>
-    <task id="LOCAL-00116" summary="利用slot嵌套的子组件，它内部$emit事件，然后在父组件里$children再筛选出子组件，去监听对应事件，回调函数里，直接用this.$emit向外部传递事件，这里的this是父组件的，实现更新selected。">
-      <created>1583595709831</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1583595709831</updated>
+      <workItem from="1585296739503" duration="9159000" />
     </task>
     <task id="LOCAL-00117" summary="修改示例数据，并且修改一些css样式，注释掉console。">
       <created>1583596337536</created>
@@ -468,7 +466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585298614380</updated>
     </task>
-    <option name="localTasksCounter" value="165" />
+    <task id="LOCAL-00165" summary="对横向scroll的表头同步横向滚动的实现，因为也是用了滚动，同步于下方的table的滚动的。但是有滚动条，两个，很丑，用css把滚动条隐藏了，这里只查到了webket内核的，IE,火狐的。算是不完美。想过用js操作头部的复制table的css的left属性，但是css有动画过渡，不跟手。否则就是完美的了。">
+      <created>1585302494225</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1585302494225</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,7 +490,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="添加validator的一个fix的初始化参数。实现了，继承时，书写自定义校验器时，可以直接写this.password，拿到同样的password 的值。主要是把数据拷贝进validator类中，this就可以很方便书写了。" />
     <MESSAGE value="初始化了pager组件。" />
     <MESSAGE value="实现了基本的样式修改" />
     <MESSAGE value="实现了点击切换的功能，key的值最好设置为数字，...会报错。" />
@@ -510,7 +514,8 @@
     <MESSAGE value="为实现滚动，默认设置，warraper的height=100%，想要滚动，用户在table的父容器那里设置最大高度就可以了。然后修改了border的css，以warraper作为外边框，而不是table内部的元素。" />
     <MESSAGE value="实现了顶部固定，可滚动的操作。用了提前预留两个table的设计，其中一个table只显示thead，一个只显示tbody。学到的技能就是css解耦，用的是分层，放到同层级的不同容器中去。" />
     <MESSAGE value="回顾，整理，添加注释，对昨晚的固定表头的思路" />
-    <option name="LAST_COMMIT_MESSAGE" value="回顾，整理，添加注释，对昨晚的固定表头的思路" />
+    <MESSAGE value="对横向scroll的表头同步横向滚动的实现，因为也是用了滚动，同步于下方的table的滚动的。但是有滚动条，两个，很丑，用css把滚动条隐藏了，这里只查到了webket内核的，IE,火狐的。算是不完美。想过用js操作头部的复制table的css的left属性，但是css有动画过渡，不跟手。否则就是完美的了。" />
+    <option name="LAST_COMMIT_MESSAGE" value="对横向scroll的表头同步横向滚动的实现，因为也是用了滚动，同步于下方的table的滚动的。但是有滚动条，两个，很丑，用css把滚动条隐藏了，这里只查到了webket内核的，IE,火狐的。算是不完美。想过用js操作头部的复制table的css的left属性，但是css有动画过渡，不跟手。否则就是完美的了。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="132" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584083448715">
@@ -521,10 +526,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="473" y="90" key="CommitChangelistDialog2" timestamp="1585302081548">
+    <state x="473" y="90" key="CommitChangelistDialog2" timestamp="1585302494024">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="473" y="90" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1585302081548" />
+    <state x="473" y="90" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1585302494024" />
     <state width="1228" height="108" key="GridCell.Tab.0.bottom" timestamp="1584204404168">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -541,14 +546,14 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state width="1228" height="108" key="GridCell.Tab.0.right/0.23.2048.1046@0.23.2048.1046" timestamp="1584204404167" />
-    <state x="572" y="43" width="1389" height="897" key="SettingsEditor" timestamp="1584170641958">
+    <state x="659" y="172" width="1389" height="897" key="SettingsEditor" timestamp="1585304892916">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="572" y="43" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1584170641958" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1585298616058">
+    <state x="659" y="172" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1585304892916" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1585302495329">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1585298616058" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1585302495329" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -557,10 +562,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="943" y="474" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.2048.1046@0.23.2048.1046" timestamp="1583939459449" />
-    <state x="782" y="354" width="838" height="676" key="search.everywhere.popup" timestamp="1585232924437">
+    <state x="782" y="354" width="838" height="676" key="search.everywhere.popup" timestamp="1585304176638">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="782" y="354" width="838" height="676" key="search.everywhere.popup/0.23.2048.1046@0.23.2048.1046" timestamp="1585232924437" />
+    <state x="782" y="354" width="838" height="676" key="search.everywhere.popup/0.23.2048.1046@0.23.2048.1046" timestamp="1585304176638" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -592,7 +597,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/table/table.vue</url>
-          <line>309</line>
+          <line>320</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
