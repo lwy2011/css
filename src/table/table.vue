@@ -1,13 +1,14 @@
 <template>
     <div class="yv-table-box" :class="{bordered}">
-        <div class="yv-table-wrapper" :class="{scrollY,scrollX}"
+        <div class="yv-table-wrapper"
+             :class="{scrollY,scrollX}"
              v-if="scrollY || scrollX"
         >
             <table class="yv-table"
                    :class="{bordered,striped}">
                 <thead ref="thead">
                 <tr>
-                    <td v-if="source[0] && source[0].selection">
+                    <td v-if="source[0] && source[0].selection" class="yv-table-checkbox">
                         <y-checkbox
                                 @click="allSelect"
                                 :checked="allIsSelected"
@@ -30,19 +31,32 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(item) in source" :key="item.trIndex">
-                    <td v-if="item.selection">
-                        <y-checkbox @click="onInputChange(item,$event)"
-                                    :checked="itemIsSelected(item)"
-                        ></y-checkbox>
-                    </td>
-                    <td v-for="(column,index) in columns" :key="column.key">
-                        <div class="yv-table-supplement">
-                            {{item[column.key]}}
-                            <y-icon v-if="index === 0 && item.supplement" icon="down"></y-icon>
-                        </div>
-                    </td>
-                </tr>
+                <template v-for="(item) in source">
+                    <tr :key="item.trIndex">
+                        <td v-if="item.selection" class="yv-table-checkbox">
+                            <y-checkbox @click="onInputChange(item,$event)"
+                                        :checked="itemIsSelected(item)"
+                            ></y-checkbox>
+                        </td>
+                        <td v-for="(column,index) in columns" :key="column.key">
+                            <div class="yv-table-supplement">
+                                {{item[column.key]}}
+                                <y-icon @click="supplementClick(item.trIndex)"
+                                        :class="{active:supplementVisible(item.trIndex)}"
+                                        v-if="index === 0 && item.supplement" icon="down"></y-icon>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr :key="item.trIndex+'1'"
+                        class="yv-table-supplement-content"
+                        v-if="supplementVisible(item.trIndex)">
+                        <td style="border-right: none"></td>
+                        <td :colspan="columns.length ">
+                            {{item.supplement}}
+                        </td>
+                    </tr>
+                </template>
                 </tbody>
             </table>
         </div>
@@ -52,7 +66,7 @@
                        :class="{bordered,striped}">
                     <thead ref="thead">
                     <tr>
-                        <td v-if="source[0] && source[0].selection">
+                        <td v-if="source[0] && source[0].selection" class="yv-table-checkbox">
                             <y-checkbox
                                     @click="allSelect"
                                     :checked="allIsSelected"
@@ -77,7 +91,7 @@
                     <tbody>
                     <template v-for="(item) in source">
                         <tr :key="item.trIndex">
-                            <td v-if="item.selection">
+                            <td v-if="item.selection" class="yv-table-checkbox">
                                 <y-checkbox @click="onInputChange(item,$event)"
                                             :checked="itemIsSelected(item)"
                                 ></y-checkbox>
@@ -466,7 +480,9 @@
                 }
             }
         }
-
+        & &-checkbox{
+            text-align: center;
+        }
         &-td {
             display: inline-flex;
             align-items: center;
