@@ -5,7 +5,7 @@
         >
             <table class="yv-table"
                    :class="{bordered,striped}">
-                <thead>
+                <thead ref="thead">
                 <tr>
                     <td v-if="source[0] && source[0].selection">
                         <y-checkbox
@@ -36,8 +36,11 @@
                                     :checked="itemIsSelected(item)"
                         ></y-checkbox>
                     </td>
-                    <td v-for="(column) in columns" :key="column.key">
-                        {{item[column.key]}}
+                    <td v-for="(column,index) in columns" :key="column.key">
+                        <div class="yv-table-supplement">
+                            {{item[column.key]}}
+                            <y-icon v-if="index === 0 && item.supplement" icon="down"></y-icon>
+                        </div>
                     </td>
                 </tr>
                 </tbody>
@@ -72,16 +75,34 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(item) in source" :key="item.trIndex">
-                        <td v-if="item.selection">
-                            <y-checkbox @click="onInputChange(item,$event)"
-                                        :checked="itemIsSelected(item)"
-                            ></y-checkbox>
-                        </td>
-                        <td v-for="(column) in columns" :key="column.key">
-                            {{item[column.key]}}
-                        </td>
-                    </tr>
+                    <template v-for="(item) in source">
+                        <tr :key="item.trIndex">
+                            <td v-if="item.selection">
+                                <y-checkbox @click="onInputChange(item,$event)"
+                                            :checked="itemIsSelected(item)"
+                                ></y-checkbox>
+                            </td>
+                            <td v-for="(column,index) in columns" :key="column.key">
+                                <div class="yv-table-supplement">
+                                    {{item[column.key]}}
+                                    <y-icon @click="supplementClick(item.trIndex)"
+                                            :class="{active:supplementVisible(item.trIndex)}"
+                                            v-if="index === 0 && item.supplement" icon="down"></y-icon>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <transition>
+                            <tr :key="item.trIndex+'1'"
+                                class="yv-table-supplement-content"
+                                v-if="supplementVisible(item.trIndex)">
+                                <td style="border-right: none"></td>
+                                <td :colspan="columns.length " >
+                                    {{item.supplement}}
+                                </td>
+                            </tr>
+                        </transition>
+                    </template>
                     </tbody>
                 </table>
             </div>
@@ -132,7 +153,7 @@
         },
         data() {
             return {
-                scrollY: false, scrollX: false,
+                scrollY: false, scrollX: false, extends: [],
             };
         },
         mounted() {
@@ -241,6 +262,14 @@
             }
         },
         methods: {
+            supplementVisible(trIndex) {
+                return this.extends.indexOf(trIndex) >= 0;
+            },
+            supplementClick(trIndex) {
+                const ind = this.extends.indexOf(trIndex);
+                ind >= 0 ? this.extends.splice(ind, 1) :
+                    this.extends.push(trIndex);
+            },
             itemIsSelected(item) {
                 return this.selected.indexOf(item.trIndex) >= 0;
             },
@@ -341,8 +370,9 @@
             overflow: hidden;
             z-index: 2;
             background: $background-color;
-            .yv-table{
-                tr:hover{
+
+            .yv-table {
+                tr:hover {
                     background: $background-color;
                 }
             }
@@ -383,6 +413,33 @@
 
                 &.active {
                     fill: $blue;
+                }
+            }
+        }
+
+        & &-supplement {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &-content{
+                &:hover{
+                    background: none;
+                }
+                & td:last-child{
+                    background: $background-color;
+                }
+            }
+            svg {
+                cursor: pointer;
+                width: 10px;
+                transition: all .5s;
+
+                &:hover {
+                    fill: darken($blue, 30%);
+                }
+
+                &.active {
+                    transform: rotate(90deg);
                 }
             }
         }

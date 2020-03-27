@@ -60,14 +60,16 @@
                         age: 32,
                         address: "西湖区湖底公园1号",
                         selection: true,
-                        trIndex: 0
+                        trIndex: 0,
+                        supplement:'歌手！'
                     },
                     {
                         name: "John Brown",
                         age: 23,
                         address: "New York No. 1 Lake Park",
                         selection: true,
-                        trIndex: 1
+                        trIndex: 1,
+                        supplement: 'i do not know!'
                     },
                     {
                         name: "Jim Green",

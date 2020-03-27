@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="">
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="初步实现了列固定。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/table-demo3.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/table-demo3.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/common.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/table/checkbox.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/table/checkbox.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/table-demo2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/table-demo2.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/helper-icon.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/helper-icon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/svg.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/svg/svg.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/table/table.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/table/table.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,14 +130,7 @@
       <workItem from="1585127110082" duration="9533000" />
       <workItem from="1585194773344" duration="1841000" />
       <workItem from="1585218218430" duration="12721000" />
-      <workItem from="1585296739503" duration="17803000" />
-    </task>
-    <task id="LOCAL-00119" summary="优化基本样式">
-      <created>1583640352715</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1583640352715</updated>
+      <workItem from="1585296739503" duration="23160000" />
     </task>
     <task id="LOCAL-00120" summary="实现了sub-nav的自动active状态了。通过子组件内，active的状态watch，向父元素emit active or unactive事件。父组件内找到子组件，然后子组件监听两种事件，回调里c操作父组件的active。父组件也watch active，向外emit 两种事件。">
       <created>1583664699420</created>
@@ -475,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585317326459</updated>
     </task>
-    <option name="localTasksCounter" value="168" />
+    <task id="LOCAL-00168" summary="初步实现了列固定。">
+      <created>1585324649501</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1585324649501</updated>
+    </task>
+    <option name="localTasksCounter" value="169" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,7 +492,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="实现了点击切换的功能，key的值最好设置为数字，...会报错。" />
     <MESSAGE value="实现了dots的点击进行更新视图！" />
     <MESSAGE value="对pages的逻辑进行了重考虑，放到了computed的钩子里，跟current挂钩。实现了onlyoneHidden的api。" />
     <MESSAGE value="对pages的逻辑进行了重考虑，放到了computed的钩子里，跟current挂钩。实现了onlyoneHidden的api。并且添加校验器，检验props的数据" />
@@ -517,7 +516,8 @@
     <MESSAGE value="对横向scroll的表头同步横向滚动的实现，因为也是用了滚动，同步于下方的table的滚动的。但是有滚动条，两个，很丑，用css把滚动条隐藏了，这里只查到了webket内核的，IE,火狐的。算是不完美。想过用js操作头部的复制table的css的left属性，但是css有动画过渡，不跟手。否则就是完美的了。" />
     <MESSAGE value="在resize时，顶部固定栏依旧会有bug，不得已，添加resize事件，不断修正两个table的高度，或外间距，不断重置。同时，修改了copy的table容器的overflow：hidden,否则会滚动。" />
     <MESSAGE value="把copy的css类改为scrollY的，为了尝试scrollX的固定。" />
-    <option name="LAST_COMMIT_MESSAGE" value="把copy的css类改为scrollY的，为了尝试scrollX的固定。" />
+    <MESSAGE value="初步实现了列固定。" />
+    <option name="LAST_COMMIT_MESSAGE" value="初步实现了列固定。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="132" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584083448715">
@@ -528,10 +528,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="422" y="47" key="CommitChangelistDialog2" timestamp="1585317489933">
+    <state x="422" y="47" key="CommitChangelistDialog2" timestamp="1585324649272">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="422" y="47" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1585317489933" />
+    <state x="422" y="47" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1585324649272" />
     <state width="1228" height="108" key="GridCell.Tab.0.bottom" timestamp="1584204404168">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -552,10 +552,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="659" y="172" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1585304892916" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1585317327517">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1585324650928">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1585317327517" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1585324650928" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -564,10 +564,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="943" y="474" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.2048.1046@0.23.2048.1046" timestamp="1583939459449" />
-    <state x="782" y="354" width="838" height="676" key="search.everywhere.popup" timestamp="1585319424558">
+    <state x="782" y="354" width="838" height="676" key="search.everywhere.popup" timestamp="1585329515254">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="782" y="354" width="838" height="676" key="search.everywhere.popup/0.23.2048.1046@0.23.2048.1046" timestamp="1585319424558" />
+    <state x="782" y="354" width="838" height="676" key="search.everywhere.popup/0.23.2048.1046@0.23.2048.1046" timestamp="1585329515254" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -599,9 +599,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/table/table.vue</url>
-          <line>364</line>
+          <line>394</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/table/table.vue</url>
+          <line>2</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
