@@ -2,6 +2,7 @@
     <input type="checkbox" :checked="checked"
            @click="onClick"
            :indeterminate="indeterminate"
+           class="yv-table-select"
     >
 </template>
 
@@ -36,6 +37,8 @@
     };
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.yv-table-select{
+    cursor: pointer;
+}
 </style>

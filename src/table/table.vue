@@ -1,17 +1,17 @@
 <template>
     <div class="yv-table-box" :class="{bordered}">
         <div class="yv-table-wrapper" :class="{scrollY,scrollX}"
-             v-if="scrollY"
+             v-if="scrollY || scrollX"
         >
             <table class="yv-table"
                    :class="{bordered,striped}">
                 <thead>
                 <tr>
                     <td v-if="source[0] && source[0].selection">
-                        <y-checkbox v-if="selectAll"
-                                    @click="allSelect"
-                                    :checked="allIsSelected"
-                                    :indeterminate="indeterminate"
+                        <y-checkbox
+                                @click="allSelect"
+                                :checked="allIsSelected"
+                                :indeterminate="indeterminate"
                         >
                         </y-checkbox>
                     </td>
@@ -51,7 +51,6 @@
                     <tr>
                         <td v-if="source[0] && source[0].selection">
                             <y-checkbox
-                                    v-if="selectAll"
                                     @click="allSelect"
                                     :checked="allIsSelected"
                                     :indeterminate="indeterminate"
@@ -123,7 +122,6 @@
                 }
             },
             bordered: Boolean,
-            selectAll: Boolean,
             striped: {
                 type: Boolean, default: false
             },
@@ -134,21 +132,27 @@
         },
         data() {
             return {
-                scrollY: false,scrollX:false
+                scrollY: false, scrollX: false,
             };
         },
         mounted() {
-            const height1 = this.$el.getBoundingClientRect().height;
-            const height2 = this.$el.querySelector(".yv-table").getBoundingClientRect().height;
-            height1 < height2 && (
+            (this.$el.getBoundingClientRect().height <
+                this.$el.querySelector(".yv-table")
+                    .getBoundingClientRect().height) && (
                 this.scrollY = true
+            );
+            (this.$el.getBoundingClientRect().width <
+                this.$el.querySelector(".yv-table")
+                    .getBoundingClientRect().width) && (
+                this.scrollX = true
             );
 
             this.$nextTick(
                 () => {
                     const copy = this.$el.querySelector(".scrollY");
+                    const copy1 = this.$el.querySelector(".scrollX");
+                    const {thead, wrapper} = this.$refs;
                     if (copy) {
-                        const {thead, wrapper} = this.$refs;
                         //初始化两个table的位置：
                         this.resizeFix = () => {
                             const {height} = thead.getBoundingClientRect();
@@ -181,6 +185,29 @@
                             "resize", this.resizeFix
                         );
                     }
+                    if (copy1) {
+                        const tds = thead.querySelectorAll("td");
+                        this.scrollXFix = () => {
+                            let width = 0;
+                            if (this.source[0].selection) {
+                                width += tds[0].getBoundingClientRect().width;
+                            }
+                            this.columns.map(
+                                (item, ind) => {
+                                    if (item.fixed) {
+                                        const index = this.source[0].selection ?
+                                            ind + 1 : ind;
+                                        width += tds[index].getBoundingClientRect().width;
+                                    }
+                                }
+                            );
+                            copy1.style.width = width + "px";
+                        };
+                        this.scrollXFix();
+                        window.addEventListener(
+                            "resize", this.scrollXFix
+                        );
+                    }
                 }
             );
         },
@@ -189,6 +216,9 @@
                 "scroll", this.scrollFix
             );
             window.removeEventListener("resize", this.resizeFix);
+            window.removeEventListener(
+                "resize", this.scrollXFix
+            );
         },
         computed: {
             allIsSelected() {
@@ -305,6 +335,19 @@
             overflow: -moz-scrollbars-none;
         }
 
+        &.scrollX {
+            position: absolute;
+            left: 0;
+            overflow: hidden;
+            z-index: 2;
+            background: $background-color;
+            .yv-table{
+                tr:hover{
+                    background: $background-color;
+                }
+            }
+        }
+
         &.box {
             overflow: scroll;
         }
@@ -317,7 +360,6 @@
         display: table;
         margin: 0;
         transition: all 1s;
-        $background-color: #FAFAFA;
         position: relative;
 
         &-sorter {

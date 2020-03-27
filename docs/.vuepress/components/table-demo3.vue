@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div style="margin:1em;width:200px">
+        <div style="margin:1em;width:20vw">
             <y-table :columns="columns"
                      :source="source" bordered
                      :selected.sync="selected"
@@ -43,6 +43,7 @@
                     {
                         text: "姓名",
                         key: "name",
+                        fixed:true,
                     },
                     {
                         text: "年龄",
@@ -53,12 +54,23 @@
                         text: "住址",
                         key: "address",
                     },
+                    {
+                        text: "年龄1",
+                        key: "age1",
+                        sorter: "esc"  //'desc' 'default'
+                    },
+                    {
+                        text: "住址1",
+                        key: "address1",
+                    },
                 ],
                 source: [
                     {
                         name: "胡彦斌",
                         age: 32,
                         address: "西湖区湖底公园1号",
+                        age1: 32,
+                        address1: "西湖区湖底公园1号",
                         selection: true,
                         trIndex: 0
                     },
@@ -66,6 +78,8 @@
                         name: "John Brown",
                         age: 23,
                         address: "New York No. 1 Lake Park",
+                        age1: 32,
+                        address1: "西湖区湖底公园1号",
                         selection: true,
                         trIndex: 1
                     },
@@ -73,6 +87,8 @@
                         name: "Jim Green",
                         age: 42,
                         address: "London No. 1 Lake Park",
+                        age1: 32,
+                        address1: "西湖区湖底公园1号",
                         selection: true,
                         trIndex: 2
                     },
@@ -81,35 +97,18 @@
                         age: 3,
                         address: "Sidney No. 1 Lake Park",
                         selection: true,
+                        age1: 32,
+                        address1: "西湖区湖底公园1号",
                         trIndex: 3
                     },
                     {
                         name: "胡彦斌",
                         age: 32,
                         address: "西湖区湖底公园1号",
+                        age1: 32,
+                        address1: "西湖区湖底公园1号",
                         selection: true,
                         trIndex: 4
-                    },
-                    {
-                        name: "John Brown",
-                        age: 23,
-                        address: "New York No. 1 Lake Park",
-                        selection: true,
-                        trIndex: 5
-                    },
-                    {
-                        name: "Jim Green",
-                        age: 42,
-                        address: "London No. 1 Lake Park",
-                        selection: true,
-                        trIndex: 6
-                    },
-                    {
-                        name: "Joe Black",
-                        age: 3,
-                        address: "Sidney No. 1 Lake Park",
-                        selection: true,
-                        trIndex: 7
                     },
                 ],
                 selected: [],
