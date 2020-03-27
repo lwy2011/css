@@ -1,5 +1,6 @@
 <template>
-    <svg class="yv-icon" :loading="loading" >
+    <svg class="yv-icon" :loading="loading"
+         @click="$emit('click',$event)">
         <use :xlink:href="`#i-${icon}`"></use>
     </svg>
 </template>
