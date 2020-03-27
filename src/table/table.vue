@@ -156,10 +156,27 @@
                         // 原表遮蔽自己的表头：
                         wrapper.style.bottom = height + "px";
                         wrapper.style.position = "relative";
+                        //横向scroll的时候：
+                        this.scrollFix = e => {
+                            const {scrollLeft} = e.target;
+                            //直接操作属性，无动画，跟手：
+                            copy.scrollLeft = scrollLeft;
+
+                            //js设置css，有动画连贯！舍弃！：
+                            // copy.querySelector('table').style.left =
+                            //     -scrollLeft +'px'
+                            // console.log(scrollLeft);
+                        };
+                        wrapper.parentElement
+                            .addEventListener("scroll", this.scrollFix);
                     }
                 }
             );
-
+        },
+        beforeDestroy() {
+            this.$refs.wrapper.removeEventListener(
+                "scroll", this.scrollFix
+            );
         },
         computed: {
             allIsSelected() {
@@ -256,10 +273,23 @@
         &.copy {
             position: absolute;
             top: 1px;
-            overflow: hidden;
             z-index: 2;
             width: 100%;
+            overflow: auto;
             border-bottom: 1px solid $light-border-color;
+
+            tbody {
+                opacity: 0;
+            }
+
+            &::-webkit-scrollbar {
+                width: 0px;
+                height: 0;
+            }
+            /*隐藏滚动条，当IE下溢出，仍然可以滚动*/
+            -ms-overflow-style:none;
+            /*火狐下隐藏滚动条*/
+            overflow:-moz-scrollbars-none;
         }
 
         &.box {
