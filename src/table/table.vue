@@ -382,7 +382,7 @@
             overflow: hidden;
             z-index: 2;
             background: $background-color;
-
+            box-shadow:2px 0 6px 3px $border-color;
             .yv-table {
                 tr:hover {
                     background: $background-color;

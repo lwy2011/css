@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="动画实现失败！tr,td高度无法控制。">
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="checkbox居中，text-align设置的">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/table/table.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/table/table.vue" afterDir="false" />
     </list>
@@ -127,14 +127,8 @@
       <workItem from="1585127110082" duration="9533000" />
       <workItem from="1585194773344" duration="1841000" />
       <workItem from="1585218218430" duration="12721000" />
-      <workItem from="1585296739503" duration="28423000" />
-    </task>
-    <task id="LOCAL-00123" summary="为span添加class，避免冲突">
-      <created>1583687871850</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1583687871850</updated>
+      <workItem from="1585296739503" duration="28709000" />
+      <workItem from="1585411577005" duration="1466000" />
     </task>
     <task id="LOCAL-00124" summary="修改slot 为v-slot的最新版表达">
       <created>1583688727341</created>
@@ -472,7 +466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585336442707</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="checkbox居中，text-align设置的">
+      <created>1585336960436</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1585336960436</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -489,7 +490,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="实现了test文件，pager的内部的css 的class的命名改为更加严谨的命名，同时，对dots的点击事件，递增5,递减5,修改大于total，小于1的情况。" />
     <MESSAGE value="初步实现table的样式和组件的样式的api，注意点是table的display默认为block，要改为table。这样table的width=100%，tr才会充满容器。" />
     <MESSAGE value="修改了cascader的示例的数据源文件的名称。更容易看懂。" />
     <MESSAGE value="添加checkbox组件，使input受控，单向数据流。实现了点击checkbox的点击选中和取消操作。" />
@@ -514,7 +514,8 @@
     <MESSAGE value="实现了展开详情的设计。没添加展开的动画。" />
     <MESSAGE value="svg修改，绑定了click事件，待添加test" />
     <MESSAGE value="动画实现失败！tr,td高度无法控制。" />
-    <option name="LAST_COMMIT_MESSAGE" value="动画实现失败！tr,td高度无法控制。" />
+    <MESSAGE value="checkbox居中，text-align设置的" />
+    <option name="LAST_COMMIT_MESSAGE" value="checkbox居中，text-align设置的" />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="132" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584083448715">
@@ -525,10 +526,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1585336442484">
+    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1585336960198">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1585336442484" />
+    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1585336960198" />
     <state width="1228" height="108" key="GridCell.Tab.0.bottom" timestamp="1584204404168">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -549,10 +550,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="659" y="172" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1585304892916" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1585336443843">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1585336961839">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1585336443843" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1585336961839" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -596,15 +597,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/table/table.vue</url>
-          <line>392</line>
-          <properties lambdaOrdinal="-1" />
+          <line>406</line>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/table/table.vue</url>
-          <line>2</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
