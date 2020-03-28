@@ -40,7 +40,12 @@
                         </td>
                         <td v-for="(column,index) in columns" :key="column.key">
                             <div class="yv-table-supplement">
-                                {{item[column.key]}}
+                                <template v-if="column.slot">
+                                    <slot :item="item" :name="column.key"></slot>
+                                </template>
+                                <template v-else-if="column.type !== 'html'">
+                                    {{item[column.key]}}
+                                </template>
                                 <y-icon @click="supplementClick(item.trIndex)"
                                         :class="{active:supplementVisible(item.trIndex)}"
                                         v-if="index === 0 && item.supplement" icon="down"></y-icon>
@@ -98,7 +103,12 @@
                             </td>
                             <td v-for="(column,index) in columns" :key="column.key">
                                 <div class="yv-table-supplement">
-                                    {{item[column.key]}}
+                                    <template v-if="column.slot">
+                                        <slot :item="item" :name="column.key"></slot>
+                                    </template>
+                                    <template v-else-if="column.type !== 'html'">
+                                        {{item[column.key]}}
+                                    </template>
                                     <y-icon @click="supplementClick(item.trIndex)"
                                             :class="{active:supplementVisible(item.trIndex)}"
                                             v-if="index === 0 && item.supplement" icon="down"></y-icon>
@@ -382,7 +392,8 @@
             overflow: hidden;
             z-index: 2;
             background: $background-color;
-            box-shadow:2px 0 6px 3px $border-color;
+            box-shadow: 2px 0 6px 3px $border-color;
+
             .yv-table {
                 tr:hover {
                     background: $background-color;
@@ -480,9 +491,11 @@
                 }
             }
         }
-        & &-checkbox{
+
+        & &-checkbox {
             text-align: center;
         }
+
         &-td {
             display: inline-flex;
             align-items: center;
