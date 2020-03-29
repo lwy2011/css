@@ -179,86 +179,29 @@
             };
         },
         mounted() {
-            (this.$el.getBoundingClientRect().height <
-                this.$el.querySelector(".yv-table")
-                    .getBoundingClientRect().height) && (
-                this.scrollY = true
-            );
-            (this.$el.getBoundingClientRect().width <
-                this.$el.querySelector(".yv-table")
-                    .getBoundingClientRect().width) && (
-                this.scrollX = true
-            );
-
+            this.testScrollY();
+            this.testScrollX();
             this.$nextTick(
                 () => {
                     const copy = this.$el.querySelector(".scrollY");
                     const copy1 = this.$el.querySelector(".scrollX");
                     const {thead, wrapper} = this.$refs;
                     if (copy) {
-                        //初始化两个table的位置：
-                        this.resizeFix = () => {
-                            const {height} = thead.getBoundingClientRect();
-                            //拷贝的表格的容器：
-                            copy.style.height = height + "px";
-                            //原表的容器：
-                            wrapper.parentElement.style.height = `calc(100% - ${height}px)`;
-                            wrapper.parentElement.style.marginTop = height + "px";
-                            // 原表遮蔽自己的表头：
-                            wrapper.style.bottom = height + "px";
-                            wrapper.style.position = "relative";
-                        };
-                        this.resizeFix();
-
-                        //横向scroll的时候，固定表头也要动：
-                        this.scrollFix = e => {
-                            const {scrollLeft} = e.target;
-                            //直接操作属性，无动画，跟手：
-                            copy.scrollLeft = scrollLeft;
-
-                            //js设置css，有动画连贯！舍弃！：
-                            // copy.querySelector('table').style.left =
-                            //     -scrollLeft +'px'
-                            // console.log(scrollLeft);
-                        };
-
-                        wrapper.parentElement
-                            .addEventListener("scroll", this.scrollFix);
-                        window.addEventListener(
-                            "resize", this.resizeFix
-                        );
+                        this.scrollYInit(wrapper);
                     }
                     if (copy1) {
-                        const tds = thead.querySelectorAll("td");
-                        this.scrollXFix = () => {
-                            let width = 0;
-                            if (this.source[0].selection) {
-                                width += tds[0].getBoundingClientRect().width;
-                            }
-                            this.columns.map(
-                                (item, ind) => {
-                                    if (item.fixed) {
-                                        const index = this.source[0].selection ?
-                                            ind + 1 : ind;
-                                        width += tds[index].getBoundingClientRect().width;
-                                    }
-                                }
-                            );
-                            copy1.style.width = width + "px";
-                        };
-                        this.scrollXFix();
-                        window.addEventListener(
-                            "resize", this.scrollXFix
-                        );
+                        this.scrollXInit(thead, copy1);
                     }
                 }
             );
         },
         beforeDestroy() {
             this.$refs.wrapper.removeEventListener(
-                "scroll", this.scrollFix
+                "scroll", this.scrollXTheadFix
             );
-            window.removeEventListener("resize", this.resizeFix);
+            window.removeEventListener("resize",
+                this.scrollYResizeFix
+            );
             window.removeEventListener(
                 "resize", this.scrollXFix
             );
@@ -284,6 +227,80 @@
             }
         },
         methods: {
+            testScrollY() {
+                (this.$el.getBoundingClientRect().height <
+                    this.$el.querySelector(".yv-table")
+                        .getBoundingClientRect().height) && (
+                    this.scrollY = true
+                );
+            },
+            testScrollX() {
+                (this.$el.getBoundingClientRect().width <
+                    this.$el.querySelector(".yv-table")
+                        .getBoundingClientRect().width) && (
+                    this.scrollX = true
+                );
+            },
+            scrollYResizeFix() {
+                //固定表头的初始化dom操作：
+                const copy = this.$el.querySelector(".scrollY");
+                const {thead, wrapper} = this.$refs;
+                const {height} = thead.getBoundingClientRect();
+                //拷贝的表格的容器：
+                copy.style.height = height + "px";
+                //原表的容器：
+                wrapper.parentElement.style.height = `calc(100% - ${height}px)`;
+                wrapper.parentElement.style.marginTop = height + "px";
+                // 原表遮蔽自己的表头：
+                wrapper.style.bottom = height + "px";
+                wrapper.style.position = "relative";
+            },
+            scrollXTheadFix(e) {
+                const {scrollLeft} = e.target;
+                if (scrollLeft === 0) return;
+                //横向scroll的时候，固定表头也要动：
+                const copy = this.$el.querySelector(".scrollY");
+                //直接操作属性，无动画，跟手：
+                copy.scrollLeft = scrollLeft;
+                //js设置css，有动画连贯！舍弃！：
+                // copy.querySelector('table').style.left =
+                //     -scrollLeft +'px'
+            },
+            scrollYInit(wrapper) {
+                //初始化两个table的位置：
+                this.scrollYResizeFix();
+                //横向scroll的时候，固定表头也要动：
+                wrapper.parentElement
+                    .addEventListener("scroll", this.scrollXTheadFix);
+                window.addEventListener(
+                    "resize", this.scrollYResizeFix
+                );
+            },
+            scrollXHelper(tds) {
+                let width = 0; //计算thead的因为resize的变化而变化的宽度。
+                if (this.source[0].selection) {
+                    width += tds[0].getBoundingClientRect().width;
+                }
+                this.columns.map((item, ind) => {
+                        if (item.fixed) {
+                            const index = this.source[0].selection ? ind + 1 : ind;
+                            width += tds[index].getBoundingClientRect().width;
+                        }
+                    }
+                );
+                return width;
+            },
+            scrollXInit(thead, copy1) {
+                const tds = thead.querySelectorAll("td");
+                this.scrollXFix = () => {
+                    const width = this.scrollXHelper(tds);
+                    copy1.style.width = width + "px";
+                };
+                this.scrollXFix();
+                window.addEventListener(
+                    "resize", this.scrollXFix
+                );
+            },
             supplementVisible(trIndex) {
                 return this.extends.indexOf(trIndex) >= 0;
             },
