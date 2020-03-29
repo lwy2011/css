@@ -139,7 +139,9 @@
     import "../../docs/helper-icon";
     import YCheckbox from "./checkbox";
     import YIcon from "../svg/svg";
-
+    const enums = {
+        default: "esc", esc: "desc", desc: "default"
+    };
     export default {
         name: "v-table",
         components: {
@@ -331,9 +333,6 @@
                 for (let i = 0; i < copy.length; i++) {
                     if (copy[i].key === key) {
                         const {sorter} = copy[i];
-                        const enums = {
-                            default: "esc", esc: "desc", desc: "default"
-                        };
                         copy[i].sorter = enums[sorter];
                         item = copy[i];
                         break;
