@@ -124,7 +124,6 @@
                     },
                 ],
                 selected: [],
-                defaultSource: null,
                 loading: false,
             };
         },

@@ -43,7 +43,7 @@
                                 <template v-if="column.slot">
                                     <slot :item="item" :name="column.key"></slot>
                                 </template>
-                                <template v-else-if="column.type !== 'html'">
+                                <template v-else>
                                     {{item[column.key]}}
                                 </template>
                                 <y-icon @click="supplementClick(item.trIndex)"
@@ -106,7 +106,7 @@
                                     <template v-if="column.slot">
                                         <slot :item="item" :name="column.key"></slot>
                                     </template>
-                                    <template v-else-if="column.type !== 'html'">
+                                    <template v-else>
                                         {{item[column.key]}}
                                     </template>
                                     <y-icon @click="supplementClick(item.trIndex)"
