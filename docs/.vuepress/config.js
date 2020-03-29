@@ -17,6 +17,7 @@ module.exports = {
                     '/components/validator',
                     '/components/pager',
                     '/components/table',
+                    '/components/upload'
                 ]
             }
         ]

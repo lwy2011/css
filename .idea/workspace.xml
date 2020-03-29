@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="优化mounted钩子里的代码逻辑。拆分成一个个的小函数">
-      <change beforePath="$PROJECT_DIR$/src/table/table.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/table/table.vue" afterDir="false" />
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="微调代码，没啥可改的了">
+      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/upload-demo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/components/upload.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/upluad/upload.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.vuepress/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +41,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/.vuepress/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -53,18 +57,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/docs/.vuepress/components" />
-      <recent name="$PROJECT_DIR$/docs/components" />
-      <recent name="$PROJECT_DIR$/test" />
-      <recent name="$PROJECT_DIR$/src/nav" />
-      <recent name="$PROJECT_DIR$/src/slides" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docs/.vuepress/components" />
       <recent name="$PROJECT_DIR$/docs/components" />
       <recent name="$PROJECT_DIR$/docs" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/components" />
+      <recent name="$PROJECT_DIR$/docs/.vuepress/components" />
+      <recent name="$PROJECT_DIR$/test" />
+      <recent name="$PROJECT_DIR$/src/nav" />
+      <recent name="$PROJECT_DIR$/src/slides" />
     </key>
   </component>
   <component name="RunManager">
@@ -128,14 +132,7 @@
       <workItem from="1585218218430" duration="12721000" />
       <workItem from="1585296739503" duration="28709000" />
       <workItem from="1585411577005" duration="5171000" />
-      <workItem from="1585465942398" duration="5849000" />
-    </task>
-    <task id="LOCAL-00128" summary="初步实现了竖向排列的样式，暂无动画。把弹出菜单的字体大小设置为12px了">
-      <created>1583744891275</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1583744891275</updated>
+      <workItem from="1585465942398" duration="7435000" />
     </task>
     <task id="LOCAL-00129" summary="用js 的不成熟的技术el.animate实现了动画。不过这个技术可以有配套补丁的，张鑫旭的微博。而传统的取巧的方式是先拿到高度，赋值给变量，再el的高度为0,再加个compute el的height的高度来确保高度为0执行。再设施el的高度为变量的值。还有，退出的动画，done()的执行一定要异步执行，否则done会同步执行，动画没开始，就执行完了。用el.addEventListener ('transitionend')不行，我猜因为js的animate技术不成熟，用定时器做的。">
       <created>1583753162538</created>
@@ -473,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585479759973</updated>
     </task>
-    <option name="localTasksCounter" value="177" />
+    <task id="LOCAL-00177" summary="微调代码，没啥可改的了">
+      <created>1585480152141</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1585480152141</updated>
+    </task>
+    <option name="localTasksCounter" value="178" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +494,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改source为不必须传值，给了default值。同时修改selected的逻辑，变为存储source的item 的index，因为source是不变的！但是注意，source要是变的话，一定要对selected进行同步变化！" />
     <MESSAGE value="checkbox的直接绑定checked，绑不了，只能做了个抽象，成vue组件，然后受控。又为了可扩展性，数据安全性，不用index作为存储标记了，用数据的trIndex。这样的做法，深拷贝的性能是个问题。我想到了，储存trIndex就好了，一会改" />
     <MESSAGE value="修改好了selected的逻辑，存储trIndex了。" />
     <MESSAGE value="实现了全选，还有半选的逻辑。" />
@@ -515,7 +518,8 @@
     <MESSAGE value="初步实现可添加dom节点进去。" />
     <MESSAGE value="优化 columns的slot的展示逻辑，修改示例的废弃代码" />
     <MESSAGE value="优化mounted钩子里的代码逻辑。拆分成一个个的小函数" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化mounted钩子里的代码逻辑。拆分成一个个的小函数" />
+    <MESSAGE value="微调代码，没啥可改的了" />
+    <option name="LAST_COMMIT_MESSAGE" value="微调代码，没啥可改的了" />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="132" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584083448715">
@@ -526,10 +530,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1585479759810">
+    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1585480152011">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1585479759810" />
+    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1585480152011" />
     <state width="1228" height="108" key="GridCell.Tab.0.bottom" timestamp="1584204404168">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -550,10 +554,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="659" y="172" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1585304892916" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1585479761719">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1585480153641">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1585479761719" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1585480153641" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
