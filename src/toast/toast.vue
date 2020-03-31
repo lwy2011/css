@@ -10,6 +10,7 @@
             <div v-if="closeBtn" class="toast-close" @click="closeBtnClick">
                 <div class="line">
                     <div class="border"></div>
+<!--                  mask  增加可点击的面积用的-->
                     <div class="mask"></div>
                 </div>
                 {{closeBtn}}
@@ -69,11 +70,11 @@
 
 <style lang="scss" scoped>
     @import "../common";
-
+    @import "../animate";
     $big-padding: 2*$toast-padding;
     .yv-toast {
         position: fixed;
-        z-index: 10;
+        z-index: 30;
         color: white;
         opacity: .8;
         left:50%;

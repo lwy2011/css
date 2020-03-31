@@ -11,6 +11,7 @@ module.exports = {
                     '/components/button',
                     '/components/input',
                     '/components/popover',
+                    '/components/toast',
                     '/components/cascader',
                     '/components/slides',
                     '/components/nav',
