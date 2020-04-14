@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="初始化upload组件架子">
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/upload-demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/upload-demo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/upluad/upload.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/upluad/upload.vue" afterDir="false" />
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="初步实现了upload的功能">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,14 +131,8 @@
       <workItem from="1585465942398" duration="10423000" />
       <workItem from="1585497675752" duration="5943000" />
       <workItem from="1585584765924" duration="2589000" />
-      <workItem from="1585663085192" duration="5210000" />
-    </task>
-    <task id="LOCAL-00131" summary="对item中有a标签的时候，用负margin中和了item的padding，同时在a内设置同等的padding值，实现了a标签全覆盖的效果。前提是直接子元素只有一个a.">
-      <created>1583777385466</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
-      <option name="project" value="LOCAL" />
-      <updated>1583777385467</updated>
+      <workItem from="1585663085192" duration="5285000" />
+      <workItem from="1586879445782" duration="255000" />
     </task>
     <task id="LOCAL-00132" summary="简单优化样式">
       <created>1583779942136</created>
@@ -477,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585678195634</updated>
     </task>
-    <option name="localTasksCounter" value="180" />
+    <task id="LOCAL-00180" summary="初步实现了upload的功能">
+      <created>1585678307649</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1585678307649</updated>
+    </task>
+    <option name="localTasksCounter" value="181" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -494,7 +494,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="实现了全选，还有半选的逻辑。" />
     <MESSAGE value="v-for循环的key必须加，必须要用非index，因为vue很傻！&#10;尝试用单向数据流控制checkbox的input.checked，失败！注释掉了。准备决定改为顺应dom判断的双向数据绑定的理念。" />
     <MESSAGE value="key的值不能为obj，修改了。" />
     <MESSAGE value="完善全选的判断逻辑" />
@@ -519,7 +518,8 @@
     <MESSAGE value="微调代码，没啥可改的了" />
     <MESSAGE value="初始化upload组件架子" />
     <MESSAGE value="添加toast用例，同时添加代码注释，动画失效了，重新引入动画" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加toast用例，同时添加代码注释，动画失效了，重新引入动画" />
+    <MESSAGE value="初步实现了upload的功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="初步实现了upload的功能" />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="132" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584083448715">
@@ -530,10 +530,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1585678195425">
+    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1585678334343">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1585678195425" />
+    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1585678334343" />
     <state width="1228" height="108" key="GridCell.Tab.0.bottom" timestamp="1584204404168">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -554,10 +554,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="659" y="172" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1585304892916" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1585678196685">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1585678309051">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1585678196685" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1585678309051" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>

@@ -13,7 +13,6 @@
 
 <script>
     import YButton from "../button/button";
-    import axios from "axios";
 
     export default {
         components: {
