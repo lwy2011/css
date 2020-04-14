@@ -4,7 +4,10 @@
         <ul v-if="files.length">
             <li v-for="(img,ind ) in files" :key="files.name+ind">
                 <img :src="img.url" alt="img">
-                <p>{{img.file.name}}</p>
+                <p>{{img.file.name}}
+                    <y-icon icon="delete"
+                            @click="onDeleteFile(ind)"></y-icon>
+                </p>
             </li>
         </ul>
         <slot></slot>
@@ -13,10 +16,11 @@
 
 <script>
     import YButton from "../button/button";
+    import YIcon from "../svg/svg";
 
     export default {
         components: {
-            YButton
+            YButton, YIcon
         },
         name: "v-upload.vue",
         props: {
@@ -65,6 +69,12 @@
                     "change", this.onInputChange
                 );
                 input.click();
+            },
+            onDeleteFile(ind) {
+                const copy = JSON.parse(JSON.stringify(this.files))
+                copy.splice(ind, 1);
+                console.log(copy);
+                this.$emit("update:files", copy);
             }
         }
     };

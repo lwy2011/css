@@ -5,7 +5,7 @@
                 :name="name"
                 :ajax-callback="ajaxCallback"
                 @upload="upload"
-                :files="files"
+                :files.sync="files"
         ></y-upload>
         <pre>
             <code>{{content}}</code>
@@ -14,7 +14,7 @@
 </template>
 <script>
     import YUpload from "../../../src/upluad/upload";
-
+    import '../../helper-icon'
     export default {
         components: {
             YUpload,
