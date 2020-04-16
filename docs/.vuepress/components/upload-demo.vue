@@ -33,7 +33,13 @@
                 action: "http://127.0.0.1:3000/image/upload",
                 name: "avatar",
                 ajaxCallback: res => {
-                    return JSON.parse(res.response).url;
+                    console.log(res);
+                    const {url,code} = JSON.parse(res.response)
+                    return {
+                        url:url,
+                        status:res.status,
+                        errorMessage:code
+                    };
                 },
                 files:[]
             };

@@ -52,11 +52,12 @@
                 const xml = new XMLHttpRequest();
                 xml.open("post", this.action);
                 xml.onload = e => {
-                    const url = ajaxCallback(e.target);
+                    const {url,status,errorMessage} = ajaxCallback(e.target);
                     const copy = [...this.files];
                     const img = copy.find(v => v.id === id);
                     img.url = url;
-                    img.status = 2;
+                    img.status = status;
+                    img.errorMessage = errorMessage
                     this.$emit("update:files", copy);
                     this.id += 1;
                 };
