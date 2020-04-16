@@ -82,10 +82,12 @@
                 input.click();
             },
             onDeleteFile(ind) {
-                const copy = [...this.files];
-                copy.splice(ind, 1);
-                // console.log(copy);
-                this.$emit("update:files", copy);
+                if(window.confirm('你确定删除第'+(ind+1)+'个图片吗？')){
+                    const copy = [...this.files];
+                    copy.splice(ind, 1);
+                    // console.log(copy);
+                    this.$emit("update:files", copy);
+                }
             }
         }
     };
