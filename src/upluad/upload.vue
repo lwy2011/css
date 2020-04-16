@@ -1,6 +1,6 @@
 <template>
     <div class="yv-upload">
-        <div @click="onUpload">
+        <div @click="onUpload" class="yv-upload-trigger">
             <slot></slot>
         </div>
         <ul v-if="files.length">
@@ -20,7 +20,7 @@
 
     export default {
         components: {
-             YIcon
+            YIcon
         },
         name: "v-upload.vue",
         props: {
@@ -39,7 +39,7 @@
         },
         data() {
             return {
-                file: null, src: null
+                file: null, id: 1,
             };
         },
         methods: {
@@ -48,20 +48,28 @@
                 input.type = "file";
                 return input;
             },
-            ajax(data, ajaxCallback) {
+            ajax(data, ajaxCallback, id) {
                 const xml = new XMLHttpRequest();
                 xml.open("post", this.action);
                 xml.onload = e => {
                     const url = ajaxCallback(e.target);
-                    this.$emit("upload", {url, file: this.file});
+                    const copy = [...this.files];
+                    const img = copy.find(v => v.id === id);
+                    img.url = url;
+                    img.status = 2;
+                    this.$emit("update:files", copy);
+                    this.id += 1;
                 };
                 xml.send(data);
             },
             onInputChange(e) {
                 const formData = new FormData();
-                this.file = e.target.files[0];
-                formData.append(this.name, e.target.files[0], e.target.files[0].name);
-                this.ajax(formData, this.ajaxCallback);
+                const file = e.target.files[0], {files, id} = this;
+                const copy = [...files];
+                copy.push({file, status: 1, id});
+                this.$emit("update:files", copy);
+                formData.append(this.name, file, file.name);
+                this.ajax(formData, this.ajaxCallback, id);
             },
             onUpload() {
                 const input = this.createInput();
@@ -71,7 +79,7 @@
                 input.click();
             },
             onDeleteFile(ind) {
-                const copy = JSON.parse(JSON.stringify(this.files))
+                const copy = [...this.files]
                 copy.splice(ind, 1);
                 // console.log(copy);
                 this.$emit("update:files", copy);

@@ -4,7 +4,6 @@
                 :action="action"
                 :name="name"
                 :ajax-callback="ajaxCallback"
-                @upload="upload"
                 :files.sync="files"
         >
             <y-button>upload</y-button>
@@ -40,10 +39,11 @@
             };
         },
         methods: {
-            upload(data) {
-                console.log(data);
-                this.files.push(data)
-                console.log(this.files);
+
+        },
+        watch:{
+            files:function(){
+                console.log(this.files,0);
             }
         }
     };
