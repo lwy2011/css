@@ -5,6 +5,8 @@
                 :name="name"
                 :ajax-callback="ajaxCallback"
                 :files.sync="files"
+                :max-size="3"
+                @error="onFail"
         >
             <y-button icon="upload">upload</y-button>
         </y-upload>
@@ -46,7 +48,9 @@
             };
         },
         methods: {
-
+            onFail(val){
+                alert(val)
+            }
         },
         watch:{
             files:function(){

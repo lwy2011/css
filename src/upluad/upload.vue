@@ -6,13 +6,13 @@
         <ul v-if="files.length" class="yv-upload-lists">
             <li v-for="(img,ind ) in files"
                 class="yv-upload-lists-list"
-                :key="img.file.name+ind">
+                :key="img.name+ind">
                 <div class="yv-upload-lists-list-img">
                     <template v-if="img.status === 1">
                         <y-icon icon="loading" loading></y-icon>
                     </template>
                     <template v-else-if="img.status === 200 &&
-                    img.file.type.indexOf('image')===0">
+                    img.type.indexOf('image')===0">
                         <img :src="img.url" alt="img">
                     </template>
                     <template v-else>
@@ -22,7 +22,7 @@
                 <p class="yv-upload-lists-list-name"
                     :class="{success:img.status === 200,fail:img.status>=400}"
                 >
-                    {{img.file.name}}</p>
+                    {{img.name}}</p>
                 <y-icon icon="delete" class="yv-upload-lists-list-delete"
                         @click="onDeleteFile(ind)"></y-icon>
             </li>
@@ -53,7 +53,9 @@
             },
             deleteWarn:{
                 type:Function,default:n=>`您确定要删除第${n+1}张图片吗？`
-            }
+            },
+            maxSize:Number,
+            minSize:Number,
         },
         data() {
             return {
@@ -81,14 +83,27 @@
                 };
                 xml.send(data);
             },
+            beforeAjax(files,maxSize,minSize,id,file){
+                if (maxSize>0 && (file.size> maxSize * 1000*1000)){
+                    throw new Error('maxSize error!')
+                }
+                if (minSize>0 && (file.size< minSize * 1000*1000)){
+                    throw new Error('minSize error!')
+                }
+                const copy = [...files];
+                copy.push({status: 1, id,name:file.name,type:file.type});
+                this.$emit("update:files", copy);
+            },
             onInputChange(e) {
                 const formData = new FormData();
-                const file = e.target.files[0], {files, id} = this;
-                const copy = [...files];
-                copy.push({file, status: 1, id});
-                this.$emit("update:files", copy);
-                formData.append(this.name, file, file.name);
-                this.ajax(formData, this.ajaxCallback, id);
+                const file = e.target.files[0], {files, id,maxSize,minSize} = this;
+                try {
+                    this.beforeAjax(files,maxSize,minSize,id,file);
+                    formData.append(this.name, file, file.name);
+                    this.ajax(formData, this.ajaxCallback, id);
+                }catch (e) {
+                    this.$emit('error',e.message)
+                }
             },
             onUpload() {
                 const input = this.createInput();
