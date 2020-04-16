@@ -1,8 +1,10 @@
 <template>
     <div class="yv-upload">
-        <y-button @click="upload">upload</y-button>
+        <div @click="onUpload">
+            <slot></slot>
+        </div>
         <ul v-if="files.length">
-            <li v-for="(img,ind ) in files" :key="files.name+ind">
+            <li v-for="(img,ind ) in files" :key="img.file.name+ind">
                 <img :src="img.url" alt="img">
                 <p>{{img.file.name}}
                     <y-icon icon="delete"
@@ -10,17 +12,15 @@
                 </p>
             </li>
         </ul>
-        <slot></slot>
     </div>
 </template>
 
 <script>
-    import YButton from "../button/button";
     import YIcon from "../svg/svg";
 
     export default {
         components: {
-            YButton, YIcon
+             YIcon
         },
         name: "v-upload.vue",
         props: {
@@ -63,7 +63,7 @@
                 formData.append(this.name, e.target.files[0], e.target.files[0].name);
                 this.ajax(formData, this.ajaxCallback);
             },
-            upload() {
+            onUpload() {
                 const input = this.createInput();
                 input.addEventListener(
                     "change", this.onInputChange
@@ -73,7 +73,7 @@
             onDeleteFile(ind) {
                 const copy = JSON.parse(JSON.stringify(this.files))
                 copy.splice(ind, 1);
-                console.log(copy);
+                // console.log(copy);
                 this.$emit("update:files", copy);
             }
         }

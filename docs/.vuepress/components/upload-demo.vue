@@ -6,7 +6,9 @@
                 :ajax-callback="ajaxCallback"
                 @upload="upload"
                 :files.sync="files"
-        ></y-upload>
+        >
+            <y-button>upload</y-button>
+        </y-upload>
         <pre>
             <code>{{content}}</code>
         </pre>
@@ -14,10 +16,11 @@
 </template>
 <script>
     import YUpload from "../../../src/upluad/upload";
+    import YButton from '../../../src/button/button'
     import '../../helper-icon'
     export default {
         components: {
-            YUpload,
+            YUpload,YButton
         },
         data() {
             return {
@@ -40,6 +43,7 @@
             upload(data) {
                 console.log(data);
                 this.files.push(data)
+                console.log(this.files);
             }
         }
     };

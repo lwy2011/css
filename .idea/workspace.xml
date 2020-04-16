@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="去掉axios">
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="实现删除图片信息展示的功能。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/upload-demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/upload-demo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/helper-icon.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/helper-icon.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/upluad/upload.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/upluad/upload.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,14 +134,8 @@
       <workItem from="1585497675752" duration="5943000" />
       <workItem from="1585584765924" duration="2589000" />
       <workItem from="1585663085192" duration="5285000" />
-      <workItem from="1586879445782" duration="1664000" />
-    </task>
-    <task id="LOCAL-00133" summary="实现disabled的接口，放到了item,sub-nav上面，而不是nav里。">
-      <created>1583813234344</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1583813234344</updated>
+      <workItem from="1586879445782" duration="1845000" />
+      <workItem from="1587019385890" duration="1458000" />
     </task>
     <task id="LOCAL-00134" summary="优化箭头的响应式逻辑，依赖visible来实现添加class。优化hover的api以及逻辑，leave 弹出层时也会等计时器再消失，否则，多层嵌套的回退上一层不能实现的，除非再响应式传递消息给父亲">
       <created>1583858445583</created>
@@ -480,7 +473,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586879883475</updated>
     </task>
-    <option name="localTasksCounter" value="182" />
+    <task id="LOCAL-00182" summary="实现删除图片信息展示的功能。">
+      <created>1586881329747</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1586881329747</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +497,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="key的值不能为obj，修改了。" />
     <MESSAGE value="完善全选的判断逻辑" />
     <MESSAGE value="实现简单排序的功能。" />
     <MESSAGE value="去掉无用的测试代码" />
@@ -522,7 +521,8 @@
     <MESSAGE value="添加toast用例，同时添加代码注释，动画失效了，重新引入动画" />
     <MESSAGE value="初步实现了upload的功能" />
     <MESSAGE value="去掉axios" />
-    <option name="LAST_COMMIT_MESSAGE" value="去掉axios" />
+    <MESSAGE value="实现删除图片信息展示的功能。" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现删除图片信息展示的功能。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="132" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584083448715">
@@ -533,10 +533,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1586879883334">
+    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1586881329553">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1586879883334" />
+    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1586881329553" />
     <state width="1228" height="108" key="GridCell.Tab.0.bottom" timestamp="1584204404168">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -557,10 +557,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="659" y="172" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1585304892916" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1586879884823">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1586881330883">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1586879884823" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1586881330883" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
