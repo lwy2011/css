@@ -6,7 +6,7 @@
                 :ajax-callback="ajaxCallback"
                 :files.sync="files"
         >
-            <y-button>upload</y-button>
+            <y-button icon="upload">upload</y-button>
         </y-upload>
         <pre>
             <code>{{content}}</code>
@@ -34,11 +34,12 @@
                 name: "avatar",
                 ajaxCallback: res => {
                     console.log(res);
+                    const success = Math.random() > 0.5
                     const {url,code} = JSON.parse(res.response)
                     return {
                         url,
-                        status:res.status,
-                        errorMessage:code
+                        status:success?200:500,   //res.status
+                        errorMessage: success?'ok':'图片太大'          //code
                     };
                 },
                 files:[]

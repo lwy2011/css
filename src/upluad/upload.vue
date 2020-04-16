@@ -3,15 +3,28 @@
         <div @click="onUpload" class="yv-upload-trigger">
             <slot></slot>
         </div>
-        <ul v-if="files.filter(v=>v.status === 200).length">
+        <ul v-if="files.length" class="yv-upload-lists">
             <li v-for="(img,ind ) in files"
-                v-if="img.status === 200"
+                class="yv-upload-lists-list"
                 :key="img.file.name+ind">
-                <img :src="img.url" alt="img">
-                <p>{{img.file.name}}
-                    <y-icon icon="delete"
-                            @click="onDeleteFile(ind)"></y-icon>
-                </p>
+                <div class="yv-upload-lists-list-img">
+                    <template v-if="img.status === 1">
+                        <y-icon icon="loading" loading></y-icon>
+                    </template>
+                    <template v-else-if="img.status === 200 &&
+                    img.file.type.indexOf('image')===0">
+                        <img :src="img.url" alt="img">
+                    </template>
+                    <template v-else>
+                        <y-icon icon="image"></y-icon>
+                    </template>
+                </div>
+                <p class="yv-upload-lists-list-name"
+                    :class="{success:img.status === 200,fail:img.status>=400}"
+                >
+                    {{img.file.name}}</p>
+                <y-icon icon="delete" class="yv-upload-lists-list-delete"
+                        @click="onDeleteFile(ind)"></y-icon>
             </li>
         </ul>
     </div>
@@ -37,6 +50,9 @@
             },
             files: {
                 type: Array, required: true
+            },
+            deleteWarn:{
+                type:Function,default:n=>`您确定要删除第${n+1}张图片吗？`
             }
         },
         data() {
@@ -82,7 +98,7 @@
                 input.click();
             },
             onDeleteFile(ind) {
-                if(window.confirm('你确定删除第'+(ind+1)+'个图片吗？')){
+                if (window.confirm(this.deleteWarn(ind))) {
                     const copy = [...this.files];
                     copy.splice(ind, 1);
                     // console.log(copy);
@@ -94,5 +110,50 @@
 </script>
 
 <style scoped lang="scss">
-
+    @import "../common";
+    $img-height:32px;
+.yv-upload{
+    &-trigger{
+        display: inline-flex;
+    }
+    &-lists{
+        list-style: none;
+        margin-top:8px;
+        &-list{
+            height:32px;
+            border: 1px solid $border-color;
+            margin-bottom: 8px;
+            display: flex;
+            align-items:center;
+            &-img{
+                height:100%;margin-right: 1em;
+                width: $img-height;
+                >img{
+                    height:100%;
+                }
+                >svg{
+                    height:100%;width:$img-height;
+                    fill:$border-color;
+                }
+            }
+            &-name{
+                &.success{
+                    color:$blue;
+                }
+                &.fail{
+                    color:$warn-color;
+                }
+            }
+            &-delete{
+                margin-left: auto;
+                margin-right: .5em;
+                fill:$border-color;
+                cursor: pointer;
+                &:hover{
+                    fill:$warn-color;
+                }
+            }
+        }
+    }
+}
 </style>
