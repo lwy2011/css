@@ -36,7 +36,7 @@
                     console.log(res);
                     const {url,code} = JSON.parse(res.response)
                     return {
-                        url:url,
+                        url,
                         status:res.status,
                         errorMessage:code
                     };

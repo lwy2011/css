@@ -3,8 +3,10 @@
         <div @click="onUpload" class="yv-upload-trigger">
             <slot></slot>
         </div>
-        <ul v-if="files.length">
-            <li v-for="(img,ind ) in files" :key="img.file.name+ind">
+        <ul v-if="files.filter(v=>v.status === 200).length">
+            <li v-for="(img,ind ) in files"
+                v-if="img.status === 200"
+                :key="img.file.name+ind">
                 <img :src="img.url" alt="img">
                 <p>{{img.file.name}}
                     <y-icon icon="delete"
@@ -52,12 +54,12 @@
                 const xml = new XMLHttpRequest();
                 xml.open("post", this.action);
                 xml.onload = e => {
-                    const {url,status,errorMessage} = ajaxCallback(e.target);
+                    const {url, status, errorMessage} = ajaxCallback(e.target);
                     const copy = [...this.files];
                     const img = copy.find(v => v.id === id);
                     img.url = url;
                     img.status = status;
-                    img.errorMessage = errorMessage
+                    img.errorMessage = errorMessage;
                     this.$emit("update:files", copy);
                     this.id += 1;
                 };
@@ -80,7 +82,7 @@
                 input.click();
             },
             onDeleteFile(ind) {
-                const copy = [...this.files]
+                const copy = [...this.files];
                 copy.splice(ind, 1);
                 // console.log(copy);
                 this.$emit("update:files", copy);
