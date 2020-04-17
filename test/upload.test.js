@@ -96,7 +96,7 @@ describe(
                             expect(files[1].status).to.eq(200);
                             vm.$destroy()
                             done();
-                        },0
+                        },200
                     );
                 }
             );
