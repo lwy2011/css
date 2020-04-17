@@ -29,6 +29,7 @@
             bottom: {
                 type: Number, default: 0
             },
+            responsiveWidth:String
         },
         data() {
             return {
@@ -60,7 +61,7 @@
                     const {width} = dom.getBoundingClientRect();
                     this.topFixed = true;
                     dom.style.top = this.top + "px";
-                    this.width = width + "px";
+                    this.width = this.responsiveWidth || width + "px";
                 } else {
                     console.log("fixno");
                     this.topFixed = false;
