@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="实现基础样式">
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="实现ajax前的错误校验，比如maxSize，并通知外面，用error事件。对于ajax的结果是怎样的，我把所有的主动性都放在ajaxCallback里了，由用户主动，可知，可参与，知道交互的结果，错误，并存储在files里，我预留了其中的errorMessage字段，作为错误信息保留字段，以供开发者在监听update:files的事件回调中，精确操控的。我不认为老师的那种会很好的。同时，我去掉了files里原本要存储文件的原本内容的file字段，如此就可以JSON方法深拷贝了，但是我还是没变深拷贝。觉得浅拷贝也是可以的">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/upload-demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/upload-demo.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/upluad/upload.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/upluad/upload.vue" afterDir="false" />
@@ -135,14 +135,8 @@
       <workItem from="1585584765924" duration="2589000" />
       <workItem from="1585663085192" duration="5285000" />
       <workItem from="1586879445782" duration="1845000" />
-      <workItem from="1587019385890" duration="17307000" />
-    </task>
-    <task id="LOCAL-00140" summary="实现了继承的功能，更好的复用validator的设计。">
-      <created>1584177904449</created>
-      <option name="number" value="00140" />
-      <option name="presentableId" value="LOCAL-00140" />
-      <option name="project" value="LOCAL" />
-      <updated>1584177904449</updated>
+      <workItem from="1587019385890" duration="19337000" />
+      <workItem from="1587088038883" duration="2486000" />
     </task>
     <task id="LOCAL-00141" summary="添加validator的一个fix的初始化参数。实现了，继承时，书写自定义校验器时，可以直接写this.password，拿到同样的password 的值。主要是把数据拷贝进validator类中，this就可以很方便书写了。">
       <created>1584184132651</created>
@@ -480,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587048448544</updated>
     </task>
-    <option name="localTasksCounter" value="189" />
+    <task id="LOCAL-00189" summary="实现ajax前的错误校验，比如maxSize，并通知外面，用error事件。对于ajax的结果是怎样的，我把所有的主动性都放在ajaxCallback里了，由用户主动，可知，可参与，知道交互的结果，错误，并存储在files里，我预留了其中的errorMessage字段，作为错误信息保留字段，以供开发者在监听update:files的事件回调中，精确操控的。我不认为老师的那种会很好的。同时，我去掉了files里原本要存储文件的原本内容的file字段，如此就可以JSON方法深拷贝了，但是我还是没变深拷贝。觉得浅拷贝也是可以的">
+      <created>1587052509787</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1587052509787</updated>
+    </task>
+    <option name="localTasksCounter" value="190" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +498,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="回顾，整理，添加注释，对昨晚的固定表头的思路" />
     <MESSAGE value="对横向scroll的表头同步横向滚动的实现，因为也是用了滚动，同步于下方的table的滚动的。但是有滚动条，两个，很丑，用css把滚动条隐藏了，这里只查到了webket内核的，IE,火狐的。算是不完美。想过用js操作头部的复制table的css的left属性，但是css有动画过渡，不跟手。否则就是完美的了。" />
     <MESSAGE value="在resize时，顶部固定栏依旧会有bug，不得已，添加resize事件，不断修正两个table的高度，或外间距，不断重置。同时，修改了copy的table容器的overflow：hidden,否则会滚动。" />
     <MESSAGE value="把copy的css类改为scrollY的，为了尝试scrollX的固定。" />
@@ -522,7 +522,8 @@
     <MESSAGE value="展示上传成功的图片功能中，过滤掉失败的图片。" />
     <MESSAGE value="完善删除功能，增加confirm逻辑，用的是原生的confirm。" />
     <MESSAGE value="实现基础样式" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现基础样式" />
+    <MESSAGE value="实现ajax前的错误校验，比如maxSize，并通知外面，用error事件。对于ajax的结果是怎样的，我把所有的主动性都放在ajaxCallback里了，由用户主动，可知，可参与，知道交互的结果，错误，并存储在files里，我预留了其中的errorMessage字段，作为错误信息保留字段，以供开发者在监听update:files的事件回调中，精确操控的。我不认为老师的那种会很好的。同时，我去掉了files里原本要存储文件的原本内容的file字段，如此就可以JSON方法深拷贝了，但是我还是没变深拷贝。觉得浅拷贝也是可以的" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现ajax前的错误校验，比如maxSize，并通知外面，用error事件。对于ajax的结果是怎样的，我把所有的主动性都放在ajaxCallback里了，由用户主动，可知，可参与，知道交互的结果，错误，并存储在files里，我预留了其中的errorMessage字段，作为错误信息保留字段，以供开发者在监听update:files的事件回调中，精确操控的。我不认为老师的那种会很好的。同时，我去掉了files里原本要存储文件的原本内容的file字段，如此就可以JSON方法深拷贝了，但是我还是没变深拷贝。觉得浅拷贝也是可以的" />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="132" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584083448715">
@@ -533,10 +534,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587048448262">
+    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587052509553">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587048448262" />
+    <state x="422" y="47" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587052509553" />
     <state width="1228" height="108" key="GridCell.Tab.0.bottom" timestamp="1584204404168">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -557,10 +558,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="659" y="172" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1585304892916" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587048449896">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587052510959">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587048449896" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587052510959" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>

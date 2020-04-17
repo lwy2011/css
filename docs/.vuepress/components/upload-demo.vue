@@ -36,12 +36,12 @@
                 name: "avatar",
                 ajaxCallback: res => {
                     console.log(res);
-                    const success = Math.random() > 0.5
+                    // const success = Math.random() > 0.5
                     const {url,code} = JSON.parse(res.response)
                     return {
                         url,
-                        status:success?200:500,   //res.status
-                        errorMessage: success?'ok':'图片太大'          //code
+                        status:res.status,
+                        errorMessage: code          //code
                     };
                 },
                 files:[]

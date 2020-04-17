@@ -20,7 +20,7 @@
                     </template>
                 </div>
                 <p class="yv-upload-lists-list-name"
-                    :class="{success:img.status === 200,fail:img.status>=400}"
+                   :class="{success:img.status === 200,fail:img.status>=400}"
                 >
                     {{img.name}}</p>
                 <y-icon icon="delete" class="yv-upload-lists-list-delete"
@@ -51,11 +51,17 @@
             files: {
                 type: Array, required: true
             },
-            deleteWarn:{
-                type:Function,default:n=>`您确定要删除第${n+1}张图片吗？`
+            deleteWarn: {
+                type: Function, default: n => `您确定要删除第${n + 1}张图片吗？`
             },
-            maxSize:Number,
-            minSize:Number,
+            maxSize: Number,
+            minSize: Number,
+            multiple: {
+                type: Boolean, default: true
+            },
+            accept: {
+                type: String, default: "image/*"
+            }
         },
         data() {
             return {
@@ -66,6 +72,8 @@
             createInput() {
                 const input = document.createElement("input");
                 input.type = "file";
+                input.multiple = this.multiple;
+                input.accept = this.accept;
                 return input;
             },
             ajax(data, ajaxCallback, id) {
@@ -79,31 +87,35 @@
                     img.status = status;
                     img.errorMessage = errorMessage;
                     this.$emit("update:files", copy);
-                    this.id += 1;
                 };
                 xml.send(data);
             },
-            beforeAjax(files,maxSize,minSize,id,file){
-                if (maxSize>0 && (file.size> maxSize * 1000*1000)){
-                    throw new Error('maxSize error!')
+            beforeAjax(copy, file) {
+                const {id, maxSize, minSize} = this,{name,type,size}=file;
+                if (maxSize > 0 && (file.size > maxSize * 1000 * 1000)) {
+                    throw new Error(`max-size-warn-error! fileName:${name},size:${size}`);
                 }
-                if (minSize>0 && (file.size< minSize * 1000*1000)){
-                    throw new Error('minSize error!')
+                if (minSize > 0 && (file.size < minSize * 1000 * 1000)) {
+                    throw new Error(`min-size-warn-error! fileName:${name},size:${size}`);
                 }
-                const copy = [...files];
-                copy.push({status: 1, id,name:file.name,type:file.type});
-                this.$emit("update:files", copy);
+                copy.push({status: 1, id, name, type});
+                this.id += 1;
+                return id
             },
             onInputChange(e) {
-                const formData = new FormData();
-                const file = e.target.files[0], {files, id,maxSize,minSize} = this;
-                try {
-                    this.beforeAjax(files,maxSize,minSize,id,file);
-                    formData.append(this.name, file, file.name);
-                    this.ajax(formData, this.ajaxCallback, id);
-                }catch (e) {
-                    this.$emit('error',e.message)
+                const fileLists = e.target.files, {files} = this;
+                const copy = [...files];
+                for (let i = 0; i < fileLists.length; i++) {
+                    try {
+                        const id = this.beforeAjax(copy, fileLists[i]);
+                        const formData = new FormData();
+                        formData.append(this.name, fileLists[i]);
+                        this.ajax(formData, this.ajaxCallback, id);
+                    } catch (e) {
+                        this.$emit("error", e.message);
+                    }
                 }
+                copy.length && this.$emit("update:files", copy);
             },
             onUpload() {
                 const input = this.createInput();
@@ -126,49 +138,61 @@
 
 <style scoped lang="scss">
     @import "../common";
-    $img-height:32px;
-.yv-upload{
-    &-trigger{
-        display: inline-flex;
-    }
-    &-lists{
-        list-style: none;
-        margin-top:8px;
-        &-list{
-            height:32px;
-            border: 1px solid $border-color;
-            margin-bottom: 8px;
-            display: flex;
-            align-items:center;
-            &-img{
-                height:100%;margin-right: 1em;
-                width: $img-height;
-                >img{
-                    height:100%;
+
+    $img-height: 32px;
+    .yv-upload {
+        &-trigger {
+            display: inline-flex;
+        }
+
+        &-lists {
+            list-style: none;
+            margin-top: 8px;
+
+            &-list {
+                height: 32px;
+                border: 1px solid $border-color;
+                margin-bottom: 8px;
+                display: flex;
+                align-items: center;
+
+                &-img {
+                    height: 100%;
+                    margin-right: 1em;
+                    width: $img-height;
+
+                    > img {
+                        height: 100%;
+                    }
+
+                    > svg {
+                        height: 100%;
+                        width: $img-height;
+                        fill: $border-color;
+                    }
                 }
-                >svg{
-                    height:100%;width:$img-height;
-                    fill:$border-color;
+
+                &-name {
+                    &.success {
+                        color: $blue;
+                    }
+
+                    &.fail {
+                        color: $warn-color;
+                    }
                 }
-            }
-            &-name{
-                &.success{
-                    color:$blue;
-                }
-                &.fail{
-                    color:$warn-color;
-                }
-            }
-            &-delete{
-                margin-left: auto;
-                margin-right: .5em;
-                fill:$border-color;
-                cursor: pointer;
-                &:hover{
-                    fill:$warn-color;
+
+                &-delete {
+                    margin-left: auto;
+                    margin-right: .5em;
+                    fill: $border-color;
+                    cursor: pointer;
+
+                    &:hover {
+                        fill: $warn-color;
+                    }
                 }
             }
         }
     }
-}
 </style>
