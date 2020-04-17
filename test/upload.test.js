@@ -89,8 +89,9 @@ describe(
                     expect(files[1].status).to.eq(1);
                     setTimeout(
                         () => {
+                            console.log(files);
                             expect(files[0].url).to.eq('testUrl');
-                            expect(files[0].url).to.eq('testUrl');
+                            expect(files[1].url).to.eq('testUrl');
                             expect(files[0].status).to.eq(200);
                             expect(files[1].status).to.eq(200);
                             vm.$destroy()
