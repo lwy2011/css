@@ -30,11 +30,11 @@ const init = () => {
             ajaxCallback: res => {
                 console.log(res);
                 // const success = Math.random() > 0.5
-                const {url, code} = JSON.parse(res.response);
+                // const {url, code} = JSON.parse(res.response);
                 return {
-                    url,
-                    status: res.status,
-                    errorMessage: code          //code
+                    url: "testUrl",
+                    status: 200,
+                    errorMessage: "ok"          //code
                 };
             },
             files: []
@@ -87,7 +87,16 @@ describe(
                     expect(files[0].status).to.eq(1);
                     expect(files[1].name).to.eq(file1.name);
                     expect(files[1].status).to.eq(1);
-                    done();
+                    setTimeout(
+                        () => {
+                            expect(files[0].url).to.eq('testUrl');
+                            expect(files[0].url).to.eq('testUrl');
+                            expect(files[0].status).to.eq(200);
+                            expect(files[1].status).to.eq(200);
+                            done();
+                            vm.$destroy()
+                        },0
+                    );
                 }
             );
         });
