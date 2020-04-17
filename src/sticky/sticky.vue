@@ -23,10 +23,15 @@
         },
         data() {
             return {
-                topFixed: false, leftFixed: false
+                topFixed: false, leftFixed: false,
+                initTop: undefined, initLeft: undefined
             };
         },
         mounted() {
+            const {wrapper} = this.$refs;
+            const {top, left} = wrapper.getBoundingClientRect();
+            this.initTop = top;
+            this.initLeft = left;
             window.addEventListener(
                 "scroll", this.fixed
             );
@@ -38,10 +43,21 @@
         },
         methods: {
             fixed() {
+                if (this.lock) return;
+                this.lock = true;
+                this.computY()
+                this.lock = false;
+            },
+            computY(){
                 const {wrapper} = this.$refs;
                 const {top, left} = wrapper.getBoundingClientRect();
-                this.topFixed = top - 10 < 0 ? true : false;
-                wrapper.style.top = this.top +'px';
+                console.log();
+                if (window.scrollY+this.top > window.scrollY + top ){
+                    this.topFixed = true
+                    wrapper.style.top = this.top + "px";
+                }else{
+                    this.topFixed = false
+                }
             }
         }
     };
