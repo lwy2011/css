@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="upload test 本地测试跑的通，远程集成测试那个过不了。先注释掉了">
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="新增responsiveWidth ，让用户设置fixed时候的响应式宽度，不设置就是浮起来时候的固定宽了。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sticky/sticky.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/sticky/sticky.vue" afterDir="false" />
     </list>
@@ -135,14 +135,7 @@
       <workItem from="1585663085192" duration="5285000" />
       <workItem from="1586879445782" duration="1845000" />
       <workItem from="1587019385890" duration="19337000" />
-      <workItem from="1587088038883" duration="19149000" />
-    </task>
-    <task id="LOCAL-00156" summary="v-for循环的key必须加，必须要用非index，因为vue很傻！&#10;尝试用单向数据流控制checkbox的input.checked，失败！注释掉了。准备决定改为顺应dom判断的双向数据绑定的理念。">
-      <created>1585128749928</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1585128749929</updated>
+      <workItem from="1587088038883" duration="20499000" />
     </task>
     <task id="LOCAL-00157" summary="key的值不能为obj，修改了。">
       <created>1585129369279</created>
@@ -480,7 +473,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587120111813</updated>
     </task>
-    <option name="localTasksCounter" value="205" />
+    <task id="LOCAL-00205" summary="新增responsiveWidth ，让用户设置fixed时候的响应式宽度，不设置就是浮起来时候的固定宽了。">
+      <created>1587120585498</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1587120585498</updated>
+    </task>
+    <option name="localTasksCounter" value="206" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +497,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="微调代码，没啥可改的了" />
     <MESSAGE value="初始化upload组件架子" />
     <MESSAGE value="添加toast用例，同时添加代码注释，动画失效了，重新引入动画" />
     <MESSAGE value="初步实现了upload的功能" />
@@ -522,7 +521,8 @@
     <MESSAGE value="继续微调upload test bug" />
     <MESSAGE value="完善如何固定外部容器的高度的思路，用的比较耗能的，内部有个copy对象。做了遮罩，透明。为的是实现响应式的感觉。未完成的是对fixed那部分的宽度如何响应式的实现" />
     <MESSAGE value="upload test 本地测试跑的通，远程集成测试那个过不了。先注释掉了" />
-    <option name="LAST_COMMIT_MESSAGE" value="upload test 本地测试跑的通，远程集成测试那个过不了。先注释掉了" />
+    <MESSAGE value="新增responsiveWidth ，让用户设置fixed时候的响应式宽度，不设置就是浮起来时候的固定宽了。" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增responsiveWidth ，让用户设置fixed时候的响应式宽度，不设置就是浮起来时候的固定宽了。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="132" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584083448715">
@@ -533,10 +533,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587120111662">
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587120585305">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587120111662" />
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587120585305" />
     <state x="281" y="75" key="DiffContextDialog" timestamp="1587112352727">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -561,10 +561,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="659" y="172" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1585304892916" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587120112926">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587120586920">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587120112926" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587120586920" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>

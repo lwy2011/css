@@ -42,6 +42,7 @@
             );
         },
         beforeDestroy() {
+            console.log(9);
             window.removeEventListener(
                 "scroll", this.fixed
             );
@@ -56,14 +57,12 @@
             computY() {
                 const {wrapper, dom} = this.$refs;
                 const {top} = wrapper.getBoundingClientRect();
-                if (top <= this.top) {
-                    console.log("fix");
+                if (top <= this.top ) {
                     const {width} = dom.getBoundingClientRect();
                     this.topFixed = true;
                     dom.style.top = this.top + "px";
                     this.width = this.responsiveWidth || width + "px";
                 } else {
-                    console.log("fixno");
                     this.topFixed = false;
                     this.width = undefined;
                 }
