@@ -91,7 +91,7 @@
                 xml.send(data);
             },
             beforeAjax(copy, file) {
-                const {id, maxSize, minSize} = this,{name,type,size}=file;
+                const {id, maxSize, minSize} = this, {name, type, size} = file;
                 if (maxSize > 0 && (file.size > maxSize * 1000 * 1000)) {
                     throw new Error(`max-size-warn-error! fileName:${name},size:${size}`);
                 }
@@ -100,7 +100,7 @@
                 }
                 copy.push({status: 1, id, name, type});
                 this.id += 1;
-                return id
+                return id;
             },
             onInputChange(e) {
                 const fileLists = e.target.files, {files} = this;
@@ -123,6 +123,7 @@
                     "change", this.onInputChange
                 );
                 input.click();
+                this.input = input; //为了单元测试
             },
             onDeleteFile(ind) {
                 if (window.confirm(this.deleteWarn(ind))) {
