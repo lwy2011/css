@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="解耦，外部容器负责常规求是否在屏幕可视范围内，getBondingclientRect求的。来判定内部的slot内的dom是否要添加fixed。">
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="继续微调upload test bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/upload.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/upload.test.js" afterDir="false" />
     </list>
@@ -135,14 +135,7 @@
       <workItem from="1585663085192" duration="5285000" />
       <workItem from="1586879445782" duration="1845000" />
       <workItem from="1587019385890" duration="19337000" />
-      <workItem from="1587088038883" duration="15857000" />
-    </task>
-    <task id="LOCAL-00152" summary="修改source为不必须传值，给了default值。同时修改selected的逻辑，变为存储source的item 的index，因为source是不变的！但是注意，source要是变的话，一定要对selected进行同步变化！">
-      <created>1584612743710</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1584612743711</updated>
+      <workItem from="1587088038883" duration="16436000" />
     </task>
     <task id="LOCAL-00153" summary="checkbox的直接绑定checked，绑不了，只能做了个抽象，成vue组件，然后受控。又为了可扩展性，数据安全性，不用index作为存储标记了，用数据的trIndex。这样的做法，深拷贝的性能是个问题。我想到了，储存trIndex就好了，一会改">
       <created>1584635446520</created>
@@ -480,7 +473,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587115987721</updated>
     </task>
-    <option name="localTasksCounter" value="201" />
+    <task id="LOCAL-00201" summary="继续微调upload test bug">
+      <created>1587116200695</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1587116200695</updated>
+    </task>
+    <option name="localTasksCounter" value="202" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +497,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="初步实现可添加dom节点进去。" />
     <MESSAGE value="优化 columns的slot的展示逻辑，修改示例的废弃代码" />
     <MESSAGE value="优化mounted钩子里的代码逻辑。拆分成一个个的小函数" />
     <MESSAGE value="微调代码，没啥可改的了" />
@@ -522,7 +521,8 @@
     <MESSAGE value="微调upload test ,ci 一直过不去" />
     <MESSAGE value="搭建sticky" />
     <MESSAGE value="解耦，外部容器负责常规求是否在屏幕可视范围内，getBondingclientRect求的。来判定内部的slot内的dom是否要添加fixed。" />
-    <option name="LAST_COMMIT_MESSAGE" value="解耦，外部容器负责常规求是否在屏幕可视范围内，getBondingclientRect求的。来判定内部的slot内的dom是否要添加fixed。" />
+    <MESSAGE value="继续微调upload test bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="继续微调upload test bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="132" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584083448715">
@@ -533,10 +533,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587115987510">
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587116200530">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587115987510" />
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587116200530" />
     <state x="281" y="75" key="DiffContextDialog" timestamp="1587112352727">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -561,10 +561,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="659" y="172" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1585304892916" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587115988681">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587116201579">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587115988681" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587116201579" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
