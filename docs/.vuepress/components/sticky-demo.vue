@@ -2,7 +2,7 @@
     <div style="margin:1em;">
         <div style="height:400px;border:1px solid;margin:1em"></div>
         <y-sticky>
-            <h4 style="border: 1px solid">sticky test</h4>
+            <p style="border: 1px solid">sticky test</p>
         </y-sticky>
         <div style="height:800px;border:1px solid;margin:1em"></div>
         <pre>
