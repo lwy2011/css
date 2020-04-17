@@ -93,8 +93,8 @@ describe(
                             expect(files[0].url).to.eq('testUrl');
                             expect(files[0].status).to.eq(200);
                             expect(files[1].status).to.eq(200);
-                            done();
                             vm.$destroy()
+                            done();
                         },0
                     );
                 }
