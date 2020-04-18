@@ -13,6 +13,19 @@
                     <button @click="edit(slotProps.item)">编辑</button>
                     <button @click="toDelete(slotProps.item)">删除</button>
                 </template>
+                <template v-slot:age1="slotProps">
+                    <div v-if="age1Edit">
+                        <input type="number"
+                               :value="slotProps.item.age"
+                               @change="onAge1Edit(slotProps.index,$event)"
+                               @blur="age1Edit=!age1Edit"
+                        >
+                    </div>
+                    <div v-else>
+                        {{slotProps.item.age}}
+                        <button @click="age1Edit=!age1Edit">edit</button>
+                    </div>
+                </template>
             </y-table>
         </div>
         <div>
@@ -65,12 +78,12 @@
                 ],
                 source: [
                     {
-                        name: "胡彦斌",
                         age: 32,
                         address: "西湖区湖底公园1号",
                         selection: true,
                         trIndex: 0,
                         supplement: "歌手！",
+                        nameHtml: `<a href="#" class="yv-table-td-name">胡彦斌</a>`
                     },
                     {
                         name: "John Brown",
@@ -79,6 +92,7 @@
                         selection: true,
                         trIndex: 1,
                         supplement: "i do not know!",
+                        ageSlot: "age1"
                     },
                     {
                         name: "Jim Green",
@@ -125,6 +139,7 @@
                 ],
                 selected: [],
                 loading: false,
+                age1Edit: false
             };
         },
         mounted() {
@@ -140,6 +155,12 @@
                 alert(`删除${Object.keys(item).reduce(
                     (a, b) => a + (a ? "->" : "") + b + ":" + item[b], ""
                 )}`);
+            },
+            onAge1Edit(index, e) {
+                console.log(index, e.target.value);
+                const copy = [...this.source]
+                copy[index].age = e.target.value
+                this.source = copy
             },
             sorterUpdate(columns, item) {
                 console.log(item, 55);

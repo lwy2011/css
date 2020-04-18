@@ -43,13 +43,21 @@
                                 <template v-if="column.slot">
                                     <slot :item="item" :name="column.key"></slot>
                                 </template>
+                                <template v-else-if="item[column.key+'Slot']">
+                                    <slot :item="item"
+                                          :index="index"
+                                          :name="column.key + item.trIndex"/>
+                                </template>
+                                <div v-else-if="item[column.key+'Html']"
+                                     v-html="item[column.key+'Html']">
+                                </div>
                                 <template v-else>
                                     {{item[column.key]}}
                                 </template>
                                 <y-icon @click="supplementClick(item.trIndex)"
                                         :class="{active:supplementVisible(item.trIndex)}"
-                                        v-if="index === 0 && item.supplement" icon="down"></y-icon>
-
+                                        v-if="index === 0 && item.supplement" icon="down">
+                                </y-icon>
                             </div>
                         </td>
                     </tr>
@@ -106,13 +114,21 @@
                                     <template v-if="column.slot">
                                         <slot :item="item" :name="column.key"></slot>
                                     </template>
+                                    <template v-else-if="item[column.key+'Slot']">
+                                         <slot :item="item"
+                                               :index="index"
+                                               :name="column.key + item.trIndex"/>
+                                    </template>
+                                    <div v-else-if="item[column.key+'Html']"
+                                              v-html="item[column.key+'Html']">
+                                    </div>
                                     <template v-else>
                                         {{item[column.key]}}
                                     </template>
                                     <y-icon @click="supplementClick(item.trIndex)"
                                             :class="{active:supplementVisible(item.trIndex)}"
-                                            v-if="index === 0 && item.supplement" icon="down"></y-icon>
-
+                                            v-if="index === 0 && item.supplement" icon="down">
+                                    </y-icon>
                                 </div>
                             </td>
                         </tr>
@@ -139,6 +155,7 @@
     import "../../docs/helper-icon";
     import YCheckbox from "./checkbox";
     import YIcon from "../svg/svg";
+
     const enums = {
         default: "esc", esc: "desc", desc: "default"
     };
@@ -284,12 +301,11 @@
                     width += tds[0].getBoundingClientRect().width;
                 }
                 this.columns.map((item, ind) => {
-                        if (item.fixed) {
-                            const index = this.source[0].selection ? ind + 1 : ind;
-                            width += tds[index].getBoundingClientRect().width;
-                        }
+                    if (item.fixed) {
+                        const index = this.source[0].selection ? ind + 1 : ind;
+                        width += tds[index].getBoundingClientRect().width;
                     }
-                );
+                });
                 return width;
             },
             scrollXInit(thead, copy1) {
