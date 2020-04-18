@@ -115,12 +115,12 @@
                                         <slot :item="item" :name="column.key"></slot>
                                     </template>
                                     <template v-else-if="item[column.key+'Slot']">
-                                         <slot :item="item"
-                                               :index="index"
-                                               :name="column.key + item.trIndex"/>
+                                        <slot :item="item"
+                                              :index="index"
+                                              :name="column.key + item.trIndex"/>
                                     </template>
                                     <div v-else-if="item[column.key+'Html']"
-                                              v-html="item[column.key+'Html']">
+                                         v-html="item[column.key+'Html']">
                                     </div>
                                     <template v-else>
                                         {{item[column.key]}}

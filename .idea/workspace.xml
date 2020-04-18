@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="优化upload 的ajax 的方法，添加 xml.onerror方法。同时可以解决upload test 的那个bug了。测试用例实现了">
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="table 添加了可以对tbody的td传入html的功能，也提供了对td预留插槽的功能！">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/table-demo2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/table-demo2.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/table/table.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/table/table.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -138,14 +137,7 @@
       <workItem from="1587019385890" duration="19337000" />
       <workItem from="1587088038883" duration="21040000" />
       <workItem from="1587178348622" duration="3667000" />
-      <workItem from="1587205031174" duration="4060000" />
-    </task>
-    <task id="LOCAL-00159" summary="实现简单排序的功能。">
-      <created>1585160383802</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1585160383802</updated>
+      <workItem from="1587205031174" duration="4938000" />
     </task>
     <task id="LOCAL-00160" summary="去掉无用的测试代码">
       <created>1585195149566</created>
@@ -483,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587182331420</updated>
     </task>
-    <option name="localTasksCounter" value="208" />
+    <task id="LOCAL-00208" summary="table 添加了可以对tbody的td传入html的功能，也提供了对td预留插槽的功能！">
+      <created>1587229881236</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1587229881236</updated>
+    </task>
+    <option name="localTasksCounter" value="209" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -500,7 +499,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="初步实现了upload的功能" />
     <MESSAGE value="去掉axios" />
     <MESSAGE value="实现删除图片信息展示的功能。" />
     <MESSAGE value="修正插槽的设置，添加文件的按钮让用户自己加，而不是我自己内置" />
@@ -525,7 +523,8 @@
     <MESSAGE value="新增responsiveWidth ，让用户设置fixed时候的响应式宽度，不设置就是浮起来时候的固定宽了。" />
     <MESSAGE value="检查优化，暂时没有问题" />
     <MESSAGE value="优化upload 的ajax 的方法，添加 xml.onerror方法。同时可以解决upload test 的那个bug了。测试用例实现了" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化upload 的ajax 的方法，添加 xml.onerror方法。同时可以解决upload test 的那个bug了。测试用例实现了" />
+    <MESSAGE value="table 添加了可以对tbody的td传入html的功能，也提供了对td预留插槽的功能！" />
+    <option name="LAST_COMMIT_MESSAGE" value="table 添加了可以对tbody的td传入html的功能，也提供了对td预留插槽的功能！" />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="132" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584083448715">
@@ -536,10 +535,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587182330668">
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587229881067">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587182330668" />
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587229881067" />
     <state x="281" y="75" key="DiffContextDialog" timestamp="1587112352727">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -564,10 +563,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="659" y="172" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1585304892916" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587182333043">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587229883130">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587182333043" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587229883130" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -611,7 +610,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/table/table.vue</url>
-          <line>441</line>
+          <line>449</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
