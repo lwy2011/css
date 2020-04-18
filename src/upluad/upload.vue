@@ -76,18 +76,24 @@
                 input.accept = this.accept;
                 return input;
             },
-            ajax(data, ajaxCallback, id) {
+            ajaxResponse(e,id){
+                const {url, status, errorMessage} = this.ajaxCallback(e.target);
+                const copy = [...this.files];
+                const img = copy.find(v => v.id === id);
+                img.url = url;
+                img.status = status;
+                img.errorMessage = errorMessage;
+                this.$emit("update:files", copy);
+            },
+            ajax(data, id) {
                 const xml = new XMLHttpRequest();
                 xml.open("post", this.action);
                 xml.onload = e => {
-                    const {url, status, errorMessage} = ajaxCallback(e.target);
-                    const copy = [...this.files];
-                    const img = copy.find(v => v.id === id);
-                    img.url = url;
-                    img.status = status;
-                    img.errorMessage = errorMessage;
-                    this.$emit("update:files", copy);
+                    this.ajaxResponse(e,id)
                 };
+                xml.onerror = e =>{
+                    this.ajaxResponse(e,id)
+                }
                 xml.send(data);
             },
             beforeAjax(copy, file) {
@@ -110,7 +116,7 @@
                         const id = this.beforeAjax(copy, fileLists[i]);
                         const formData = new FormData();
                         formData.append(this.name, fileLists[i]);
-                        this.ajax(formData, this.ajaxCallback, id);
+                        this.ajax(formData, id);
                     } catch (e) {
                         this.$emit("error", e.message);
                     }
