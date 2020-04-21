@@ -20,6 +20,7 @@ module.exports = {
                     '/components/table',
                     '/components/upload',
                     '/components/sticky',
+                    '/components/datepicker',
                 ]
             }
         ]
