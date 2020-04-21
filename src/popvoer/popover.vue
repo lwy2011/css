@@ -186,7 +186,7 @@
     }
 
     .content-wrapper {
-        position: absolute;
+        position: absolute;min-width: 2em;
         padding: $small-padding $middle-padding;
         border-radius: $border-radius;
         z-index: 10;
