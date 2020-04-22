@@ -3,40 +3,37 @@
         <y-popover position="bottom">
             <Input type="text" :value="formatValue"/>
             <template v-slot:content>
-                <div class="yv-date-picker-wrapper">
+                <div class="yv-date-picker-wrapper" ref="wrapper">
                     <div class="yv-date-picker-nav">
                         <y-icon icon="big-left"
-                                v-if="control[panel]>=1"
                                 @click="toPrevYear"
                                 class="yv-date-picker-nav-bar"></y-icon>
-                        <y-icon icon="left" v-if="control[panel]>=2"
+                        <y-icon icon="left"
                                 @click="toPrevMonth"
                                 class="yv-date-picker-nav-bar"></y-icon>
-                        <p class="yv-date-picker-nav-bars">
-                        <span @click="onYearClick"
-                              v-if="control[panel]>=1">
-                            {{selected[0]+"年"}}
-                        </span>
-                            <span @click="onMonthClick"
-                                  v-if="control[panel]>=2">
-                            {{selected[1]+1+"月"}}
-                        </span>
+                        <p class="yv-date-picker-nav-bars" @click="onYearMonthClick">
+                            <span >
+                                {{selected[0]+"年"}}
+                            </span>
+                            <span>
+                                {{selected[1]+1+"月"}}
+                            </span>
                         </p>
-                        <y-icon icon="right" v-if="control[panel]>=2"
+                        <y-icon icon="right"
                                 @click="toNextMonth"
-                                class="yv-date-picker-nav-bar"></y-icon>
-                        <y-icon icon="big-right" v-if="control[panel]>=1"
+                                class="yv-date-picker-nav-bar">
+                        </y-icon>
+                        <y-icon icon="big-right"
                                 @click="toNextYear"
-                                class="yv-date-picker-nav-bar"></y-icon>
+                                class="yv-date-picker-nav-bar">
+                        </y-icon>
                     </div>
                     <div class="yv-date-picker-panel">
-                        <div v-if="panel==='year'">
+                        <div v-if="panel==='year'"
+                             class="yv-date-picker-panel-year">
                             年
                         </div>
-                        <div v-else-if="panel==='month'">
-                            月
-                        </div>
-                        <table v-else class="yv-date-picker-panel-table">
+                        <table  v-else class="yv-date-picker-panel-table">
                             <thead>
                             <tr>
                                 <td v-for="week in weeks" :key="week">
@@ -90,9 +87,6 @@
                 panel: "day",  //3，'default',2,'month'，1，'day'
                 selected: undefined,
                 weeks: ["日", "一", "二", "三", "四", "五", "六"],
-                control: {
-                    day: 3, month: 2, year: 1
-                }
             };
         },
         computed: {
@@ -110,7 +104,7 @@
         },
 
         mounted() {
-            console.log(this.value.getTime());
+
         },
         watch: {
             panel: function x() {
@@ -118,11 +112,17 @@
             }
         },
         methods: {
-            onYearClick() {
-                this.panel = "year";
+            setWrapperSize(){
+                const {wrapper} = this.$refs
+                const {width,height} = wrapper.getBoundingClientRect()
+                wrapper.style.width = width+'px'
+                wrapper.style.height = height+'px'
             },
-            onMonthClick() {
-                this.panel = "month";
+            onYearMonthClick() {
+                this.setWrapperSize()
+                console.log();
+                const obj = {year:'day',day:'year'}
+                this.panel = obj[this.panel]
             },
             getMonthFirstDay(time) {
                 const [year, month] = this.getDateDetail(time);
@@ -143,7 +143,6 @@
                     week = firstDay.getDay(),
                     lastMonthEndDay = new Date(firstDay.setDate(0)),
                     [year, month, day] = this.getDateDetail(lastMonthEndDay);
-                console.log(year, 11111);
                 const arr = [];
                 for (let i = 0; i < 42; i++) {
                     arr.push(new Date(year, month, day - week + i + 1));
@@ -163,7 +162,6 @@
                 }
                 if (dateData.find((n, i) =>
                     n !== nowDate[i]) === undefined) {
-                    console.log(dateData, nowDate);
                     now = true;
                 }
                 return {currentMonth, selected, now};
@@ -242,16 +240,22 @@
 
         &-panel {
             border-bottom: 1px solid $light-border-color;
-            white-space: nowrap;
-
+            white-space: nowrap;position: relative;
+            &-year{
+                position:absolute;top:0;left:0;width: 100%;
+            }
             &-table {
-                display: table;
+                display: table;position: relative;
                 width: 100%;
                 text-align: center;
                 border-spacing: 0;
                 border-collapse: collapse;
                 vertical-align: middle;
-
+                &-mask{
+                    position: absolute;top:0;
+                    left:0;width:100%;z-index: 2;
+                    background: #fff;
+                }
                 td {
                     padding: .5em;
                 }
