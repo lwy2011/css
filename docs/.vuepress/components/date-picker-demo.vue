@@ -1,6 +1,7 @@
 <template>
     <div style="margin:1em;">
-        <y-date-picker></y-date-picker>
+        <y-date-picker :value="date" @select="date=$event">
+        </y-date-picker>
         <pre>
             <code>{{content}}</code>
         </pre>
@@ -23,7 +24,7 @@
                 <y-icon icon="warn"></y-icon>
                 <y-icon icon="left"></y-icon>
                 `,
-                loading:false
+                date:new Date(),
             };
         }
     };
