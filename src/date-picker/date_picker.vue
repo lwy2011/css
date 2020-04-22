@@ -12,7 +12,7 @@
                                 @click="toPrevMonth"
                                 class="yv-date-picker-nav-bar"></y-icon>
                         <p class="yv-date-picker-nav-bars" @click="onYearMonthClick">
-                            <span >
+                            <span>
                                 {{selected[0]+"年"}}
                             </span>
                             <span>
@@ -31,9 +31,25 @@
                     <div class="yv-date-picker-panel">
                         <div v-if="panel==='year'"
                              class="yv-date-picker-panel-year">
-                            年
+                            <div class="yv-date-picker-panel-year-result">
+                                <p>
+                                    <span>年：</span> <span v-for="n in 4" :key="n">
+                                        {{yearAndMonth[n-1]}}
+                                    </span>
+                                </p>
+                                <p>
+                                    <span>月：</span> <span>{{yearAndMonth[4]}}</span>
+                                </p>
+                            </div>
+                            <ul class="yv-date-picker-panel-year-set">
+                                <li v-for="n in 12"
+                                    @click="setYearAndMonth(n)"
+                                    :key="n">
+                                    {{n}}
+                                </li>
+                            </ul>
                         </div>
-                        <table  v-else class="yv-date-picker-panel-table">
+                        <table v-else class="yv-date-picker-panel-table">
                             <thead>
                             <tr>
                                 <td v-for="week in weeks" :key="week">
@@ -55,9 +71,12 @@
                     </div>
                     <div class="yv-date-picker-actions">
                         <p v-if="panel==='day'">今天</p>
-                        <p v-else>
-                            <y-button @click="panel='day'">返回</y-button>
-                        </p>
+                        <tamplate v-else>
+                            <y-button> ok </y-button>
+                            <y-icon icon="delete"
+                                    @click="onDeleteYearAndMonth">
+                            </y-icon>
+                        </tamplate>
                     </div>
                 </div>
             </template>
@@ -87,6 +106,7 @@
                 panel: "day",  //3，'default',2,'month'，1，'day'
                 selected: undefined,
                 weeks: ["日", "一", "二", "三", "四", "五", "六"],
+                yearAndMonth: []
             };
         },
         computed: {
@@ -112,17 +132,17 @@
             }
         },
         methods: {
-            setWrapperSize(){
-                const {wrapper} = this.$refs
-                const {width,height} = wrapper.getBoundingClientRect()
-                wrapper.style.width = width+'px'
-                wrapper.style.height = height+'px'
+            setWrapperSize() {
+                const {wrapper} = this.$refs;
+                const {width, height} = wrapper.getBoundingClientRect();
+                wrapper.style.width = width + "px";
+                wrapper.style.height = height + "px";
             },
             onYearMonthClick() {
-                this.setWrapperSize()
+                this.setWrapperSize();
                 console.log();
-                const obj = {year:'day',day:'year'}
-                this.panel = obj[this.panel]
+                const obj = {year: "day", day: "year"};
+                this.panel = obj[this.panel];
             },
             getMonthFirstDay(time) {
                 const [year, month] = this.getDateDetail(time);
@@ -190,6 +210,12 @@
                 arr[0] += 1;
                 this.selected = this.getDateDetail(new Date(...arr));
             },
+            onDeleteYearAndMonth() {
+                this.yearAndMonth.pop();
+            },
+            setYearAndMonth(val) {
+                this.yearAndMonth.push(val);
+            }
         }
     };
 </script>
@@ -240,22 +266,69 @@
 
         &-panel {
             border-bottom: 1px solid $light-border-color;
-            white-space: nowrap;position: relative;
-            &-year{
-                position:absolute;top:0;left:0;width: 100%;
+            white-space: nowrap;
+
+            &-year {
+                $size: 2em;
+
+                .box {
+                    display: inline-flex;
+                    width: $size;
+                    height: $size;
+                    justify-content: center;
+                    align-items: center;
+                    border: 1px solid $border-color;
+                }
+
+                &-result {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 1em;
+
+                    > p {
+                        > span {
+                            vertical-align: middle;
+                            @extend .box;
+                        }
+                    }
+                }
+
+                &-set {
+                    list-style: none;
+                    display: inline-flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    margin:1em 1.5em;
+                    > li {
+                        @extend .box;
+                        margin: 8px ;
+                        cursor: pointer;
+
+                        &:hover {
+                            background: $blue;
+                        }
+                    }
+                }
             }
+
             &-table {
-                display: table;position: relative;
+                display: table;
                 width: 100%;
                 text-align: center;
                 border-spacing: 0;
                 border-collapse: collapse;
                 vertical-align: middle;
-                &-mask{
-                    position: absolute;top:0;
-                    left:0;width:100%;z-index: 2;
+
+                &-mask {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    z-index: 2;
                     background: #fff;
                 }
+
                 td {
                     padding: .5em;
                 }
@@ -289,7 +362,15 @@
         &-actions {
             padding: .5em;
             text-align: center;
-            color: $blue
+            color: $blue;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            &:hover {
+                > svg {
+                    fill: $warn-color;
+                }
+            }
         }
     }
 </style>

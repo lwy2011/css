@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="实现展示面板的逻辑通过selected字段.&#10;选中值通过向外的事件传值。value是选中的值，跟view分离开！实现了left,right，递增递减年月。">
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="修改了border color">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/date-picker/date_picker.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/date-picker/date_picker.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/popvoer/popover.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/popvoer/popover.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,21 +139,7 @@
       <workItem from="1587178348622" duration="3667000" />
       <workItem from="1587205031174" duration="5061000" />
       <workItem from="1587459462618" duration="14685000" />
-      <workItem from="1587525582629" duration="26631000" />
-    </task>
-    <task id="LOCAL-00167" summary="把copy的css类改为scrollY的，为了尝试scrollX的固定。">
-      <created>1585317326459</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1585317326459</updated>
-    </task>
-    <task id="LOCAL-00168" summary="初步实现了列固定。">
-      <created>1585324649501</created>
-      <option name="number" value="00168" />
-      <option name="presentableId" value="LOCAL-00168" />
-      <option name="project" value="LOCAL" />
-      <updated>1585324649501</updated>
+      <workItem from="1587525582629" duration="29838000" />
     </task>
     <task id="LOCAL-00169" summary="实现了展开详情的设计。没添加展开的动画。">
       <created>1585330966504</created>
@@ -485,7 +470,21 @@
       <option name="project" value="LOCAL" />
       <updated>1587567387404</updated>
     </task>
-    <option name="localTasksCounter" value="216" />
+    <task id="LOCAL-00216" summary="实现月年的选择panel的展示逻辑，固定容器的大小。">
+      <created>1587573226666</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1587573226666</updated>
+    </task>
+    <task id="LOCAL-00217" summary="修改了border color">
+      <created>1587573262869</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL-00217" />
+      <option name="project" value="LOCAL" />
+      <updated>1587573262869</updated>
+    </task>
+    <option name="localTasksCounter" value="218" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -502,8 +501,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="实现基础样式" />
-    <MESSAGE value="实现ajax前的错误校验，比如maxSize，并通知外面，用error事件。对于ajax的结果是怎样的，我把所有的主动性都放在ajaxCallback里了，由用户主动，可知，可参与，知道交互的结果，错误，并存储在files里，我预留了其中的errorMessage字段，作为错误信息保留字段，以供开发者在监听update:files的事件回调中，精确操控的。我不认为老师的那种会很好的。同时，我去掉了files里原本要存储文件的原本内容的file字段，如此就可以JSON方法深拷贝了，但是我还是没变深拷贝。觉得浅拷贝也是可以的" />
     <MESSAGE value="实现了多张上传的功能！" />
     <MESSAGE value="开始进行upload test,艰难模拟change 事件，filelist的伪造是个坑！实现伪造filelist" />
     <MESSAGE value="开始table的测试" />
@@ -527,7 +524,9 @@
     <MESSAGE value="优化获取day的面板的数据的代码逻辑！" />
     <MESSAGE value="实现展示面板的逻辑通过selected字段.&#10;选中值通过向外的事件传值。value是选中的值，跟view分离开！实现了left,right，递增递减年月。" />
     <MESSAGE value="改了下popover的border颜色" />
-    <option name="LAST_COMMIT_MESSAGE" value="改了下popover的border颜色" />
+    <MESSAGE value="实现月年的选择panel的展示逻辑，固定容器的大小。" />
+    <MESSAGE value="修改了border color" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改了border color" />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="132" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584083448715">
@@ -538,10 +537,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587573226492">
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587573262744">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587573226492" />
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587573262744" />
     <state x="281" y="75" key="DiffContextDialog" timestamp="1587489713303">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -566,10 +565,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="659" y="172" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1585304892916" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587573227672">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587573265021">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587573227672" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587573265021" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
