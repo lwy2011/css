@@ -194,7 +194,7 @@
         background: #fff;
         max-width: 24em;
         word-break: break-all; //中文推荐
-        border: 1px solid $border-color;
+        border: 1px solid $light-border-color;
         white-space: pre-line;
 
         &::before, &::after {
@@ -209,7 +209,7 @@
             transform: translateY(-100%);
 
             &::before, &::after {
-                border-top: $popover-margin solid $border-color;
+                border-top: $popover-margin solid $light-border-color;
                 top: 100%;
                 border-bottom: none;
             }
@@ -225,7 +225,7 @@
             transform: translateY(#{$popover-margin});
 
             &::before, &::after {
-                border-bottom: $popover-margin solid $border-color;
+                border-bottom: $popover-margin solid $light-border-color;
                 bottom: 100%;
                 border-top: none;
             }
@@ -242,7 +242,7 @@
             margin-left: -$popover-margin;
 
             &::before, &::after {
-                border-left: $popover-margin solid $border-color;
+                border-left: $popover-margin solid $light-border-color;
                 left: 100%;
                 top: 50%;
                 transform: translateY(-50%);
@@ -260,7 +260,7 @@
             margin-left: $popover-margin;
 
             &::before, &::after {
-                border-right: $popover-margin solid $border-color;
+                border-right: $popover-margin solid $light-border-color;
                 right: 100%;
                 top: 50%;
                 transform: translateY(-50%);
