@@ -71,12 +71,12 @@
                     </div>
                     <div class="yv-date-picker-actions">
                         <p v-if="panel==='day'">今天</p>
-                        <tamplate v-else>
-                            <y-button> ok </y-button>
+                        <template v-else>
+                            <y-button> ok</y-button>
                             <y-icon icon="delete"
                                     @click="onDeleteYearAndMonth">
                             </y-icon>
-                        </tamplate>
+                        </template>
                     </div>
                 </div>
             </template>
@@ -299,10 +299,11 @@
                     display: inline-flex;
                     justify-content: space-between;
                     flex-wrap: wrap;
-                    margin:1em 1.5em;
+                    margin: 1em 1.5em;
+
                     > li {
                         @extend .box;
-                        margin: 8px ;
+                        margin: 8px;
                         cursor: pointer;
 
                         &:hover {
@@ -366,11 +367,14 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            &:hover {
-                > svg {
+
+            > svg {
+                cursor: pointer;
+                &:hover {
                     fill: $warn-color;
                 }
             }
+
         }
     }
 </style>
