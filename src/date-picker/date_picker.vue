@@ -104,12 +104,12 @@
             onMonthClick() {
                 this.panel = "month";
             },
-            getMonthDayRange(time) {
+            getMonthFirstDay(time) {
                 const firstDay = time.setDate(1);  //可以是1-28的任何一天
                 // const firstWeek = time.getDay() //0-6，0是周日
                 time.setMonth(time.getMonth() + 1); //setMonth的加减法，就是加减当前月份的天数
-                const lastDay = time.setDate(0);
-                return {firstDay: new Date(firstDay), lastDay: new Date(lastDay)};
+                // const lastDay = time.setDate(0);
+                return  new Date(firstDay);
             },
             getDateDetail(date) {
                 const year = date.getFullYear(),
@@ -119,25 +119,13 @@
                 return {year, month, day, week};
             },
             getMonthDays(time) {
-                const {firstDay, lastDay} = this.getMonthDayRange(time);
-                const firstDayData = this.getDateDetail(firstDay),
-                    lastDayData = this.getDateDetail(lastDay);
-                const {week, year, month} = firstDayData,
+                const firstDay = this.getMonthFirstDay(time),
+                    week = firstDay.getDay(),
                     lastMonthEndDay = new Date(firstDay.setDate(0)),
-                    lastMonthEndDayData = this.getDateDetail(lastMonthEndDay);
+                    {year, month, day} = this.getDateDetail(lastMonthEndDay);
                 const arr = [];
-                {
-                    const {year, month, day} = lastMonthEndDayData;
-                    for (let i = 0; i < week; i++) {
-                        arr.push(new Date(year, month, day - week + i + 1));
-                    }
-                }
-                for (let i = 1; i <= lastDayData.day; i++) {
-                    arr.push(new Date(year, month, i));
-                }
-                const {length} = arr;
-                for (let i = 1; i <= 42 - length; i++) {
-                    arr.push(new Date(year, month + 1, i));
+                for (let i = 0; i < 42; i++) {
+                    arr.push(new Date(year, month, day - week + i + 1));
                 }
                 this.days = arr;
             },
@@ -173,7 +161,8 @@
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid $light-border-color;
-            padding:.5em 0;
+            padding: .5em 0;
+
             &-bar {
                 fill: $border-color;
                 margin: 0 .5em;
@@ -227,7 +216,9 @@
         }
 
         &-actions {
-            padding: .5em;text-align: center;color:$blue
+            padding: .5em;
+            text-align: center;
+            color: $blue
         }
     }
 </style>

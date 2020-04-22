@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="popover添加最小宽度">
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="艰难解决css的table td不居中，首行的flex里的p标签换行： white-space: nowrap;搞定！同时，把days的存储逻辑换成ate实例D，然后实现了基本样式">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/date-picker/date_picker.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/date-picker/date_picker.vue" afterDir="false" />
     </list>
@@ -139,14 +139,7 @@
       <workItem from="1587178348622" duration="3667000" />
       <workItem from="1587205031174" duration="5061000" />
       <workItem from="1587459462618" duration="14685000" />
-      <workItem from="1587525582629" duration="11501000" />
-    </task>
-    <task id="LOCAL-00163" summary="实现了顶部固定，可滚动的操作。用了提前预留两个table的设计，其中一个table只显示thead，一个只显示tbody。学到的技能就是css解耦，用的是分层，放到同层级的不同容器中去。">
-      <created>1585244784627</created>
-      <option name="number" value="00163" />
-      <option name="presentableId" value="LOCAL-00163" />
-      <option name="project" value="LOCAL" />
-      <updated>1585244784628</updated>
+      <workItem from="1587525582629" duration="12866000" />
     </task>
     <task id="LOCAL-00164" summary="回顾，整理，添加注释，对昨晚的固定表头的思路">
       <created>1585298614380</created>
@@ -484,7 +477,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587489781259</updated>
     </task>
-    <option name="localTasksCounter" value="212" />
+    <task id="LOCAL-00212" summary="艰难解决css的table td不居中，首行的flex里的p标签换行： white-space: nowrap;搞定！同时，把days的存储逻辑换成ate实例D，然后实现了基本样式">
+      <created>1587549295817</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1587549295818</updated>
+    </task>
+    <option name="localTasksCounter" value="213" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -501,7 +501,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="重新修改逻辑，上传之前就把文件数据传给父组件，添加id,status字段&#10;ajax后，用id筛选，添加url字段，修改status字段。这里的深拷贝会导致File对象出问题，所以这里用了浅拷贝。不是很正统的单向数据流。" />
     <MESSAGE value="完善ajaxCallback函数的逻辑，放权给用户，增加发送失败时的信息存储，包括status,errorMessage。" />
     <MESSAGE value="展示上传成功的图片功能中，过滤掉失败的图片。" />
     <MESSAGE value="完善删除功能，增加confirm逻辑，用的是原生的confirm。" />
@@ -526,7 +525,8 @@
     <MESSAGE value="调整代码规范" />
     <MESSAGE value="初始化日历组件" />
     <MESSAGE value="popover添加最小宽度" />
-    <option name="LAST_COMMIT_MESSAGE" value="popover添加最小宽度" />
+    <MESSAGE value="艰难解决css的table td不居中，首行的flex里的p标签换行： white-space: nowrap;搞定！同时，把days的存储逻辑换成ate实例D，然后实现了基本样式" />
+    <option name="LAST_COMMIT_MESSAGE" value="艰难解决css的table td不居中，首行的flex里的p标签换行： white-space: nowrap;搞定！同时，把days的存储逻辑换成ate实例D，然后实现了基本样式" />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="132" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584083448715">
@@ -537,10 +537,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587543883100">
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587549295558">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587543883100" />
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587549295558" />
     <state x="281" y="75" key="DiffContextDialog" timestamp="1587489713303">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -565,10 +565,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="659" y="172" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1585304892916" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587489782761">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587549297116">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587489782761" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587549297116" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
