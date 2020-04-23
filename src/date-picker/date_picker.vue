@@ -128,6 +128,19 @@
                 arr[1] += 1;
                 return arr.join("-");
             },
+            fineTuningYearAndMonth() {
+                let [year, month] = this.selected;
+                let arr = [], n = 1000;
+                while (n >= 1) {
+                    const m = year % n;
+                    arr.push((year - m)/n);
+                    year = m;
+                    n = n / 10;
+                }
+                arr.push(month + 1);
+                console.log(arr, 888);
+                return arr;
+            }
         },
 
         mounted() {
@@ -135,8 +148,12 @@
         },
         watch: {
             panel: function x() {
-                console.log(this.panel, 1,this.selected);
+                console.log(this.panel, 1, this.selected);
             },
+            selected: function y() {
+                this.panel === "year" && (this.yearAndMonth =
+                    this.fineTuningYearAndMonth);
+            }
         },
         methods: {
             setWrapperSize() {
@@ -233,8 +250,10 @@
             inputYearMonthConfirm() {
                 const [a, b, c, d, e] = this.yearAndMonth;
                 if (!e) return this.errorMessage = "请先填写完整年月数据！";
-                const year = a * 1000 + b * 100 + c * 10 + d;
-                setTimeout(()=>this.panel='day')
+                const year = a * 1000 + b * 100 + c * 10 + d,arr=[year,e-1,1]
+                const test = arr.find((v,i)=>v!==this.selected[i]) === undefined
+                setTimeout(() => this.panel = "day");
+                if (test) return;
                 //this.panel='day'分析源于这中间隔了很多的更新，其中的环节dom层没渲染，导致展示的
                 this.selected = [year, e - 1, 1];
             }
@@ -361,7 +380,8 @@
                         > svg {
                             cursor: pointer;
                             fill: $warn-color;
-                            &:hover{
+
+                            &:hover {
                                 opacity: .5;
                                 transition: all 500ms;
                             }
@@ -386,8 +406,10 @@
                     td {
                         color: #999;
                         cursor: pointer;
-                        min-width:2em;
-                        justify-content: center;align-items: center;
+                        min-width: 2em;
+                        justify-content: center;
+                        align-items: center;
+
                         &.currentMonth {
                             color: #666;
                         }
