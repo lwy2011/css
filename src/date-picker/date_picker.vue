@@ -103,9 +103,7 @@
         },
         name: "v-date-picker.vue",
         props: {
-            value: {
-                type: Date
-            },
+            value: Date,
             minDate: Array,
             maxDate: Array,
         },
@@ -127,14 +125,14 @@
                 return this.value && (this.selected = this.getDateDetail(this.value));
             },
             formatValue() {
-                if (this.valueDate){
+                if (this.valueDate) {
                     const arr = [...this.valueDate];
                     arr[1] += 1;
                     return arr.join("-");
                 }
-                return ''
+                return "";
             },
-            fineTuningYearAndMonth() {
+            fineTuningYearAndMonth() {//input mode 箭头联动功能
                 let [year, month] = this.selected;
                 let arr = [], n = 1000;
                 while (n >= 1) {
@@ -156,7 +154,10 @@
         },
 
         mounted() {
-
+            // console.log(this.days);
+            if (!this.selected) {
+                this.selected = this.getDateDetail(new Date());
+            }
         },
         watch: {
             panel: function x() {
@@ -235,6 +236,7 @@
                     return this.$emit("error",
                         {val: day, message: `${day}超出设置的时间范畴！`}
                     );
+                console.log(this.$children,111);
                 this.$emit("select", day);
             },
             toPrevYear() {

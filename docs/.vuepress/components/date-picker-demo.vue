@@ -30,7 +30,7 @@
                 <y-icon icon="warn"></y-icon>
                 <y-icon icon="left"></y-icon>
                 `,
-                date:new Date(),
+                date:undefined,
                 min:[1956,3,20],
                 max:[2022,4,25]
             };
