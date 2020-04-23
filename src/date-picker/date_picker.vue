@@ -72,7 +72,7 @@
                             <tr v-for="n in 6" :key="n+'ind'">
                                 <td v-for="day in days.slice((n-1)*7,(n-1)*7+7)"
                                     :class="daysClasses(day)"
-                                    @click="onDayClick(day)"
+                                    @click="onDayClick(day,$event)"
                                 >
                                     {{day.getDate()}}
                                 </td>
@@ -104,7 +104,9 @@
         props: {
             value: {
                 type: Date, default: () => new Date()
-            }
+            },
+            minDate: Array,
+            maxDate: Array,
         },
         data() {
             return {
@@ -133,14 +135,20 @@
                 let arr = [], n = 1000;
                 while (n >= 1) {
                     const m = year % n;
-                    arr.push((year - m)/n);
+                    arr.push((year - m) / n);
                     year = m;
                     n = n / 10;
                 }
                 arr.push(month + 1);
                 console.log(arr, 888);
                 return arr;
-            }
+            },
+            minDateTime() {
+                return this.minDate && new Date(...this.minDate).getTime();
+            },
+            maxDateTime() {
+                return this.maxDate && new Date(...this.maxDate).getTime();
+            },
         },
 
         mounted() {
@@ -192,11 +200,20 @@
                 }
                 return arr;
             },
+            validate(dateTime) {
+                if (
+                    this.minDateTime && this.minDateTime > dateTime ||
+                    this.maxDateTime && this.maxDateTime < dateTime
+                ) return false;
+                return true;
+            },
             daysClasses(date) {
                 const dateData = this.getDateDetail(date),
                     nowDate = this.getDateDetail(new Date());
-                let currentMonth, selected, now;
-                if (dateData[1] === this.selected[1]) {
+                let currentMonth, selected, now, disabled;
+                if (!this.validate(date.getTime())) {
+                    disabled = true;
+                } else if (dateData[1] === this.selected[1]) {
                     currentMonth = true;
                     if (dateData.find((n, i) =>
                         n !== this.valueDate[i]) === undefined) {
@@ -207,10 +224,13 @@
                     n !== nowDate[i]) === undefined) {
                     now = true;
                 }
-                return {currentMonth, selected, now};
+                return {currentMonth, selected, now, disabled};
             },
-            onDayClick(day) {
-                console.log(day);
+            onDayClick(day,e) {
+                if(e.target.classList.contains('disabled'))
+                    return this.$emit('error',
+                        {val:day,message:`${day}超出设置的时间范畴！`}
+                    )
                 this.$emit("select", day);
             },
             toPrevYear() {
@@ -250,12 +270,12 @@
             inputYearMonthConfirm() {
                 const [a, b, c, d, e] = this.yearAndMonth;
                 if (!e) return this.errorMessage = "请先填写完整年月数据！";
-                const year = a * 1000 + b * 100 + c * 10 + d,arr=[year,e-1,1]
-                const test = arr.find((v,i)=>v!==this.selected[i]) === undefined
+                const year = a * 1000 + b * 100 + c * 10 + d, arr = [year, e - 1, 1];
+                const test = arr.find((v, i) => v !== this.selected[i]) === undefined;
                 setTimeout(() => this.panel = "day");
                 if (test) return;
                 //this.panel='day'分析源于这中间隔了很多的更新，其中的环节dom层没渲染，导致展示的
-                this.selected = [year, e - 1, 1];
+                this.selected = arr;
             }
         }
     };
@@ -425,6 +445,9 @@
 
                         &.now {
                             border: 1px solid $blue;
+                        }
+                        &.disabled{
+                            @extend %disabled;
                         }
                     }
                 }

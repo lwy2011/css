@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="实现了输入年月并跳转，样式也微调了。这里有个bug，应该是popover的，当我在输入完成后，confirm的时候，vue会先更新selected,panel，panel的ui跟days有关！这时候的selected会触发二次更新days。days之后再次渲染panel。而popover的骚操作就是如果不先selected,然后days，最后panel，那popover会消失。很bug。我只是用定时器更新pannel，就解决了问题了。">
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="实现panel = year的时候的箭头操作跟yearAndMonth的响应式，以及判断最终结果，是否要更新selected">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/date-picker-demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/date-picker-demo.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/date-picker/date_picker.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/date-picker/date_picker.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,14 +141,7 @@
       <workItem from="1587205031174" duration="5061000" />
       <workItem from="1587459462618" duration="14685000" />
       <workItem from="1587525582629" duration="30331000" />
-      <workItem from="1587611124833" duration="12055000" />
-    </task>
-    <task id="LOCAL-00172" summary="checkbox居中，text-align设置的">
-      <created>1585336960436</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL-00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1585336960436</updated>
+      <workItem from="1587611124833" duration="17315000" />
     </task>
     <task id="LOCAL-00173" summary="为固定列添加阴影。浮上去的感觉">
       <created>1585414676646</created>
@@ -485,7 +479,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587622442870</updated>
     </task>
-    <option name="localTasksCounter" value="221" />
+    <task id="LOCAL-00221" summary="实现panel = year的时候的箭头操作跟yearAndMonth的响应式，以及判断最终结果，是否要更新selected">
+      <created>1587624272903</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1587624272903</updated>
+    </task>
+    <option name="localTasksCounter" value="222" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -502,7 +503,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="优化模拟加入file 触发change事件的代码。" />
     <MESSAGE value="实现模拟上传文件的test用例。没用延迟就回复了ajax请求的结果。" />
     <MESSAGE value="微调bug" />
     <MESSAGE value="微调upload test ,ci 一直过不去" />
@@ -527,7 +527,8 @@
     <MESSAGE value="初步实现了年月的基本逻辑，样式和更新数据没做！" />
     <MESSAGE value="template拼错了" />
     <MESSAGE value="实现了输入年月并跳转，样式也微调了。这里有个bug，应该是popover的，当我在输入完成后，confirm的时候，vue会先更新selected,panel，panel的ui跟days有关！这时候的selected会触发二次更新days。days之后再次渲染panel。而popover的骚操作就是如果不先selected,然后days，最后panel，那popover会消失。很bug。我只是用定时器更新pannel，就解决了问题了。" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现了输入年月并跳转，样式也微调了。这里有个bug，应该是popover的，当我在输入完成后，confirm的时候，vue会先更新selected,panel，panel的ui跟days有关！这时候的selected会触发二次更新days。days之后再次渲染panel。而popover的骚操作就是如果不先selected,然后days，最后panel，那popover会消失。很bug。我只是用定时器更新pannel，就解决了问题了。" />
+    <MESSAGE value="实现panel = year的时候的箭头操作跟yearAndMonth的响应式，以及判断最终结果，是否要更新selected" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现panel = year的时候的箭头操作跟yearAndMonth的响应式，以及判断最终结果，是否要更新selected" />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="132" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584083448715">
@@ -538,10 +539,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587622442576">
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587624272776">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587622442576" />
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587624272776" />
     <state x="281" y="75" key="DiffContextDialog" timestamp="1587489713303">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -566,10 +567,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="659" y="172" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1585304892916" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587622444027">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587624273828">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587622444027" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587624273828" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
