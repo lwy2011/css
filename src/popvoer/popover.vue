@@ -41,6 +41,12 @@
                 validator(val) {
                     return ["click", "mouseenter"].indexOf(val) >= 0;
                 }
+            },
+            beforeClose: Function
+        },
+        watch: {
+            visible: function x() {
+                !this.visible && this.beforeClose && this.beforeClose();
             }
         },
         mounted() {
@@ -186,11 +192,12 @@
     }
 
     .content-wrapper {
-        position: absolute;min-width: 2em;
+        position: absolute;
+        min-width: 2em;
         padding: $small-padding $middle-padding;
         border-radius: $border-radius;
         z-index: 10;
-        filter: drop-shadow(0 2px 2px  $box-shadow-color);
+        filter: drop-shadow(0 2px 2px $box-shadow-color);
         background: #fff;
         max-width: 24em;
         word-break: break-all; //中文推荐
