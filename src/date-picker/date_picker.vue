@@ -129,8 +129,7 @@
             formatValue() {
                 if (this.valueDate) {
                     const arr = [...this.valueDate];
-                    arr[1] += 1;
-                    return arr.join("-");
+                    return `${arr[0]}-${this.leftPad(arr[1]+1)}-${this.leftPad(arr[2]+1)}`;
                 }
                 return "";
             },
@@ -171,6 +170,9 @@
             }
         },
         methods: {
+            leftPad(n){
+                return n>9? n : '0'+n
+            },
             setWrapperSize() {
                 const {wrapper} = this.$refs;
                 const {width, height} = wrapper.getBoundingClientRect();
