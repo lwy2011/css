@@ -231,13 +231,16 @@
                 }
                 return {currentMonth, selected, now, disabled};
             },
+            closePopOver() {
+                this.$children[0].close();
+            },
             onDayClick(day, e) {
                 if (e.target.classList.contains("disabled"))
                     return this.$emit("error",
                         {val: day, message: `${day}超出设置的时间范畴！`}
                     );
-                console.log(this.$children,111);
                 this.$emit("select", day);
+                this.closePopOver();
             },
             toPrevYear() {
                 const arr = [...this.selected];

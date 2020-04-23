@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="实现了today跳转，clear功能">
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="不传value的初始值也不会发生错误了">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/date-picker-demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/date-picker-demo.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/date-picker/date_picker.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/date-picker/date_picker.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -141,14 +140,7 @@
       <workItem from="1587205031174" duration="5061000" />
       <workItem from="1587459462618" duration="14685000" />
       <workItem from="1587525582629" duration="30331000" />
-      <workItem from="1587611124833" duration="21858000" />
-    </task>
-    <task id="LOCAL-00175" summary="优化 columns的slot的展示逻辑，修改示例的废弃代码">
-      <created>1585472772716</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL-00175" />
-      <option name="project" value="LOCAL" />
-      <updated>1585472772716</updated>
+      <workItem from="1587611124833" duration="22153000" />
     </task>
     <task id="LOCAL-00176" summary="优化mounted钩子里的代码逻辑。拆分成一个个的小函数">
       <created>1585479759972</created>
@@ -486,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587643447610</updated>
     </task>
-    <option name="localTasksCounter" value="224" />
+    <task id="LOCAL-00224" summary="不传value的初始值也不会发生错误了">
+      <created>1587647105109</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL-00224" />
+      <option name="project" value="LOCAL" />
+      <updated>1587647105109</updated>
+    </task>
+    <option name="localTasksCounter" value="225" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -503,7 +502,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="微调upload test ,ci 一直过不去" />
     <MESSAGE value="搭建sticky" />
     <MESSAGE value="解耦，外部容器负责常规求是否在屏幕可视范围内，getBondingclientRect求的。来判定内部的slot内的dom是否要添加fixed。" />
     <MESSAGE value="继续微调upload test bug" />
@@ -528,7 +526,8 @@
     <MESSAGE value="实现panel = year的时候的箭头操作跟yearAndMonth的响应式，以及判断最终结果，是否要更新selected" />
     <MESSAGE value="实现了添加最小最大的选择区间，预留了选错时的报错接口！" />
     <MESSAGE value="实现了today跳转，clear功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现了today跳转，clear功能" />
+    <MESSAGE value="不传value的初始值也不会发生错误了" />
+    <option name="LAST_COMMIT_MESSAGE" value="不传value的初始值也不会发生错误了" />
   </component>
   <component name="WindowStateProjectService">
     <state x="686" y="266" key="#Notifications" timestamp="1587642525997">
@@ -543,10 +542,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587643447363">
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587647104930">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587643447363" />
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587647104930" />
     <state x="281" y="75" key="DiffContextDialog" timestamp="1587489713303">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -571,10 +570,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="481" y="90" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1587641484449" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587643448702">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587647106231">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587643448702" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587647106231" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
