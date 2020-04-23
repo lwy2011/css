@@ -212,11 +212,8 @@
                 return arr;
             },
             validate(dateTime) {
-                if (
-                    this.minDateTime && this.minDateTime > dateTime ||
-                    this.maxDateTime && this.maxDateTime < dateTime
-                ) return false;
-                return true;
+                return !(this.minDateTime && this.minDateTime > dateTime ||
+                    this.maxDateTime && this.maxDateTime < dateTime);
             },
             daysClasses(date) {
                 const dateData = this.getDateDetail(date),
@@ -316,7 +313,7 @@
                 let [year, month, day] = arr;
                 if (!month || !year || !day) return;
                 const dateDate = this.exchangeStringValue(year, month, day);
-                console.log(dateDate);
+                // console.log(dateDate);
                 dateDate && this.$emit("select", new Date(...dateDate));
             }
         }
