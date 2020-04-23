@@ -122,8 +122,7 @@
                 return this.getMonthDays(new Date(...this.selected));
             },
             valueDate() {
-                console.log(this.value, 666);
-                return this.value && (this.selected = this.getDateDetail(this.value));
+                return this.value && this.getDateDetail(this.value);
             },
             formatValue() {
                 if (this.valueDate) {
@@ -155,13 +154,21 @@
         mounted() {
             // console.log(this.days);
             if (!this.selected) {  //防止value没传初始值报错
-                this.selected = this.getDateDetail(new Date());
+                this.selected = this.getDateDetail(this.value || new Date());
             }
         },
         watch: {
             selected: function y() {  //panel = year的时候，用箭头微调跟输入框的联动，实现微调
                 this.panel === "year" && (this.yearAndMonth =
                     this.fineTuningYearAndMonth);
+            },
+            valueDate: function x() {
+                if (this.valueDate) {
+                    const [year, month] = this.valueDate;
+                    if (year !== this.selected[0] || month !== this.selected[1]) {
+                        this.selected = [year, month, 1];
+                    }
+                }
             }
         },
         methods: {
@@ -296,7 +303,7 @@
             },
             exchangeStringValue(year, month, day) {
                 year = +year;
-                if (month.length !== 2 || isNaN(year)||day.length !== 2) return;
+                if (month.length !== 2 || isNaN(year) || day.length !== 2) return;
                 month = +month - 1;
                 if (month < 0 || month > 11 || isNaN(month)) return;
                 day = +day;
@@ -307,7 +314,7 @@
                 const arr = e.split("-");
                 if (arr.length < 3) return;
                 let [year, month, day] = arr;
-                if (!month || !year || !day)  return;
+                if (!month || !year || !day) return;
                 const dateDate = this.exchangeStringValue(year, month, day);
                 console.log(dateDate);
                 dateDate && this.$emit("select", new Date(...dateDate));
