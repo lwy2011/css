@@ -1,7 +1,7 @@
 <template>
     <div class="yv-date-picker" @selectStart.prevent>
         <y-popover position="bottom" :before-close="initPanelType">
-            <Input type="text" :value="formatValue"/>
+            <Input type="text" :value="formatValue" @input="onInput($event)"/>
             <template v-slot:content>
                 <div class="yv-date-picker-wrapper" ref="wrapper">
                     <div class="yv-date-picker-nav">
@@ -95,12 +95,11 @@
     import YPopover from "../popvoer/popover";
     import Input from "../input/input";
     import YIcon from "../svg/svg";
-    import YTable from "../table/table";
     import YButton from "../button/button";
 
     export default {
         components: {
-            YPopover, Input, YIcon, YTable, YButton
+            YPopover, Input, YIcon, YButton
         },
         name: "v-date-picker.vue",
         props: {
@@ -129,7 +128,7 @@
             formatValue() {
                 if (this.valueDate) {
                     const arr = [...this.valueDate];
-                    return `${arr[0]}-${this.leftPad(arr[1]+1)}-${this.leftPad(arr[2]+1)}`;
+                    return `${arr[0]}-${this.leftPad(arr[1] + 1)}-${this.leftPad(arr[2])}`;
                 }
                 return "";
             },
@@ -143,7 +142,6 @@
                     n = n / 10;
                 }
                 arr.push(month + 1);
-                console.log(arr, 888);
                 return arr;
             },
             minDateTime() {
@@ -156,22 +154,19 @@
 
         mounted() {
             // console.log(this.days);
-            if (!this.selected) {
+            if (!this.selected) {  //防止value没传初始值报错
                 this.selected = this.getDateDetail(new Date());
             }
         },
         watch: {
-            panel: function x() {
-                console.log(this.panel, 1, this.selected);
-            },
-            selected: function y() {
+            selected: function y() {  //panel = year的时候，用箭头微调跟输入框的联动，实现微调
                 this.panel === "year" && (this.yearAndMonth =
                     this.fineTuningYearAndMonth);
             }
         },
         methods: {
-            leftPad(n){
-                return n>9? n : '0'+n
+            leftPad(n) {
+                return n > 9 ? n : "0" + n;
             },
             setWrapperSize() {
                 const {wrapper} = this.$refs;
@@ -298,6 +293,24 @@
             },
             onClear() {
                 this.$emit("clear");
+            },
+            exchangeStringValue(year, month, day) {
+                year = +year;
+                if (month.length !== 2 || isNaN(year)||day.length !== 2) return;
+                month = +month - 1;
+                if (month < 0 || month > 11 || isNaN(month)) return;
+                day = +day;
+                if (day <= 0 || day > 31 || isNaN(day)) return;
+                return [year, month, day];
+            },
+            onInput(e) {
+                const arr = e.split("-");
+                if (arr.length < 3) return;
+                let [year, month, day] = arr;
+                if (!month || !year || !day)  return;
+                const dateDate = this.exchangeStringValue(year, month, day);
+                console.log(dateDate);
+                dateDate && this.$emit("select", new Date(...dateDate));
             }
         }
     };
