@@ -5,6 +5,7 @@
                        :min-date="min"
                        :max-date="max"
                        @error="onError"
+                       @clear="onClear"
         >
         </y-date-picker>
         <pre>
@@ -37,6 +38,14 @@
         methods:{
             onError(msg){
                 alert(msg.message)
+            },
+            onClear(){
+                this.date = undefined
+            }
+        },
+        watch:{
+            date:function () {
+                console.log(this.date,555);
             }
         }
     };

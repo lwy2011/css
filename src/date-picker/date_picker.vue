@@ -81,7 +81,8 @@
                         </table>
                     </div>
                     <div class="yv-date-picker-actions" v-if="panel==='day'">
-                        <p>今天</p>
+                        <y-button @click="toToday">今天</y-button>
+                        <y-button @click="onClear">清除</y-button>
                     </div>
                 </div>
             </template>
@@ -103,7 +104,7 @@
         name: "v-date-picker.vue",
         props: {
             value: {
-                type: Date, default: () => new Date()
+                type: Date
             },
             minDate: Array,
             maxDate: Array,
@@ -119,16 +120,19 @@
         },
         computed: {
             days() {
-                console.log(999);
                 return this.getMonthDays(new Date(...this.selected));
             },
             valueDate() {
-                return this.selected = this.getDateDetail(this.value);
+                console.log(this.value, 666);
+                return this.value && (this.selected = this.getDateDetail(this.value));
             },
             formatValue() {
-                const arr = [...this.valueDate];
-                arr[1] += 1;
-                return arr.join("-");
+                if (this.valueDate){
+                    const arr = [...this.valueDate];
+                    arr[1] += 1;
+                    return arr.join("-");
+                }
+                return ''
             },
             fineTuningYearAndMonth() {
                 let [year, month] = this.selected;
@@ -215,7 +219,7 @@
                     disabled = true;
                 } else if (dateData[1] === this.selected[1]) {
                     currentMonth = true;
-                    if (dateData.find((n, i) =>
+                    if (this.valueDate && dateData.find((n, i) =>
                         n !== this.valueDate[i]) === undefined) {
                         selected = true;
                     }
@@ -226,11 +230,11 @@
                 }
                 return {currentMonth, selected, now, disabled};
             },
-            onDayClick(day,e) {
-                if(e.target.classList.contains('disabled'))
-                    return this.$emit('error',
-                        {val:day,message:`${day}超出设置的时间范畴！`}
-                    )
+            onDayClick(day, e) {
+                if (e.target.classList.contains("disabled"))
+                    return this.$emit("error",
+                        {val: day, message: `${day}超出设置的时间范畴！`}
+                    );
                 this.$emit("select", day);
             },
             toPrevYear() {
@@ -276,6 +280,12 @@
                 if (test) return;
                 //this.panel='day'分析源于这中间隔了很多的更新，其中的环节dom层没渲染，导致展示的
                 this.selected = arr;
+            },
+            toToday() {
+                this.selected = this.getDateDetail(new Date());
+            },
+            onClear() {
+                this.$emit("clear");
             }
         }
     };
@@ -446,7 +456,8 @@
                         &.now {
                             border: 1px solid $blue;
                         }
-                        &.disabled{
+
+                        &.disabled {
                             @extend %disabled;
                         }
                     }
