@@ -1,5 +1,5 @@
 <template>
-    <div class="yv-date-picker">
+    <div class="yv-date-picker" @selectStart.prevent>
         <y-popover position="bottom">
             <Input type="text" :value="formatValue"/>
             <template v-slot:content>
@@ -33,19 +33,30 @@
                              class="yv-date-picker-panel-year">
                             <div class="yv-date-picker-panel-year-result">
                                 <p>
-                                    <span>年：</span> <span v-for="n in 4" :key="n">
+                                    <span v-for="n in 4" :key="n">
                                         {{yearAndMonth[n-1]}}
-                                    </span>
+                                    </span>年
                                 </p>
                                 <p>
-                                    <span>月：</span> <span>{{yearAndMonth[4]}}</span>
+                                    <span>{{yearAndMonth[4]}}</span>月
                                 </p>
                             </div>
-                            <ul class="yv-date-picker-panel-year-set">
-                                <li v-for="n in 12"
-                                    @click="setYearAndMonth(n)"
-                                    :key="n">
-                                    {{n}}
+                            <p class="yv-date-picker-panel-year-error">
+                                {{errorMessage||"&nbsp"}}
+                            </p>
+                            <ul class=" yv-date-picker-panel-year-set">
+                                <li v-for="n in 13"
+                                    @click="setYearAndMonth(n-1)"
+                                    :key="n"
+                                    :class="{disabled:yearAndMonth.length<4&&n>10}"
+                                >
+                                    {{n-1}}
+                                </li>
+                                <li>
+                                    <y-button @click="inputYearMonthConfirm"> ok</y-button>
+                                    <y-icon icon="delete"
+                                            @click="onDeleteYearAndMonth">
+                                    </y-icon>
                                 </li>
                             </ul>
                         </div>
@@ -69,14 +80,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="yv-date-picker-actions">
-                        <p v-if="panel==='day'">今天</p>
-                        <template v-else>
-                            <y-button> ok</y-button>
-                            <y-icon icon="delete"
-                                    @click="onDeleteYearAndMonth">
-                            </y-icon>
-                        </template>
+                    <div class="yv-date-picker-actions" v-if="panel==='day'">
+                        <p>今天</p>
                     </div>
                 </div>
             </template>
@@ -106,11 +111,13 @@
                 panel: "day",  //3，'default',2,'month'，1，'day'
                 selected: undefined,
                 weeks: ["日", "一", "二", "三", "四", "五", "六"],
-                yearAndMonth: []
+                yearAndMonth: [],
+                errorMessage: null,
             };
         },
         computed: {
             days() {
+                console.log(999);
                 return this.getMonthDays(new Date(...this.selected));
             },
             valueDate() {
@@ -128,8 +135,8 @@
         },
         watch: {
             panel: function x() {
-                console.log(this.panel, 1);
-            }
+                console.log(this.panel, 1,this.selected);
+            },
         },
         methods: {
             setWrapperSize() {
@@ -140,7 +147,6 @@
             },
             onYearMonthClick() {
                 this.setWrapperSize();
-                console.log();
                 const obj = {year: "day", day: "year"};
                 this.panel = obj[this.panel];
             },
@@ -211,10 +217,26 @@
                 this.selected = this.getDateDetail(new Date(...arr));
             },
             onDeleteYearAndMonth() {
+                this.errorMessage = null;
                 this.yearAndMonth.pop();
             },
             setYearAndMonth(val) {
-                this.yearAndMonth.push(val);
+                this.errorMessage = null;
+                const arr = this.yearAndMonth;
+                if (arr.length < 4 && val > 9) {
+                    return this.errorMessage = `${val}作为year的单次输入值不可大于9！`;
+                } else if (arr.length === 4 && val === 0) {
+                    return this.errorMessage = `${val}作为month的输入值不可为0！`;
+                }
+                arr.length < 5 ? arr.push(val) : arr.splice(4, 1, val);
+            },
+            inputYearMonthConfirm() {
+                const [a, b, c, d, e] = this.yearAndMonth;
+                if (!e) return this.errorMessage = "请先填写完整年月数据！";
+                const year = a * 1000 + b * 100 + c * 10 + d;
+                setTimeout(()=>this.panel='day')
+                //this.panel='day'分析源于这中间隔了很多的更新，其中的环节dom层没渲染，导致展示的
+                this.selected = [year, e - 1, 1];
             }
         }
     };
@@ -265,8 +287,8 @@
         }
 
         &-panel {
-            border-bottom: 1px solid $light-border-color;
             white-space: nowrap;
+            padding: 1em;
 
             &-year {
                 $size: 2em;
@@ -277,21 +299,31 @@
                     height: $size;
                     justify-content: center;
                     align-items: center;
-                    border: 1px solid $border-color;
+                    border-radius: $border-radius;
                 }
 
                 &-result {
                     display: flex;
                     align-items: center;
-                    justify-content: space-between;
-                    padding: 1em;
+                    justify-content: center;
+                    font-size: 14px;
 
                     > p {
+                        margin: 0 .5em;
+
                         > span {
+                            margin: 0 4px;
                             vertical-align: middle;
                             @extend .box;
+                            border: 1px solid $border-color;
                         }
                     }
+                }
+
+                &-error {
+                    font-size: 12px;
+                    text-align: center;
+                    color: $warn-color;
                 }
 
                 &-set {
@@ -299,15 +331,40 @@
                     display: inline-flex;
                     justify-content: space-between;
                     flex-wrap: wrap;
-                    margin: 1em 1.5em;
+                    font-size: 20px;
+                    margin: 8px 1em;
 
                     > li {
                         @extend .box;
-                        margin: 8px;
                         cursor: pointer;
+                        margin: 2px;
+                        background: $light-black;
+                        color: #fff;
 
                         &:hover {
                             background: $blue;
+                        }
+
+                        &.disabled {
+                            @extend %disabled;
+                            background: $border-color;
+                        }
+
+                        &:last-child {
+                            width: 4em;
+                            background: #fff;
+                            border-bottom: 1px solid $border-color;
+                            display: inline-flex;
+                            justify-content: space-between;
+                        }
+
+                        > svg {
+                            cursor: pointer;
+                            fill: $warn-color;
+                            &:hover{
+                                opacity: .5;
+                                transition: all 500ms;
+                            }
                         }
                     }
                 }
@@ -321,24 +378,16 @@
                 border-collapse: collapse;
                 vertical-align: middle;
 
-                &-mask {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    z-index: 2;
-                    background: #fff;
-                }
-
                 td {
-                    padding: .5em;
+                    padding: 4px;
                 }
 
                 tbody {
                     td {
                         color: #999;
                         cursor: pointer;
-
+                        min-width:2em;
+                        justify-content: center;align-items: center;
                         &.currentMonth {
                             color: #666;
                         }
@@ -361,20 +410,13 @@
         }
 
         &-actions {
+            border-top: 1px solid $light-border-color;
             padding: .5em;
             text-align: center;
             color: $blue;
             display: flex;
             justify-content: space-around;
             align-items: center;
-
-            > svg {
-                cursor: pointer;
-                &:hover {
-                    fill: $warn-color;
-                }
-            }
-
         }
     }
 </style>
