@@ -1,6 +1,6 @@
 <template>
     <div class="yv-date-picker" @selectStart.prevent>
-        <y-popover position="bottom">
+        <y-popover position="bottom" :before-close="initPanelType">
             <Input type="text" :value="formatValue"/>
             <template v-slot:content>
                 <div class="yv-date-picker-wrapper" ref="wrapper">
@@ -115,6 +115,7 @@
                 weeks: ["日", "一", "二", "三", "四", "五", "六"],
                 yearAndMonth: [],
                 errorMessage: null,
+                initPanelType: () => this.panel = "day"
             };
         },
         computed: {
