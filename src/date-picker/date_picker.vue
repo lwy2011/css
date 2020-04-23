@@ -283,8 +283,8 @@
                 const year = a * 1000 + b * 100 + c * 10 + d, arr = [year, e - 1, 1];
                 const test = arr.find((v, i) => v !== this.selected[i]) === undefined;
                 setTimeout(() => this.panel = "day");
-                if (test) return;
                 //this.panel='day'分析源于这中间隔了很多的更新，其中的环节dom层没渲染，导致展示的
+                if (test) return;
                 this.selected = arr;
             },
             goBackToDayMode() {
