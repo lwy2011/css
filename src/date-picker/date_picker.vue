@@ -57,6 +57,7 @@
                                     <y-icon icon="delete"
                                             @click="onDeleteYearAndMonth">
                                     </y-icon>
+                                    <y-button @click="goBackToDayMode">返回</y-button>
                                 </li>
                             </ul>
                         </div>
@@ -286,6 +287,9 @@
                 //this.panel='day'分析源于这中间隔了很多的更新，其中的环节dom层没渲染，导致展示的
                 this.selected = arr;
             },
+            goBackToDayMode() {
+                setTimeout(() => this.panel = "day");//不加定时器有bug
+            },
             toToday() {
                 this.selected = this.getDateDetail(new Date());
             },
@@ -405,7 +409,7 @@
                         }
 
                         &:last-child {
-                            width: 4em;
+                            width: 6em;
                             background: #fff;
                             border-bottom: 1px solid $border-color;
                             display: inline-flex;
