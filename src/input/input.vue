@@ -28,7 +28,7 @@
         },
         props: {
             value: String,
-            placeholder:String,
+            placeholder: String,
             disabled: {
                 type: Boolean,
                 default: false
@@ -38,9 +38,9 @@
                 default: false
             },
             error: String,
-            type:{
-                type:String,
-                default:'text'
+            type: {
+                type: String,
+                default: "text"
             }
         }
     };
@@ -78,18 +78,20 @@
                 color: #bbb;
             }
         }
-        >:not(:last-child) {
+
+        > :not(:last-child) {
             margin-right: $middle-padding;
         }
+
         &.error {
-            > .yv-icon{
-                fill:$warn-color;
+            > .yv-icon {
+                fill: $warn-color;
             }
+
             > .err-msg {
                 color: $warn-color;
             }
         }
-
 
 
         &.success {
