@@ -21,6 +21,7 @@ module.exports = {
                     '/components/upload',
                     '/components/sticky',
                     '/components/datepicker',
+                    '/components/scroll',
                 ]
             }
         ]
