@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="优化代码">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/date-picker/date_picker.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/date-picker/date_picker.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/input/input.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/input/input.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,14 +140,7 @@
       <workItem from="1587459462618" duration="14685000" />
       <workItem from="1587525582629" duration="30331000" />
       <workItem from="1587611124833" duration="30455000" />
-      <workItem from="1587696051997" duration="3090000" />
-    </task>
-    <task id="LOCAL-00185" summary="完善ajaxCallback函数的逻辑，放权给用户，增加发送失败时的信息存储，包括status,errorMessage。">
-      <created>1587031665723</created>
-      <option name="number" value="00185" />
-      <option name="presentableId" value="LOCAL-00185" />
-      <option name="project" value="LOCAL" />
-      <updated>1587031665723</updated>
+      <workItem from="1587696051997" duration="3600000" />
     </task>
     <task id="LOCAL-00186" summary="展示上传成功的图片功能中，过滤掉失败的图片。">
       <created>1587032039632</created>
@@ -487,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587662789247</updated>
     </task>
-    <option name="localTasksCounter" value="234" />
+    <task id="LOCAL-00234" summary="input 组件的逻辑，input原生的属性不被阻止，不受控。通过组件的value属性改变，来设置原生的input 的属性值。一旦组件的value不变，而原生的input变了，我希望的是受控，所以，希望原生的input的属性值跟组件的value值一致，如何？手动通过操作原生的input的属性赋值，实现！Input组件的事件，传的最好是事件e，这样外部可以通过e.target来手动在特殊的Input value跟input value不一样的情况下，自由发挥！填了table的checkbox的坑，datepicker的input的坑！">
+      <created>1587702397591</created>
+      <option name="number" value="00234" />
+      <option name="presentableId" value="LOCAL-00234" />
+      <option name="project" value="LOCAL" />
+      <updated>1587702397591</updated>
+    </task>
+    <option name="localTasksCounter" value="235" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -504,7 +502,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="table 添加了可以对tbody的td传入html的功能，也提供了对td预留插槽的功能！" />
     <MESSAGE value="调整代码规范" />
     <MESSAGE value="初始化日历组件" />
     <MESSAGE value="popover添加最小宽度" />
@@ -529,7 +526,8 @@
     <MESSAGE value="初步实现了通过符合xxxx-xx-xx的规范通过在input框内直接书写，来改变选中的值的功能！" />
     <MESSAGE value="调优selected这个展示的年月的字段跟选中某一天之后，自动更新到当天的年月的界面的逻辑，用了watch." />
     <MESSAGE value="优化代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化代码" />
+    <MESSAGE value="input 组件的逻辑，input原生的属性不被阻止，不受控。通过组件的value属性改变，来设置原生的input 的属性值。一旦组件的value不变，而原生的input变了，我希望的是受控，所以，希望原生的input的属性值跟组件的value值一致，如何？手动通过操作原生的input的属性赋值，实现！Input组件的事件，传的最好是事件e，这样外部可以通过e.target来手动在特殊的Input value跟input value不一样的情况下，自由发挥！填了table的checkbox的坑，datepicker的input的坑！" />
+    <option name="LAST_COMMIT_MESSAGE" value="input 组件的逻辑，input原生的属性不被阻止，不受控。通过组件的value属性改变，来设置原生的input 的属性值。一旦组件的value不变，而原生的input变了，我希望的是受控，所以，希望原生的input的属性值跟组件的value值一致，如何？手动通过操作原生的input的属性赋值，实现！Input组件的事件，传的最好是事件e，这样外部可以通过e.target来手动在特殊的Input value跟input value不一样的情况下，自由发挥！填了table的checkbox的坑，datepicker的input的坑！" />
   </component>
   <component name="WindowStateProjectService">
     <state x="686" y="266" key="#Notifications" timestamp="1587642525997">
@@ -544,10 +542,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587662789129">
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587702397370">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587662789129" />
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587702397370" />
     <state x="281" y="75" key="DiffContextDialog" timestamp="1587489713303">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -572,10 +570,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="481" y="90" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1587657338222" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587662790629">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587702400202">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587662790629" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587702400202" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>

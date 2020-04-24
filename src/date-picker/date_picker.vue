@@ -1,7 +1,10 @@
 <template>
     <div class="yv-date-picker" @selectStart.prevent>
         <y-popover position="bottom" :before-close="initPanelType">
-            <Input type="text" :value="formatValue" @input="onInput($event)"/>
+            {{formatValue}}
+            <Input type="text" :value="formatValue"
+                   @change="onInputChange"
+                   @input="onInput($event)"/>
             <template v-slot:content>
                 <div class="yv-date-picker-wrapper" ref="wrapper">
                     <div class="yv-date-picker-nav">
@@ -122,11 +125,13 @@
                 return this.getMonthDays(new Date(...this.selected));
             },
             valueDate() {
+                console.log(8);
                 return this.value && this.getDateDetail(this.value);
             },
             formatValue() {
                 if (this.valueDate) {
                     const arr = [...this.valueDate];
+                    console.log(7);
                     return `${arr[0]}-${this.leftPad(arr[1] + 1)}-${this.leftPad(arr[2])}`;
                 }
                 return "";
@@ -307,14 +312,19 @@
                 if (day <= 0 || day > 31 || isNaN(day)) return;
                 return [year, month, day];
             },
-            onInput(e) {
-                const arr = e.split("-");
+            onInput(v) {
+                const arr = v.split("-");
                 if (arr.length < 3) return;
                 let [year, month, day] = arr;
                 if (!month || !year || !day) return;
-                const dateDate = this.exchangeStringValue(year, month, day);
+                const dateDate = this.exchangeStringValue(year, month, day) ;
                 // console.log(dateDate);
                 dateDate && this.$emit("select", new Date(...dateDate));
+            },
+            onInputChange(e) {
+                e.target.value = this.formatValue
+                //这里的问题是，原生的input的value变了，但是Input组件的value可能没变，因为formatValue的结果可能没变，
+                //Input就不会响应式地设置input.value = this.formatValue,跟table组件的select checkbox一个味道
             }
         }
     };
