@@ -406,7 +406,6 @@
 
             &-year {
                 $size: 2em;
-
                 .box {
                     display: inline-flex;
                     width: $size;
@@ -452,11 +451,11 @@
                         @extend .box;
                         cursor: pointer;
                         margin: 2px;
-                        background: $light-black;
-                        color: #fff;
+                        background: lighten($light-green,10%);
+                        color: $light-black;
 
-                        &:hover {
-                            background: $blue;
+                        &:hover{
+                            background: $blue;color:#fff;
                         }
 
                         &.disabled {
@@ -470,6 +469,9 @@
                             border-bottom: 1px solid $border-color;
                             display: inline-flex;
                             justify-content: space-between;
+                            &:hover{
+                                opacity: 1;
+                            }
                         }
 
                         > svg {
