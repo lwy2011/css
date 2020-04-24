@@ -31,62 +31,66 @@
                         </y-icon>
                     </div>
                     <div class="yv-date-picker-panel">
-                        <div v-if="panel==='year'"
-                             class="yv-date-picker-panel-year">
-                            <div class="yv-date-picker-panel-year-result">
-                                <p>
+                        <transition name="fade" mode="out-in">
+                            <div v-if="panel==='year'"
+                                 class="yv-date-picker-panel-year">
+                                <div class="yv-date-picker-panel-year-result">
+                                    <p>
                                     <span v-for="n in 4" :key="n">
                                         {{yearAndMonth[n-1]}}
                                     </span>年
+                                    </p>
+                                    <p>
+                                        <span>{{yearAndMonth[4]}}</span>月
+                                    </p>
+                                </div>
+                                <p class="yv-date-picker-panel-year-error">
+                                    {{errorMessage||"&nbsp"}}
                                 </p>
-                                <p>
-                                    <span>{{yearAndMonth[4]}}</span>月
-                                </p>
+                                <ul class=" yv-date-picker-panel-year-set">
+                                    <li v-for="n in 13"
+                                        @click="setYearAndMonth(n-1)"
+                                        :key="n"
+                                        :class="{disabled:yearAndMonth.length<4&&n>10}"
+                                    >
+                                        {{n-1}}
+                                    </li>
+                                    <li>
+                                        <y-button @click="inputYearMonthConfirm"> ok</y-button>
+                                        <y-icon icon="delete"
+                                                @click="onDeleteYearAndMonth">
+                                        </y-icon>
+                                        <y-button @click="goBackToDayMode">返回</y-button>
+                                    </li>
+                                </ul>
                             </div>
-                            <p class="yv-date-picker-panel-year-error">
-                                {{errorMessage||"&nbsp"}}
-                            </p>
-                            <ul class=" yv-date-picker-panel-year-set">
-                                <li v-for="n in 13"
-                                    @click="setYearAndMonth(n-1)"
-                                    :key="n"
-                                    :class="{disabled:yearAndMonth.length<4&&n>10}"
-                                >
-                                    {{n-1}}
-                                </li>
-                                <li>
-                                    <y-button @click="inputYearMonthConfirm"> ok</y-button>
-                                    <y-icon icon="delete"
-                                            @click="onDeleteYearAndMonth">
-                                    </y-icon>
-                                    <y-button @click="goBackToDayMode">返回</y-button>
-                                </li>
-                            </ul>
+                            <table v-else class="yv-date-picker-panel-day">
+                                <thead>
+                                <tr>
+                                    <td v-for="week in weeks" :key="week">
+                                        {{week}}
+                                    </td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="n in 6" :key="n+'ind'">
+                                    <td v-for="day in days.slice((n-1)*7,(n-1)*7+7)"
+                                        :class="daysClasses(day)"
+                                        @click="onDayClick(day,$event)"
+                                    >
+                                        {{day.getDate()}}
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </transition>
+                    </div>
+                    <transition name="fade">
+                        <div class="yv-date-picker-day-actions" v-if="panel==='day'">
+                            <y-button @click="toToday">今天</y-button>
+                            <y-button @click="onClear">清除</y-button>
                         </div>
-                        <table v-else class="yv-date-picker-panel-table">
-                            <thead>
-                            <tr>
-                                <td v-for="week in weeks" :key="week">
-                                    {{week}}
-                                </td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr v-for="n in 6" :key="n+'ind'">
-                                <td v-for="day in days.slice((n-1)*7,(n-1)*7+7)"
-                                    :class="daysClasses(day)"
-                                    @click="onDayClick(day,$event)"
-                                >
-                                    {{day.getDate()}}
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="yv-date-picker-actions" v-if="panel==='day'">
-                        <y-button @click="toToday">今天</y-button>
-                        <y-button @click="onClear">清除</y-button>
-                    </div>
+                    </transition>
                 </div>
             </template>
         </y-popover>
@@ -335,13 +339,35 @@
     $padding1: -$small-padding;
     $padding2: -$middle-padding;
 
+    .fade-enter-active {
+        animation: fade-in 600ms;
+    }
+
+
+    .fade-leave-active {
+        animation: fade-in 600ms reverse;
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+
+
 
     .yv-date-picker {
         &-wrapper {
-            /*//因为用了popoverr组件，弹出框有padding,需要消除？*/
+            /*//因为用了popover组件，弹出框有padding,需要消除？*/
             margin: $padding1 $padding2;
             white-space: normal;
         }
+
+        position: relative;
 
         &-nav {
             display: flex;
@@ -376,6 +402,7 @@
         &-panel {
             white-space: nowrap;
             padding: 1em;
+            position: relative;
 
             &-year {
                 $size: 2em;
@@ -456,9 +483,12 @@
                         }
                     }
                 }
+                &.fade-leave-active,&.fade-enter-active{ //动画
+                    position: absolute;
+                }
             }
 
-            &-table {
+            &-day {
                 display: table;
                 width: 100%;
                 text-align: center;
@@ -505,7 +535,7 @@
             }
         }
 
-        &-actions {
+        &-day-actions {
             border-top: 1px solid $light-border-color;
             padding: .5em;
             text-align: center;
@@ -513,6 +543,9 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
+            &.fade-enter-active{
+                position: absolute;bottom:0;width:100%;
+            }
         }
     }
 </style>
