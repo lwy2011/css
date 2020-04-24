@@ -201,7 +201,7 @@
         background: #fff;
         max-width: 24em;
         word-break: break-all; //中文推荐
-        border: 1px solid $light-border-color;
+        border: 1px solid lighten($light-border-color,10%);
         white-space: pre-line;
 
         &::before, &::after {
