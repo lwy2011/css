@@ -1,7 +1,6 @@
 <template>
     <div class="yv-date-picker" @selectStart.prevent>
         <y-popover position="bottom" :before-close="initPanelType">
-            {{formatValue}}
             <Input type="text" :value="formatValue"
                    @change="onInputChange"
                    @input="onInput($event)"/>
@@ -317,12 +316,12 @@
                 if (arr.length < 3) return;
                 let [year, month, day] = arr;
                 if (!month || !year || !day) return;
-                const dateDate = this.exchangeStringValue(year, month, day) ;
+                const dateDate = this.exchangeStringValue(year, month, day);
                 // console.log(dateDate);
                 dateDate && this.$emit("select", new Date(...dateDate));
             },
             onInputChange(e) {
-                e.target.value = this.formatValue
+                e.target.value = this.formatValue;
                 //这里的问题是，原生的input的value变了，但是Input组件的value可能没变，因为formatValue的结果可能没变，
                 //Input就不会响应式地设置input.value = this.formatValue,跟table组件的select checkbox一个味道
             }
@@ -486,6 +485,7 @@
                         &.selected {
                             background: $blue;
                             color: #fff;
+                            border-radius: $border-radius;
                         }
 
                         &:hover {
@@ -493,7 +493,8 @@
                         }
 
                         &.now {
-                            border: 1px solid $blue;
+                            background: $warn-color;
+                            border-radius: $border-radius;
                         }
 
                         &.disabled {
