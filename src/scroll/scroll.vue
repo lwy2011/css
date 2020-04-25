@@ -18,7 +18,7 @@
         props: {},
         data() {
             return {
-                position: 0, lock: false, isTop: false, isBottom: false
+                position: 0,  isTop: false, isBottom: false,isScroll:false
             };
         },
         mounted() {
@@ -41,11 +41,11 @@
         },
         methods: {
             onWheel(e) {
-                if (this.lock) return;
-                this.lock = true;
+                if (this.isScroll) return;
+                this.isScroll = setTimeout(() => this.isScroll = false, 100);
                 const {height} = this.$el.getBoundingClientRect(),
                     height1 = this.$refs.wrapper.getBoundingClientRect().height;
-                const v = this.position - (e.deltaY * 5 > 40 ? 40 : e.deltaY * 10);
+                const v = this.position - (e.deltaY * 10 > 100 ? 100 : e.deltaY * 10);
                 console.log(this.position, "ppp", v);
                 if (v > 0) {
                     this.position = 0;
@@ -58,13 +58,14 @@
                 } else {
                     this.position = v;
                 }
-                setTimeout(() => this.lock = false, 100);
             }
         }
     };
 </script>
 
 <style scoped lang="scss">
+    $height:4em;$min-height:-$height/2;
+
     .top-enter-active {
         animation: is-top 800ms linear;
     }
@@ -77,17 +78,17 @@
         0% {
             width: 800%;
             border-radius: 10%;
-            top: -6em;
+            top: -$height;
             left: 50%;
         }
         50% {
-            width: 500%;border-radius: 50%;bottom:-4.5em;
-            left:0%;
+            width: 500%;border-radius: 50%;bottom:-3em;
+            left:0;
         }
         100% {
             width: 200%;
             border-radius: 80%;
-            top: -3em;
+            top: $min-height;
             left: -80%;
         }
     }
@@ -96,19 +97,19 @@
         0% {
             width: 800%;
             border-radius: 10%;
-            bottom: -6em;
+            bottom: -$height;
             left:0;
         }
         50% {
             width: 400%;
             border-radius: 40%;
-            bottom: -4.5em;
+            bottom: -3em;
             left:-50%;
         }
         100% {
             width: 200%;
             border-radius: 80%;
-            bottom: -3em;
+            bottom: $min-height;
             left:-90%;
         }
     }
@@ -131,12 +132,11 @@
             position: relative;
             transition: translate 100ms;
         }
-
         &-isTop {
             position: absolute;
             width: 200%;
-            height: 6em;
-            top: -3em;
+            height: $height;
+            top: $min-height;
             border-radius: 50%;
             background: rgba(0, 0, 0, .5);left:-80%;
         }
@@ -144,8 +144,8 @@
         &-isBottom {
             position: absolute;
             width: 200%;
-            height: 6em;
-            bottom: -3em;
+            height: $height;
+            bottom: $min-height;
             border-radius: 50%;
             background: rgba(0, 0, 0, .5);
             left:-90%;
