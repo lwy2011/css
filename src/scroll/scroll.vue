@@ -6,8 +6,11 @@
         <div ref="wrapper" class="yv-scroll-wrapper">
             <slot></slot>
         </div>
-        <div class="yv-scroll-barBox" >
-            <div class="yv-scroll-bar" ref="bar">
+        <div class="yv-scroll-barBox"
+             @dragstart="onDragstart"
+             @dragend="onDragend"
+             v-show="barVisible">
+            <div class="yv-scroll-bar" ref="bar" draggable="true">
                 <div class="yv-scroll-bar-child"></div>
             </div>
         </div>
@@ -77,6 +80,24 @@
             },
             barHeight(wrapperHeight, viewHeight) {
                 this.$refs.bar.style.height = viewHeight * viewHeight / wrapperHeight + "px";
+            },
+            onDragstart(e){
+                console.log(e,'s');
+                setTimeout(()=>e.target.style.opacity = 0)
+                this.startDrap = {
+                    x:e.screenX,y:e.screenY
+                }
+            },
+            onDragend(e){
+                console.log(e,'e');
+                setTimeout(()=>e.target.style.opacity = 1,0)
+
+                const {top,left} = e.target.style
+                console.log(99,parseInt(top||0) ,'ttt',left);
+                e.target.style.top = parseInt(top||0) + e.screenY - this.startDrap.y +'px'
+                 e.target.style.left = parseInt(left||0) + e.screenX - this.startDrap.x +'px'
+                console.log( e );
+
             }
         }
     };
@@ -176,7 +197,7 @@
         &-bar {
             position: absolute;
             width: 8px;
-            height: 5em;
+            height: 5em;cursor: pointer;
             &-child{
                 margin-bottom: 5px; background: rgba(0, 0, 0, .5);
                 border-radius: $border-radius;
