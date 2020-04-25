@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="调整了样式的颜色，浅色调">
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/scroll-demo.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/components/scroll.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scroll/scroll.vue" afterDir="false" />
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="初始化scroll组件">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/scroll-demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/scroll-demo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scroll/scroll.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/scroll/scroll.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,14 +142,8 @@
       <workItem from="1587459462618" duration="14685000" />
       <workItem from="1587525582629" duration="30331000" />
       <workItem from="1587611124833" duration="30455000" />
-      <workItem from="1587696051997" duration="16701000" />
-    </task>
-    <task id="LOCAL-00191" summary="开始进行upload test,艰难模拟change 事件，filelist的伪造是个坑！实现伪造filelist">
-      <created>1587100915219</created>
-      <option name="number" value="00191" />
-      <option name="presentableId" value="LOCAL-00191" />
-      <option name="project" value="LOCAL" />
-      <updated>1587100915219</updated>
+      <workItem from="1587696051997" duration="16754000" />
+      <workItem from="1587784357645" duration="7897000" />
     </task>
     <task id="LOCAL-00192" summary="开始table的测试">
       <created>1587100948666</created>
@@ -489,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587723965525</updated>
     </task>
-    <option name="localTasksCounter" value="240" />
+    <task id="LOCAL-00240" summary="初始化scroll组件">
+      <created>1587731531856</created>
+      <option name="number" value="00240" />
+      <option name="presentableId" value="LOCAL-00240" />
+      <option name="project" value="LOCAL" />
+      <updated>1587731531856</updated>
+    </task>
+    <option name="localTasksCounter" value="241" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,7 +505,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="实现展示面板的逻辑通过selected字段.&#10;选中值通过向外的事件传值。value是选中的值，跟view分离开！实现了left,right，递增递减年月。" />
     <MESSAGE value="改了下popover的border颜色" />
     <MESSAGE value="实现月年的选择panel的展示逻辑，固定容器的大小。" />
     <MESSAGE value="修改了border color" />
@@ -531,7 +529,8 @@
     <MESSAGE value="微调border样式" />
     <MESSAGE value="随机添加动画，稍微搞懂了vue的动画机制" />
     <MESSAGE value="调整了样式的颜色，浅色调" />
-    <option name="LAST_COMMIT_MESSAGE" value="调整了样式的颜色，浅色调" />
+    <MESSAGE value="初始化scroll组件" />
+    <option name="LAST_COMMIT_MESSAGE" value="初始化scroll组件" />
   </component>
   <component name="WindowStateProjectService">
     <state x="686" y="266" key="#Notifications" timestamp="1587642525997">
@@ -546,10 +545,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587723965373">
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587731531688">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587723965373" />
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587731531688" />
     <state x="281" y="75" key="DiffContextDialog" timestamp="1587489713303">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -574,10 +573,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="481" y="90" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1587657338222" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587723966677">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587731532991">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587723966677" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587731532991" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
