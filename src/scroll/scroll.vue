@@ -1,5 +1,5 @@
 <template>
-    <div class="yv-scroll" @wheel.prevent="onWheel">
+    <div class="yv-scroll" @wheel="onWheel">
         <transition name="top">
             <div v-if="isTop" class="yv-scroll-isTop"></div>
         </transition>
@@ -18,7 +18,7 @@
         props: {},
         data() {
             return {
-                position: 0,  isTop: false, isBottom: false,isScroll:false
+                position: 0, isTop: false, isBottom: false, isScroll: false
             };
         },
         mounted() {
@@ -33,20 +33,15 @@
         watch: {
             position: function x() {
                 this.$refs.wrapper.style.transform = `translateY(${this.position}px)`;
-                console.log(this.position, 999);
-            },
-            isTop: function y() {
-                console.log(this.isTop, this.position, "333333");
             }
         },
         methods: {
             onWheel(e) {
-                if (this.isScroll) return;
+                if (this.isScroll) return  e.preventDefault();
                 this.isScroll = setTimeout(() => this.isScroll = false, 100);
                 const {height} = this.$el.getBoundingClientRect(),
                     height1 = this.$refs.wrapper.getBoundingClientRect().height;
                 const v = this.position - (e.deltaY * 10 > 100 ? 100 : e.deltaY * 10);
-                console.log(this.position, "ppp", v);
                 if (v > 0) {
                     this.position = 0;
                     clearTimeout(this.isTop);
@@ -57,6 +52,7 @@
                     this.isBottom = setTimeout(() => this.isBottom = false, 600);
                 } else {
                     this.position = v;
+                    e.preventDefault();
                 }
             }
         }
@@ -64,14 +60,15 @@
 </script>
 
 <style scoped lang="scss">
-    $height:4em;$min-height:-$height/2;
+    $height: 4em;
+    $min-height: -$height/2;
 
     .top-enter-active {
         animation: is-top 800ms linear;
     }
 
     .top-leave-active {
-        animation: is-top 800ms linear  reverse;
+        animation: is-top 800ms linear reverse;
     }
 
     @keyframes is-top {
@@ -82,8 +79,10 @@
             left: 50%;
         }
         50% {
-            width: 500%;border-radius: 50%;bottom:-3em;
-            left:0;
+            width: 500%;
+            border-radius: 50%;
+            bottom: -3em;
+            left: 0;
         }
         100% {
             width: 200%;
@@ -98,19 +97,19 @@
             width: 800%;
             border-radius: 10%;
             bottom: -$height;
-            left:0;
+            left: 0;
         }
         50% {
             width: 400%;
             border-radius: 40%;
             bottom: -3em;
-            left:-50%;
+            left: -50%;
         }
         100% {
             width: 200%;
             border-radius: 80%;
             bottom: $min-height;
-            left:-90%;
+            left: -90%;
         }
     }
 
@@ -132,13 +131,15 @@
             position: relative;
             transition: translate 100ms;
         }
+
         &-isTop {
             position: absolute;
             width: 200%;
             height: $height;
             top: $min-height;
             border-radius: 50%;
-            background: rgba(0, 0, 0, .5);left:-80%;
+            background: rgba(0, 0, 0, .5);
+            left: -80%;
         }
 
         &-isBottom {
@@ -148,7 +149,7 @@
             bottom: $min-height;
             border-radius: 50%;
             background: rgba(0, 0, 0, .5);
-            left:-90%;
+            left: -90%;
         }
     }
 </style>
