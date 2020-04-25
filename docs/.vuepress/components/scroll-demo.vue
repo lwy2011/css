@@ -1,9 +1,9 @@
 <template>
     <div style="margin:1em;">
-        <div style="width: 500px;height:250px;border:1px solid red;marginBottom: 2em;">
+        <div style="height:450px;display:inline-flex;border:1px solid red;marginBottom: 2em;">
             <y-scroll>
-                <div style="border:1px solid">
-                    <div v-for="n in 35" :key="n" style="border:1px solid blue;margin:1em;">{{n}}</div>
+                <div style="border:1px solid;width: 500px;">
+                    <div v-for="n in 35" :key="n" style="border:1px solid blue;margin:1em 0;">{{n}}</div>
                 </div>
             </y-scroll>
         </div>
