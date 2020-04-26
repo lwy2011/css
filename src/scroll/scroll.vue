@@ -10,9 +10,9 @@
         <div ref="wrapper" class="yv-scroll-wrapper">
             <slot></slot>
         </div>
-        <div class="yv-scroll-barBox"
+        <div class="yv-scroll-barBox" @mousedown="onBarMousedown"
              v-show="barVisible">
-            <div class="yv-scroll-bar" ref="bar" >
+            <div class="yv-scroll-bar" ref="bar">
                 <div class="yv-scroll-bar-child"></div>
             </div>
         </div>
@@ -29,21 +29,23 @@
         props: {},
         data() {
             return {
-                position: 0, isTop: false, isBottom: false, isScroll: false, barVisible: false
+                position: 0, isTop: false, isBottom: false, isScroll: false, barVisible: false,
+                barDrag: false, dragStartY: 0
             };
         },
         mounted() {
             if (!this.$slots.default[0]) throw new Error("scroll组件必须要包裹一个child！");
-            const {bar} = this.$refs
-
         },
-        computed: {},
         watch: {
             position: function x() {
                 this.$refs.wrapper.style.transform = `translateY(${this.position}px)`;
                 this.$refs.bar.style.transform =
                     `translateY(${-this.position * this.viewHeight / this.wrapperHeight}px)`;
-            }
+            },
+
+        },
+        beforeDestroy() {
+            document.removeEventListener("onmouseup", this.onBarMouseup);
         },
         methods: {
             initStyle() {
@@ -82,8 +84,28 @@
             barHeight(wrapperHeight, viewHeight) {
                 this.$refs.bar.style.height = viewHeight * viewHeight / wrapperHeight + "px";
             },
-
-
+            onBarMousedown(e) {
+                document.addEventListener("mousemove", this.onBarMousemove);
+                document.addEventListener("mouseup", this.onBarMouseup);
+                this.barDrag = true;
+                this.dragStartY = e.screenY
+                console.log("bar start");
+            },
+            onBarMousemove(e) {
+                console.log("move ");
+                if (this.barDrag) {
+                    const deltaY = e.screenY - this.dragStartY;
+                    this.dragStartY += deltaY;
+                    this.position -= deltaY / this.viewHeight * this.wrapperHeight;
+                    console.log(9, deltaY);
+                }
+            },
+            onBarMouseup(e) {
+                this.barDrag = false;
+                document.removeEventListener("mousemove", this.onBarMousemove);
+                document.removeEventListener("mouseup", this.onBarMouseup);
+                console.log("drag over");
+            },
         },
     };
 </script>

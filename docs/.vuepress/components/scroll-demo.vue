@@ -35,66 +35,66 @@
         },
         mounted() {
             //drag事件测试：
-            let dragstartXY, bar = document.querySelector(".bar");
-            bar.addEventListener("dragstart", e => {
-                const {screenX: x, screenY: y} = e;
-                dragstartXY = {x, y};
-                bar.style.opacity = ".2";
-            });
-
-            bar.addEventListener("dragend", e => {
-                e.preventDefault();
-                const deltaX = e.screenX - dragstartXY.x, deltaY = e.screenY - dragstartXY.y;
-                const {style} = bar, {top, left} = window.getComputedStyle(bar);
-                style.top = parseInt(top) + deltaY + "px";
-                style.left = parseInt(left) + deltaX + "px";
-                console.log(parseInt(top), deltaX, window.getComputedStyle(e.target).top);
-            });
-
-            //mouse事件测试
-            let bar1 = document.querySelector(".bar1"), start,
-                startX, startY, deltaX, deltaY;
-            let translateX = 0,translateY=0
-            bar1.addEventListener(
-                "mousedown", e => {
-                    start = true;
-                    console.log("bar1 down");
-                }
-            );
-            document.addEventListener(
-                "mousedown", e => {
-                    if (start) {
-                        console.log("w down", start);
-                        const {screenX: x, screenY: y} = e;
-                        startX = x;
-                        startY = y;
-                    }
-                }
-            );
-            document.addEventListener(
-                "mousemove", e => {
-                    if (start) {
-                        console.log("w down", start);
-                        const {screenX: x, screenY: y} = e;
-                        deltaY = y - startY;
-                        deltaX = x - startX;
-                        translateX += deltaX;
-                        translateY += deltaY
-                        bar1.style.transform = `
-                            translate(${translateX}px,${translateY}px)
-                        `;
-
-                        startY = y;
-                        startX = x;
-                    }
-                }
-            );
-            document.addEventListener(
-                "mouseup", e => {
-                    start = false;
-                    console.log("w up", start);
-                }
-            );
+            // let dragstartXY, bar = document.querySelector(".bar");
+            // bar.addEventListener("dragstart", e => {
+            //     const {screenX: x, screenY: y} = e;
+            //     dragstartXY = {x, y};
+            //     bar.style.opacity = ".2";
+            // });
+            //
+            // bar.addEventListener("dragend", e => {
+            //     e.preventDefault();
+            //     const deltaX = e.screenX - dragstartXY.x, deltaY = e.screenY - dragstartXY.y;
+            //     const {style} = bar, {top, left} = window.getComputedStyle(bar);
+            //     style.top = parseInt(top) + deltaY + "px";
+            //     style.left = parseInt(left) + deltaX + "px";
+            //     console.log(parseInt(top), deltaX, window.getComputedStyle(e.target).top);
+            // });
+            //
+            // //mouse事件测试
+            // let bar1 = document.querySelector(".bar1"), start,
+            //     startX, startY, deltaX, deltaY;
+            // let translateX = 0,translateY=0
+            // bar1.addEventListener(
+            //     "mousedown", e => {
+            //         start = true;
+            //         // console.log("bar1 down");
+            //     }
+            // );
+            // document.addEventListener(
+            //     "mousedown", e => {
+            //         if (start) {
+            //             // console.log("w down", start);
+            //             const {screenX: x, screenY: y} = e;
+            //             startX = x;
+            //             startY = y;
+            //         }
+            //     }
+            // );
+            // document.addEventListener(
+            //     "mousemove", e => {
+            //         if (start) {
+            //             // console.log("w down", start);
+            //             const {screenX: x, screenY: y} = e;
+            //             deltaY = y - startY;
+            //             deltaX = x - startX;
+            //             translateX += deltaX;
+            //             translateY += deltaY
+            //             bar1.style.transform = `
+            //                 translate(${translateX}px,${translateY}px)
+            //             `;
+            //
+            //             startY = y;
+            //             startX = x;
+            //         }
+            //     }
+            // );
+            // document.addEventListener(
+            //     "mouseup", e => {
+            //         start = false;
+            //         console.log("w up", start);
+            //     }
+            // );
         },
         data() {
             return {
