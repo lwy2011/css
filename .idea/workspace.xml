@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="用watch 的position的联动来实现，通过bar的mouse事件来实现，得到mouse的偏移量，偏移量同步到position上，自动更新bar，lists的偏移。这是watch的强大了。而不是像老师那样翻来覆去，搞两边。">
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="把对是否移动到顶部底部的isTop,isBottom进行了解耦，也都放到了watch position那里，那里目前唯一的缺点就是超出了边界，会按照0或者test的值渲染，同时，position =0，如此，position = 0会再触发watch，然后白白浪费一次对比。不过全都解耦了，可以上层复用这些下层逻辑 了。同时，实现了拦截。也实现了点击bar条，进行等比滚动。很简单，因为我把所有的改变都回归到了对position的改变上了。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scroll/scroll.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/scroll/scroll.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/scroll-demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/scroll-demo.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,14 +143,7 @@
       <workItem from="1587611124833" duration="30455000" />
       <workItem from="1587696051997" duration="16754000" />
       <workItem from="1587784357645" duration="33002000" />
-      <workItem from="1587868268269" duration="14371000" />
-    </task>
-    <task id="LOCAL-00200" summary="解耦，外部容器负责常规求是否在屏幕可视范围内，getBondingclientRect求的。来判定内部的slot内的dom是否要添加fixed。">
-      <created>1587115987721</created>
-      <option name="number" value="00200" />
-      <option name="presentableId" value="LOCAL-00200" />
-      <option name="project" value="LOCAL" />
-      <updated>1587115987721</updated>
+      <workItem from="1587868268269" duration="15991000" />
     </task>
     <task id="LOCAL-00201" summary="继续微调upload test bug">
       <created>1587116200695</created>
@@ -488,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587891316874</updated>
     </task>
-    <option name="localTasksCounter" value="249" />
+    <task id="LOCAL-00249" summary="把对是否移动到顶部底部的isTop,isBottom进行了解耦，也都放到了watch position那里，那里目前唯一的缺点就是超出了边界，会按照0或者test的值渲染，同时，position =0，如此，position = 0会再触发watch，然后白白浪费一次对比。不过全都解耦了，可以上层复用这些下层逻辑 了。同时，实现了拦截。也实现了点击bar条，进行等比滚动。很简单，因为我把所有的改变都回归到了对position的改变上了。">
+      <created>1587901727209</created>
+      <option name="number" value="00249" />
+      <option name="presentableId" value="LOCAL-00249" />
+      <option name="project" value="LOCAL" />
+      <updated>1587901727209</updated>
+    </task>
+    <option name="localTasksCounter" value="250" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,7 +505,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="实现了today跳转，clear功能" />
     <MESSAGE value="不传value的初始值也不会发生错误了" />
     <MESSAGE value="实现点击td,选中day，时机关闭popover！" />
     <MESSAGE value="input yearmonth的mode加入返回按钮逻辑，这里依旧有不加计时器，直接同步改this.panel='day'，popover自动关闭的问题。好奇葩！" />
@@ -530,7 +529,8 @@
     <MESSAGE value="尝试用drop事件做拖动，简直就是傻逼！垃圾的drop!" />
     <MESSAGE value="尝试用drop事件做拖动，不成功，用原生的mouse事件实现成功了，在实例中实现的，等待在组件中优化！" />
     <MESSAGE value="用watch 的position的联动来实现，通过bar的mouse事件来实现，得到mouse的偏移量，偏移量同步到position上，自动更新bar，lists的偏移。这是watch的强大了。而不是像老师那样翻来覆去，搞两边。" />
-    <option name="LAST_COMMIT_MESSAGE" value="用watch 的position的联动来实现，通过bar的mouse事件来实现，得到mouse的偏移量，偏移量同步到position上，自动更新bar，lists的偏移。这是watch的强大了。而不是像老师那样翻来覆去，搞两边。" />
+    <MESSAGE value="把对是否移动到顶部底部的isTop,isBottom进行了解耦，也都放到了watch position那里，那里目前唯一的缺点就是超出了边界，会按照0或者test的值渲染，同时，position =0，如此，position = 0会再触发watch，然后白白浪费一次对比。不过全都解耦了，可以上层复用这些下层逻辑 了。同时，实现了拦截。也实现了点击bar条，进行等比滚动。很简单，因为我把所有的改变都回归到了对position的改变上了。" />
+    <option name="LAST_COMMIT_MESSAGE" value="把对是否移动到顶部底部的isTop,isBottom进行了解耦，也都放到了watch position那里，那里目前唯一的缺点就是超出了边界，会按照0或者test的值渲染，同时，position =0，如此，position = 0会再触发watch，然后白白浪费一次对比。不过全都解耦了，可以上层复用这些下层逻辑 了。同时，实现了拦截。也实现了点击bar条，进行等比滚动。很简单，因为我把所有的改变都回归到了对position的改变上了。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="686" y="266" key="#Notifications" timestamp="1587642525997">
@@ -545,10 +545,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="750" y="254" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1584023140230" />
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587891316716">
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2" timestamp="1587901727049">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587891316716" />
+    <state x="53" y="23" width="1381" height="970" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1587901727049" />
     <state x="281" y="75" key="DiffContextDialog" timestamp="1587489713303">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
@@ -573,10 +573,10 @@
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="481" y="90" width="1389" height="897" key="SettingsEditor/0.23.2048.1046@0.23.2048.1046" timestamp="1587657338222" />
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587891317720">
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2" timestamp="1587901728638">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587891317720" />
+    <state x="700" y="240" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1587901728638" />
     <state x="785" y="249" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584175655617">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
