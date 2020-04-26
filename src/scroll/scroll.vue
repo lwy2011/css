@@ -1,5 +1,9 @@
 <template>
-    <div class="yv-scroll" @wheel="onWheel" @mouseenter="onMouseenter" @mouseleave="onMouseleave">
+    <div class="yv-scroll"
+         @wheel="onWheel"
+         @mouseenter="onMouseenter" @mouseleave="onMouseleave"
+         @selectstart.prevent
+    >
         <transition name="top">
             <div v-if="isTop" class="yv-scroll-isTop"></div>
         </transition>
@@ -7,10 +11,8 @@
             <slot></slot>
         </div>
         <div class="yv-scroll-barBox"
-             @dragstart="onDragstart"
-             @dragend="onDragend"
              v-show="barVisible">
-            <div class="yv-scroll-bar" ref="bar" draggable="true">
+            <div class="yv-scroll-bar" ref="bar" >
                 <div class="yv-scroll-bar-child"></div>
             </div>
         </div>
@@ -32,11 +34,10 @@
         },
         mounted() {
             if (!this.$slots.default[0]) throw new Error("scroll组件必须要包裹一个child！");
-        },
-        computed: {
-
+            const {bar} = this.$refs
 
         },
+        computed: {},
         watch: {
             position: function x() {
                 this.$refs.wrapper.style.transform = `translateY(${this.position}px)`;
@@ -81,25 +82,9 @@
             barHeight(wrapperHeight, viewHeight) {
                 this.$refs.bar.style.height = viewHeight * viewHeight / wrapperHeight + "px";
             },
-            onDragstart(e){
-                console.log(e,'s');
-                setTimeout(()=>e.target.style.opacity = 0)
-                this.startDrap = {
-                    x:e.screenX,y:e.screenY
-                }
-            },
-            onDragend(e){
-                console.log(e,'e');
-                setTimeout(()=>e.target.style.opacity = 1,0)
 
-                const {top,left} = e.target.style
-                console.log(99,parseInt(top||0) ,'ttt',left);
-                e.target.style.top = parseInt(top||0) + e.screenY - this.startDrap.y +'px'
-                 e.target.style.left = parseInt(left||0) + e.screenX - this.startDrap.x +'px'
-                console.log( e );
 
-            }
-        }
+        },
     };
 </script>
 
@@ -182,7 +167,7 @@
             top: 0;
             bottom: 0;
             right: 0;
-            width: 9px;
+            width: 11px;
             border-left: 1px solid $border-color;
             background: $light-border-color;
             opacity: .6;
@@ -196,12 +181,16 @@
 
         &-bar {
             position: absolute;
-            width: 8px;
-            height: 5em;cursor: pointer;
-            &-child{
-                margin-bottom: 5px; background: rgba(0, 0, 0, .5);
+            width: 10px;
+            height: 5em;
+            cursor: pointer;
+
+            &-child {
+                margin-bottom: 5px;
+                background: rgba(0, 0, 0, .7);
                 border-radius: $border-radius;
-                width: 100%;height: calc(100% - 5px);
+                width: 100%;
+                height: calc(100% - 5px);
             }
         }
 
