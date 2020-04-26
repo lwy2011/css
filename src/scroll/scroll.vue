@@ -11,6 +11,7 @@
             <slot></slot>
         </div>
         <div class="yv-scroll-barBox" @mousedown="onBarMousedown"
+             @click="onBarClick"
              v-show="barVisible">
             <div class="yv-scroll-bar" ref="bar">
                 <div class="yv-scroll-bar-child"></div>
@@ -37,10 +38,17 @@
             if (!this.$slots.default[0]) throw new Error("scroll组件必须要包裹一个child！");
         },
         watch: {
-            position: function x() {
-                this.$refs.wrapper.style.transform = `translateY(${this.position}px)`;
+            position: function x(v) {
+                if (v > 0) {
+                    this.testIsTop();
+                    v = 0;
+                } else if (v < this.test) {
+                    this.testIsBottom();
+                    v = this.test;
+                }
+                this.$refs.wrapper.style.transform = `translateY(${v}px)`;
                 this.$refs.bar.style.transform =
-                    `translateY(${-this.position * this.viewHeight / this.wrapperHeight}px)`;
+                    `translateY(${-v * this.viewHeight / this.wrapperHeight}px)`;
             },
 
         },
@@ -49,28 +57,30 @@
         },
         methods: {
             initStyle() {
-                const {height} = this.$el.getBoundingClientRect(),
-                    height1 = this.$refs.wrapper.getBoundingClientRect().height;
+                const {height,top} = this.$el.getBoundingClientRect(),
+                   { height:height1 }= this.$refs.wrapper.getBoundingClientRect();
                 this.barHeight(height1, height);
                 this.test = height - height1;
                 this.wrapperHeight = height1;
                 this.viewHeight = height;
+                this.viewTop = top
+            },
+            testIsTop() {
+                this.position = 0;
+                clearTimeout(this.isTop);
+                this.isTop = setTimeout(() => this.isTop = false, 600);
+            },
+            testIsBottom() {
+                this.position = this.test;
+                clearTimeout(this.isBottom);
+                this.isBottom = setTimeout(() => this.isBottom = false, 600);
             },
             onWheel(e) {
-                if (this.isScroll) return e.preventDefault();
+                if (this.isScroll) return e.preventDefault();  //在容器内滚轮，浏览器不滚！
                 this.isScroll = setTimeout(() => this.isScroll = false, 100);
-
                 const v = this.position - (e.deltaY * 10 > 100 ? 100 : e.deltaY * 10);
-                if (v > 0) {
-                    this.position = 0;
-                    clearTimeout(this.isTop);
-                    this.isTop = setTimeout(() => this.isTop = false, 600);
-                } else if (v < this.test) {
-                    this.position = this.test;
-                    clearTimeout(this.isBottom);
-                    this.isBottom = setTimeout(() => this.isBottom = false, 600);
-                } else {
-                    this.position = v;
+                this.position = v;
+                if (v <= 0 && v >= this.test) {
                     e.preventDefault();
                 }
             },
@@ -88,7 +98,7 @@
                 document.addEventListener("mousemove", this.onBarMousemove);
                 document.addEventListener("mouseup", this.onBarMouseup);
                 this.barDrag = true;
-                this.dragStartY = e.screenY
+                this.dragStartY = e.screenY;
                 console.log("bar start");
             },
             onBarMousemove(e) {
@@ -100,12 +110,16 @@
                     console.log(9, deltaY);
                 }
             },
-            onBarMouseup(e) {
+            onBarMouseup() {
                 this.barDrag = false;
                 document.removeEventListener("mousemove", this.onBarMousemove);
                 document.removeEventListener("mouseup", this.onBarMouseup);
                 console.log("drag over");
             },
+            onBarClick(e){
+                // console.log(e.clientY,this.viewTop,this.viewBottom);
+                this.position = -(e.clientY - this.viewTop)/this.viewHeight * this.wrapperHeight
+            }
         },
     };
 </script>
