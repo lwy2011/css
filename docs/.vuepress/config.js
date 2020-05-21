@@ -22,6 +22,7 @@ module.exports = {
                     '/components/sticky',
                     '/components/datepicker',
                     '/components/scroll',
+                    '/components/router',
                 ]
             }
         ]
