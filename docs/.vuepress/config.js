@@ -24,6 +24,15 @@ module.exports = {
                     '/components/scroll',
                     '/components/router',
                 ]
+            },
+            {
+                title:'基础知识',
+                children:[
+                    '/components/direct',
+                    '/components/interpolation',
+                    '/components/computed',
+                    '/components/watch',
+                ]
             }
         ]
     }
