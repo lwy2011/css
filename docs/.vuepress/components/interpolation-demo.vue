@@ -33,10 +33,28 @@
         data() {
             return {
                 content: `
-                <y-icon icon="setting"></y-icon>
-                <y-icon icon="loading" :loading="true"></y-icon>
-                <y-icon icon="warn"></y-icon>
-                <y-icon icon="left"></y-icon>
+                <p>number: {{4}}</p>
+                <p>string: {{'ddf'}}</p>
+                <p>'null:' {{null}}</p>
+                <p>'undefined:' {{undefined}}</p>
+                <p>array: {{[4,5]}}</p>
+                <p>object: 不能放到插值里，会报错！</p>
+                <p>表达式: {{x+y > 1? z: 4 }}</p>
+                <p>函数：报错！{{function (){x = -3}()}}</p>
+                <p>
+                    立即执行的函数表达式：操作了x = -3,使得上面的显示不是r,而是4！
+                    貌似也没啥用，不正统，还容易bug的感觉！
+                    {{function (){x = -3}()}}
+                </p>
+
+                数据：
+                data(){
+                    return {
+                        x:2,
+                        y:3,
+                        z:'r'
+                    }
+                }
                 `,
                 x:2,
                 y:3,
