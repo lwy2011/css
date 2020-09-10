@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="实现了watch实例">
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/class-style-demo.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/components/class-style.md" afterDir="false" />
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="实现了实例class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/class-style-demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/class-style-demo.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,14 +150,7 @@
       <workItem from="1590073543848" duration="504000" />
       <workItem from="1590559505608" duration="974000" />
       <workItem from="1599637208176" duration="14697000" />
-      <workItem from="1599704007421" duration="2774000" />
-    </task>
-    <task id="LOCAL-00208" summary="table 添加了可以对tbody的td传入html的功能，也提供了对td预留插槽的功能！">
-      <created>1587229881236</created>
-      <option name="number" value="00208" />
-      <option name="presentableId" value="LOCAL-00208" />
-      <option name="project" value="LOCAL" />
-      <updated>1587229881236</updated>
+      <workItem from="1599704007421" duration="4338000" />
     </task>
     <task id="LOCAL-00209" summary="调整代码规范">
       <created>1587230681959</created>
@@ -497,7 +488,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599667949010</updated>
     </task>
-    <option name="localTasksCounter" value="257" />
+    <task id="LOCAL-00257" summary="实现了实例class">
+      <created>1599706835878</created>
+      <option name="number" value="00257" />
+      <option name="presentableId" value="LOCAL-00257" />
+      <option name="project" value="LOCAL" />
+      <updated>1599706835879</updated>
+    </task>
+    <option name="localTasksCounter" value="258" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,7 +512,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="调优selected这个展示的年月的字段跟选中某一天之后，自动更新到当天的年月的界面的逻辑，用了watch." />
     <MESSAGE value="优化代码" />
     <MESSAGE value="input 组件的逻辑，input原生的属性不被阻止，不受控。通过组件的value属性改变，来设置原生的input 的属性值。一旦组件的value不变，而原生的input变了，我希望的是受控，所以，希望原生的input的属性值跟组件的value值一致，如何？手动通过操作原生的input的属性赋值，实现！Input组件的事件，传的最好是事件e，这样外部可以通过e.target来手动在特殊的Input value跟input value不一样的情况下，自由发挥！填了table的checkbox的坑，datepicker的input的坑！" />
     <MESSAGE value="实现了当Input change事件，对input 的value的保底工作，不合格就自动恢复为原始的值。这里用的直接通过操作input的dom的value实现的。这里的知识点就是，原生的dom的属性跟组件的属性绑定了，但是原生的属性的值是原生的响应式操作的，而组件的属性值是人为操作的，一旦原生的属性值变了，组件的属性值没变（通过算法比较没变就判没变），这时候为了保持受控的假相，就需要人为地操作input的dom了，而不是组件" />
@@ -539,17 +536,18 @@
     <MESSAGE value="实现简单的指令的模板资料" />
     <MESSAGE value="实现了computed的模板，同时创建了watch的模板" />
     <MESSAGE value="实现了watch实例" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现了watch实例" />
+    <MESSAGE value="实现了实例class" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现了实例class" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="352" y="86" key="CommitChangelistDialog2" timestamp="1599669034388">
+    <state x="352" y="86" key="CommitChangelistDialog2" timestamp="1599708712478">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="352" y="86" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1599669034388" />
-    <state x="883" y="272" key="Vcs.Push.Dialog.v2" timestamp="1599667950324">
+    <state x="352" y="86" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1599708712478" />
+    <state x="883" y="272" key="Vcs.Push.Dialog.v2" timestamp="1599706837412">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="883" y="272" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1599667950324" />
+    <state x="883" y="272" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1599706837412" />
     <state x="871" y="393" width="670" height="676" key="search.everywhere.popup" timestamp="1599704305082">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
