@@ -32,7 +32,8 @@ module.exports = {
                     '/components/interpolation',
                     '/components/computed',
                     '/components/watch',
-                    '/components/class-style'
+                    '/components/class-style',
+                    '/components/conditional-rendering'
                 ]
             }
         ]
