@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="form  实例实现">
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="form  实例更新双向绑定的踩坑">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/form-demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/form-demo.vue" afterDir="false" />
     </list>
@@ -151,14 +151,7 @@
       <workItem from="1590559505608" duration="974000" />
       <workItem from="1599637208176" duration="14697000" />
       <workItem from="1599704007421" duration="9833000" />
-      <workItem from="1599898440755" duration="6987000" />
-    </task>
-    <task id="LOCAL-00216" summary="实现月年的选择panel的展示逻辑，固定容器的大小。">
-      <created>1587573226666</created>
-      <option name="number" value="00216" />
-      <option name="presentableId" value="LOCAL-00216" />
-      <option name="project" value="LOCAL" />
-      <updated>1587573226666</updated>
+      <workItem from="1599898440755" duration="7250000" />
     </task>
     <task id="LOCAL-00217" summary="修改了border color">
       <created>1587573262869</created>
@@ -496,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599905881759</updated>
     </task>
-    <option name="localTasksCounter" value="265" />
+    <task id="LOCAL-00265" summary="form  实例更新双向绑定的踩坑">
+      <created>1599908500231</created>
+      <option name="number" value="00265" />
+      <option name="presentableId" value="LOCAL-00265" />
+      <option name="project" value="LOCAL" />
+      <updated>1599908500231</updated>
+    </task>
+    <option name="localTasksCounter" value="266" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,7 +513,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="调整了样式的颜色，浅色调" />
     <MESSAGE value="初始化scroll组件" />
     <MESSAGE value="通过wheel事件模拟滚动模式成功，但是不流畅！" />
     <MESSAGE value="简单实现了拦截动画" />
@@ -538,17 +537,18 @@
     <MESSAGE value="实现了实例lists-rendering" />
     <MESSAGE value="event 实例实现" />
     <MESSAGE value="form  实例实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="form  实例实现" />
+    <MESSAGE value="form  实例更新双向绑定的踩坑" />
+    <option name="LAST_COMMIT_MESSAGE" value="form  实例更新双向绑定的踩坑" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="352" y="86" key="CommitChangelistDialog2" timestamp="1599905881548">
+    <state x="352" y="86" key="CommitChangelistDialog2" timestamp="1599908500060">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="352" y="86" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1599905881548" />
-    <state x="883" y="272" key="Vcs.Push.Dialog.v2" timestamp="1599905882853">
+    <state x="352" y="86" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1599908500060" />
+    <state x="883" y="272" key="Vcs.Push.Dialog.v2" timestamp="1599908501327">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="883" y="272" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1599905882853" />
+    <state x="883" y="272" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1599908501327" />
     <state x="1102" y="281" key="run.anything.popup" timestamp="1599898576323">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
