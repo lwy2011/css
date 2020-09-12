@@ -2,7 +2,7 @@
     <div style="margin:1em;">
         <h4>v-for</h4>
         <p>
-            循环要点，in   运算符，key必须有，不能是index,random。
+            循环要点，in   运算符，key必须有，不能是index,random。也可以放template上！
         </p>
         <ul>
             <li v-for="(item,index) in lists" :key="item.id">

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="修改了实例conditional-rendering">
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/lists-rendering-demo.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/components/lists-rendering.md" afterDir="false" />
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="实现了实例lists-rendering">
+      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/event-demo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/components/event.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/lists-rendering-demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/lists-rendering-demo.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/.vuepress/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +41,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/.vuepress/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -56,18 +57,18 @@
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/.vuepress/components" />
+      <recent name="$PROJECT_DIR$/docs/components" />
+      <recent name="$PROJECT_DIR$/test" />
+      <recent name="$PROJECT_DIR$/src/nav" />
+      <recent name="$PROJECT_DIR$/src/slides" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docs/.vuepress/components" />
       <recent name="$PROJECT_DIR$/docs/components" />
       <recent name="$PROJECT_DIR$/docs" />
       <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/docs/components" />
-      <recent name="$PROJECT_DIR$/docs/.vuepress/components" />
-      <recent name="$PROJECT_DIR$/test" />
-      <recent name="$PROJECT_DIR$/src/nav" />
-      <recent name="$PROJECT_DIR$/src/slides" />
     </key>
   </component>
   <component name="RunManager">
@@ -153,14 +154,7 @@
       <workItem from="1590559505608" duration="974000" />
       <workItem from="1599637208176" duration="14697000" />
       <workItem from="1599704007421" duration="9833000" />
-      <workItem from="1599898440755" duration="1223000" />
-    </task>
-    <task id="LOCAL-00213" summary="优化获取day的面板的数据的代码逻辑！">
-      <created>1587550568538</created>
-      <option name="number" value="00213" />
-      <option name="presentableId" value="LOCAL-00213" />
-      <option name="project" value="LOCAL" />
-      <updated>1587550568538</updated>
+      <workItem from="1599898440755" duration="3034000" />
     </task>
     <task id="LOCAL-00214" summary="实现展示面板的逻辑通过selected字段.&#10;选中值通过向外的事件传值。value是选中的值，跟view分离开！实现了left,right，递增递减年月。">
       <created>1587566486573</created>
@@ -498,7 +492,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599710269556</updated>
     </task>
-    <option name="localTasksCounter" value="262" />
+    <task id="LOCAL-00262" summary="实现了实例lists-rendering">
+      <created>1599902334312</created>
+      <option name="number" value="00262" />
+      <option name="presentableId" value="LOCAL-00262" />
+      <option name="project" value="LOCAL" />
+      <updated>1599902334312</updated>
+    </task>
+    <option name="localTasksCounter" value="263" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +516,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="微调样式" />
     <MESSAGE value="微调border样式" />
     <MESSAGE value="随机添加动画，稍微搞懂了vue的动画机制" />
     <MESSAGE value="调整了样式的颜色，浅色调" />
@@ -540,17 +540,18 @@
     <MESSAGE value="实现了实例class-style" />
     <MESSAGE value="实现了实例conditional-rendering" />
     <MESSAGE value="修改了实例conditional-rendering" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了实例conditional-rendering" />
+    <MESSAGE value="实现了实例lists-rendering" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现了实例lists-rendering" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="352" y="86" key="CommitChangelistDialog2" timestamp="1599710269436">
+    <state x="352" y="86" key="CommitChangelistDialog2" timestamp="1599902334063">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="352" y="86" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1599710269436" />
-    <state x="883" y="272" key="Vcs.Push.Dialog.v2" timestamp="1599710270635">
+    <state x="352" y="86" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1599902334063" />
+    <state x="883" y="272" key="Vcs.Push.Dialog.v2" timestamp="1599902335644">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="883" y="272" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1599710270635" />
+    <state x="883" y="272" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1599902335644" />
     <state x="1102" y="281" key="run.anything.popup" timestamp="1599898576323">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>

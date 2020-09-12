@@ -35,6 +35,7 @@ module.exports = {
                     '/components/class-style',
                     '/components/conditional-rendering',
                     '/components/lists-rendering',
+                    '/components/event'
                 ]
             }
         ]
