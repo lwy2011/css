@@ -33,7 +33,8 @@ module.exports = {
                     '/components/computed',
                     '/components/watch',
                     '/components/class-style',
-                    '/components/conditional-rendering'
+                    '/components/conditional-rendering',
+                    '/components/lists-rendering',
                 ]
             }
         ]
