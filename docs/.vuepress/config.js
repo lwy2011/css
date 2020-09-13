@@ -37,6 +37,7 @@ module.exports = {
                     '/components/lists-rendering',
                     '/components/event',
                     '/components/form',
+                    '/components/component'
                 ]
             }
         ]
