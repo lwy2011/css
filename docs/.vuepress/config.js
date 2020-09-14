@@ -37,7 +37,9 @@ module.exports = {
                     '/components/lists-rendering',
                     '/components/event',
                     '/components/form',
-                    '/components/component'
+                    '/components/component',
+                    '/components/v-model',
+                    '/components/$nextTick',
                 ]
             }
         ]

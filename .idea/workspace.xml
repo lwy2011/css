@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="完善组件通讯，props,$emit,自定义事件 实例实现">
-      <change afterPath="$PROJECT_DIR$/docs/helper-code.js" afterDir="false" />
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="实现getCode方法，对源代码字符串化，更方便，代码展示。但是没有高亮的功能。">
+      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/nextTick-demo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/v-model-demo-child.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/v-model-demo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/components/$nextTick.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/components/v-model.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/component-demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/component-demo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.vuepress/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +43,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/.vuepress/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -57,19 +59,19 @@
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/docs/.vuepress/components" />
-      <recent name="$PROJECT_DIR$/docs/components" />
-      <recent name="$PROJECT_DIR$/test" />
-      <recent name="$PROJECT_DIR$/src/nav" />
-      <recent name="$PROJECT_DIR$/src/slides" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docs/.vuepress/components/component" />
       <recent name="$PROJECT_DIR$/docs/.vuepress/components" />
       <recent name="$PROJECT_DIR$/docs/components" />
       <recent name="$PROJECT_DIR$/docs" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/components" />
+      <recent name="$PROJECT_DIR$/docs/.vuepress/components" />
+      <recent name="$PROJECT_DIR$/test" />
+      <recent name="$PROJECT_DIR$/src/nav" />
+      <recent name="$PROJECT_DIR$/src/slides" />
     </key>
   </component>
   <component name="RunManager">
@@ -156,14 +158,7 @@
       <workItem from="1599637208176" duration="14697000" />
       <workItem from="1599704007421" duration="9833000" />
       <workItem from="1599898440755" duration="14805000" />
-      <workItem from="1600050452964" duration="1985000" />
-    </task>
-    <task id="LOCAL-00220" summary="实现了输入年月并跳转，样式也微调了。这里有个bug，应该是popover的，当我在输入完成后，confirm的时候，vue会先更新selected,panel，panel的ui跟days有关！这时候的selected会触发二次更新days。days之后再次渲染panel。而popover的骚操作就是如果不先selected,然后days，最后panel，那popover会消失。很bug。我只是用定时器更新pannel，就解决了问题了。">
-      <created>1587622442870</created>
-      <option name="number" value="00220" />
-      <option name="presentableId" value="LOCAL-00220" />
-      <option name="project" value="LOCAL" />
-      <updated>1587622442870</updated>
+      <workItem from="1600050452964" duration="5330000" />
     </task>
     <task id="LOCAL-00221" summary="实现panel = year的时候的箭头操作跟yearAndMonth的响应式，以及判断最终结果，是否要更新selected">
       <created>1587624272903</created>
@@ -501,7 +496,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599971290247</updated>
     </task>
-    <option name="localTasksCounter" value="269" />
+    <task id="LOCAL-00269" summary="实现getCode方法，对源代码字符串化，更方便，代码展示。但是没有高亮的功能。">
+      <created>1600053259468</created>
+      <option name="number" value="00269" />
+      <option name="presentableId" value="LOCAL-00269" />
+      <option name="project" value="LOCAL" />
+      <updated>1600053259468</updated>
+    </task>
+    <option name="localTasksCounter" value="270" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,7 +520,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="简单实现了拦截动画" />
     <MESSAGE value="微调了拦截wheel的逻辑，同时修改了模拟滚动的基本基数10，可以保证微滚动，就也要保证快速滚动两不误，才算是优化好了模拟滚动的逻辑了。同时发现了示例的错误了，ul的基本样式搞的鬼！害死人！！" />
     <MESSAGE value="对wheel事件的prevent分情况处理，符合原生的逻辑，到顶到底了，就不阻止" />
     <MESSAGE value="实现滚动条的样式，滚动模拟的联动！" />
@@ -543,17 +544,18 @@
     <MESSAGE value="form  实例更新双向绑定的踩坑" />
     <MESSAGE value="组件通讯，props,$emit,自定义事件 实例实现" />
     <MESSAGE value="完善组件通讯，props,$emit,自定义事件 实例实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善组件通讯，props,$emit,自定义事件 实例实现" />
+    <MESSAGE value="实现getCode方法，对源代码字符串化，更方便，代码展示。但是没有高亮的功能。" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现getCode方法，对源代码字符串化，更方便，代码展示。但是没有高亮的功能。" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="352" y="86" key="CommitChangelistDialog2" timestamp="1600051358956">
+    <state x="352" y="86" key="CommitChangelistDialog2" timestamp="1600053259267">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="352" y="86" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1600051358956" />
-    <state x="883" y="272" key="Vcs.Push.Dialog.v2" timestamp="1599971291382">
+    <state x="352" y="86" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1600053259267" />
+    <state x="883" y="272" key="Vcs.Push.Dialog.v2" timestamp="1600053260836">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="883" y="272" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1599971291382" />
+    <state x="883" y="272" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1600053260836" />
     <state x="1102" y="281" key="run.anything.popup" timestamp="1599898576323">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
