@@ -30,6 +30,7 @@
     "karma-sinon-chai": "^2.0.2",
     "mocha": "^7.0.0",
     "parcel-bundler": "^1.12.4",
+    "raw-loader": "^4.0.1",
     "sass": "^1.24.2",
     "sass-loader": "^8.0.2",
     "sinon": "^8.0.4",
