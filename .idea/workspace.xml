@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="$nextTick 更新和渲染是异步的！结合$ref，对更新后的DOM进行操作用途。">
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/slot-demo.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/slot-demo1.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/slot-demo2.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/slot-demo3.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/slot-demo4.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/components/slot.md" afterDir="false" />
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="slot的使用实现！">
+      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/development-component-demo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/development-component-demo1.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/development-component-demo2.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/development-component-demo3.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/components/development-component.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/.vuepress/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/config.js" afterDir="false" />
     </list>
@@ -160,14 +159,7 @@
       <workItem from="1599704007421" duration="9833000" />
       <workItem from="1599898440755" duration="14805000" />
       <workItem from="1600050452964" duration="5665000" />
-      <workItem from="1600135080266" duration="6969000" />
-    </task>
-    <task id="LOCAL-00222" summary="实现了添加最小最大的选择区间，预留了选错时的报错接口！">
-      <created>1587637316061</created>
-      <option name="number" value="00222" />
-      <option name="presentableId" value="LOCAL-00222" />
-      <option name="project" value="LOCAL" />
-      <updated>1587637316061</updated>
+      <workItem from="1600135080266" duration="9848000" />
     </task>
     <task id="LOCAL-00223" summary="实现了today跳转，clear功能">
       <created>1587643447610</created>
@@ -505,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600057065156</updated>
     </task>
-    <option name="localTasksCounter" value="271" />
+    <task id="LOCAL-00271" summary="slot的使用实现！">
+      <created>1600142251354</created>
+      <option name="number" value="00271" />
+      <option name="presentableId" value="LOCAL-00271" />
+      <option name="project" value="LOCAL" />
+      <updated>1600142251355</updated>
+    </task>
+    <option name="localTasksCounter" value="272" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,7 +521,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="对wheel事件的prevent分情况处理，符合原生的逻辑，到顶到底了，就不阻止" />
     <MESSAGE value="实现滚动条的样式，滚动模拟的联动！" />
     <MESSAGE value="尝试用drop事件做拖动，简直就是傻逼！垃圾的drop!" />
     <MESSAGE value="尝试用drop事件做拖动，不成功，用原生的mouse事件实现成功了，在实例中实现的，等待在组件中优化！" />
@@ -547,17 +545,18 @@
     <MESSAGE value="完善组件通讯，props,$emit,自定义事件 实例实现" />
     <MESSAGE value="实现getCode方法，对源代码字符串化，更方便，代码展示。但是没有高亮的功能。" />
     <MESSAGE value="$nextTick 更新和渲染是异步的！结合$ref，对更新后的DOM进行操作用途。" />
-    <option name="LAST_COMMIT_MESSAGE" value="$nextTick 更新和渲染是异步的！结合$ref，对更新后的DOM进行操作用途。" />
+    <MESSAGE value="slot的使用实现！" />
+    <option name="LAST_COMMIT_MESSAGE" value="slot的使用实现！" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="352" y="86" key="CommitChangelistDialog2" timestamp="1600057078514">
+    <state x="352" y="86" key="CommitChangelistDialog2" timestamp="1600142251194">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="352" y="86" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1600057078514" />
-    <state x="883" y="272" key="Vcs.Push.Dialog.v2" timestamp="1600057071231">
+    <state x="352" y="86" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1600142251194" />
+    <state x="883" y="272" key="Vcs.Push.Dialog.v2" timestamp="1600142252556">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="883" y="272" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1600057071231" />
+    <state x="883" y="272" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1600142252556" />
     <state x="1102" y="281" key="run.anything.popup" timestamp="1599898576323">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
