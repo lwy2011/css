@@ -40,6 +40,7 @@ module.exports = {
                     '/components/component',
                     '/components/v-model',
                     '/components/$nextTick',
+                    '/components/slot',
                 ]
             }
         ]
