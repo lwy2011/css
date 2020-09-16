@@ -42,7 +42,8 @@ module.exports = {
                     '/components/$nextTick',
                     '/components/slot',
                     '/components/development-component',
-                    '/components/async-loading'
+                    '/components/async-loading',
+                    '/components/keep-alive',
                 ]
             }
         ]
