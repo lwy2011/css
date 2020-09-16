@@ -41,7 +41,8 @@ module.exports = {
                     '/components/v-model',
                     '/components/$nextTick',
                     '/components/slot',
-                    '/components/development-component'
+                    '/components/development-component',
+                    '/components/async-loading'
                 ]
             }
         ]

@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="slot的使用实现！">
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/development-component-demo.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/development-component-demo1.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/development-component-demo2.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/development-component-demo3.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/components/development-component.md" afterDir="false" />
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="动态组件的实现！">
+      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/async-loading-demo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/components/async-loading.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/.vuepress/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/config.js" afterDir="false" />
     </list>
@@ -43,7 +40,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/.vuepress/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -59,19 +56,19 @@
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/docs/.vuepress/components" />
-      <recent name="$PROJECT_DIR$/docs/components" />
-      <recent name="$PROJECT_DIR$/test" />
-      <recent name="$PROJECT_DIR$/src/nav" />
-      <recent name="$PROJECT_DIR$/src/slides" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docs/.vuepress/components/component" />
       <recent name="$PROJECT_DIR$/docs/.vuepress/components" />
       <recent name="$PROJECT_DIR$/docs/components" />
       <recent name="$PROJECT_DIR$/docs" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/components" />
+      <recent name="$PROJECT_DIR$/docs/.vuepress/components" />
+      <recent name="$PROJECT_DIR$/test" />
+      <recent name="$PROJECT_DIR$/src/nav" />
+      <recent name="$PROJECT_DIR$/src/slides" />
     </key>
   </component>
   <component name="RunManager">
@@ -159,14 +156,8 @@
       <workItem from="1599704007421" duration="9833000" />
       <workItem from="1599898440755" duration="14805000" />
       <workItem from="1600050452964" duration="5665000" />
-      <workItem from="1600135080266" duration="9848000" />
-    </task>
-    <task id="LOCAL-00223" summary="实现了today跳转，clear功能">
-      <created>1587643447610</created>
-      <option name="number" value="00223" />
-      <option name="presentableId" value="LOCAL-00223" />
-      <option name="project" value="LOCAL" />
-      <updated>1587643447610</updated>
+      <workItem from="1600135080266" duration="9904000" />
+      <workItem from="1600227434001" duration="1294000" />
     </task>
     <task id="LOCAL-00224" summary="不传value的初始值也不会发生错误了">
       <created>1587647105109</created>
@@ -504,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600142251355</updated>
     </task>
-    <option name="localTasksCounter" value="272" />
+    <task id="LOCAL-00272" summary="动态组件的实现！">
+      <created>1600153977060</created>
+      <option name="number" value="00272" />
+      <option name="presentableId" value="LOCAL-00272" />
+      <option name="project" value="LOCAL" />
+      <updated>1600153977060</updated>
+    </task>
+    <option name="localTasksCounter" value="273" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -521,7 +519,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="实现滚动条的样式，滚动模拟的联动！" />
     <MESSAGE value="尝试用drop事件做拖动，简直就是傻逼！垃圾的drop!" />
     <MESSAGE value="尝试用drop事件做拖动，不成功，用原生的mouse事件实现成功了，在实例中实现的，等待在组件中优化！" />
     <MESSAGE value="用watch 的position的联动来实现，通过bar的mouse事件来实现，得到mouse的偏移量，偏移量同步到position上，自动更新bar，lists的偏移。这是watch的强大了。而不是像老师那样翻来覆去，搞两边。" />
@@ -546,17 +543,18 @@
     <MESSAGE value="实现getCode方法，对源代码字符串化，更方便，代码展示。但是没有高亮的功能。" />
     <MESSAGE value="$nextTick 更新和渲染是异步的！结合$ref，对更新后的DOM进行操作用途。" />
     <MESSAGE value="slot的使用实现！" />
-    <option name="LAST_COMMIT_MESSAGE" value="slot的使用实现！" />
+    <MESSAGE value="动态组件的实现！" />
+    <option name="LAST_COMMIT_MESSAGE" value="动态组件的实现！" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="352" y="86" key="CommitChangelistDialog2" timestamp="1600142251194">
+    <state x="352" y="86" key="CommitChangelistDialog2" timestamp="1600153976855">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="352" y="86" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1600142251194" />
-    <state x="883" y="272" key="Vcs.Push.Dialog.v2" timestamp="1600142252556">
+    <state x="352" y="86" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1600153976855" />
+    <state x="883" y="272" key="Vcs.Push.Dialog.v2" timestamp="1600153978125">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="883" y="272" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1600142252556" />
+    <state x="883" y="272" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1600153978125" />
     <state x="1102" y="281" key="run.anything.popup" timestamp="1599898576323">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
