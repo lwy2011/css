@@ -43,6 +43,7 @@
     import YNav from "../../../src/nav/nav.vue";
     import YNavItem from "../../../src/nav/nav-item.vue";
     import YSubNav from "../../../src/nav/sub-nav.vue";
+    import getCode from "../../helper-code";
 
     export default {
         components: {
@@ -58,13 +59,13 @@
                 console.log(`${this.selected}被选中了！`);
             }
         },
+        mounted() {
+            this.content= getCode('nav-demo1.vue').default
+        },
         data() {
             return {
                 content: `
-                <y-icon icon="setting"></y-icon>
-                <y-icon icon="loading" :loading="true"></y-icon>
-                <y-icon icon="warn"></y-icon>
-                <y-icon icon="left"></y-icon>
+
                 `,
                 selected: "天津市",
                 navs: [

@@ -556,14 +556,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="keep-alive 包裹v-if搭配的组件，实现了vue层面的组件缓存，优化了组件频繁显式消失的性能！" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="352" y="86" key="CommitChangelistDialog2" timestamp="1600231056997">
+    <state x="352" y="86" key="CommitChangelistDialog2" timestamp="1600410858830">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="352" y="86" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1600231056997" />
-    <state x="883" y="272" key="Vcs.Push.Dialog.v2" timestamp="1600231058081">
+    <state x="352" y="86" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1600410858830" />
+    <state x="23" y="141" key="DiffContextDialog" timestamp="1600410835105">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="883" y="272" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1600231058081" />
+    <state x="23" y="141" key="DiffContextDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1600410835105" />
+    <state x="883" y="272" key="Vcs.Push.Dialog.v2" timestamp="1600410861379">
+      <screen x="0" y="23" width="2048" height="1046" />
+    </state>
+    <state x="883" y="272" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1600410861379" />
     <state x="972" y="340" width="674" height="500" key="find.popup" timestamp="1600409570204">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
