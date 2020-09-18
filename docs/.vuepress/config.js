@@ -44,7 +44,8 @@ module.exports = {
                     '/components/development-component',
                     '/components/async-loading',
                     '/components/keep-alive',
-                    '/components/mixin'
+                    '/components/mixin',
+                    '/components/vuex'
                 ]
             }
         ]
