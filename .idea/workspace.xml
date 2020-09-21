@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="创建了vuex实例,初步实现了vuex的基本使用！">
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/vuex-demo.store1.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/vuex-demo.store2.vue" afterDir="false" />
+    <list default="true" id="967c87ce-e3dc-4cc5-a487-599775ce04d7" name="默认更改列表" comment="实现了vuex的基本使用！">
+      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/vuex-demo.cart.store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/vuex-demo.store3.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/vuex-demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/vuex-demo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/components/vuex.demo.store.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/components/vuex.demo.store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/helper-icon.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/helper-icon.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,19 +57,19 @@
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/docs/.vuepress/components" />
-      <recent name="$PROJECT_DIR$/docs/components" />
-      <recent name="$PROJECT_DIR$/test" />
-      <recent name="$PROJECT_DIR$/src/nav" />
-      <recent name="$PROJECT_DIR$/src/slides" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docs/.vuepress/components/component" />
       <recent name="$PROJECT_DIR$/docs/.vuepress/components" />
       <recent name="$PROJECT_DIR$/docs/components" />
       <recent name="$PROJECT_DIR$/docs" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/.vuepress/components" />
+      <recent name="$PROJECT_DIR$/docs/components" />
+      <recent name="$PROJECT_DIR$/test" />
+      <recent name="$PROJECT_DIR$/src/nav" />
+      <recent name="$PROJECT_DIR$/src/slides" />
     </key>
   </component>
   <component name="RunManager">
@@ -168,14 +168,8 @@
       <workItem from="1600407041430" duration="4570000" />
       <workItem from="1600480930367" duration="1611000" />
       <workItem from="1600518301736" duration="3000" />
-      <workItem from="1600521464283" duration="15853000" />
-    </task>
-    <task id="LOCAL-00230" summary="实现选中的day数据的自动补0的leftPad功能">
-      <created>1587657145231</created>
-      <option name="number" value="00230" />
-      <option name="presentableId" value="LOCAL-00230" />
-      <option name="project" value="LOCAL" />
-      <updated>1587657145231</updated>
+      <workItem from="1600521464283" duration="16000000" />
+      <workItem from="1600657938608" duration="6733000" />
     </task>
     <task id="LOCAL-00231" summary="初步实现了通过符合xxxx-xx-xx的规范通过在input框内直接书写，来改变选中的值的功能！">
       <created>1587661363975</created>
@@ -513,7 +507,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600602294512</updated>
     </task>
-    <option name="localTasksCounter" value="279" />
+    <task id="LOCAL-00279" summary="实现了vuex的基本使用！">
+      <created>1600620565844</created>
+      <option name="number" value="00279" />
+      <option name="presentableId" value="LOCAL-00279" />
+      <option name="project" value="LOCAL" />
+      <updated>1600620565844</updated>
+    </task>
+    <option name="localTasksCounter" value="280" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +531,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="加入基础知识的版块，然后对interpolation进行了测试，有个感官！变量数据表达式，对于复杂类型的数据，除非JSON化，否则没意义！" />
     <MESSAGE value="完善interpolation的示例代码展示功能" />
     <MESSAGE value="实现简单的指令的模板资料" />
     <MESSAGE value="实现了computed的模板，同时创建了watch的模板" />
@@ -555,21 +555,22 @@
     <MESSAGE value="修改了nav的code展示" />
     <MESSAGE value="创建了vuex实例" />
     <MESSAGE value="创建了vuex实例,初步实现了vuex的基本使用！" />
-    <option name="LAST_COMMIT_MESSAGE" value="创建了vuex实例,初步实现了vuex的基本使用！" />
+    <MESSAGE value="实现了vuex的基本使用！" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现了vuex的基本使用！" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="352" y="86" key="CommitChangelistDialog2" timestamp="1600602294220">
+    <state x="352" y="86" key="CommitChangelistDialog2" timestamp="1600696772403">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="352" y="86" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1600602294220" />
+    <state x="352" y="86" key="CommitChangelistDialog2/0.23.2048.1046@0.23.2048.1046" timestamp="1600696772403" />
     <state x="23" y="141" key="DiffContextDialog" timestamp="1600410835105">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
     <state x="23" y="141" key="DiffContextDialog/0.23.2048.1046@0.23.2048.1046" timestamp="1600410835105" />
-    <state x="883" y="272" key="Vcs.Push.Dialog.v2" timestamp="1600602295971">
+    <state x="883" y="272" key="Vcs.Push.Dialog.v2" timestamp="1600620567435">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>
-    <state x="883" y="272" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1600602295971" />
+    <state x="883" y="272" key="Vcs.Push.Dialog.v2/0.23.2048.1046@0.23.2048.1046" timestamp="1600620567435" />
     <state x="972" y="340" width="674" height="500" key="find.popup" timestamp="1600409570204">
       <screen x="0" y="23" width="2048" height="1046" />
     </state>

@@ -199,20 +199,31 @@
 
                 store.actions.ddd   //基本调用
                 mapActions(['xxx'])  //对应了actions里的同名函数
+
+                //流程：
+                (dispatch -> actions ->)commit -> mutations -> store updated
             </code>
         </pre>
         <p>
             map是一个系列，明白其实质，就是不需要引入store，同时
-            把store的mutations或者mutations的预处理函数actions里的函数，关联
+            把store的mutations或者mutations的预处理函数actions里的函数，或者state，关联
             到当前的组件的methods的属性上！
         </p>
         <p>
-            核心就是，读取，以对象的属性来读取！写入更新，commit与同步或异步的
+            核心就是，读取，以对象的属性来读取！
+            写入更新，commit与同步或异步的
             来决定actions,mutations。
         </p>
+
         <p>
             更多细节：getter；传第二个值；默认第一个参数为store!
         </p>
+
+        <h4>购物车实现</h4>
+        <Cart/>
+        <pre>
+            <code>{{cartCode}}</code>
+        </pre>
         <pre>
             <code>{{content}}</code>
         </pre>
@@ -226,9 +237,9 @@
     import Setter from "./vuex-demo.store";
     import Setter1 from "./vuex-demo.store1";
     import Setter2 from "./vuex-demo.store2";
-
+    import Cart from './vuex-demo.store3'
     export default {
-        components: {Setter, Setter1, Setter2},
+        components: {Setter, Setter1, Setter2,Cart},
         store,   //顶层导入，后代只需要导入mapGetters,mapMutations即可
         data() {
             return {
@@ -236,7 +247,8 @@
                 storeCode: "",
                 setter1Code: "",
                 setter2Code: "",
-                setter3Code: ""
+                setter3Code: "",
+                cartCode:''
             };
         },
         mounted() {
@@ -245,6 +257,7 @@
             this.setter1Code = getCode("vuex-demo.store.vue").default;
             this.setter2Code = getCode("vuex-demo.store1.vue").default;
             this.setter3Code = getCode("vuex-demo.store2.vue").default;
+            this.cartCode = getCode("vuex-demo.store3.vue").default;
 
         },
         computed: {
