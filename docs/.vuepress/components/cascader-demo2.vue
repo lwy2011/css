@@ -1,6 +1,11 @@
 <template>
     <div>
         <div style="margin:1em;paddingBottom:20em;z-index: 10;">
+            <h4>用自定义指令，实现了点击空白处，收掉popover!</h4>
+            <p>
+                好处是不需要每个组件的实例都频繁地添加和解绑事件了。坏处是
+                自定义指令生成了一个监听器，没法取消了。
+            </p>
             <y-cascader :data="data"
                         :size="size"
                         @update:selected="selected = $event"
